@@ -1,0 +1,2226 @@
+﻿
+@{
+    ViewBag.Title = "";
+}
+
+
+<div class="container myfont1">
+    <!-- 網站內容 -->
+    <!-- 輪播器, 跑馬燈, Carousel -->
+    <section class="service-wrapper py-7">
+        <div class="service-tag py-3 bg-white">
+        </div>
+    </section>
+    <div class="carousel slide carousel-fade mt-1" id="myCarousel" data-interval="4000" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        </ol>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <a href="#">
+                    <img src="./assets/img/banner-bg-01.jpg"
+                         class="img-fluid" alt="pancake1">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                    <img src="./assets/img/banner-bg-02.jpg" class="img-fluid" alt="pancake1">
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="#">
+                    <img src="./assets/img/banner-bg-04.jpg" class="img-fluid" alt="pancake1">
+                </a>
+            </div>
+        </div>
+
+        <a href="#myCarousel" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a href="#myCarousel" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+    <!-- end Carousel-->
+    <!--Tabs-->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active text-info" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="所有聚會" aria-selected="true">所有聚會</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-info" id="sign-tab" data-toggle="tab" href="#sign" role="tab" aria-controls="未開始" aria-selected="false">未開始</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-info" id="inprogress-tab" data-toggle="tab" href="#inprogress" role="tab" aria-controls="進行中" aria-selected="false">進行中</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link text-info" id="finish-tab" data-toggle="tab" href="#finish" role="tab" aria-controls="已結束" aria-selected="false">已結束</a>
+        </li>
+    </ul>
+    <!--tabs end-->
+
+    <div class="tab-content" id="myTabContent">
+
+        <!--tabs 顯示-->
+        <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+            <section class="container overflow-hidden py-5">
+                <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+
+                </div>
+            </section>
+            <!-- End Service -->
+        </div>
+        <!--tabs 顯示結束-->
+        <!--tabs 顯示-->
+        <div class="tab-pane fade" id="sign" role="tabpanel" aria-labelledby="sign-tab">
+            <section class="container overflow-hidden py-5">
+                <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+
+                </div>
+            </section>
+            <!-- End Service -->
+        </div>
+        <!--tabs 顯示結束-->
+        <!--tabs 顯示-->
+        <div class="tab-pane fade" id="inprogress" role="tabpanel" aria-labelledby="inprogress-tab">
+            <section class="container overflow-hidden py-5">
+                <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+
+                </div>
+            </section>
+            <!-- End Service -->
+        </div>
+        <!--tabs 顯示結束-->
+        <!--tabs 顯示-->
+        <div class="tab-pane fade" id="finish" role="tabpanel" aria-labelledby="finish-tab">
+            <section class="container overflow-hidden py-5">
+                <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="報名中聚會.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>一起學番茄炒蛋</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/雞腿.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義式香料烤雞</h5>
+                                <span>10月21日,星期四</span>
+                                <span>Webex</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜點.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>進入甜點的美妙世界</h5>
+                                <span>10月10日,星期日</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/牛排.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>跟著高登學牛排吧</h5>
+                                <span>10月09日,星期六</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/義大利麵.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>義大利麵的秘密?</h5>
+                                <span>10月23日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/甜甜圈.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>炸甜甜圈罪惡一下</h5>
+                                <span>10月15日,星期五</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/pizza.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>創意簡單pizza</h5>
+                                <span>10月15日,星期五</span>
+                                <span>discord</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="./assets/img/egg.jpg" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left ">
+                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <h5>雞蛋集思廣益</h5>
+                                <span>10月30日,星期六</span>
+                                <span>Google meet</span>
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="個人頁面.html" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                <span><img src="./assets/img/範例頭貼1.png" /> 陳阿花</span>
+                                <span></span><br />
+
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+
+                </div>
+            </section>
+            <!-- End Service -->
+        </div>
+        <!--tabs 顯示結束-->
+    </div>
+
+
+</div>
