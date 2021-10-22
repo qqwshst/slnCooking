@@ -128,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\MeetController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,7 +186,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="Image\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Manager\" />
+    <Folder Include="Views\Meet\" />
+    <Folder Include="Views\Member\" />
+    <Folder Include="Views\Party\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
