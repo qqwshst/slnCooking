@@ -11,6 +11,7 @@ namespace prjCooking.Models
 {
     public class MailSend
     {
+        //測試
         // 信件資訊
         private MimeMessage _message;
         // 信件內容 預設純文字內容
