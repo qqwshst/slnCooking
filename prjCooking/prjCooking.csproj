@@ -150,6 +150,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbCookingModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\e狀態管理.cs" />
+    <Compile Include="Models\hst\CCaptureMeetInfo.cs" />
+    <Compile Include="Models\hst\CCaptureRecords.cs" />
     <Compile Include="Models\MailSend.cs" />
     <Compile Include="Models\t參加者.cs">
       <DependentUpon>dbCookingModel.tt</DependentUpon>
