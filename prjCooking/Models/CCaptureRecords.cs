@@ -27,18 +27,7 @@ namespace prjCooking.Models
                     Is評價 = m.t評價.Where(t => t.f聚會Id == m.f聚會Id).Count() > 0 ? true : false
                 }).ToList();
 
-            if(data.Count > 0)
-            {
-                // 排序 0新 1舊
-                if (sort.Value == 1)
-                {
-                    data.Reverse();
-                }
-
-                // 狀態 3 全部
-                if (statu.Value < 3)
-                    選擇聚會狀態(data, statu.Value);
-            }
+            Sort(data, sort, statu);
 
             return data;
         }
@@ -59,6 +48,22 @@ namespace prjCooking.Models
             }
         }
 
+        private void Sort(List<CCaptureMeetInfo> data, int? sortNumber, int? statu)
+        {
+            if(data.Count > 0)
+            {
+                // 排序 0新 1舊
+                if (sortNumber.Value == 1)
+                {
+                    data.Reverse();
+                }
+
+                // 狀態 3 全部
+                if (statu.Value < 3)
+                    選擇聚會狀態(data, statu.Value);
+            }
+        }
+
         public List<CCaptureMeetInfo> 撈取主辦記錄(int? memberId, int? sort)
         {
             List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
@@ -72,11 +77,7 @@ namespace prjCooking.Models
                     目前人數 = meet.t參加者.Where(t => t.f聚會Id == meet.f聚會Id).Count()
                 }).ToList();
 
-            if(data.Count > 0)
-            {
-                if (sort.Value == 1)
-                    data.Reverse();
-            }
+            Sort(data, sort, null);
 
             return data;
         }
