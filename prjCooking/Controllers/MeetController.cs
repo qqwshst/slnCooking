@@ -29,8 +29,6 @@ namespace prjCooking.Controllers
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
                 List<CCaptureMeetInfo> data = crs.撈取報名記錄(1, sort, statu);
 
-                vmodel.Info = data;
-
                 if (sort != null && statu != null) 
                 {
                     vmodel.CurrentSort = sort.ToString();
@@ -42,7 +40,7 @@ namespace prjCooking.Controllers
                     vmodel.CurrentStatu = "0";
                 }
 
-                vmodel.Pages = crs.GetPageList(vmodel.Info, page);
+                vmodel.Info = crs.GetPageList(data, page);
                 
                 return View(vmodel);
             }
@@ -58,14 +56,12 @@ namespace prjCooking.Controllers
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
                 List<CCaptureMeetInfo> data = crs.撈取主辦記錄(1, sort);
 
-                vmodel.Info = data;
-
                 if(sort != null)
                 {
                     vmodel.CurrentSort = sort.ToString();
                 }
 
-                vmodel.Pages = crs.GetPageList(vmodel.Info, page);
+                vmodel.Info = crs.GetPageList(data, page);
 
                 return View(vmodel);
             }

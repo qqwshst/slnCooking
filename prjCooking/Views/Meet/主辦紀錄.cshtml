@@ -176,7 +176,7 @@
     <nav class="row justify-content-center my-3">
         @if (Model.Info.Count > 0)
         {
-            @Html.PagedListPager(Model.Pages, page => Url.Action("主辦紀錄", new { page }))
+            @Html.PagedListPager(Model.Info, page => Url.Action("主辦紀錄", new { page }))
         }
     </nav>
     <!-- end 分頁 -->

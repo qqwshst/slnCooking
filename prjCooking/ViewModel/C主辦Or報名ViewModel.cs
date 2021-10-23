@@ -27,14 +27,9 @@ namespace prjCooking.ViewModel
         }
 
         /// <summary>
-        /// 分頁條
+        /// 分頁條+撈取的聚會資訊
         /// </summary>
-        public IPagedList<CCaptureMeetInfo> Pages { get; set; }
-
-        /// <summary>
-        /// 撈取的聚會資訊
-        /// </summary>
-        public List<CCaptureMeetInfo> Info { get; set; }
+        public IPagedList<CCaptureMeetInfo> Info { get; set; }
 
         /// <summary>
         /// 當前排序規則字串
