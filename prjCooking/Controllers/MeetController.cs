@@ -45,7 +45,7 @@ namespace prjCooking.Controllers
                 if(data.Count > 0) 
                 {
                     int pageSize = 0;
-                    if (data.Count % 10 == 0)
+                    if (data.Count % 10 > 0)
                     {
                         pageSize = 1;
                     }
