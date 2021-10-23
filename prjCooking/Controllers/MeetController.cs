@@ -25,8 +25,9 @@ namespace prjCooking.Controllers
             {
                 // session取得會員資料
 
+                CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
-                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取報名記錄(1, sort, statu);
+                List<CCaptureMeetInfo> data = crs.撈取報名記錄(1, sort, statu);
 
                 vmodel.Info = data;
 
@@ -41,19 +42,7 @@ namespace prjCooking.Controllers
                     vmodel.CurrentStatu = "0";
                 }
 
-                // 分頁條
-                if(data.Count > 0) 
-                {
-                    int pageSize = 0;
-                    if (data.Count % 10 > 0)
-                    {
-                        pageSize = 1;
-                    }
-
-                    pageSize += (data.Count / 10);
-                    int currentPage = page < 1 ? 1 : page;
-                    vmodel.Pages = vmodel.Info.ToPagedList(currentPage, pageSize);
-                }
+                vmodel.Pages = crs.GetPageList(vmodel.Info, page);
                 
                 return View(vmodel);
             }
@@ -65,8 +54,9 @@ namespace prjCooking.Controllers
         {
             if (Session["key"] != null)
             {
+                CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
-                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取主辦記錄(1, sort);
+                List<CCaptureMeetInfo> data = crs.撈取主辦記錄(1, sort);
 
                 vmodel.Info = data;
 
@@ -75,19 +65,7 @@ namespace prjCooking.Controllers
                     vmodel.CurrentSort = sort.ToString();
                 }
 
-                // 分頁條
-                if (data.Count > 0)
-                {
-                    int pageSize = 0;
-                    if (data.Count % 10 > 0)
-                    {
-                        pageSize = 1;
-                    }
-
-                    pageSize += (data.Count / 10);
-                    int currentPage = page < 1 ? 1 : page;
-                    vmodel.Pages = vmodel.Info.ToPagedList(currentPage, pageSize);
-                }
+                vmodel.Pages = crs.GetPageList(vmodel.Info, page);
 
                 return View(vmodel);
             }

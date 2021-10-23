@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PagedList;
 
 namespace prjCooking.Models
 {
@@ -80,6 +81,29 @@ namespace prjCooking.Models
             Sort(data, sort, null);
 
             return data;
+        }
+
+        /// <summary>
+        /// 取得分頁條
+        /// </summary>
+        /// <returns></returns>
+        public IPagedList<CCaptureMeetInfo> GetPageList(List<CCaptureMeetInfo> data, int page)
+        {
+            // 分頁條
+            if (data.Count > 0)
+            {
+                int pageSize = 0;
+                if (data.Count % 10 > 0)
+                {
+                    pageSize = 1;
+                }
+
+                pageSize += (data.Count / 10);
+                int currentPage = page < 1 ? 1 : page;
+                return data.ToPagedList(currentPage, pageSize);
+            }
+
+            return null;
         }
     }
 }
