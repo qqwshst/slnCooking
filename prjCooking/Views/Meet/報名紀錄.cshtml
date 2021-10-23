@@ -112,7 +112,7 @@
                                                    new { @class = "btn btn-secondary disabled" })
                                             </section>
                                         }
-                                        else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number)
+                                        else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
                                         {
                                             <section class="mr-2 my-2">
                                                 @Html.ActionLink("進行評分",
@@ -173,7 +173,7 @@
                                        null,
                                        new { @class = "btn btn-secondary disabled" })
                                 }
-                                else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number)
+                                else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
                                 {
                                     @Html.ActionLink("進行評分",
                                        "",
