@@ -103,7 +103,7 @@
                                                     new { @class = "btn btn-outline-danger" })
                                             </section>
                                         }
-                                        @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is評價)
+                                        @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
                                         {
                                             <section class="mr-2 my-2">
                                                 @Html.ActionLink("已評分",
@@ -166,7 +166,7 @@
                                        null,
                                        new { @class = "btn btn-danger" })
                                 }
-                                @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is評價)
+                                @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
                                 {
                                     @Html.ActionLink("已評分",
                                        "",

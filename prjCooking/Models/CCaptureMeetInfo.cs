@@ -27,6 +27,6 @@ namespace prjCooking.Models
         public string 主辦人 { get; set; }
         public int? 人數上限 { get; set; }
         public int? 目前人數 { get; set; }
-        public bool Is評價 { get; set; }
+        public bool Has評價 { get; set; }
     }
 }
