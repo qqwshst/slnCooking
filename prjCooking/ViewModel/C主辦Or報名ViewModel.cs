@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using prjCooking.Models;
+using PagedList;
 
 namespace prjCooking.ViewModel
 {
@@ -24,6 +25,11 @@ namespace prjCooking.ViewModel
             _statuList = new List<string>();
             _statuNumberList = new List<int>();
         }
+
+        /// <summary>
+        /// 分頁條
+        /// </summary>
+        public IPagedList<CCaptureMeetInfo> Pages { get; set; }
 
         /// <summary>
         /// 撈取的聚會資訊
