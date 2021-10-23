@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using prjCooking.Models;
+using prjCooking.ViewModel;
 
 namespace prjCooking.Controllers
 {
@@ -19,25 +20,27 @@ namespace prjCooking.Controllers
         {
             // 排序 0新 1舊
             // 狀態 3 全部
-            if(sort != null && statu != null)
+            if(Session["key"] != null)
             {
                 // session取得會員資料
 
-                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取報名記錄(1, sort.Value, statu.Value);
+                C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
+                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取報名記錄(1, sort, statu);
 
-                if (sort.Value == 0)
-                    ViewBag.sort = "新-舊";
+                vmodel.Info = data;
+
+                if (sort != null && statu != null) 
+                {
+                    vmodel.CurrentSort = sort.ToString();
+                    vmodel.CurrentStatu = statu.ToString();
+                }
                 else
-                    ViewBag.sort = "舊-新";
+                {
+                    vmodel.CurrentSort = "0";
+                    vmodel.CurrentStatu = "0";
+                }
 
-                if (statu.Value == 3)
-                    ViewBag.statu = "全部";
-                if (statu.Value == 0)
-                    ViewBag.statu = "報名中";
-                else
-                    ViewBag.statu = data[0].聚會狀態Name;
-
-                return View(data);
+                return View(vmodel);
             }
 
             return RedirectToAction("", "");

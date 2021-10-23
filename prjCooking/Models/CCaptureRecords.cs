@@ -15,25 +15,30 @@ namespace prjCooking.Models
             db = new dbCookingEntities();
         }
 
-        public List<CCaptureMeetInfo> 撈取報名記錄(int memberId, int sort, int statu)
+        public List<CCaptureMeetInfo> 撈取報名記錄(int? memberId, int? sort, int? statu)
         {
-            List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId)
+            List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId.Value)
                 .OrderBy(m => m.f參加者建立日期)
                 .Select(m => new CCaptureMeetInfo { 
                     主辦人 = m.t聚會.t會員.f會員姓名,
                     聚會名稱 = m.t聚會.f聚會名稱,
                     聚會日期 = m.t聚會.f聚會日期,
                     聚會狀態Number = m.t聚會.f聚會狀態.Value,
-                    聚會狀態Name = Enum.GetName(typeof(聚會狀態), m.t聚會.f聚會狀態.Value)
+                    Is評價 = m.t評價.Where(t => t.f聚會Id == m.f聚會Id).Count() > 0 ? true : false
                 }).ToList();
 
-            if (sort == 1 && data != null)
+            if(data.Count > 0)
             {
-                data = data.OrderByDescending(cmi => cmi.聚會日期).ToList();
-            }
+                // 排序 0新 1舊
+                if (sort.Value == 1)
+                {
+                    data.Reverse();
+                }
 
-            if (statu < 3)
-                選擇聚會狀態(data, statu);
+                // 狀態 3 全部
+                if (statu.Value < 3)
+                    選擇聚會狀態(data, statu.Value);
+            }
 
             return data;
         }
@@ -54,16 +59,15 @@ namespace prjCooking.Models
             }
         }
 
-        public List<CCaptureMeetInfo> 撈取主辦記錄(int memberId)
+        public List<CCaptureMeetInfo> 撈取主辦記錄(int? memberId)
         {
-            List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId)
+            List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
                 .OrderBy(meet => meet.f聚會建立日期)
                 .Select(meet => new CCaptureMeetInfo { 
                     主辦人 = meet.t會員.f會員姓名,
                     聚會名稱 = meet.f聚會名稱,
                     聚會日期 = meet.f聚會日期,
                     聚會狀態Number = meet.f聚會狀態.Value,
-                    聚會狀態Name = Enum.GetName(typeof(聚會狀態), meet.f聚會狀態.Value),
                     人數上限 = meet.f名額.Value,
                     目前人數 = meet.t參加者.Count()
                 }).ToList();
