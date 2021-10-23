@@ -55,6 +55,39 @@ namespace prjCooking.Controllers
                     vmodel.Pages = vmodel.Info.ToPagedList(currentPage, pageSize);
                 }
                 
+                return View(vmodel);
+            }
+
+            return RedirectToAction("", "");
+        }
+
+        public ActionResult 主辦紀錄(int? sort, int page = 1)
+        {
+            if (Session["key"] != null)
+            {
+                C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
+                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取主辦記錄(1, sort);
+
+                vmodel.Info = data;
+
+                if(sort != null)
+                {
+                    vmodel.CurrentSort = sort.ToString();
+                }
+
+                // 分頁條
+                if (data.Count > 0)
+                {
+                    int pageSize = 0;
+                    if (data.Count % 10 > 0)
+                    {
+                        pageSize = 1;
+                    }
+
+                    pageSize += (data.Count / 10);
+                    int currentPage = page < 1 ? 1 : page;
+                    vmodel.Pages = vmodel.Info.ToPagedList(currentPage, pageSize);
+                }
 
                 return View(vmodel);
             }
