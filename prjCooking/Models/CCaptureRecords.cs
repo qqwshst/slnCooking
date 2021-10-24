@@ -29,9 +29,18 @@ namespace prjCooking.Models
                     Is核准 = m.f審核狀態
                 }).ToList();
 
+            Get聚會狀態Name(data);
             Sort(data, sort, statu);
 
             return data;
+        }
+
+        private void Get聚會狀態Name(List<CCaptureMeetInfo> data)
+        {
+            foreach(CCaptureMeetInfo cmi in data)
+            {
+                cmi.聚會狀態Name = Enum.GetName(typeof(聚會狀態), cmi.聚會狀態Number);
+            }
         }
 
         private void 選擇聚會狀態(List<CCaptureMeetInfo> data, int statu)
