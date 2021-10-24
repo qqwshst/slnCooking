@@ -70,8 +70,9 @@ namespace prjCooking.Models
                 }
 
                 // 狀態 3 全部
-                if (statu.Value < 3)
-                    選擇聚會狀態(data, statu.Value);
+                if(statu.HasValue)
+                    if (statu.Value < 3)
+                        選擇聚會狀態(data, statu.Value);
             }
         }
 

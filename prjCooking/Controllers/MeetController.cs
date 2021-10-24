@@ -60,6 +60,10 @@ namespace prjCooking.Controllers
                 {
                     vmodel.CurrentSort = sort.ToString();
                 }
+                else
+                {
+                    vmodel.CurrentSort = "0";
+                }
 
                 vmodel.Info = crs.GetPageList(data, page);
 
