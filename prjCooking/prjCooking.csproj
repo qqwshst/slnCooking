@@ -204,6 +204,7 @@
     <Content Include="Views\Manager\PartyList.cshtml" />
     <Content Include="Views\Meet\CreateParty.cshtml" />
     <Content Include="Views\Meet\showParty.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -212,7 +213,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Home\" />
     <Folder Include="Views\Member\" />
     <Folder Include="Views\Party\" />
   </ItemGroup>
