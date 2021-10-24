@@ -8,6 +8,7 @@ namespace prjCooking.Models
 {
     public class CCaptureMeetInfo
     {
+        public int? 聚會ID { get; set; }
         public string 聚會狀態Name { get; set; }
         public int? 聚會狀態Number { get; set; }
         public DateTime 聚會日期 { get; set; }

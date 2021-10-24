@@ -21,6 +21,7 @@ namespace prjCooking.Models
             List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId.Value)
                 .OrderBy(m => m.f參加者建立日期)
                 .Select(m => new CCaptureMeetInfo { 
+                    聚會ID = m.f聚會Id,
                     主辦人 = m.t聚會.t會員.f會員姓名,
                     聚會名稱 = m.t聚會.f聚會名稱,
                     聚會日期 = m.t聚會.f聚會日期,
@@ -81,6 +82,7 @@ namespace prjCooking.Models
             List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
                 .OrderBy(meet => meet.f聚會建立日期)
                 .Select(meet => new CCaptureMeetInfo { 
+                    聚會ID = meet.f聚會Id,
                     主辦人 = meet.t會員.f會員姓名,
                     聚會名稱 = meet.f聚會名稱,
                     聚會日期 = meet.f聚會日期,
