@@ -75,11 +75,13 @@ namespace prjCooking.Controllers
                     C撈取資格審核名單 撈取 = new C撈取資格審核名單();
 
                     // 撈取已核准名單
-                    if(撈取.Set撈取(1, meetId, true))
+                    bool 核准 = Convert.ToBoolean(參加者審核狀態.通過);
+                    if (撈取.Set撈取(1, meetId, 核准))
                         vmodel.核准 = 撈取.Get();
 
                     // 撈取未審核名單
-                    if(撈取.Set撈取(1, meetId, null))
+                    bool? 未審核 = null;
+                    if(撈取.Set撈取(1, meetId, 未審核))
                         vmodel.未審核 = 撈取.Get();
 
                     return View(vmodel);
