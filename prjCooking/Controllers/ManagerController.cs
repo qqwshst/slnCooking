@@ -10,9 +10,10 @@ namespace prjCooking.Controllers
 {
     public class ManagerController : Controller
     {
-        
+
         // GET: Manager
-        public ActionResult List()
+      
+            public ActionResult List()
         {
             IEnumerable<t會員> datas = null;
             string keyword = Request.Form["txtKeyword"];

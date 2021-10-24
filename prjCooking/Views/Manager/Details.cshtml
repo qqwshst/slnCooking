@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <br>
-                            <img src="~/Images/@Model.f會員照片" class="rounded-circle " width="170" height="170" /><br />
+                            <img src="~/Image/@Model.f會員照片" class="rounded-circle " width="170" height="170" /><br />
 
                             <br><br>
 
@@ -44,10 +44,54 @@
 
                             <a class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalone" href="">編輯資訊</a>
                             <a class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modaltwo" href="">修改密碼</a>
-
-
                             <br>
+                            <!-- 開始編輯資訊 -->
+                            <div class="modal" id="modalone">
+                                <div class="modal-md modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">編輯個人資訊</h5>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="~/Image/@Model.f會員照片" class="rounded-circle " width="170" height="170" />
+                                           
+                                            <!-- 個人圖片預覽結束 -->
+                                            <br><br>
+                                            <!-- 上傳照片 -->
+                                            <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
+                                            <br><br>
+                                            <label>自我介紹:</label>
+                                            <textarea rows="5" class="form-control" name="selfintro" placeholder="請輸入介紹" style="width:75%">@Model.f自我介紹</textarea>
+                                            <br>
+                                            <label>性別:</label>
+                                            <div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="gender" value="1">
+                                                    <label class="form-check-label">男</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="gender" value="2" checked>
+                                                    <label class="form-check-label">女</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="gender" value="0">
+                                                    <label class="form-check-label">不透漏</label>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <label>手機號碼:</label>
+                                            <input type="text" class="form-control" placeholder="請輸入手機號碼" style="width:75%" value="@Model.f會員電話">
+                                            <br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <input type="submit" value="送出" class="btn btn-outline-info">
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 編輯資訊結束 -->
 
                         </div>
                         <br>
