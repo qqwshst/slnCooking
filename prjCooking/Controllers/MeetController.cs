@@ -72,5 +72,30 @@ namespace prjCooking.Controllers
 
             return RedirectToAction("", "");
         }
+
+        public ActionResult 資格審核(int? meetId)
+        {
+            // 判斷Session
+            if(Session["key"] != null)
+            {
+                if(meetId != null)
+                {
+                    C資格審核ViewModel vmodel = new C資格審核ViewModel();
+                    C撈取資格審核名單 撈取 = new C撈取資格審核名單();
+
+                    // 撈取已核准名單
+                    撈取.Set撈取(1, meetId, true);
+                    vmodel.核准 = 撈取.Get();
+
+                    // 撈取未審核名單
+                    撈取.Set撈取(1, meetId, null);
+                    vmodel.未審核 = 撈取.Get();
+
+                    return View(vmodel);
+                }
+            }
+
+            return RedirectToAction("", "");
+        }
     }
 }
