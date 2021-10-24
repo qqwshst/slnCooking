@@ -1,0 +1,75 @@
+﻿@using prjCooking.ViewModel;
+@model List<C管理者會員ViewModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2 class="text-info">用戶管理</h2>
+<hr>
+<br>
+
+@using (Html.BeginForm())
+{
+    <p>
+        <label>關鍵字:</label>
+        <input class="form-control" type="text" placeholder="請輸入欲查詢的資訊" style="width:50%" name="txtKeyword">
+        <br />
+        <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
+    </p>
+}
+
+<p>
+    @Html.ActionLink("新增用戶", "Create")
+</p>
+<table class="table  table-sm table-hover">
+    <thead class="thead-light table-bordered">
+    <th class="col-md-1">
+        序號
+    </th>
+    <th class="col-md-3">
+        @Html.DisplayNameFor(model => model[0].f會員信箱)
+
+    </th>
+
+    <th class="col-md-2">
+        @Html.DisplayNameFor(model => model[0].f會員姓名)
+    </th>
+
+    <th class="col-md-3">
+
+        @Html.DisplayNameFor(model => model[0].f會員建立日期)
+  
+    </th>
+    <th class="col-md-3"></th>
+    </thead>
+
+    @{ int count = 0;
+
+        foreach (var item in Model)
+        {
+            count++;
+            <tr class="table-bordered">
+                <td>
+                    @count
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.f會員信箱)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.f會員姓名)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.f會員建立日期)
+                </td>
+                <td>
+                  
+                    @Html.ActionLink("查看", "Details","Manager", new { id = item.f會員Id }, new { Class = "btn btn-outline-secondary" }) 
+                    @Html.ActionLink("刪除", "Delete", "Manager", new { id = item.f會員Id }, new { onclick = "return confirm('確定要刪除嗎?')", Class = "btn btn-outline-secondary" })
+                </td>
+            </tr>
+        }
+    }
+</table>
