@@ -12,16 +12,30 @@ namespace prjCooking.Controllers
     {
 
         // GET: Manager
-      
-            public ActionResult List()
+        public ActionResult PartyList()
+        {
+            IEnumerable<t聚會> datas = null;
+            string keyword = Request.Form["txtKeyword"];
+            if (string.IsNullOrEmpty(keyword))
+                datas = from p in (new dbCookingEntities()).t聚會 select p;
+            else
+                datas = from p in (new dbCookingEntities()).t聚會 where p.f聚會名稱.Contains(keyword) select p;
+
+            List<C管理者聚會ViewModel> Plist = new List<C管理者聚會ViewModel>();
+            foreach (t聚會 p in datas)
+                Plist.Add(new C管理者聚會ViewModel() { party = p });
+            return View(Plist);
+        }
+        public ActionResult List()
         {
             IEnumerable<t會員> datas = null;
             string keyword = Request.Form["txtKeyword"];
-            if (string.IsNullOrEmpty(keyword))
+            if (!string.IsNullOrEmpty(keyword))
                 datas = from p in (new dbCookingEntities()).t會員 select p;
             else
                 datas = from p in (new dbCookingEntities()).t會員 where p.f會員姓名.Contains(keyword) select p;
-            
+
+
             List<C管理者會員ViewModel> list = new List<C管理者會員ViewModel>();
             foreach (t會員 p in datas)
                 list.Add(new C管理者會員ViewModel() { member = p });

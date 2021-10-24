@@ -12,10 +12,37 @@ namespace prjCooking.Controllers
     public class MeetController : Controller
     {
         // GET: Meet
+       
         public ActionResult Index()
         {
             return View();
         }
+        public ActionResult showParty()
+        {
+
+            return View();
+        }
+
+        
+        public ActionResult CreateParty()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateParty(t聚會 p)
+        {
+            dbCookingEntities db = new dbCookingEntities();
+            db.t聚會.Add(p);
+            db.SaveChanges();
+            return RedirectToAction("showParty");
+        }
+        public ActionResult PartyForm()
+        {
+            return View();
+        }
+     
 
         public ActionResult 報名紀錄(int? sort, int? statu, int page = 1)
         {

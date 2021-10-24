@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using prjCooking.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,12 +10,12 @@ namespace prjCooking.ViewModel
 {
     public class C管理者會員ViewModel
     {
-        public Models.t會員 member { get; set; } = null;
+        public t會員 member { get; set; } = null;
         public HttpPostedFileBase image { get; set; }
 
         public C管理者會員ViewModel()
         {
-            this.member = new Models.t會員();
+            this.member = new t會員();
 
         }
        

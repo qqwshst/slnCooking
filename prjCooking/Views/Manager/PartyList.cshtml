@@ -1,0 +1,73 @@
+﻿@using prjCooking.ViewModel;
+@model List<C管理者聚會ViewModel>
+
+@{
+    ViewBag.Title = "PartyList";
+}
+
+<h2>PartyList</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        <label>關鍵字:</label>
+        <input class="form-control" type="text" placeholder="請輸入欲查詢的資訊" style="width:50%" name="txtKeyword">
+        <br />
+        <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
+    </p>
+}
+<p>
+    @Html.ActionLink("新增", "CreateParty")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            序
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].f主辦人)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].f聚會名稱)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].f聚會日期)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model[0].f聚會狀態)
+        </th>
+
+        <th>
+
+        </th>
+    </tr>
+
+    @{
+        int count = 0;
+        foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>
+                    @count;
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.f主辦人)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.f聚會名稱)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.f聚會日期)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.f聚會狀態)
+                </td>
+                <td>
+
+                    @Html.ActionLink("查看", "Details", new { id = item.f聚會Id }) |
+                    @Html.ActionLink("刪除", "Delete", new { id = item.f聚會Id })
+                </td>
+            </tr>
+        }
+    }
+</table>
