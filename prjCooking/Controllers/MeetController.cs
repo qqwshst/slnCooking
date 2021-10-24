@@ -17,7 +17,7 @@ namespace prjCooking.Controllers
             return View();
         }
 
-        public ActionResult 報名紀錄(int? sort, int? statu, int page = 1)
+        public ActionResult 報名紀錄(int? sort = 0, int? statu = 0, int page = 1)
         {
             // 排序 0新 1舊
             // 狀態 3 全部
@@ -34,11 +34,6 @@ namespace prjCooking.Controllers
                     vmodel.CurrentSort = sort.ToString();
                     vmodel.CurrentStatu = statu.ToString();
                 }
-                else
-                {
-                    vmodel.CurrentSort = "0";
-                    vmodel.CurrentStatu = "0";
-                }
 
                 vmodel.Info = crs.GetPageList(data, page);
                 
@@ -48,7 +43,7 @@ namespace prjCooking.Controllers
             return RedirectToAction("", "");
         }
 
-        public ActionResult 主辦紀錄(int? sort, int page = 1)
+        public ActionResult 主辦紀錄(int? sort = 0, int page = 1)
         {
             if (Session["key"] != null)
             {
@@ -59,10 +54,6 @@ namespace prjCooking.Controllers
                 if(sort != null)
                 {
                     vmodel.CurrentSort = sort.ToString();
-                }
-                else
-                {
-                    vmodel.CurrentSort = "0";
                 }
 
                 vmodel.Info = crs.GetPageList(data, page);

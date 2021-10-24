@@ -18,9 +18,12 @@ namespace prjCooking.Models
 
         public List<CCaptureMeetInfo> 撈取報名記錄(int? memberId, int? sort, int? statu)
         {
-            List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId.Value)
+            if(memberId.HasValue && sort.HasValue && statu.HasValue)
+            {
+                List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId.Value)
                 .OrderBy(m => m.f參加者建立日期)
-                .Select(m => new CCaptureMeetInfo { 
+                .Select(m => new CCaptureMeetInfo
+                {
                     聚會ID = m.f聚會Id,
                     主辦人 = m.t聚會.t會員.f會員姓名,
                     聚會名稱 = m.t聚會.f聚會名稱,
@@ -30,10 +33,13 @@ namespace prjCooking.Models
                     Is核准 = m.f審核狀態
                 }).ToList();
 
-            Get聚會狀態Name(data);
-            Sort(data, sort, statu);
+                Get聚會狀態Name(data);
+                Sort(data, sort, statu);
 
-            return data;
+                return data;
+            }
+
+            return new List<CCaptureMeetInfo>();
         }
 
         private void Get聚會狀態Name(List<CCaptureMeetInfo> data)
@@ -79,9 +85,12 @@ namespace prjCooking.Models
 
         public List<CCaptureMeetInfo> 撈取主辦記錄(int? memberId, int? sort)
         {
-            List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
+            if(memberId.HasValue && sort.HasValue)
+            {
+                List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
                 .OrderBy(meet => meet.f聚會建立日期)
-                .Select(meet => new CCaptureMeetInfo { 
+                .Select(meet => new CCaptureMeetInfo
+                {
                     聚會ID = meet.f聚會Id,
                     主辦人 = meet.t會員.f會員姓名,
                     聚會名稱 = meet.f聚會名稱,
@@ -91,9 +100,12 @@ namespace prjCooking.Models
                     目前人數 = meet.t參加者.Where(t => t.f聚會Id == meet.f聚會Id).Count()
                 }).ToList();
 
-            Sort(data, sort, null);
+                Sort(data, sort, null);
 
-            return data;
+                return data;
+            }
+
+            return new List<CCaptureMeetInfo>();
         }
 
         /// <summary>
