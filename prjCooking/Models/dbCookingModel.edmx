@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="dbCookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbCookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--產生期間發現錯誤:
 警告 6002: 資料表/檢視 'C:\USERS\資策會_全端\DESKTOP\CODE\期末\SLNCOOKING\PRJCOOKING\APP_DATA\DBCOOKING.MDF.dbo.t建議食材' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="t建議食材">
@@ -23,7 +23,7 @@
           <Property Name="f參加者Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="f會員Id" Type="int" Nullable="false" />
           <Property Name="f聚會Id" Type="int" Nullable="false" />
-          <Property Name="f審核狀態" Type="bit" Nullable="false" />
+          <Property Name="f審核狀態" Type="bit" />
           <Property Name="f報名" Type="bit" Nullable="false" />
           <Property Name="f參加者建立日期" Type="smalldatetime" Nullable="false" />
         </EntityType>
@@ -185,8 +185,7 @@
             <End Role="t聚會" EntitySet="t聚會" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="dbCookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -197,7 +196,7 @@
           <Property Name="f參加者Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="f會員Id" Type="Int32" Nullable="false" />
           <Property Name="f聚會Id" Type="Int32" Nullable="false" />
-          <Property Name="f審核狀態" Type="Boolean" Nullable="false" />
+          <Property Name="f審核狀態" Type="Boolean" />
           <Property Name="f報名" Type="Boolean" Nullable="false" />
           <Property Name="f參加者建立日期" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="t會員" Relationship="Self.FK__t參加者__f會員Id__2C3393D0" FromRole="t參加者" ToRole="t會員" />
