@@ -126,5 +126,16 @@ namespace prjCooking.Controllers
 
             return RedirectToAction("報名紀錄");
         }
+
+        public ActionResult 取消活動(int? 聚會Id)
+        {
+            // session 抓會員id
+            if(Session["key"] != null)
+            {
+                (new C聚會相關操作()).取消活動(聚會Id.Value);
+            }
+
+            return RedirectToAction("主辦紀錄");
+        }
     }
 }

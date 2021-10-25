@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="Models\C審核參加者資訊.cs" />
     <Compile Include="Models\C撈取資格審核名單.cs" />
+    <Compile Include="Models\C聚會相關操作.cs" />
     <Compile Include="Models\dbCookingModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

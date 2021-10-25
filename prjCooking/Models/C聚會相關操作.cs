@@ -30,5 +30,17 @@ namespace prjCooking.Models
 
             _db.SaveChanges();
         }
+
+        public void 取消活動(int 聚會Id)
+        {
+            List<t聚會> temp = _db.t聚會.Where(聚會 => 聚會.f聚會Id == 聚會Id).FirstOrDefault();
+
+            foreach(t聚會 聚會 in temp)
+            {
+                聚會.f聚會垃圾桶 = (int)聚會垃圾桶.刪除;
+            }
+
+            _db.SaveChanges();
+        }
     }
 }

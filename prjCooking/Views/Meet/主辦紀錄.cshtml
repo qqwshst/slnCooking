@@ -90,8 +90,8 @@
                                                 <section class="my-2">
                                                     @Html.ActionLink(
                                                         "取消活動",
-                                                        "",
-                                                        null,
+                                                        "取消活動",
+                                                        new { 聚會Id = cmi.聚會ID },
                                                         new { @class = "btn btn-outline-danger" })
                                                 </section>
                                             }
@@ -156,8 +156,8 @@
                                             new { @class = "btn btn-outline-secondary" })
                                         @Html.ActionLink(
                                             "取消活動",
-                                            "",
-                                            null,
+                                            "取消活動",
+                                            new { 聚會Id = cmi.聚會ID },
                                             new { @class = "btn btn-outline-danger my-3" })
                                     }
                                     else
