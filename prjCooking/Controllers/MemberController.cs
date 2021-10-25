@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using prjCooking.Models;
+using prjCooking.ViewModel;
 
 namespace prjCooking.Controllers
 {
@@ -13,5 +15,6 @@ namespace prjCooking.Controllers
         {
             return View();
         }
+      
     }
 }
