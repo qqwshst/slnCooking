@@ -39,6 +39,7 @@ namespace prjCooking.Models
                     _db.t參加者.Where(t => t.f聚會Id == 聚會Id.Value)
                     .Where(t => t.t聚會.f主辦人 == 會員Id.Value)
                     .Where(t => t.f審核狀態 == Is核准)
+                    .Where(t => t.f報名 == false)
                     .Select(t => new C審核參加者資訊
                     {
                         參加者Id = t.f參加者Id,
