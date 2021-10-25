@@ -79,8 +79,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria- haspopup="true" aria-expanded="false">管理者後台</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @Html.ActionLink("用戶管理", "", "", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("聚會管理", "", "", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("用戶管理", "List", "Manager", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("聚會管理", "PartyList", "Manager", new { area = "" }, new { @class = "dropdown-item" })
 
                     </div>
                 </li>
