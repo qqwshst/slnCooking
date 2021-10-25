@@ -78,52 +78,55 @@
                     </thead>
                     <tbody>
                         @{
-                            foreach (CCaptureMeetInfo cmi in Model.Info)
+                            if (Model.Info != null)
                             {
-                                <!-- 一筆資料 -->
-                                <tr>
-                                    <td class="align-middle">@cmi.聚會狀態Name</td>
-                                    <td class="align-middle">@cmi.聚會日期</td>
-                                    <td class="align-middle">@cmi.聚會名稱</td>
-                                    <td class="align-middle">@cmi.主辦人</td>
-                                    <!-- 按鈕 表格 -->
-                                    <td class="row align-middle w-100">
-                                        <section class="mr-2 my-2">
-                                            @Html.ActionLink("查看詳細",
-                                               "",
-                                               null,
-                                               new { @class = "btn btn-outline-info" })
-                                        </section>
-                                        @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
-                                        {
+                                foreach (CCaptureMeetInfo cmi in Model.Info)
+                                {
+                                    <!-- 一筆資料 -->
+                                    <tr>
+                                        <td class="align-middle">@cmi.聚會狀態Name</td>
+                                        <td class="align-middle">@cmi.聚會日期</td>
+                                        <td class="align-middle">@cmi.聚會名稱</td>
+                                        <td class="align-middle">@cmi.主辦人</td>
+                                        <!-- 按鈕 表格 -->
+                                        <td class="row align-middle w-100">
                                             <section class="mr-2 my-2">
-                                                @Html.ActionLink("取消報名",
-                                                    "",
-                                                    null,
-                                                    new { @class = "btn btn-outline-danger" })
-                                            </section>
-                                        }
-                                        @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is評價)
-                                        {
-                                            <section class="mr-2 my-2">
-                                                @Html.ActionLink("已評分",
+                                                @Html.ActionLink("查看詳細",
                                                    "",
                                                    null,
-                                                   new { @class = "btn btn-secondary disabled" })
+                                                   new { @class = "btn btn-outline-info" })
                                             </section>
-                                        }
-                                        else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number)
-                                        {
-                                            <section class="mr-2 my-2">
-                                                @Html.ActionLink("進行評分",
-                                                   "",
-                                                   null,
-                                                   new { @class = "btn btn-secondary" })
-                                            </section>
-                                        }
-                                    </td>
-                                </tr>
-                                <!-- end 一筆資料 -->
+                                            @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
+                                            {
+                                                <section class="mr-2 my-2">
+                                                    @Html.ActionLink("取消報名",
+                                                        "",
+                                                        null,
+                                                        new { @class = "btn btn-outline-danger" })
+                                                </section>
+                                            }
+                                            @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
+                                            {
+                                                <section class="mr-2 my-2">
+                                                    @Html.ActionLink("已評分",
+                                                       "",
+                                                       null,
+                                                       new { @class = "btn btn-secondary disabled" })
+                                                </section>
+                                            }
+                                            else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
+                                            {
+                                                <section class="mr-2 my-2">
+                                                    @Html.ActionLink("進行評分",
+                                                       "",
+                                                       null,
+                                                       new { @class = "btn btn-secondary" })
+                                                </section>
+                                            }
+                                        </td>
+                                    </tr>
+                                    <!-- end 一筆資料 -->
+                                }
                             }
                         }
                     </tbody>
@@ -135,67 +138,68 @@
     <!-- 手機板 報名紀錄 表格 -->
     <section class="row my-3 d-block d-md-none">
         @{
-            foreach (CCaptureMeetInfo cmi in Model.Info)
+            if (Model.Info != null)
             {
-                <!-- 一筆資料 -->
-                <div class="col mb-5">
-                    <div class="card h-100" style="background-color: #eee;">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@cmi.聚會狀態Name</div>
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">@cmi.聚會名稱</h5>
-                                <!-- Product price-->
-                                @cmi.聚會日期<br>
-                                @cmi.主辦人<br>
+                foreach (CCaptureMeetInfo cmi in Model.Info)
+                {
+                    <!-- 一筆資料 -->
+                    <div class="col mb-5">
+                        <div class="card h-100" style="background-color: #eee;">
+                            <!-- Sale badge-->
+                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@cmi.聚會狀態Name</div>
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <h5 class="fw-bolder">@cmi.聚會名稱</h5>
+                                    <!-- Product price-->
+                                    @cmi.聚會日期<br>
+                                    @cmi.主辦人<br>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Product actions -->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center">
-                                @Html.ActionLink("查看詳細",
-                                   "",
-                                   null,
-                                   new { @class = "btn btn-info" })
-                                @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
-                                {
-                                    @Html.ActionLink("取消報名",
+                            <!-- Product actions -->
+                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center">
+                                    @Html.ActionLink("查看詳細",
                                        "",
                                        null,
-                                       new { @class = "btn btn-danger" })
-                                }
-                                @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is評價)
-                                {
-                                    @Html.ActionLink("已評分",
-                                       "",
-                                       null,
-                                       new { @class = "btn btn-secondary disabled" })
-                                }
-                                else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number)
-                                {
-                                    @Html.ActionLink("進行評分",
-                                       "",
-                                       null,
-                                       new { @class = "btn btn-secondary" })
-                                }
+                                       new { @class = "btn btn-info" })
+                                    @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
+                                    {
+                                        @Html.ActionLink("取消報名",
+                                           "",
+                                           null,
+                                           new { @class = "btn btn-danger" })
+                                    }
+                                    @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
+                                    {
+                                        @Html.ActionLink("已評分",
+                                           "",
+                                           null,
+                                           new { @class = "btn btn-secondary disabled" })
+                                    }
+                                    else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
+                                    {
+                                        @Html.ActionLink("進行評分",
+                                           "",
+                                           null,
+                                           new { @class = "btn btn-secondary" })
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- end 一筆資料 -->
+                    <!-- end 一筆資料 -->
+                }
             }
-
-
         }
     </section>
     <!-- end 手機板 報名紀錄 表格 -->
     <!-- 分頁 -->
     <nav class="row justify-content-center my-3">
-        @if (Model.Info.Count > 0)
+        @if (Model.Info != null)
         {
-            @Html.PagedListPager(Model.Pages, page => Url.Action("報名紀錄", new { page }))
+            @Html.PagedListPager(Model.Info, page => Url.Action("報名紀錄", new { page }))
         }
     </nav>
     <!-- end 分頁 -->
