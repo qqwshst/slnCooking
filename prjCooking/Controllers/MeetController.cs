@@ -48,7 +48,7 @@ namespace prjCooking.Controllers
         {
             // 排序 0新 1舊
             // 狀態 3 全部
-            //if(Session["key"] != null)
+            if(Session["key"] != null)
             {
                 // session取得會員資料
 
@@ -122,9 +122,10 @@ namespace prjCooking.Controllers
             if(Session["key"] != null)
             {
                 (new C聚會相關操作()).取消報名(會員Id, 聚會Id.Value);
+                return RedirectToAction("報名紀錄");
             }
 
-            return RedirectToAction("報名紀錄");
+            return RedirectToAction("index", "Home");
         }
 
         public ActionResult 取消活動(int? 聚會Id)
@@ -133,9 +134,10 @@ namespace prjCooking.Controllers
             if(Session["key"] != null)
             {
                 (new C聚會相關操作()).取消活動(聚會Id.Value);
+                return RedirectToAction("主辦紀錄");
             }
 
-            return RedirectToAction("主辦紀錄");
+            return RedirectToAction("index", "Home");
         }
     }
 }
