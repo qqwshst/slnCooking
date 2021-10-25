@@ -94,7 +94,7 @@ namespace prjCooking.Controllers
         public ActionResult 資格審核(int? meetId)
         {
             // 判斷Session
-            if(Session["key"] != null)
+            //if(Session["key"] != null)
             {
                 if(meetId != null)
                 {
@@ -107,7 +107,7 @@ namespace prjCooking.Controllers
                         vmodel.核准 = 撈取.Get();
 
                     // 撈取未審核名單
-                    bool? 未審核 = null;
+                    bool? 未審核 = Convert.ToBoolean(參加者審核狀態.未通過);
                     if(撈取.Set撈取(1, meetId, 未審核))
                         vmodel.未審核 = 撈取.Get();
 
