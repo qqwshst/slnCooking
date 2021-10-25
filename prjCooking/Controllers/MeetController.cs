@@ -44,25 +44,24 @@ namespace prjCooking.Controllers
         }
      
 
-        public ActionResult 報名紀錄(int? sort = 0, int? statu = 0, int page = 1)
+        public ActionResult 報名紀錄(int? sort = 0, int? statu = 3, int page = 1)
         {
             // 排序 0新 1舊
             // 狀態 3 全部
-            if(Session["key"] != null)
+            //if(Session["key"] != null)
             {
                 // session取得會員資料
 
                 CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
                 List<CCaptureMeetInfo> data = crs.撈取報名記錄(1, sort, statu);
+                vmodel.Info = crs.GetPageList(data, page);
 
                 if (sort != null && statu != null) 
                 {
                     vmodel.CurrentSort = sort.ToString();
                     vmodel.CurrentStatu = statu.ToString();
                 }
-
-                vmodel.Info = crs.GetPageList(data, page);
                 
                 return View(vmodel);
             }
@@ -77,13 +76,12 @@ namespace prjCooking.Controllers
                 CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
                 List<CCaptureMeetInfo> data = crs.撈取主辦記錄(1, sort);
+                vmodel.Info = crs.GetPageList(data, page);
 
-                if(sort != null)
+                if (sort != null)
                 {
                     vmodel.CurrentSort = sort.ToString();
                 }
-
-                vmodel.Info = crs.GetPageList(data, page);
 
                 return View(vmodel);
             }

@@ -79,7 +79,7 @@ namespace prjCooking.ViewModel
                 if (Int32.TryParse(value, out number))
                     statuNumber = number;
 
-                SelectCurrentStatu(statuNumber);
+                _currentStatu = SelectCurrentStatu(statuNumber);
                 _statuList = AddStatuList(statuNumber);
             }
         }
@@ -148,7 +148,7 @@ namespace prjCooking.ViewModel
         private string SelectCurrentStatu(int? statuNumber)
         {
             string tempStatu = "全部";
-            if (statuNumber.HasValue)
+            if (statuNumber.HasValue && Info != null)
             {
                 if (statuNumber.Value == 0)
                     tempStatu = "報名中";
@@ -168,7 +168,7 @@ namespace prjCooking.ViewModel
         {
             List<string> temp = new List<string>();
 
-            if (statuNumber.HasValue)
+            if (statuNumber.HasValue && Info != null)
             {
                 if (statuNumber != 3) 
                 {
