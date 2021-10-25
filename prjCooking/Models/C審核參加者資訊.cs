@@ -16,16 +16,16 @@ namespace prjCooking.Models
             _會員 = new t會員();
         }
 
-        public int? 會員Id
+        public int? 聚會Id
         {
             get
             {
-                return _會員.f會員Id;
+                return _參加者.f聚會Id;
             }
 
             set
             {
-                _會員.f會員Id = value.Value;
+                _參加者.f聚會Id = value.Value;
             }
         }
 

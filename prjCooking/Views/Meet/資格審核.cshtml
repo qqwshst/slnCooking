@@ -102,9 +102,9 @@
                                                 <br>
                                                 @Html.ActionLink(
                                                    "核准",
-                                                   "",
-                                                   "",
-                                                   null, new { @class = "btn btn-outline-primary my-2" })
+                                                   "核准參加者",
+                                                   new { 聚會Id = info.聚會Id, 參加者Id = info.參加者Id },
+                                                   new { @class = "btn btn-outline-primary my-2" })
                                             </div>
                                         </div>
                                     </div>

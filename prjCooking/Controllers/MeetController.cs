@@ -139,5 +139,18 @@ namespace prjCooking.Controllers
 
             return RedirectToAction("index", "Home");
         }
+
+        public ActionResult 核准參加者(int? 聚會Id, int? 參加者Id)
+        {
+            // 判斷是否有登入
+            if(Session["key"] != null)
+            {
+                (new C聚會相關操作()).核准參加者(聚會Id.Value, 參加者Id.Value);
+
+                return RedirectToAction("資格審核");
+            }
+
+            return RedirectToAction("index", "Home");
+        }
     }
 }
