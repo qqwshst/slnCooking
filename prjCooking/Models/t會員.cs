@@ -12,7 +12,6 @@ namespace prjCooking.Models
     using System;
     using System.Collections.Generic;
     
-    
     public partial class t會員
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +20,8 @@ namespace prjCooking.Models
             this.t參加者 = new HashSet<t參加者>();
             this.t聚會 = new HashSet<t聚會>();
         }
-       
+    
         public int f會員Id { get; set; }
-      
         public string f會員信箱 { get; set; }
         public string f會員密碼 { get; set; }
         public string f會員姓名 { get; set; }

@@ -23,7 +23,7 @@ namespace prjCooking.Models
         public int f參加者Id { get; set; }
         public int f會員Id { get; set; }
         public int f聚會Id { get; set; }
-        public Nullable<bool> f審核狀態 { get; set; }
+        public bool f審核狀態 { get; set; }
         public bool f報名 { get; set; }
         public System.DateTime f參加者建立日期 { get; set; }
     

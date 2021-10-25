@@ -23,7 +23,7 @@
           <Property Name="f參加者Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="f會員Id" Type="int" Nullable="false" />
           <Property Name="f聚會Id" Type="int" Nullable="false" />
-          <Property Name="f審核狀態" Type="bit" />
+          <Property Name="f審核狀態" Type="bit" Nullable="false" />
           <Property Name="f報名" Type="bit" Nullable="false" />
           <Property Name="f參加者建立日期" Type="smalldatetime" Nullable="false" />
         </EntityType>
@@ -196,7 +196,7 @@
           <Property Name="f參加者Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="f會員Id" Type="Int32" Nullable="false" />
           <Property Name="f聚會Id" Type="Int32" Nullable="false" />
-          <Property Name="f審核狀態" Type="Boolean" />
+          <Property Name="f審核狀態" Type="Boolean" Nullable="false" />
           <Property Name="f報名" Type="Boolean" Nullable="false" />
           <Property Name="f參加者建立日期" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="t會員" Relationship="Self.FK__t參加者__f會員Id__2C3393D0" FromRole="t參加者" ToRole="t會員" />
