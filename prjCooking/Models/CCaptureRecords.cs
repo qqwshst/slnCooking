@@ -21,6 +21,7 @@ namespace prjCooking.Models
             if(memberId.HasValue && sort.HasValue && statu.HasValue)
             {
                 List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId.Value)
+                .Where(m => m.t聚會.f聚會垃圾桶 != Convert.ToBoolean(聚會垃圾桶.刪除))
                 .OrderBy(m => m.f參加者建立日期)
                 .Select(m => new CCaptureMeetInfo
                 {
@@ -88,6 +89,7 @@ namespace prjCooking.Models
             if(memberId.HasValue && sort.HasValue)
             {
                 List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
+                .Where(meet => meet.f聚會垃圾桶 != Convert.ToBoolean(聚會垃圾桶.刪除))
                 .OrderBy(meet => meet.f聚會建立日期)
                 .Select(meet => new CCaptureMeetInfo
                 {
