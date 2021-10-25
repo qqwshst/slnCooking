@@ -30,10 +30,10 @@ namespace prjCooking.Controllers
         {
             IEnumerable<t會員> datas = null;
             string keyword = Request.Form["txtKeyword"];
-            if (!string.IsNullOrEmpty(keyword))
+            if (string.IsNullOrEmpty(keyword))
                 datas = from p in (new dbCookingEntities()).t會員 select p;
             else
-                datas = from p in (new dbCookingEntities()).t會員 where p.f會員姓名.Contains(keyword) select p;
+                datas = from p in (new dbCookingEntities()).t會員 where p.f會員姓名.Contains(keyword)||p.f會員信箱.Contains(keyword) select p;
 
 
             List<C管理者會員ViewModel> list = new List<C管理者會員ViewModel>();
