@@ -92,7 +92,7 @@ namespace prjCooking.Controllers
         public ActionResult 資格審核(int? meetId)
         {
             // 判斷Session
-            //if(Session["key"] != null)
+            if(Session["key"] != null)
             {
                 if(meetId != null)
                 {
@@ -114,6 +114,17 @@ namespace prjCooking.Controllers
             }
 
             return RedirectToAction("", "");
+        }
+
+        public ActionResult 取消報名(int? 聚會Id)
+        {
+            // session 抓會員id
+            if(Session["key"] != null)
+            {
+                (new C聚會相關操作()).取消報名(會員Id, 聚會Id.Value);
+            }
+
+            return RedirectToAction("報名紀錄");
         }
     }
 }
