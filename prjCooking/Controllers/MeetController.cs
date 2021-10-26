@@ -121,7 +121,7 @@ namespace prjCooking.Controllers
             // session 抓會員id
             if(Session["key"] != null)
             {
-                (new C聚會相關操作()).取消報名(會員Id, 聚會Id.Value);
+                (new C聚會相關操作()).取消報名(0, 聚會Id.Value);
                 return RedirectToAction("報名紀錄");
             }
 
