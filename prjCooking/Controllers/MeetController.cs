@@ -44,7 +44,7 @@ namespace prjCooking.Controllers
         }
      
 
-        public ActionResult 報名紀錄(int? sort, int? statu, int page = 1)
+        public ActionResult 報名紀錄(int? sort = 0, int? statu = 3, int page = 1)
         {
             // 排序 0新 1舊
             // 狀態 3 全部
@@ -52,34 +52,15 @@ namespace prjCooking.Controllers
             {
                 // session取得會員資料
 
+                CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
-                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取報名記錄(1, sort, statu);
-
-                vmodel.Info = data;
+                List<CCaptureMeetInfo> data = crs.撈取報名記錄(1, sort, statu);
+                vmodel.Info = crs.GetPageList(data, page);
 
                 if (sort != null && statu != null) 
                 {
                     vmodel.CurrentSort = sort.ToString();
                     vmodel.CurrentStatu = statu.ToString();
-                }
-                else
-                {
-                    vmodel.CurrentSort = "0";
-                    vmodel.CurrentStatu = "0";
-                }
-
-                // 分頁條
-                if(data.Count > 0) 
-                {
-                    int pageSize = 0;
-                    if (data.Count % 10 > 0)
-                    {
-                        pageSize = 1;
-                    }
-
-                    pageSize += (data.Count / 10);
-                    int currentPage = page < 1 ? 1 : page;
-                    vmodel.Pages = vmodel.Info.ToPagedList(currentPage, pageSize);
                 }
                 
                 return View(vmodel);
@@ -88,38 +69,88 @@ namespace prjCooking.Controllers
             return RedirectToAction("", "");
         }
 
-        public ActionResult 主辦紀錄(int? sort, int page = 1)
+        public ActionResult 主辦紀錄(int? sort = 0, int page = 1)
         {
             if (Session["key"] != null)
             {
+                CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
-                List<CCaptureMeetInfo> data = (new CCaptureRecords()).撈取主辦記錄(1, sort);
+                List<CCaptureMeetInfo> data = crs.撈取主辦記錄(1, sort);
+                vmodel.Info = crs.GetPageList(data, page);
 
-                vmodel.Info = data;
-
-                if(sort != null)
+                if (sort != null)
                 {
                     vmodel.CurrentSort = sort.ToString();
-                }
-
-                // 分頁條
-                if (data.Count > 0)
-                {
-                    int pageSize = 0;
-                    if (data.Count % 10 > 0)
-                    {
-                        pageSize = 1;
-                    }
-
-                    pageSize += (data.Count / 10);
-                    int currentPage = page < 1 ? 1 : page;
-                    vmodel.Pages = vmodel.Info.ToPagedList(currentPage, pageSize);
                 }
 
                 return View(vmodel);
             }
 
             return RedirectToAction("", "");
+        }
+
+        public ActionResult 資格審核(int? meetId)
+        {
+            // 判斷Session
+            if(Session["key"] != null)
+            {
+                if(meetId != null)
+                {
+                    C資格審核ViewModel vmodel = new C資格審核ViewModel();
+                    C撈取資格審核名單 撈取 = new C撈取資格審核名單();
+
+                    // 撈取已核准名單
+                    bool 核准 = Convert.ToBoolean(參加者審核狀態.通過);
+                    if (撈取.Set撈取(1, meetId, 核准))
+                        vmodel.核准 = 撈取.Get();
+
+                    // 撈取未審核名單
+                    bool? 未審核 = Convert.ToBoolean(參加者審核狀態.未通過);
+                    if(撈取.Set撈取(1, meetId, 未審核))
+                        vmodel.未審核 = 撈取.Get();
+
+                    return View(vmodel);
+                }
+            }
+
+            return RedirectToAction("", "");
+        }
+
+        public ActionResult 取消報名(int? 聚會Id)
+        {
+            // session 抓會員id
+            if(Session["key"] != null)
+            {
+                (new C聚會相關操作()).取消報名(會員Id, 聚會Id.Value);
+                return RedirectToAction("報名紀錄");
+            }
+
+            return RedirectToAction("index", "Home");
+        }
+
+        public ActionResult 取消活動(int? 聚會Id)
+        {
+            // session 抓會員id
+            if(Session["key"] != null)
+            {
+                (new C聚會相關操作()).取消活動(聚會Id.Value);
+                return RedirectToAction("主辦紀錄");
+            }
+
+            return RedirectToAction("index", "Home");
+        }
+
+        public ActionResult 核准參加者(int? 聚會Id, int? 參加者Id)
+        {
+            // 判斷是否有登入
+            if(Session["key"] != null)
+            {
+                (new C聚會相關操作()).核准參加者(聚會Id.Value, 參加者Id.Value);
+
+                return RedirectToAction("資格審核");
+            }
+
+            return RedirectToAction("index", "Home");
         }
     }
 }
