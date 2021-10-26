@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "登入";
+}
+
+<div class="container" style="width:700px;">
+    <div>
+        <div class="text-center">
+            <h2 class="text-info">用戶登入</h2>
+        </div><br>
+        <div style="border-width:1px; border-style:groove">
+            <form class="form-horizontal" style="text-align:center;" action="~/Member/Create">
+                <div class="form-group">
+                    <br>
+                    <span>信箱</span><br>
+                    <input placeholder="請輸入您的信箱" style="width:400px" type="email" name="txtEmail"><br>
+                    <!--required=不可為空白--> <span>密碼</span><br>
+                    <input placeholder="請輸入密碼" style="width:400px" type="password" name="txtPwd"><br>
+                    <br><br><br>
+                    <div>
+                        <span>記住帳號</span> <input id="" name="" type="checkbox"> | <a href="" target="_top">忘記密碼?</a>
+                    </div><br>
+                    <div>
+                        <input type="submit" value="登入" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
