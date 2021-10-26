@@ -1,0 +1,182 @@
+﻿
+@model prjCooking.Models.CAllMember
+
+@{
+    ViewBag.Title = "個人頁面";
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken()
+
+
+    <!-- 一小塊空白 -->
+    <section class="service-wrapper py-7">
+        <div class="service-tag py-5 bg-white">
+        </div>
+    </section>
+
+
+    <section>
+
+        <div class="container ">
+            <div class="row">
+
+                <div class="col-md-6 offset-md-1 text-center bg-light">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <br>
+                            <img src="~/Image/@Model.f會員照片" class="rounded-circle " width="170" height="170" /><br />
+
+                            <br><br>
+
+                        </div>
+                        <div class="col-md-6 text-left">
+
+                            <input type="text" name="f會員Id" value="@Model.f會員Id" />
+
+                            <br>
+                            <h4>@Model.f會員姓名</h4>
+
+                            <!-- 自我介紹 -->
+                            <p class="text-secondary">@Model.f自我介紹</p>
+                            <br>
+
+                            <a class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modalone" href="">編輯資訊</a>
+                            <a class="btn btn-outline-secondary" type="button" data-toggle="modal" data-target="#modaltwo" href="">修改密碼</a>
+                            <br>
+                            <!-- 開始編輯資訊 -->
+                            <div class="modal" id="modalone">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="modal-md modal-dialog modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">編輯個人資訊</h5>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <img src="~/Image/@Model.f會員照片" id="imgpreview" class="rounded-circle " width="170" height="170" />
+
+                                            <!-- 個人圖片預覽結束 -->
+                                            <br><br>
+                                            <!-- 上傳照片 -->
+                                            <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
+                                            <br><br>
+                                            <input type="text" name="f會員Id" value="@Model.f會員Id" disabled />
+                                            <br />
+                                            <label>自我介紹:</label>
+                                            @Html.EditorFor(model => model.f自我介紹, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入介紹" } })
+                                            @Html.ValidationMessageFor(model => model.f自我介紹, "", new { @class = "text-danger" })
+                                            <br>
+                                            <label>性別:</label>
+                                            <div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="gender" value="1">
+                                                    <label class="form-check-label">男</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="gender" value="2" checked>
+                                                    <label class="form-check-label">女</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" name="gender" value="0">
+                                                    <label class="form-check-label">不透漏</label>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <label>手機號碼:</label>
+                                            @Html.EditorFor(model => model.f會員電話, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入手機號碼" } })
+                                            @Html.ValidationMessageFor(model => model.f會員電話, "", new { @class = "text-danger" })
+
+                                            <br>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                            @Html.ActionLink("送出", "Edit_info", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-info" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 編輯資訊結束 -->
+                            <!-- 開始修改密碼 -->
+                            <div class="modal" id="modaltwo">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="modal-md modal-dialog modal-dialog-scrollable">
+                                    <!-- modal-sm, -md, -lg, -xl-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">修改密碼</h5>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <br>
+
+                                            <input type="text" name="f會員Id" value="@Model.f會員Id" disabled /><br />
+
+                                            <label>目前密碼:</label>
+
+                                            <input type="password" name="password" class="form-control" placeholder="請輸入目前密碼" style="width:75%">
+                                            <br>
+                                            <label>新密碼:</label>
+                                            <input type="password" name="password" class="form-control" placeholder="請輸入新密碼" style="width:75%">
+                                            <br>
+                                            <label>再輸入一次新密碼:</label>
+                                            <input type="password" name="password" class="form-control" placeholder="請再次輸入新密碼" style="width:75%">
+                                            <br>
+                                        </div>
+                                        <div class="modal-footer">
+                                            @Html.ActionLink("送出", "Edit_info", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-info" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 修改密碼結束 -->
+                        </div>
+                        <br>
+                        <div class="col-md-12 text-left">
+
+                            <hr>
+                            <h5 class="text-secondary">煮辦的聚會:</h5>
+                        </div>
+
+                    </div>
+                    <br>
+                </div>
+
+            </div>
+    </section>
+
+
+    <br>
+    <hr>
+
+}
+<script>
+    function openFile() {
+
+        var fileUpload = document.getElementById("fileupload");
+        var imgPreview = document.getElementById("imgpreview");
+        var imgOne = fileUpload.files[0];
+
+        if (fileUpload.files.length > 0) {
+
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                imgPreview.src = reader.result;
+            };
+
+            imgPreview.onload = function () {
+
+            }
+
+            reader.readAsDataURL(imgOne);
+
+        } else {
+
+        }
+    }
+</script>
