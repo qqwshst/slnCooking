@@ -213,8 +213,9 @@
     <Content Include="Views\Meet\CreateParty.cshtml" />
     <Content Include="Views\Meet\showParty.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Member\Create.cshtml" />
-    <Content Include="Views\Member\Login.cshtml" />
+    <Content Include="Views\Member\註冊.cshtml" />
+    <Content Include="Views\Member\登入.cshtml" />
+    <Content Include="Views\Member\信箱驗證.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
