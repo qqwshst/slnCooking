@@ -16,9 +16,13 @@ namespace prjCooking.Models
 
         public void 取消報名(int 會員Id, int 聚會Id)
         {
-            某一個參加者(聚會Id, 會員Id).f報名 = true;
+            t參加者 某參加者報名紀錄 = 某一個參加者(聚會Id, 會員Id);
 
-            _db.SaveChanges();
+            if (某參加者報名紀錄 != null)
+            {
+                某參加者報名紀錄.f報名 = true;
+                _db.Cooking修改參加者資料(某參加者報名紀錄);
+            }  
         }
 
         public void 取消活動(int 聚會Id)
@@ -39,10 +43,17 @@ namespace prjCooking.Models
 
         private t參加者 某一個參加者(int 聚會Id, int 參加者Id)
         {
-            t參加者 某個參加者 = _db.t參加者.Where(m => m.f會員Id == 參加者Id)
-                .Where(m => m.f聚會Id == 聚會Id).FirstOrDefault();
+            List<t參加者> 某會員的報名紀錄 = _db.Cooking查詢某會員報名紀錄ListBy會員Id(參加者Id);
 
-            return 某個參加者;
+            foreach (t參加者 某參加者報名紀錄 in 某會員的報名紀錄)
+            {
+                if (某參加者報名紀錄.f聚會Id == 聚會Id)
+                {
+                    return 某參加者報名紀錄;
+                }
+            }
+
+            return null;
         }
     }
 }
