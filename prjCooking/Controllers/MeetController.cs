@@ -22,8 +22,12 @@ namespace prjCooking.Controllers
 
             return View();
         }
+        public ActionResult PartyForm()
+        {
 
-        
+            return View();
+        }
+
         public ActionResult CreateParty()
         {
 
@@ -38,12 +42,7 @@ namespace prjCooking.Controllers
             db.SaveChanges();
             return RedirectToAction("showParty");
         }
-        public ActionResult PartyForm()
-        {
-            return View();
-        }
-     
-
+ 
         public ActionResult 報名紀錄(int? sort = 0, int? statu = 3, int page = 1)
         {
             // 排序 0新 1舊
