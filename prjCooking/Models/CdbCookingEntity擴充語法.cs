@@ -118,7 +118,7 @@ namespace prjCooking.Models
             }
         }
 
-        public static void CooKing修改聚會資料(this dbCookingEntities db, t聚會 聚會更新資料)
+        public static void Cooking修改聚會資料(this dbCookingEntities db, t聚會 聚會更新資料)
         {
             t聚會 某聚會 = db.t聚會.Where(聚會 => 聚會.f聚會Id == 聚會更新資料.f聚會Id).FirstOrDefault();
 
