@@ -146,6 +146,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CMember.cs" />
+    <Compile Include="Models\CSessionKey.cs" />
     <Compile Include="Models\C審核參加者資訊.cs" />
     <Compile Include="Models\C撈取資格審核名單.cs" />
     <Compile Include="Models\C聚會相關操作.cs" />
@@ -210,6 +212,7 @@
     <Content Include="Views\Meet\CreateParty.cshtml" />
     <Content Include="Views\Meet\showParty.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -218,7 +221,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Member\" />
     <Folder Include="Views\Party\" />
   </ItemGroup>
   <ItemGroup>
