@@ -125,6 +125,8 @@
     <Content Include="Image\boy.png" />
     <Content Include="Image\img_01.jpg" />
     <Content Include="Image\img_02.jpg" />
+    <Content Include="Image\party_01.jpg" />
+    <Content Include="Image\party_02.jpg" />
     <Content Include="Models\dbCookingModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCookingModel.Context.cs</LastGenOutput>
@@ -149,6 +151,7 @@
     <Compile Include="Models\CAllMember.cs" />
     <Compile Include="Models\CdbCookingEntity擴充語法.cs" />
     <Compile Include="Models\CMember.cs" />
+    <Compile Include="Models\CPartyForm.cs" />
     <Compile Include="Models\CSessionKey.cs" />
     <Compile Include="Models\C審核參加者資訊.cs" />
     <Compile Include="Models\C撈取資格審核名單.cs" />

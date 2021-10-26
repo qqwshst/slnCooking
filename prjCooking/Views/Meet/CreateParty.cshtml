@@ -12,17 +12,17 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-6 offset-md-1 text-center bg-light">
+            <div class="col-md-7 offset-md-1 text-center bg-light">
 
                 <div class="row">
 
                     <aside class="col-md-12 text-left">
                         <br>
                         <!-- 照片 -->
-                        <img src="img/cook_02.jpg" id="imgpreview" class="card-img">
+                        <img src="~/Image/party_02.jpg" id="imgpreview" class="card-img">
                         <!-- <img class="card-img-top" src="img/cook_02.jpg" width="300" > -->
                         <br><br>
-                        <p>上傳照片</p>
+
                         <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
                         <br>
                         <!-- 照片結束 -->
@@ -38,7 +38,7 @@
                     <aside class="col-6 text-left">
                         <p><span class="text-danger">*</span>共煮平台:</p>
                         <input type="text" class="form-control" placeholder="請輸入平台名稱" style="" value="">
-                    
+
                     </aside>
                     <aside class="col-6 text-left">
                         <p><span class="text-danger">*</span>連結:</p>
@@ -203,11 +203,11 @@
 
             </div>
 
-
         </div>
 
     </div>
 </section>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
@@ -216,3 +216,29 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    function openFile() {
+
+        var fileUpload = document.getElementById("fileupload");
+        var imgPreview = document.getElementById("imgpreview");
+        var imgOne = fileUpload.files[0];
+
+        if (fileUpload.files.length > 0) {
+
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                imgPreview.src = reader.result;
+            };
+
+            imgPreview.onload = function () {
+
+            }
+
+            reader.readAsDataURL(imgOne);
+
+        } else {
+
+        }
+    }
+</script>
