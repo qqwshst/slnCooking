@@ -38,9 +38,14 @@ namespace prjCooking.Models
 
         public void 核准參加者(int 聚會Id, int 參加者Id) 
         {
-            某一個參加者(聚會Id, 參加者Id).f審核狀態 = Convert.ToBoolean(參加者審核狀態.通過);
+            t參加者 參加者 = 某一個參加者(聚會Id, 參加者Id);
 
-            _db.SaveChanges();
+            if (參加者 != null)
+            {
+                參加者.f審核狀態 = Convert.ToBoolean(參加者審核狀態.通過);
+
+                _db.Cooking修改參加者資料(參加者);
+            }
         }
 
         private t參加者 某一個參加者(int 聚會Id, int 參加者Id)

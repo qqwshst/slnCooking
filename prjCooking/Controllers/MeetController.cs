@@ -48,13 +48,13 @@ namespace prjCooking.Controllers
         {
             // 排序 0新 1舊
             // 狀態 3 全部
-            if(Session["key"] != null)
+            if(Session[CSessionKey.登入會員_t會員] != null)
             {
                 // session取得會員資料
-
+                int 會員Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
                 CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
-                List<CCaptureMeetInfo> data = crs.撈取報名記錄(1, sort, statu);
+                List<CCaptureMeetInfo> data = crs.撈取報名記錄(會員Id, sort, statu);
                 vmodel.Info = crs.GetPageList(data, page);
 
                 if (sort != null && statu != null) 
@@ -66,16 +66,17 @@ namespace prjCooking.Controllers
                 return View(vmodel);
             }
 
-            return RedirectToAction("", "");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult 主辦紀錄(int? sort = 0, int page = 1)
         {
-            if (Session["key"] != null)
+            if (Session[CSessionKey.登入會員_t會員] != null)
             {
+                int 會員Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
                 CCaptureRecords crs = new CCaptureRecords();
                 C主辦Or報名ViewModel vmodel = new C主辦Or報名ViewModel();
-                List<CCaptureMeetInfo> data = crs.撈取主辦記錄(1, sort);
+                List<CCaptureMeetInfo> data = crs.撈取主辦記錄(會員Id, sort);
                 vmodel.Info = crs.GetPageList(data, page);
 
                 if (sort != null)
@@ -86,13 +87,13 @@ namespace prjCooking.Controllers
                 return View(vmodel);
             }
 
-            return RedirectToAction("", "");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult 資格審核(int? meetId)
         {
             // 判斷Session
-            if(Session["key"] != null)
+            if(Session[CSessionKey.登入會員_t會員] != null)
             {
                 if(meetId != null)
                 {
@@ -113,15 +114,16 @@ namespace prjCooking.Controllers
                 }
             }
 
-            return RedirectToAction("", "");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult 取消報名(int? 聚會Id)
         {
             // session 抓會員id
-            if(Session["key"] != null)
+            if(Session[CSessionKey.登入會員_t會員] != null)
             {
-                (new C聚會相關操作()).取消報名(0, 聚會Id.Value);
+                int 會員Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+                (new C聚會相關操作()).取消報名(會員Id, 聚會Id.Value);
                 return RedirectToAction("報名紀錄");
             }
 
@@ -131,7 +133,7 @@ namespace prjCooking.Controllers
         public ActionResult 取消活動(int? 聚會Id)
         {
             // session 抓會員id
-            if(Session["key"] != null)
+            if(Session[CSessionKey.登入會員_t會員] != null)
             {
                 (new C聚會相關操作()).取消活動(聚會Id.Value);
                 return RedirectToAction("主辦紀錄");
@@ -143,7 +145,7 @@ namespace prjCooking.Controllers
         public ActionResult 核准參加者(int? 聚會Id, int? 參加者Id)
         {
             // 判斷是否有登入
-            if(Session["key"] != null)
+            if(Session[CSessionKey.登入會員_t會員] != null)
             {
                 (new C聚會相關操作()).核准參加者(聚會Id.Value, 參加者Id.Value);
 
