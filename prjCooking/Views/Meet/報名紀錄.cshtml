@@ -92,7 +92,7 @@
                                         <td class="row align-middle w-100">
                                             <section class="mr-2 my-2">
                                                 @Html.ActionLink("查看詳細",
-                                                   "",
+                                                   "showParty",
                                                    null,
                                                    new { @class = "btn btn-outline-info" })
                                             </section>
@@ -108,7 +108,7 @@
                                             @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
                                             {
                                                 <section class="mr-2 my-2">
-                                                    @Html.ActionLink("已評分",
+                                                    @Html.ActionLink("已發表",
                                                        "",
                                                        null,
                                                        new { @class = "btn btn-secondary disabled" })
@@ -117,7 +117,7 @@
                                             else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
                                             {
                                                 <section class="mr-2 my-2">
-                                                    @Html.ActionLink("進行評分",
+                                                    @Html.ActionLink("進行成果發表",
                                                        "",
                                                        null,
                                                        new { @class = "btn btn-secondary" })
@@ -161,7 +161,7 @@
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
                                     @Html.ActionLink("查看詳細",
-                                       "",
+                                       "showParty",
                                        null,
                                        new { @class = "btn btn-info" })
                                     @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
@@ -173,14 +173,14 @@
                                     }
                                     @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
                                     {
-                                        @Html.ActionLink("已評分",
+                                        @Html.ActionLink("已發表",
                                            "",
                                            null,
                                            new { @class = "btn btn-secondary disabled" })
                                     }
                                     else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
                                     {
-                                        @Html.ActionLink("進行評分",
+                                        @Html.ActionLink("進行成果發表",
                                            "",
                                            null,
                                            new { @class = "btn btn-secondary" })
