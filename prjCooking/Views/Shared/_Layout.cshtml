@@ -103,18 +103,18 @@
                         <!-- 子選單的 div ********** -->
                         <a class="dropdown-item" href="#"><img src="./assets/img/範例頭貼.png" class=" personalPhoto1" alt="" /><br /></a>
 
-                        @Html.ActionLink("陳阿花", "", "", new { area = "" }, new { @class = "dropdown-item", })
+                        @Html.ActionLink("陳阿花", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item", })
                         <hr>
-                        @Html.ActionLink("查看個人頁面", "", "", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item" })
                         @Html.ActionLink("我主辦的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
                         @Html.ActionLink("我參加的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
                         @Html.ActionLink("登出", "", "", new { area = "" }, new { @class = "dropdown-item" })
                     </div>
                 </li>
 
-                @*<li class="nav-item">
-                            @Html.ActionLink("登入/註冊", "", "", new { area = "" }, new { @class = "nav-link" })
-                    </li>*@
+                <li class="nav-item">
+                            @Html.ActionLink("登入/註冊", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
+                    </li>
 
 
 

@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CAllMember.cs" />
     <Compile Include="Models\CdbCookingEntity擴充語法.cs" />
     <Compile Include="Models\CMember.cs" />
     <Compile Include="Models\CSessionKey.cs" />
@@ -216,6 +217,7 @@
     <Content Include="Views\Member\註冊.cshtml" />
     <Content Include="Views\Member\登入.cshtml" />
     <Content Include="Views\Member\信箱驗證.cshtml" />
+    <Content Include="Views\Member\Show個人頁面.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
