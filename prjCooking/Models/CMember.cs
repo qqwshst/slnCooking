@@ -30,6 +30,10 @@ namespace prjCooking.Models
         }
         public void create(t會員 m)
         {
+            dbCookingEntities db = new dbCookingEntities();
+
+            
+
             List<SqlParameter> paras = new List<SqlParameter>();
             string sql = "INSERT INTO t會員 (";
             if (!string.IsNullOrEmpty(m.f會員信箱))
