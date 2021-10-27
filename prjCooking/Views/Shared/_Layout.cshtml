@@ -92,34 +92,37 @@
             <!-- 這是一組靠右側的選單 -->
             <ul class="navbar-nav">
                 <!-- active在視覺上設計底色不同,表示目前在這個位置,如果不需要則刪除  -->
-                
-                @if(Session[CSessionKey.登入會員_t會員] != null) 
-                { 
-                <li>
 
-                    @Html.ActionLink("舉辦共煮", "", "", new { area = "" }, new { @class = "nav-item nav-link" })
-                </li>
-                <li class="nav-item dropdown data-display=" static"">
-                    <!-- 加上 dropdown, 表示擁有下一層收合展開的子選單 ********** -->
-                    <a class="nav-link dropdown-toggle " href="個人頁面.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/img/範例頭貼1.png" class=" personalPhoto" alt="" /></a>  <!-- a連結加上 dropdown-toggle 及相關的屬性 ********** -->
-                    <div class="dropdown-menu text-center dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
-                        <!-- 子選單的 div ********** -->
-                        <a class="dropdown-item" href="#"><img src="./assets/img/範例頭貼.png" class=" personalPhoto1" alt="" /><br /></a>
+                @if (Session[CSessionKey.登入會員_t會員] != null)
+                {
+                    <li>
 
-                        @Html.ActionLink("陳阿花", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item", })
-                        <hr>
-                        @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("我主辦的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("我參加的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("登出", "登入", "Member", new { area = "" }, new { @class = "dropdown-item" })
-                    </div>
-                </li>
+                        @Html.ActionLink("舉辦共煮", "", "", new { area = "" }, new { @class = "nav-item nav-link" })
+                    </li>
+                    <li class="nav-item dropdown data-display=" static"">
+                        <!-- 加上 dropdown, 表示擁有下一層收合展開的子選單 ********** -->
+                        <a class="nav-link dropdown-toggle " href="個人頁面.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/img/範例頭貼1.png" class=" personalPhoto" alt="" /></a>  <!-- a連結加上 dropdown-toggle 及相關的屬性 ********** -->
+                        <div class="dropdown-menu text-center dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
+                            <!-- 子選單的 div ********** -->
+                            <a class="dropdown-item" href="#"><img src="./assets/img/範例頭貼.png" class=" personalPhoto1" alt="" /><br /></a>
+
+                            @Html.ActionLink("陳阿花", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item", })
+                            <hr>
+                            @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("我主辦的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("我參加的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
+                            @Html.ActionLink("登出", "登入", "Member", new { area = "" }, new { @class = "dropdown-item" })
+                        </div>
+                    </li>
                 }
                 @if (Session[CSessionKey.登入會員_t會員] == null)
                 {
-                <li class="nav-item">
-                    @Html.ActionLink("登入/註冊", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
-                </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("登入", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                    <li class="nav-item">
+                        @Html.ActionLink("註冊", "信箱驗證", "Member", new { area = "" }, new { @class = "nav-link" })
+                    </li>
                 }
 
 
