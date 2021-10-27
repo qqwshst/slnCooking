@@ -27,22 +27,50 @@ namespace prjCooking.Controllers
 
             return View();
         }
-
-        public ActionResult CreateParty()
+        public ActionResult CreateFood()
         {
-
             return View();
         }
 
-        [HttpPost]
-        public ActionResult CreateParty(t聚會 p)
+        public ActionResult CreateParty()
+        {
+            ViewBag.email = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員信箱;
+            return View();
+        }
+
+
+        public ActionResult SaveParty()
         {
             dbCookingEntities db = new dbCookingEntities();
-            db.t聚會.Add(p);
+            t聚會 Addparty = new t聚會();
+            Addparty.f主辦人 = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            Addparty.f聚會名稱 = Request.Form["f聚會名稱"];
+            Addparty.f聚會內容 = Request.Form["f聚會內容"];
+            Addparty.f聚會關鍵字 = Request.Form["f聚會關鍵字"];
+            Addparty.f聚會軟體 = Request.Form["f聚會軟體"];
+            Addparty.f聚會軟體URL = Request.Form["f聚會軟體URL"];
+            Addparty.f聚會日期 = Convert.ToDateTime(Request.Form["f聚會日期"]);
+            Addparty.f聚會開始時間 = Convert.ToDateTime(Request.Form["f聚會日期"] + " " + Request.Form["f聚會開始時間"]);
+            Addparty.f聚會結束時間 = Convert.ToDateTime(Request.Form["f聚會日期"] + " " + Request.Form["f聚會結束時間"]);
+            Addparty.f名額 = Convert.ToInt32(Request.Form["f名額"]);
+            Addparty.f聚會通訊軟體 = Request.Form["f聚會通訊軟體"];
+            Addparty.f聚會通訊軟體帳號 = Request.Form["f聚會通訊軟體帳號"];
+            Addparty.f聚會垃圾桶 = false;
+            Addparty.f聚會建立日期 = DateTime.Now;
+
+            if (Addparty.f聚會開始時間 > DateTime.Now)
+                Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.可報名);
+            else if ((Addparty.f聚會開始時間 < DateTime.Now) && (Addparty.f聚會結束時間 > DateTime.Now))
+                Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.進行中);
+            else
+                Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.已結束);
+            
+            db.t聚會.Add(Addparty);
             db.SaveChanges();
-            return RedirectToAction("showParty");
+
+            return RedirectToAction("CreateFood", "Meet");
         }
- 
+
         public ActionResult 報名紀錄(int? sort = 0, int? statu = 3, int page = 1)
         {
             // 排序 0新 1舊

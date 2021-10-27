@@ -1,4 +1,5 @@
-﻿@model prjCooking.ViewModel.C管理者聚會ViewModel
+﻿@model prjCooking.Models.t聚會
+
 
 @{
     ViewBag.Title = "CreateParty";
@@ -7,207 +8,142 @@
 <h2 class="text-info">舉辦共煮</h2>
 <hr>
 <br>
+<form method="post" action="~/Meet/SaveParty">
+    <section>
+        <div class="container">
+            <div class="row">
 
-<section>
-    <div class="container">
-        <div class="row">
+                <div class="col-md-7 offset-md-1 text-center bg-light">
 
-            <div class="col-md-7 offset-md-1 text-center bg-light">
+                    <div class="row">
 
-                <div class="row">
+                        <aside class="col-md-12 text-left">
+                            <br>
+                            <!-- 照片 -->
+                            <img src="~/Image/party_02.jpg" id="imgpreview" class="card-img" name="f聚會照片">
+                            <!-- <img class="card-img-top" src="img/cook_02.jpg" width="300" > -->
+                            <br><br>
 
-                    <aside class="col-md-12 text-left">
-                        <br>
-                        <!-- 照片 -->
-                        <img src="~/Image/party_02.jpg" id="imgpreview" class="card-img">
-                        <!-- <img class="card-img-top" src="img/cook_02.jpg" width="300" > -->
-                        <br><br>
+                            <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
+                            <br>
+                            <!-- 照片結束 -->
+                            <hr>
+                        </aside>
 
-                        <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
-                        <br>
-                        <!-- 照片結束 -->
-                        <hr>
-                        <p><span class="text-danger">*</span>聚會名稱:</p>
-                        <input type="text" class="form-control" placeholder="請輸入聚會名稱" style="" value="">
-                        <p>內容:</p>
-                        <textarea rows="2" class="form-control" name="selfintro" placeholder="請介紹您的共煮聚會" style=""></textarea>
-                        <p>關鍵字:</p>
-                        <textarea rows="2" class="form-control" name="selfintro" placeholder="請在每個關鍵字前加上#" style=""></textarea>
-                        <br>
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p><span class="text-danger">*</span>共煮平台:</p>
-                        <input type="text" class="form-control" placeholder="請輸入平台名稱" style="" value="">
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>名稱:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="請輸入聚會名稱" name="f聚會名稱">
+                        </aside>
+                        <br /> <br />
+                        <aside class="col-2 text-left">
+                            <p>內容:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="請介紹您的共煮聚會" name="f聚會內容">
+                           
+                        </aside>
+                        <br /> <br />
+                        <aside class="col-2 text-left">
+                            <p>關鍵字:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="請在每個關鍵字前加上#" name="f聚會關鍵字">
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>共煮平台:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="請輸入平台名稱" name="f聚會軟體">
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>連結:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="請輸入平台連結" name="f聚會軟體URL">
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>日期:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="date" class="form-control" min="today" style="width:50%" name="f聚會日期">
 
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p><span class="text-danger">*</span>連結:</p>
-                        <input type="url" class="form-control" placeholder="請輸入平台連結" style="" value="">
-                    </aside>
-                    <aside class="col-12 text-left">
-                        <p><span class="text-danger">*</span>日期:</p>
-                        <input type="date" class="form-control" min="today" style="width:50%">
-                    </aside>
-                    <aside class="col-3 text-left">
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>開始時間:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="time" class="form-control" min="today" style="width:50%" name="f聚會開始時間">
 
-                        <p><span class="text-danger">*</span>開始時間:</p>
-                        <select id="cbox_starttime">
-                            <option value="0">00:00</option>
-                            <option value="1">01:00</option>
-                            <option value="2">02:00</option>
-                            <option value="3">03:00</option>
-                            <option value="4">04:00</option>
-                            <option value="5">05:00</option>
-                            <option value="6">06:00</option>
-                            <option value="7">07:00</option>
-                            <option value="8">08:00</option>
-                            <option value="9">09:00</option>
-                            <option value="10">10:00</option>
-                            <option value="11">11:00</option>
-                            <option value="12">12:00</option>
-                            <option value="13">13:00</option>
-                            <option value="14">14:00</option>
-                            <option value="15">15:00</option>
-                            <option value="16">16:00</option>
-                            <option value="17">17:00</option>
-                            <option value="18">18:00</option>
-                            <option value="19">19:00</option>
-                            <option value="20">20:00</option>
-                            <option value="21">21:00</option>
-                            <option value="22">22:00</option>
-                            <option value="23">23:00</option>
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>結束時間:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="time" class="form-control" min="today" style="width:50%" name="f聚會結束時間">
 
-                        </select>
-                    </aside>
-                    <aside class="col-3 text-left">
-                        <p><span class="text-danger">*</span>結束時間:</p>
-                        <select id="cbox_endtime">
-                            <option value="0">00:00</option>
-                            <option value="1">01:00</option>
-                            <option value="2">02:00</option>
-                            <option value="3">03:00</option>
-                            <option value="4">04:00</option>
-                            <option value="5">05:00</option>
-                            <option value="6">06:00</option>
-                            <option value="7">07:00</option>
-                            <option value="8">08:00</option>
-                            <option value="9">09:00</option>
-                            <option value="10">10:00</option>
-                            <option value="11">11:00</option>
-                            <option value="12">12:00</option>
-                            <option value="13">13:00</option>
-                            <option value="14">14:00</option>
-                            <option value="15">15:00</option>
-                            <option value="16">16:00</option>
-                            <option value="17">17:00</option>
-                            <option value="18">18:00</option>
-                            <option value="19">19:00</option>
-                            <option value="20">20:00</option>
-                            <option value="21">21:00</option>
-                            <option value="22">22:00</option>
-                            <option value="23">23:00</option>
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p><span class="text-danger">*</span>名額:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="number" min="1" class="form-control" placeholder="請輸入數字" style="width:25%" name="f名額">
+                        </aside>
+                        <aside class="col-12 text-left">
+                            <hr>
+                            <p>煮辦人聯絡資訊:</p>
+                            <p class="text-danger">以下內容僅提供給審核成功的共煮成員</p>
+                            <br />
 
-                        </select>
-                    </aside>
-                    <aside class="col-6 text-left">
-                    </aside>
-                    <aside class="col-12 text-left">
+                        </aside>
 
-                        <p><span class="text-danger">*</span>名額:</p>
-                        <input type="number" min="1" class="form-control" placeholder="請輸入數字" style="width:25%">
-                        <hr>
-                        <p>建議食材:</p>
-                        <br>
-                    </aside>
-                    <aside class="col-6 text-left">
+                        <!-- 煮辦人聯絡資訊 -->
 
-                        <p>名稱</p>
-                        <input type="text" class="form-control" id="text_foodname">
-                        <span id="food_warning"></span>
-                    </aside>
-                    <aside class="col-3 text-left">
-                        <p>份量</p>
-                        <input type="number" min="1" class="form-control" id="text_foodnum">
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p>信箱:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" placeholder="" style="width:35%" value="@ViewBag.email " disabled>
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p>通訊軟體:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="" name="f聚會通訊軟體">
+                        </aside>
+                        <br /><br />
+                        <aside class="col-2 text-left">
+                            <p>帳號:</p>
+                        </aside>
+                        <aside class="col-10 text-left">
+                            <input type="text" class="form-control" placeholder="" name="f聚會通訊軟體帳號">
+                        </aside>
 
-                    </aside>
-                    <aside class="col-3 text-left">
+                        <aside class="col-12 text-right">
+                            <br><hr>
 
-                        <p>單位</p>
-                        <input type="text" class="form-control" id="text_foodunit">
+                            <input class="btn btn-outline-info bi bi-forward-fill" type="submit" value="下一步 ➜ 新增食材">
+                            <br><br>
+                        </aside>
 
-                    </aside>
-                    <aside class="col-12 text-right">
-                        <br>
-                        <a class="btn btn-sm btn-outline-secondary" href="">清除</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="">新增</a>
-
-                        <br><br>
-
-                    </aside>
-                    <span id="sp_foodtable"></span>
-
-                    <!-- 食材預覽 -->
-
-                    <aside class="col-12 text-left">
-                        <input type="text" style="width:40%" disabled value="雞蛋">
-                        <input type="text" style="width:10%" disabled value="2">
-                        <input type="text" style="width:10%" disabled value="顆">
-                        <a class="btn btn-sm btn-outline-secondary bi bi-pencil-square" href=""></a>
-                        <a class="btn btn-sm btn-outline-secondary bi bi-trash" href=""></a>
-
-                        <br>
-                    </aside>
-                    <aside class="col-12 text-left">
-                        <input type="text" style="width:40%" disabled value="雞蛋">
-                        <input type="text" style="width:10%" disabled value="2">
-                        <input type="text" style="width:10%" disabled value="顆">
-                        <a class="btn btn-sm btn-outline-secondary bi bi-pencil-square" href=""></a>
-                        <a class="btn btn-sm btn-outline-secondary bi bi-trash" href=""></a>
-
-                    </aside>
-                    <!-- 食材預覽結束 -->
-                    <!-- 煮辦人聯絡資訊 -->
-                    <aside class="col-12 text-left">
-                        <hr>
-                        <p>煮辦人聯絡資訊:</p>
-                        <br>
-                        <p class="text-danger">*以下內容僅提供給審核成功的共煮成員</p>
-
-                        <p>信箱:</p>
-                        <input type="text" placeholder="" style="width:35%" value="text@text.com" disabled>
-                        <br>
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p>通訊軟體:</p>
-                        <input type="text" class="form-control" placeholder="" style="" value="">
-
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p>帳號:</p>
-                        <input type="text" class="form-control" placeholder="" style="" value="">
-                    </aside>
-                    <aside class="col-12 text-left">
-                        <br>
-                        <p>留言給一起共煮的成員:</p>
-                        <textarea rows="3" class="form-control" name="selfintro" placeholder="" style=""></textarea>
-                    </aside>
-                    <!-- 煮辦人聯絡資訊結束 -->
-                    <aside class="col-12 text-right">
-                        <br><hr>
-
-                        <input class="btn btn-outline-info" type="submit" value="送出">
-                        <br><br>
-                    </aside>
+                    </div>
 
                 </div>
 
             </div>
 
         </div>
-
-    </div>
-</section>
-
+    </section>
+</form>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

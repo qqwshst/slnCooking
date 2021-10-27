@@ -191,6 +191,7 @@
       <DependentUpon>dbCookingModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CPartyViewModel.cs" />
     <Compile Include="ViewModel\C主辦Or報名ViewModel.cs" />
     <Compile Include="ViewModel\C資格審核ViewModel.cs" />
     <Compile Include="ViewModel\C管理者會員ViewModel.cs" />
@@ -222,6 +223,7 @@
     <Content Include="Views\Member\信箱驗證.cshtml" />
     <Content Include="Views\Member\Show個人頁面.cshtml" />
     <Content Include="Views\Member\Edit_info.cshtml" />
+    <Content Include="Views\Meet\CreateFood.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

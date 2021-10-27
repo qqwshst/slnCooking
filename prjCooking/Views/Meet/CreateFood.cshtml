@@ -1,0 +1,77 @@
+﻿@using prjCooking.ViewModel;
+@model List<CPartyViewModel>
+
+@{
+    ViewBag.Title = "CreateParty";
+}
+
+<h2 class="text-info">舉辦共煮</h2>
+<hr>
+<br>
+<form method="post" action="~/Meet/SaveParty">
+    <div class="container myfont1">
+        <!-- 網站內容 -->
+
+
+        <section>
+            <div class="container ">
+                <div class="row">
+
+                    <div class="col-md-6 offset-md-1 text-center bg-light">
+
+                        <div class="row">
+
+
+                            <aside class="col-12 text-left">
+                                <br>
+                                <h4>建議食材:</h4>
+                                <hr>
+                                <br>
+                            </aside>
+                            <aside class="col-6 text-left">
+
+                                <p>名稱</p>
+                                <input type="text" class="form-control" id="text_foodname">
+                                <span id="food_warning"></span>
+                            </aside>
+                            <aside class="col-3 text-left">
+                                <p>份量</p>
+                                <input type="number" min="1" class="form-control" id="text_foodnum">
+
+                            </aside>
+                            <aside class="col-3 text-left">
+
+                                <p>單位</p>
+                                <input type="text" class="form-control" id="text_foodunit">
+
+                            </aside>
+                            <aside class="col-12 text-right">
+                                <br>
+                                <a class="btn btn-sm btn-outline-secondary" href="">清除</a>
+                                <a class="btn btn-sm btn-outline-secondary" href="">新增</a>
+
+                                <br><br>
+
+                            </aside>
+                            <aside class="col-12 text-right">
+                                <br><hr>
+
+                                <input class="btn btn-outline-info" type="submit" value="發布">
+                                <br><br>
+                            </aside>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <br><br>
+
+    </div>
+
+
+
+</form>
