@@ -109,8 +109,8 @@
                         @Html.ActionLink("陳阿花", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item", })
                         <hr>
                         @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("我主辦的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("我參加的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("我主辦的共煮聚會", "主辦紀錄", "Meet", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("我參加的共煮聚會", "報名紀錄", "Meet", new { area = "" }, new { @class = "dropdown-item" })
                         @Html.ActionLink("登出", "登入", "Member", new { area = "" }, new { @class = "dropdown-item" })
                     </div>
                 </li>
@@ -137,7 +137,5 @@
         </footer>
     </div>
 
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
