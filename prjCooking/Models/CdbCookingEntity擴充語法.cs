@@ -68,8 +68,9 @@ namespace prjCooking.Models
 
         public static List<t參加者> Cooking查詢某聚會參與者ListBy聚會Id(this dbCookingEntities db, int? 聚會Id)
         {
+            bool 通過 = Convert.ToBoolean(參加者審核狀態.通過);
             List<t參加者> 某聚會的參與者 = db.t參加者.Where(參加者 => 參加者.f聚會Id == 聚會Id)
-                                                  .Where(參加者 => 參加者審核狀態.通過.CompareTo(參加者.f審核狀態) == 0)
+                                                  .Where(參加者 => 參加者.f審核狀態 == 通過)
                                                   .ToList();
 
             return 某聚會的參與者;

@@ -54,7 +54,18 @@ namespace prjCooking.Models
 
         private void 選擇聚會狀態(List<CCaptureMeetInfo> data, int statu)
         {
-            switch (statu)
+            List<CCaptureMeetInfo> cmiTemp = new List<CCaptureMeetInfo>();
+            foreach(CCaptureMeetInfo cmi in data)
+            {
+                if(cmi.聚會狀態Number.Value == statu)
+                {
+                    cmiTemp.Add(cmi);
+                }
+            }
+
+            data = cmiTemp;
+
+            /*switch (statu)
             {
                 case (int)聚會狀態.可報名:
                     data = data.Where(info => 聚會狀態.可報名.CompareTo(info.聚會狀態Number.Value) == 0).ToList();
@@ -65,7 +76,7 @@ namespace prjCooking.Models
                 case (int)聚會狀態.已結束:
                     data = data.Where(info => 聚會狀態.已結束.CompareTo(info.聚會狀態Number.Value) == 0).ToList();
                     break;
-            }
+            }*/
         }
 
         private void Sort(List<CCaptureMeetInfo> data, int? sortNumber, int? statu)
