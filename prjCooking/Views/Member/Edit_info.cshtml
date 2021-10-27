@@ -1,0 +1,100 @@
+﻿@model prjCooking.Models.CAllMember
+
+@{
+    ViewBag.Title = "Edit_info";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    <h2>編輯個人資訊</h2>
+    <hr />
+
+    @Html.AntiForgeryToken()
+
+    <aside class="container ">
+        <aside class="row">
+            <aside class="col-md-6 offset-md-1 text-center bg-light">
+
+                <!-- 開始編輯資訊 -->
+                <div class="form-horizontal row">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <aside class=" col-12 text-left">
+
+                        <!--照片-->
+                        <div class="form-group">
+                            <br />
+                            <img src="~/Image/@Model.f會員照片" id="imgpreview" class="rounded-circle " width="170" height="170" />
+                            <br /><br />
+                            <input type="file" name="image" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple />
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.f會員Id, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.f會員Id, new { htmlAttributes = new { @class = "form-control", @type="hidden"} })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.f自我介紹, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.f自我介紹, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.f自我介紹, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.f會員電話, htmlAttributes: new { @class = "control-label" })
+
+                            @Html.EditorFor(model => model.f會員電話, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.f會員電話, "", new { @class = "text-danger" })
+
+                        </div>
+                    </aside>
+                    <aside class="col-12 text-center">
+                        <div class="form-group">
+                            @Html.ActionLink("返回個人頁面", "Show個人頁面", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-info" })
+                            <input type="submit" value="送出" class="btn btn-outline-info" onclick = "return confirm('確定要修改嗎?')"/>
+
+                        </div>
+                    </aside>
+                </div>
+            </aside>
+        </aside>
+    </aside>
+
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+                function openFile() {
+
+                    var fileUpload = document.getElementById("fileupload");
+                    var imgPreview = document.getElementById("imgpreview");
+                    var imgOne = fileUpload.files[0];
+
+                    if (fileUpload.files.length > 0) {
+
+                        var reader = new FileReader();
+
+                        reader.onload = function () {
+                            imgPreview.src = reader.result;
+                        };
+
+                        imgPreview.onload = function () {
+
+                        }
+
+                        reader.readAsDataURL(imgOne);
+
+                    } else {
+
+                    }
+                }
+</script>
