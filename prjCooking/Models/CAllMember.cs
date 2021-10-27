@@ -17,7 +17,7 @@ namespace prjCooking.Models
             this.member = new t會員();
 
         }
-
+        [DisplayName(" ")]
         public int f會員Id
         {
             get { return this.member.f會員Id; }

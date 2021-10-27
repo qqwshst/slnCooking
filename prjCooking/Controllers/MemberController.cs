@@ -18,32 +18,33 @@ namespace prjCooking.Controllers
         public ActionResult Edit_info(int id)
         {
             dbCookingEntities db = new dbCookingEntities();
-            t會員 member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
-            if (member_select == null)
+            t會員 prod = db.t會員.FirstOrDefault(p => p.f會員Id == id);
+            if (prod == null)
                 return RedirectToAction("Show個人頁面");
-            return View(new CAllMember() { member = member_select });
-            
+
+            return View(new CAllMember() { member = prod });
+
+
         }
         [HttpPost]
         public ActionResult Edit_info(CAllMember editProduct)
         {
             dbCookingEntities db = new dbCookingEntities();
-            t會員 member_select = db.t會員.FirstOrDefault(p => p.f會員Id == editProduct.f會員Id);
-
-            if (member_select != null)
+            t會員 prod = db.t會員.FirstOrDefault(p => p.f會員Id == editProduct.f會員Id);
+            if (prod != null)
             {
                 if (editProduct.image != null)
                 {
                     //把照片重新命名
                     //讓名稱為唯一值
                     string photoName = Guid.NewGuid().ToString() + ".jpg";
-                    member_select.f會員照片 = photoName;
+                    prod.f會員照片 = photoName;
                     editProduct.image.SaveAs(Server.MapPath("../../Image/" + photoName));
                 }
 
-                member_select.f會員電話 = editProduct.f會員電話;
-                member_select.f自我介紹 = editProduct.f自我介紹;
-                
+                prod.f自我介紹 = editProduct.f自我介紹;
+                prod.f會員電話 = editProduct.f會員電話;
+
                 db.SaveChanges();
             }
 
@@ -58,14 +59,11 @@ namespace prjCooking.Controllers
 
         }
 
-        public ActionResult 註冊()
-        {
-            ViewBag.dis = "disabled";
-            ViewBag.驗證mail = (string)Session[CSessionKey.註冊會員_fEmail];
-            return View();
-        }
+        
         public ActionResult 登入()
         {
+            Session.Clear();
+            Session.Abandon();
             return View();
         }
         [HttpPost]
@@ -95,7 +93,13 @@ namespace prjCooking.Controllers
             return View();
         }
 
-
+        //請從信箱驗證頁面跳到註冊頁面
+        public ActionResult 註冊()
+        {
+            ViewBag.dis = "disabled";
+            ViewBag.驗證mail = (string)Session[CSessionKey.註冊會員_fEmail];
+            return View();
+        }
         [HttpPost]
         public ActionResult 註冊(string txtPwd, string txtName, int txtGender)
         {
@@ -111,10 +115,7 @@ namespace prjCooking.Controllers
             db.Cooking新增某表格資料<t會員>(註冊);
             
             return RedirectToAction("Index", "Home");
-            //if (Session[CSessionKey.註冊會員_fEmail] != null)
-            //{
-            //}
-            //return View();
+            
         }
 
         public ActionResult 信箱驗證()
