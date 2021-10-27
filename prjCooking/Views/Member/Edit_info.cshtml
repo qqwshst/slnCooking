@@ -6,7 +6,8 @@
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit_info", "Member",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <h2>編輯個人資訊</h2>
     <hr />

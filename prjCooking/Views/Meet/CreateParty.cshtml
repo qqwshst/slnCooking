@@ -8,7 +8,7 @@
 <h2 class="text-info">舉辦共煮</h2>
 <hr>
 <br>
-<form method="post" action="~/Meet/SaveParty">
+<form method="post" action="~/Meet/SaveParty" EncType="multipart/form-data" >
     <section>
         <div class="container">
             <div class="row">
@@ -24,7 +24,7 @@
                             <!-- <img class="card-img-top" src="img/cook_02.jpg" width="300" > -->
                             <br><br>
 
-                            <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
+                            <input type="file" name="image" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
                             <br>
                             <!-- 照片結束 -->
                             <hr>
