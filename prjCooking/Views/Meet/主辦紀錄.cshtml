@@ -89,10 +89,10 @@
                                                 </section>
                                                 <section class="my-2">
                                                     @Html.ActionLink(
-                                                        "取消活動",
+                                                        "取消聚會",
                                                         "取消活動",
                                                         new { 聚會Id = cmi.聚會ID },
-                                                        new { @class = "btn btn-outline-danger" })
+                                                        new { @class = "btn btn-outline-danger", onclick = "return confirm('確定要取消聚會?');" })
                                                 </section>
                                             }
                                             else
@@ -155,10 +155,10 @@
                                             new { meetId = cmi.聚會ID },
                                             new { @class = "btn btn-outline-secondary" })
                                         @Html.ActionLink(
-                                            "取消活動",
+                                            "取消聚會",
                                             "取消活動",
                                             new { 聚會Id = cmi.聚會ID },
-                                            new { @class = "btn btn-outline-danger my-3" })
+                                            new { @class = "btn btn-outline-danger my-3", onclick = "return confirm('確定要取消聚會?');" })
                                     }
                                     else
                                     {

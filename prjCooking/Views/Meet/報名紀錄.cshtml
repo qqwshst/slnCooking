@@ -102,7 +102,7 @@
                                                     @Html.ActionLink("取消報名",
                                                         "取消報名",
                                                         new { 聚會Id = cmi.聚會ID },
-                                                        new { @class = "btn btn-outline-danger" })
+                                                        new { @class = "btn btn-outline-danger", onclick= "return confirm('確定要取消報名?');" })
                                                 </section>
                                             }
                                             @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
@@ -169,7 +169,7 @@
                                         @Html.ActionLink("取消報名",
                                            "取消報名",
                                            new { 聚會Id = cmi.聚會ID },
-                                           new { @class = "btn btn-danger" })
+                                           new { @class = "btn btn-danger", onclick = "return confirm('確定要取消報名?');" })
                                     }
                                     @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
                                     {
