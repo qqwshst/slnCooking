@@ -58,14 +58,11 @@ namespace prjCooking.Controllers
 
         }
 
-        public ActionResult 註冊()
-        {
-            ViewBag.dis = "disabled";
-            ViewBag.驗證mail = (string)Session[CSessionKey.註冊會員_fEmail];
-            return View();
-        }
+        
         public ActionResult 登入()
         {
+            Session.Clear();
+            Session.Abandon();
             return View();
         }
         [HttpPost]
@@ -95,7 +92,13 @@ namespace prjCooking.Controllers
             return View();
         }
 
-
+        //請從信箱驗證頁面跳到註冊頁面
+        public ActionResult 註冊()
+        {
+            ViewBag.dis = "disabled";
+            ViewBag.驗證mail = (string)Session[CSessionKey.註冊會員_fEmail];
+            return View();
+        }
         [HttpPost]
         public ActionResult 註冊(string txtPwd, string txtName, int txtGender)
         {
@@ -111,10 +114,7 @@ namespace prjCooking.Controllers
             db.Cooking新增某表格資料<t會員>(註冊);
             
             return RedirectToAction("Index", "Home");
-            //if (Session[CSessionKey.註冊會員_fEmail] != null)
-            //{
-            //}
-            //return View();
+            
         }
 
         public ActionResult 信箱驗證()

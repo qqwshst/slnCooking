@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using prjCooking.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-   
+
 
     <style>
 
@@ -39,7 +40,6 @@
             width: 74px;
             border-radius: 50%;
         }
-         
     </style>
 </head>
 <body>
@@ -96,7 +96,8 @@
 
                     @Html.ActionLink("舉辦共煮", "", "", new { area = "" }, new { @class = "nav-item nav-link" })
                 </li>
-
+                @if(Session[CSessionKey.登入會員_t會員] != null) 
+                { 
                 <li class="nav-item dropdown data-display=" static"">
                     <!-- 加上 dropdown, 表示擁有下一層收合展開的子選單 ********** -->
                     <a class="nav-link dropdown-toggle " href="個人頁面.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="./assets/img/範例頭貼1.png" class=" personalPhoto" alt="" /></a>  <!-- a連結加上 dropdown-toggle 及相關的屬性 ********** -->
@@ -109,14 +110,16 @@
                         @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item" })
                         @Html.ActionLink("我主辦的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
                         @Html.ActionLink("我參加的共煮聚會", "", "", new { area = "" }, new { @class = "dropdown-item" })
-                        @Html.ActionLink("登出", "", "", new { area = "" }, new { @class = "dropdown-item" })
+                        @Html.ActionLink("登出", "登入", "Member", new { area = "" }, new { @class = "dropdown-item" })
                     </div>
                 </li>
-
+                }
+                @if (Session[CSessionKey.登入會員_t會員] == null)
+                {
                 <li class="nav-item">
-                            @Html.ActionLink("登入/註冊", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
-                    </li>
-
+                    @Html.ActionLink("登入", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                }
 
 
             </ul>
