@@ -51,63 +51,11 @@
                     <aside class="col-3 text-left">
 
                         <p><span class="text-danger">*</span>開始時間:</p>
-                        <select id="cbox_starttime">
-                            <option value="0">00:00</option>
-                            <option value="1">01:00</option>
-                            <option value="2">02:00</option>
-                            <option value="3">03:00</option>
-                            <option value="4">04:00</option>
-                            <option value="5">05:00</option>
-                            <option value="6">06:00</option>
-                            <option value="7">07:00</option>
-                            <option value="8">08:00</option>
-                            <option value="9">09:00</option>
-                            <option value="10">10:00</option>
-                            <option value="11">11:00</option>
-                            <option value="12">12:00</option>
-                            <option value="13">13:00</option>
-                            <option value="14">14:00</option>
-                            <option value="15">15:00</option>
-                            <option value="16">16:00</option>
-                            <option value="17">17:00</option>
-                            <option value="18">18:00</option>
-                            <option value="19">19:00</option>
-                            <option value="20">20:00</option>
-                            <option value="21">21:00</option>
-                            <option value="22">22:00</option>
-                            <option value="23">23:00</option>
-
-                        </select>
+                        <input type="time" class="form-control">
                     </aside>
                     <aside class="col-3 text-left">
                         <p><span class="text-danger">*</span>結束時間:</p>
-                        <select id="cbox_endtime">
-                            <option value="0">00:00</option>
-                            <option value="1">01:00</option>
-                            <option value="2">02:00</option>
-                            <option value="3">03:00</option>
-                            <option value="4">04:00</option>
-                            <option value="5">05:00</option>
-                            <option value="6">06:00</option>
-                            <option value="7">07:00</option>
-                            <option value="8">08:00</option>
-                            <option value="9">09:00</option>
-                            <option value="10">10:00</option>
-                            <option value="11">11:00</option>
-                            <option value="12">12:00</option>
-                            <option value="13">13:00</option>
-                            <option value="14">14:00</option>
-                            <option value="15">15:00</option>
-                            <option value="16">16:00</option>
-                            <option value="17">17:00</option>
-                            <option value="18">18:00</option>
-                            <option value="19">19:00</option>
-                            <option value="20">20:00</option>
-                            <option value="21">21:00</option>
-                            <option value="22">22:00</option>
-                            <option value="23">23:00</option>
-
-                        </select>
+                        <input type="time" class="form-control">
                     </aside>
                     <aside class="col-6 text-left">
                     </aside>
@@ -138,8 +86,8 @@
                     </aside>
                     <aside class="col-12 text-right">
                         <br>
-                        <a class="btn btn-sm btn-outline-secondary" href="">清除</a>
-                        <a class="btn btn-sm btn-outline-secondary" href="">新增</a>
+                        <button class="btn btn-sm btn-outline-secondary" id="clear">清除</button>
+                        <button class="btn btn-sm btn-outline-secondary" id="insert">新增</button>
 
                         <br><br>
 
@@ -147,24 +95,7 @@
                     <span id="sp_foodtable"></span>
 
                     <!-- 食材預覽 -->
-
-                    <aside class="col-12 text-left">
-                        <input type="text" style="width:40%" disabled value="雞蛋">
-                        <input type="text" style="width:10%" disabled value="2">
-                        <input type="text" style="width:10%" disabled value="顆">
-                        <a class="btn btn-sm btn-outline-secondary bi bi-pencil-square" href=""></a>
-                        <a class="btn btn-sm btn-outline-secondary bi bi-trash" href=""></a>
-
-                        <br>
-                    </aside>
-                    <aside class="col-12 text-left">
-                        <input type="text" style="width:40%" disabled value="雞蛋">
-                        <input type="text" style="width:10%" disabled value="2">
-                        <input type="text" style="width:10%" disabled value="顆">
-                        <a class="btn btn-sm btn-outline-secondary bi bi-pencil-square" href=""></a>
-                        <a class="btn btn-sm btn-outline-secondary bi bi-trash" href=""></a>
-
-                    </aside>
+                    <section id="foodprew"></section>
                     <!-- 食材預覽結束 -->
                     <!-- 煮辦人聯絡資訊 -->
                     <aside class="col-12 text-left">
@@ -213,9 +144,7 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-<script src="~/Scripts/jquery-3.4.1.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
 <script>
     function openFile() {
 
@@ -241,4 +170,43 @@
 
         }
     }
+
+    $("#insert").click(function () {
+        let text_foodname = $("#text_foodname").val();
+        let text_foodnum = $("#text_foodnum").val();
+        let text_foodunit = $("#text_foodunit").val();
+
+        if (text_foodname && text_foodnum && text_foodunit) {
+            let insertFood = `<aside class="col-12 text-left">
+                        <input type="text" style="width:40%" disabled value="${text_foodname}">
+                        <input type="text" style="width:10%" disabled value="${text_foodnum}">
+                        <input type="text" style="width:10%" disabled value="${text_foodunit}">
+                        <button class="btn btn-sm btn-outline-secondary bi bi-pencil-square"></button>
+                        <button class="btn btn-sm btn-outline-secondary bi bi-trash"></button>
+
+                        <br>
+                    </aside>`;
+            let insert = $(insertFood);
+            $("#foodprew").append(insert);
+            $("#clear").click();
+            $("button:first", insert).click(function () {
+                let temp = $("input", insert);
+                if (temp.attr("disabled")) {
+                    temp.removeAttr("disabled");
+                }
+                else {
+                    temp.attr("disabled", "disabled");
+                }
+            });
+            $("button:last", insert).click(function () {
+                insert.remove();
+            });
+        }
+    });
+
+    $("#clear").click(function () {
+        $("#text_foodname").val("");
+        $("#text_foodnum").val("");
+        $("#text_foodunit").val("");
+    });
 </script>
