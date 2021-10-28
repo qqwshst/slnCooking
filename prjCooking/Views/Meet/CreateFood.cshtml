@@ -1,77 +1,86 @@
-﻿@using prjCooking.ViewModel;
-@model List<CPartyViewModel>
+﻿@model prjCooking.ViewModel.CFoodViewModel
 
 @{
-    ViewBag.Title = "CreateParty";
+    ViewBag.Title = "CreateFood";
 }
 
 <h2 class="text-info">舉辦共煮</h2>
 <hr>
 <br>
-<form method="post" action="~/Meet/SaveParty">
-    <div class="container myfont1">
-        <!-- 網站內容 -->
+@using (Html.BeginForm("CreateFood", "Meet",
+    FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container myfont1">
+            <!-- 網站內容 -->
 
 
-        <section>
-            <div class="container ">
-                <div class="row">
+            <section>
+                <div class="container ">
+                    <div class="row">
 
-                    <div class="col-md-6 offset-md-1 text-center bg-light">
+                        <div class="col-md-6 offset-md-1 text-center bg-light">
 
-                        <div class="row">
+                            <div class="row">
 
 
-                            <aside class="col-12 text-left">
-                                <br>
-                                <h4>建議食材:</h4>
-                                <hr>
-                                <br>
-                            </aside>
-                            <aside class="col-6 text-left">
+                                <aside class="col-12 text-left">
+                                    <input type="text" value="@ViewBag.Boss" name="txt_boss" />
+                                    <input type="text" value="@ViewBag.Partyid" name="f聚會Id" />
+                                    <br>
+                                    <h4>建議食材:</h4>
+                                    <hr>
+                                    <br>
+                                </aside>
+                                <aside class="form-group col-6 text-left">
 
-                                <p>名稱</p>
-                                <input type="text" class="form-control" id="text_foodname">
-                                <span id="food_warning"></span>
-                            </aside>
-                            <aside class="col-3 text-left">
-                                <p>份量</p>
-                                <input type="number" min="1" class="form-control" id="text_foodnum">
+                                    @Html.LabelFor(model => model.f食材名稱, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.f食材名稱, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
+                                    @Html.ValidationMessageFor(model => model.f食材名稱, "", new { @class = "text-danger" })
 
-                            </aside>
-                            <aside class="col-3 text-left">
 
-                                <p>單位</p>
-                                <input type="text" class="form-control" id="text_foodunit">
+                                </aside>
+                                <aside class="form-group col-3 text-left">
+                                    @Html.LabelFor(model => model.f數量, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.f數量, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱", @type = "number" } })
+                                    @Html.ValidationMessageFor(model => model.f數量, "", new { @class = "text-danger" })
 
-                            </aside>
-                            <aside class="col-12 text-right">
-                                <br>
-                                <a class="btn btn-sm btn-outline-secondary" href="">清除</a>
-                                <a class="btn btn-sm btn-outline-secondary" href="">新增</a>
 
-                                <br><br>
+                                </aside>
+                                <aside class="form-group col-3 text-left">
+                                    @Html.LabelFor(model => model.f單位, htmlAttributes: new { @class = "control-label" })
+                                    @Html.EditorFor(model => model.f單位, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
+                                    @Html.ValidationMessageFor(model => model.f單位, "", new { @class = "text-danger" })
 
-                            </aside>
-                            <aside class="col-12 text-right">
-                                <br><hr>
+                                </aside>
+                                <aside class="col-12 text-right">
+                                    <br>
+                                    <input class="btn btn-outline-info" type="submit" value="新增">
+                                    <br><br>
 
-                                <input class="btn btn-outline-info" type="submit" value="發布">
-                                <br><br>
-                            </aside>
+                                </aside>
+                                <aside class="col-12 text-right">
+                                    <br><hr>
+                                    @Html.ActionLink("回到首頁", "Index", "Home", null, new { Class = "btn btn-outline-info" })
+                                    @Html.ActionLink("儲存", "Index", "Home", null, new { Class = "btn btn-outline-info" })
+
+                                    <br><br>
+                                </aside>
+
+                            </div>
 
                         </div>
 
                     </div>
 
                 </div>
+            </section>
+            <br><br>
 
-            </div>
-        </section>
-        <br><br>
-
-    </div>
-
+        </div>
+        </div>
 
 
-</form>
+        }

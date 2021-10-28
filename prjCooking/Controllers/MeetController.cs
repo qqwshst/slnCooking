@@ -29,34 +29,63 @@ namespace prjCooking.Controllers
         }
         public ActionResult CreateFood()
         {
+            dbCookingEntities db = new dbCookingEntities();
+
+            int query主辦人id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            var query聚會id = (from prod in db.t聚會
+                             where prod.f主辦人 == query主辦人id
+                             select prod.f聚會Id).Max();
+            ViewBag.Boss = query主辦人id;
+            ViewBag.Partyid = query聚會id;
             return View();
         }
+        [HttpPost]
+        public ActionResult CreateFood(CFoodViewModel query聚會food)
+        {
+            dbCookingEntities db = new dbCookingEntities();
+
+            t建議食材 addfood = new t建議食材();
+           
+            addfood.f聚會Id =Convert.ToInt32(Request.Form["f聚會Id"]);
+            addfood.f食材名稱 = query聚會food.f食材名稱;
+            addfood.f數量 = Convert.ToInt32(query聚會food.f數量);
+            addfood.f單位 = query聚會food.f單位;
+
+            db.t建議食材.Add(addfood);
+          
+            db.SaveChanges();
+
+            return View("Index","Home");
+        }
+
 
         public ActionResult CreateParty()
         {
             ViewBag.email = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員信箱;
+            ViewBag.photoname = "party_02.jpg";
             return View();
         }
 
-
-        public ActionResult SaveParty()
+        [HttpPost]
+        public ActionResult CreateParty(CPartyViewModel newparty)
         {
             dbCookingEntities db = new dbCookingEntities();
             t聚會 Addparty = new t聚會();
+
             Addparty.f主辦人 = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
-            Addparty.f聚會名稱 = Request.Form["f聚會名稱"];
-            Addparty.f聚會內容 = Request.Form["f聚會內容"];
-            Addparty.f聚會關鍵字 = Request.Form["f聚會關鍵字"];
-            Addparty.f聚會軟體 = Request.Form["f聚會軟體"];
-            Addparty.f聚會軟體URL = Request.Form["f聚會軟體URL"];
-            Addparty.f聚會日期 = Convert.ToDateTime(Request.Form["f聚會日期"]);
-            Addparty.f聚會開始時間 = Convert.ToDateTime(Request.Form["f聚會日期"] + " " + Request.Form["f聚會開始時間"]);
-            Addparty.f聚會結束時間 = Convert.ToDateTime(Request.Form["f聚會日期"] + " " + Request.Form["f聚會結束時間"]);
-            Addparty.f名額 = Convert.ToInt32(Request.Form["f名額"]);
-            Addparty.f聚會通訊軟體 = Request.Form["f聚會通訊軟體"];
-            Addparty.f聚會通訊軟體帳號 = Request.Form["f聚會通訊軟體帳號"];
+            Addparty.f聚會名稱 = newparty.f聚會名稱;
+            Addparty.f聚會內容 = newparty.f聚會內容;
+            Addparty.f聚會關鍵字 = newparty.f聚會關鍵字;
+            Addparty.f聚會軟體 = newparty.f聚會軟體;
+            Addparty.f聚會軟體URL = newparty.f聚會軟體URL;
+            Addparty.f聚會日期 = Convert.ToDateTime(newparty.f聚會日期);
+            Addparty.f名額 = Convert.ToInt32(newparty.f名額);
+            Addparty.f聚會通訊軟體 = newparty.f聚會通訊軟體;
+            Addparty.f聚會通訊軟體帳號 = newparty.f聚會通訊軟體帳號;
             Addparty.f聚會垃圾桶 = false;
             Addparty.f聚會建立日期 = DateTime.Now;
+            Addparty.f聚會開始時間 = Convert.ToDateTime(newparty.f聚會日期 + " " + newparty.f聚會開始時間);
+            Addparty.f聚會結束時間 = Convert.ToDateTime(newparty.f聚會日期 + " " + newparty.f聚會結束時間);
 
             if (Addparty.f聚會開始時間 > DateTime.Now)
                 Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.可報名);
@@ -64,13 +93,28 @@ namespace prjCooking.Controllers
                 Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.進行中);
             else
                 Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.已結束);
-            
+
+            if (newparty.image != null)
+            {
+                //把照片重新命名
+                //讓名稱為唯一值
+                string photoName = Guid.NewGuid().ToString() + ".jpg";
+                Addparty.f聚會照片 = photoName;
+                newparty.image.SaveAs(Server.MapPath("../../Image/" + photoName));
+
+            }
+            else
+            {
+                Addparty.f聚會照片 = " party_02.jpg";
+            }
+
+
             db.t聚會.Add(Addparty);
             db.SaveChanges();
 
+            
             return RedirectToAction("CreateFood", "Meet");
         }
-
         public ActionResult 報名紀錄(int? sort = 0, int? statu = 3, int page = 1)
         {
             // 排序 0新 1舊
