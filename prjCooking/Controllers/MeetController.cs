@@ -17,10 +17,15 @@ namespace prjCooking.Controllers
         {
             return View();
         }
-        public ActionResult showParty()
+        public ActionResult showParty(int? id)
         {
+            if (id.HasValue)
+            {
+                C聚會資訊For頁面ViewModel vmodel = (new C聚會相關操作()).撈取單一聚會資訊(id.Value);
+                return View(vmodel);
+            }
 
-            return View();
+            return View("Index", "Home");
         }
         public ActionResult PartyForm()
         {

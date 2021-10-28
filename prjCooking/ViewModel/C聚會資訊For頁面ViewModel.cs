@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using prjCooking.Models;
+
+namespace prjCooking.ViewModel
+{
+    public class C聚會資訊For頁面ViewModel
+    {
+        public t聚會 聚會資訊 { get; set; }
+        public t會員 主辦人資訊 { get; set; }
+        public List<t建議食材> 食材資訊List { get; set; }
+        public List<C參加者資訊For聚會頁面> 參加者資訊List { get; set; }
+        public List<t聚會> 最新聚會 { get; set; }
+    }
+}

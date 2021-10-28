@@ -101,7 +101,7 @@
                                                     @Html.ActionLink(
                                                         "檢視",
                                                         "showParty",
-                                                        null,
+                                                        new { id = cmi.聚會ID },
                                                         new { @class = "btn btn-outline-info" })
                                                 </section>
                                             }
@@ -165,7 +165,7 @@
                                         @Html.ActionLink(
                                             "檢視",
                                             "showParty",
-                                            null,
+                                            new { id = cmi.聚會ID },
                                             new { @class = "btn btn-outline-info" })
                                     }
                                 </div>

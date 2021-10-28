@@ -93,7 +93,7 @@
                                             <section class="mr-2 my-2">
                                                 @Html.ActionLink("查看詳細",
                                                    "showParty",
-                                                   null,
+                                                   new { id = cmi.聚會ID },
                                                    new { @class = "btn btn-outline-info" })
                                             </section>
                                             @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
@@ -162,7 +162,7 @@
                                 <div class="text-center">
                                     @Html.ActionLink("查看詳細",
                                        "showParty",
-                                       null,
+                                       new { id = cmi.聚會ID },
                                        new { @class = "btn btn-info" })
                                     @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
                                     {

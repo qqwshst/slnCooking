@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using prjCooking.ViewModel;
 
 namespace prjCooking.Models
 {
@@ -61,6 +62,45 @@ namespace prjCooking.Models
             }
 
             return null;
+        }
+
+        public C聚會資訊For頁面ViewModel 撈取單一聚會資訊(int 聚會Id)
+        {
+            C聚會資訊For頁面ViewModel 單一聚會資訊 = new C聚會資訊For頁面ViewModel();
+            單一聚會資訊.聚會資訊 = _db.Cooking查詢某聚會資訊By聚會Id(聚會Id);
+            單一聚會資訊.主辦人資訊 = _db.Cooking查詢某會員的資料By會員Id(單一聚會資訊.聚會資訊.f主辦人);
+            單一聚會資訊.食材資訊List = _db.Cooking查詢某聚會的食材ListBy聚會Id(聚會Id);
+            單一聚會資訊.最新聚會 = _db.Cooking查詢所有聚會List();
+            單一聚會資訊.參加者資訊List = Get參加者資訊List(聚會Id);
+
+            return 單一聚會資訊;
+        }
+
+        private List<C參加者資訊For聚會頁面> Get參加者資訊List(int 聚會Id)
+        {
+            List<C參加者資訊For聚會頁面> 參加者資訊List = new List<C參加者資訊For聚會頁面>();
+
+            List<t參加者> 參加者List = _db.Cooking查詢某聚會參與者ListBy聚會Id(聚會Id);
+            List<t評價> 參加者評論List = _db.Cooking查詢某聚會的評價ListBy聚會Id(聚會Id);
+            foreach (t參加者 參加者 in 參加者List)
+            {
+                C參加者資訊For聚會頁面 temp = new C參加者資訊For聚會頁面();
+                temp.參加者Id = 參加者.f參加者Id;
+                temp.參加者資訊 = _db.Cooking查詢某會員的資料By會員Id(參加者.f會員Id);
+                
+                foreach(t評價 評論 in 參加者評論List)
+                {
+                    if(評論.f聚會Id == 聚會Id && 評論.f參加者Id == 參加者.f參加者Id)
+                    {
+                        temp.評論 = 評論;
+                        break;
+                    }
+                }
+
+                參加者資訊List.Add(temp);
+            }
+
+            return 參加者資訊List;
         }
     }
 }
