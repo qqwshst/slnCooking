@@ -1,5 +1,4 @@
-﻿@model prjCooking.ViewModel.C管理者聚會ViewModel
-
+﻿@using prjCooking.Models
 @{
     ViewBag.Title = "CreateParty";
 }
@@ -13,127 +12,171 @@
         <div class="row">
 
             <div class="col-md-7 offset-md-1 text-center bg-light">
+                <form method="post" action="~/Meet/CreateParty" enctype="multipart/form-data">
+                    <div class="row">
+                        <aside class="col-md-12 text-left">
+                            <br>
+                            <!-- 照片 -->
+                            <img src="~/Image/party_02.jpg" id="imgpreview" class="card-img">
+                            <!-- <img class="card-img-top" src="img/cook_02.jpg" width="300" > -->
+                            <br><br>
 
-                <div class="row">
+                            <input type="file" name="上傳的圖片" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
+                            <br>
+                            <!-- 照片結束 -->
+                            <hr>
+                            <p><span class="text-danger">*</span>聚會名稱:</p>
+                            <input type="text" class="form-control" name="聚會名稱" placeholder="請輸入聚會名稱" style="" value="">
+                            <p>內容:</p>
+                            <textarea rows="2" class="form-control" name="聚會內容" placeholder="請介紹您的共煮聚會" style=""></textarea>
+                            <p>關鍵字:</p>
+                            <textarea rows="2" class="form-control" name="聚會關鍵字" placeholder="請在每個關鍵字前加上#" style=""></textarea>
+                            <br>
+                        </aside>
+                        <aside class="col-6 text-left">
+                            <p><span class="text-danger">*</span>共煮平台:</p>
+                            <input type="text" class="form-control" name="聚會軟體" placeholder="請輸入平台名稱" style="" value="">
 
-                    <aside class="col-md-12 text-left">
-                        <br>
-                        <!-- 照片 -->
-                        <img src="~/Image/party_02.jpg" id="imgpreview" class="card-img">
-                        <!-- <img class="card-img-top" src="img/cook_02.jpg" width="300" > -->
-                        <br><br>
+                        </aside>
+                        <aside class="col-6 text-left">
+                            <p><span class="text-danger">*</span>連結:</p>
+                            <input type="url" class="form-control" name="聚會軟體URL" placeholder="請輸入平台連結" style="" value="">
+                        </aside>
+                        <aside class="col-12 text-left">
+                            <p><span class="text-danger">*</span>日期:</p>
+                            <input type="date" class="form-control" name="聚會日期" min="today" style="width:50%">
+                        </aside>
+                        <aside class="col-3 text-left">
 
-                        <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
-                        <br>
-                        <!-- 照片結束 -->
-                        <hr>
-                        <p><span class="text-danger">*</span>聚會名稱:</p>
-                        <input type="text" class="form-control" placeholder="請輸入聚會名稱" style="" value="">
-                        <p>內容:</p>
-                        <textarea rows="2" class="form-control" name="selfintro" placeholder="請介紹您的共煮聚會" style=""></textarea>
-                        <p>關鍵字:</p>
-                        <textarea rows="2" class="form-control" name="selfintro" placeholder="請在每個關鍵字前加上#" style=""></textarea>
-                        <br>
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p><span class="text-danger">*</span>共煮平台:</p>
-                        <input type="text" class="form-control" placeholder="請輸入平台名稱" style="" value="">
+                            <p><span class="text-danger">*</span>開始時間:</p>
+                            <input type="time" class="form-control" name="聚會開始時間">
+                        </aside>
+                        <aside class="col-3 text-left">
+                            <p><span class="text-danger">*</span>結束時間:</p>
+                            <input type="time" class="form-control" name="聚會結束時間">
+                        </aside>
+                        <aside class="col-6 text-left">
+                        </aside>
+                        <aside class="col-12 text-left">
 
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p><span class="text-danger">*</span>連結:</p>
-                        <input type="url" class="form-control" placeholder="請輸入平台連結" style="" value="">
-                    </aside>
-                    <aside class="col-12 text-left">
-                        <p><span class="text-danger">*</span>日期:</p>
-                        <input type="date" class="form-control" min="today" style="width:50%">
-                    </aside>
-                    <aside class="col-3 text-left">
+                            <p><span class="text-danger">*</span>名額:</p>
+                            <input type="number" min="1" class="form-control" name="名額" placeholder="請輸入數字" style="width:25%">
+                            <hr>
+                            <p>建議食材:</p>
+                            <br>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" id="clear">刪除最後一個</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary" id="insert">新增一個</button>
+                        </aside>
 
-                        <p><span class="text-danger">*</span>開始時間:</p>
-                        <input type="time" class="form-control">
-                    </aside>
-                    <aside class="col-3 text-left">
-                        <p><span class="text-danger">*</span>結束時間:</p>
-                        <input type="time" class="form-control">
-                    </aside>
-                    <aside class="col-6 text-left">
-                    </aside>
-                    <aside class="col-12 text-left">
+                        <!-- 食材預覽 -->
+                        <aside id="foodprew">
+                            <fieldset class="col-12 text-left d-none" id="item1">
+                                <input type="text" style="width:40%" name="食材名稱List" value="">
+                                <input type="number" style="width:10%" name="食材數量List" value="">
+                                <input type="text" style="width:10%" name="食材單位List" value="">
 
-                        <p><span class="text-danger">*</span>名額:</p>
-                        <input type="number" min="1" class="form-control" placeholder="請輸入數字" style="width:25%">
-                        <hr>
-                        <p>建議食材:</p>
-                        <br>
-                    </aside>
-                    <aside class="col-6 text-left">
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item2">
+                                <input type="text" style="width:40%" name="食材名稱List" value="">
+                                <input type="number" style="width:10%" name="食材數量List" value="">
+                                <input type="text" style="width:10%" name="食材單位List" value="">
 
-                        <p>名稱</p>
-                        <input type="text" class="form-control" id="text_foodname">
-                        <span id="food_warning"></span>
-                    </aside>
-                    <aside class="col-3 text-left">
-                        <p>份量</p>
-                        <input type="number" min="1" class="form-control" id="text_foodnum">
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item3">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                    </aside>
-                    <aside class="col-3 text-left">
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item4">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                        <p>單位</p>
-                        <input type="text" class="form-control" id="text_foodunit">
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item5">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                    </aside>
-                    <aside class="col-12 text-right">
-                        <br>
-                        <button class="btn btn-sm btn-outline-secondary" id="clear">清除</button>
-                        <button class="btn btn-sm btn-outline-secondary" id="insert">新增</button>
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item6">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                        <br><br>
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item7">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                    </aside>
-                    <span id="sp_foodtable"></span>
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item8">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                    <!-- 食材預覽 -->
-                    <section id="foodprew"></section>
-                    <!-- 食材預覽結束 -->
-                    <!-- 煮辦人聯絡資訊 -->
-                    <aside class="col-12 text-left">
-                        <hr>
-                        <p>煮辦人聯絡資訊:</p>
-                        <br>
-                        <p class="text-danger">*以下內容僅提供給審核成功的共煮成員</p>
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item9">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                        <p>信箱:</p>
-                        <input type="text" placeholder="" style="width:35%" value="text@text.com" disabled>
-                        <br>
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p>通訊軟體:</p>
-                        <input type="text" class="form-control" placeholder="" style="" value="">
+                                <br>
+                            </fieldset>
+                            <fieldset class="col-12 text-left d-none" id="item10">
+                                <input type="text" style="width:40%" name="食材名稱List">
+                                <input type="number" style="width:10%" name="食材數量List">
+                                <input type="text" style="width:10%" name="食材單位List">
 
-                    </aside>
-                    <aside class="col-6 text-left">
-                        <p>帳號:</p>
-                        <input type="text" class="form-control" placeholder="" style="" value="">
-                    </aside>
-                    <aside class="col-12 text-left">
-                        <br>
-                        <p>留言給一起共煮的成員:</p>
-                        <textarea rows="3" class="form-control" name="selfintro" placeholder="" style=""></textarea>
-                    </aside>
-                    <!-- 煮辦人聯絡資訊結束 -->
+                                <br>
+                            </fieldset>
+                        </aside>
+                        <!-- 食材預覽結束 -->
+                        <!-- 煮辦人聯絡資訊 -->
+                        <aside class="col-12 text-left">
+                            <hr>
+                            <p>煮辦人聯絡資訊:</p>
+                            <br>
+                            <p class="text-danger">*以下內容僅提供給審核成功的共煮成員</p>
+
+                            <p>信箱:</p>
+                            <input type="text" placeholder="" style="width:35%" value="@{@(((t會員)Session[CSessionKey.登入會員_t會員]).f會員信箱)}" disabled>
+                            <br>
+                        </aside>
+                        <aside class="col-6 text-left">
+                            <p>通訊軟體:</p>
+                            <input type="text" class="form-control" name="聚會通訊軟體" placeholder="" style="" value="">
+
+                        </aside>
+                        <aside class="col-6 text-left">
+                            <p>帳號:</p>
+                            <input type="text" class="form-control" name="聚會通訊軟體帳號" placeholder="" style="" value="">
+                        </aside>
+                        @*<aside class="col-12 text-left">
+                            <br>
+                            <p>留言給一起共煮的成員:</p>
+                            <textarea rows="3" class="form-control" name="selfintro" placeholder="" style=""></textarea>
+                        </aside>*@
+                        <!-- 煮辦人聯絡資訊結束 -->
                     <aside class="col-12 text-right">
                         <br><hr>
 
                         <input class="btn btn-outline-info" type="submit" value="送出">
                         <br><br>
                     </aside>
-
-                </div>
-
+                    </div>
+                 </form>
             </div>
-
         </div>
 
     </div>
@@ -144,7 +187,8 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
     function openFile() {
 
@@ -171,42 +215,19 @@
         }
     }
 
+    let count = 1;
     $("#insert").click(function () {
-        let text_foodname = $("#text_foodname").val();
-        let text_foodnum = $("#text_foodnum").val();
-        let text_foodunit = $("#text_foodunit").val();
-
-        if (text_foodname && text_foodnum && text_foodunit) {
-            let insertFood = `<aside class="col-12 text-left">
-                        <input type="text" style="width:40%" disabled value="${text_foodname}">
-                        <input type="text" style="width:10%" disabled value="${text_foodnum}">
-                        <input type="text" style="width:10%" disabled value="${text_foodunit}">
-                        <button class="btn btn-sm btn-outline-secondary bi bi-pencil-square"></button>
-                        <button class="btn btn-sm btn-outline-secondary bi bi-trash"></button>
-
-                        <br>
-                    </aside>`;
-            let insert = $(insertFood);
-            $("#foodprew").append(insert);
-            $("#clear").click();
-            $("button:first", insert).click(function () {
-                let temp = $("input", insert);
-                if (temp.attr("disabled")) {
-                    temp.removeAttr("disabled");
-                }
-                else {
-                    temp.attr("disabled", "disabled");
-                }
-            });
-            $("button:last", insert).click(function () {
-                insert.remove();
-            });
-        }
+        if (count <= 10) {
+            let temp = $("#item" + count++);
+            temp.removeClass('d-none');
+        }  
     });
 
     $("#clear").click(function () {
-        $("#text_foodname").val("");
-        $("#text_foodnum").val("");
-        $("#text_foodunit").val("");
+        if (count > 0) {
+            let temp = $("#item" + count--);
+            temp.addClass('d-none');
+            $("input", temp).val('');
+        }
     });
 </script>

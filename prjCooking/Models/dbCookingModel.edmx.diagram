@@ -9,13 +9,13 @@
         <EntityTypeShape EntityType="dbCookingModel.t評價" Width="1.5" PointX="7.5" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="dbCookingModel.t會員" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="dbCookingModel.t聚會" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="dbCookingModel.t建議食材" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
         <AssociationConnector Association="dbCookingModel.FK__t參加者__f會員Id__2C3393D0" ManuallyRouted="false" />
         <AssociationConnector Association="dbCookingModel.FK__t參加者__f聚會Id__2D27B809" ManuallyRouted="false" />
         <AssociationConnector Association="dbCookingModel.FK__t評價__f參加者Id__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="dbCookingModel.FK__t評價__f聚會Id__32E0915F" ManuallyRouted="false" />
         <AssociationConnector Association="dbCookingModel.FK__t聚會__f主辦人__267ABA7A" ManuallyRouted="false" />
-        <AssociationConnector Association="dbCookingModel.FK__t建議食材__f聚會Id__29572725" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbCookingModel.t建議食材" Width="1.5" PointX="5.25" PointY="7.75" />
+        <AssociationConnector Association="dbCookingModel.FK__t建議食材__f聚會Id__36B12243" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -5,12 +5,11 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="dbCookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--產生期間發現錯誤:
-警告 6002: 資料表/檢視 'C:\USERS\資策會_全端\DESKTOP\CODE\期末\SLNCOOKING\PRJCOOKING\APP_DATA\DBCOOKING.MDF.dbo.t建議食材' 未定義主索引鍵。已推斷此索引鍵，並將定義建立成唯讀的資料表/檢視。-->
         <EntityType Name="t建議食材">
           <Key>
-            <PropertyRef Name="f聚會Id" />
+            <PropertyRef Name="f建議食材Id" />
           </Key>
+          <Property Name="f建議食材Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="f聚會Id" Type="int" Nullable="false" />
           <Property Name="f食材名稱" Type="nvarchar" MaxLength="50" />
           <Property Name="f數量" Type="int" />
@@ -75,9 +74,9 @@
           <Property Name="f聚會垃圾桶" Type="bit" />
           <Property Name="f聚會建立日期" Type="smalldatetime" Nullable="false" />
         </EntityType>
-        <Association Name="FK__t建議食材__f聚會Id__29572725">
+        <Association Name="FK__t建議食材__f聚會Id__36B12243">
           <End Role="t聚會" Type="Self.t聚會" Multiplicity="1" />
-          <End Role="t建議食材" Type="Self.t建議食材" Multiplicity="0..1" />
+          <End Role="t建議食材" Type="Self.t建議食材" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="t聚會">
               <PropertyRef Name="f聚會Id" />
@@ -148,19 +147,12 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="dbCookingModelStoreContainer">
+          <EntitySet Name="t建議食材" EntityType="Self.t建議食材" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t參加者" EntityType="Self.t參加者" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t評價" EntityType="Self.t評價" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t會員" EntityType="Self.t會員" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="t聚會" EntityType="Self.t聚會" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="t建議食材" EntityType="Self.t建議食材" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [t建議食材].[f聚會Id] AS [f聚會Id], 
-    [t建議食材].[f食材名稱] AS [f食材名稱], 
-    [t建議食材].[f數量] AS [f數量], 
-    [t建議食材].[f單位] AS [f單位]
-    FROM [dbo].[t建議食材] AS [t建議食材]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__t建議食材__f聚會Id__29572725" Association="Self.FK__t建議食材__f聚會Id__29572725">
+          <AssociationSet Name="FK__t建議食材__f聚會Id__36B12243" Association="Self.FK__t建議食材__f聚會Id__36B12243">
             <End Role="t聚會" EntitySet="t聚會" />
             <End Role="t建議食材" EntitySet="t建議食材" />
           </AssociationSet>
@@ -257,17 +249,7 @@
           <NavigationProperty Name="t參加者" Relationship="Self.FK__t參加者__f聚會Id__2D27B809" FromRole="t聚會" ToRole="t參加者" />
           <NavigationProperty Name="t評價" Relationship="Self.FK__t評價__f聚會Id__32E0915F" FromRole="t聚會" ToRole="t評價" />
           <NavigationProperty Name="t會員" Relationship="Self.FK__t聚會__f主辦人__267ABA7A" FromRole="t聚會" ToRole="t會員" />
-          <NavigationProperty Name="t建議食材" Relationship="Self.FK__t建議食材__f聚會Id__29572725" FromRole="t聚會" ToRole="t建議食材" />
-        </EntityType>
-        <EntityType Name="t建議食材">
-          <Key>
-            <PropertyRef Name="f聚會Id" />
-          </Key>
-          <Property Name="f聚會Id" Type="Int32" Nullable="false" />
-          <Property Name="f食材名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="f數量" Type="Int32" />
-          <Property Name="f單位" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="t聚會" Relationship="Self.FK__t建議食材__f聚會Id__29572725" FromRole="t建議食材" ToRole="t聚會" />
+          <NavigationProperty Name="t建議食材" Relationship="dbCookingModel.FK__t建議食材__f聚會Id__36B12243" FromRole="t聚會" ToRole="t建議食材" />
         </EntityType>
         <Association Name="FK__t參加者__f會員Id__2C3393D0">
           <End Role="t會員" Type="Self.t會員" Multiplicity="1" />
@@ -329,24 +311,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__t建議食材__f聚會Id__29572725">
-          <End Role="t聚會" Type="Self.t聚會" Multiplicity="1" />
-          <End Role="t建議食材" Type="Self.t建議食材" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="t聚會">
-              <PropertyRef Name="f聚會Id" />
-            </Principal>
-            <Dependent Role="t建議食材">
-              <PropertyRef Name="f聚會Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="dbCookingEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="t參加者" EntityType="Self.t參加者" />
           <EntitySet Name="t評價" EntityType="Self.t評價" />
           <EntitySet Name="t會員" EntityType="Self.t會員" />
           <EntitySet Name="t聚會" EntityType="Self.t聚會" />
-          <EntitySet Name="t建議食材" EntityType="Self.t建議食材" />
           <AssociationSet Name="FK__t參加者__f會員Id__2C3393D0" Association="Self.FK__t參加者__f會員Id__2C3393D0">
             <End Role="t會員" EntitySet="t會員" />
             <End Role="t參加者" EntitySet="t參加者" />
@@ -367,11 +336,35 @@
             <End Role="t會員" EntitySet="t會員" />
             <End Role="t聚會" EntitySet="t聚會" />
           </AssociationSet>
-          <AssociationSet Name="FK__t建議食材__f聚會Id__29572725" Association="Self.FK__t建議食材__f聚會Id__29572725">
+          <EntitySet Name="t建議食材" EntityType="dbCookingModel.t建議食材" />
+          <AssociationSet Name="FK__t建議食材__f聚會Id__36B12243" Association="dbCookingModel.FK__t建議食材__f聚會Id__36B12243">
             <End Role="t聚會" EntitySet="t聚會" />
             <End Role="t建議食材" EntitySet="t建議食材" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="t建議食材">
+          <Key>
+            <PropertyRef Name="f建議食材Id" />
+          </Key>
+          <Property Name="f建議食材Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="f聚會Id" Type="Int32" Nullable="false" />
+          <Property Name="f食材名稱" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="f數量" Type="Int32" />
+          <Property Name="f單位" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="t聚會" Relationship="dbCookingModel.FK__t建議食材__f聚會Id__36B12243" FromRole="t建議食材" ToRole="t聚會" />
+        </EntityType>
+        <Association Name="FK__t建議食材__f聚會Id__36B12243">
+          <End Type="dbCookingModel.t聚會" Role="t聚會" Multiplicity="1" />
+          <End Type="dbCookingModel.t建議食材" Role="t建議食材" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t聚會">
+              <PropertyRef Name="f聚會Id" />
+            </Principal>
+            <Dependent Role="t建議食材">
+              <PropertyRef Name="f聚會Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -444,10 +437,11 @@
           <EntitySetMapping Name="t建議食材">
             <EntityTypeMapping TypeName="dbCookingModel.t建議食材">
               <MappingFragment StoreEntitySet="t建議食材">
-                <ScalarProperty Name="f聚會Id" ColumnName="f聚會Id" />
-                <ScalarProperty Name="f食材名稱" ColumnName="f食材名稱" />
-                <ScalarProperty Name="f數量" ColumnName="f數量" />
                 <ScalarProperty Name="f單位" ColumnName="f單位" />
+                <ScalarProperty Name="f數量" ColumnName="f數量" />
+                <ScalarProperty Name="f食材名稱" ColumnName="f食材名稱" />
+                <ScalarProperty Name="f聚會Id" ColumnName="f聚會Id" />
+                <ScalarProperty Name="f建議食材Id" ColumnName="f建議食材Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

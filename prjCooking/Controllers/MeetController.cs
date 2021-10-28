@@ -30,16 +30,64 @@ namespace prjCooking.Controllers
 
         public ActionResult CreateParty()
         {
+            if(Session[CSessionKey.登入會員_t會員] != null)
+                return View();
 
-            return View();
+            return RedirectToAction("登入", "Member");
         }
 
         [HttpPost]
-        public ActionResult CreateParty(t聚會 p)
+        public ActionResult CreateParty(C主辦聚會ViewModel 新增聚會資訊)
         {
             dbCookingEntities db = new dbCookingEntities();
-            db.t聚會.Add(p);
-            db.SaveChanges();
+
+            // 建立 聚會活動
+            新增聚會資訊.主辦聚會資訊.f主辦人 = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            新增聚會資訊.主辦聚會資訊.f聚會狀態 = (int)聚會狀態.可報名;
+            新增聚會資訊.主辦聚會資訊.f聚會垃圾桶 = Convert.ToBoolean(聚會垃圾桶.顯示);
+            新增聚會資訊.主辦聚會資訊.f聚會開始時間 = CDateTime合併.合併(新增聚會資訊.聚會日期, 新增聚會資訊.聚會開始時間);
+            新增聚會資訊.主辦聚會資訊.f聚會結束時間 = CDateTime合併.合併(新增聚會資訊.聚會日期, 新增聚會資訊.聚會結束時間);
+            新增聚會資訊.主辦聚會資訊.f聚會建立日期 = DateTime.Now;
+
+            if (新增聚會資訊.上傳的圖片 != null)
+            {
+                string new照片名字 = C上傳圖片檔案重新命名.Get新名字(新增聚會資訊.上傳的圖片);
+                新增聚會資訊.主辦聚會資訊.f聚會照片 = new照片名字;
+                新增聚會資訊.上傳的圖片.SaveAs(Server.MapPath("~/image/" +new照片名字));
+            }
+
+            db.Cooking新增某表格資料<t聚會>(新增聚會資訊.主辦聚會資訊);
+
+            // 建立 建議食材
+            // 尋找聚會id
+            List<t聚會> 會員主辦聚會List = db.Cooking查詢某會員聚會ListBy會員Id(新增聚會資訊.主辦聚會資訊.f主辦人);
+            if (會員主辦聚會List != null)
+            {
+                會員主辦聚會List.Reverse();
+                int 本次聚會Id = 會員主辦聚會List[0].f聚會Id;
+
+                for (int i = 0; i < 新增聚會資訊.食材名稱List.Count; i++)
+                {
+                    if (新增聚會資訊.食材名稱List[i] != ""
+                        && 新增聚會資訊.食材單位List[i] != ""
+                        && 新增聚會資訊.食材數量List[i].HasValue)
+                    {
+                        db.Cooking新增某表格資料<t建議食材>(new t建議食材()
+                        {
+                            f食材名稱 = 新增聚會資訊.食材名稱List[i],
+                            f數量 = 新增聚會資訊.食材數量List[i].Value,
+                            f單位 = 新增聚會資訊.食材單位List[i],
+                            f聚會Id = 本次聚會Id
+                        });
+                    }
+                    else
+                    {
+                        break;
+                    }
+                    
+                }
+            }
+
             return RedirectToAction("showParty");
         }
  
