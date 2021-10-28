@@ -14,6 +14,7 @@ namespace prjCooking.Models
     
     public partial class t建議食材
     {
+        public int f建議食材Id { get; set; }
         public int f聚會Id { get; set; }
         public string f食材名稱 { get; set; }
         public Nullable<int> f數量 { get; set; }
