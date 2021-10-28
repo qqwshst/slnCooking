@@ -71,6 +71,7 @@ namespace prjCooking.Models
             bool 通過 = Convert.ToBoolean(參加者審核狀態.通過);
             List<t參加者> 某聚會的參與者 = db.t參加者.Where(參加者 => 參加者.f聚會Id == 聚會Id)
                                                   .Where(參加者 => 參加者.f審核狀態 == 通過)
+                                                  .Where(參加者 => 參加者.f報名 != true)
                                                   .ToList();
 
             return 某聚會的參與者;
