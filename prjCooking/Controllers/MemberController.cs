@@ -55,6 +55,7 @@ namespace prjCooking.Controllers
         {
             id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
             t會員 member_select = (new dbCookingEntities()).Cooking查詢某會員的資料By會員Id(id);
+         
             return View(new CAllMember() { member = member_select });
 
         }
@@ -111,6 +112,7 @@ namespace prjCooking.Controllers
             註冊.f性別 = txtGender;
             註冊.f權限 = 0;
             註冊.f會員建立日期 = DateTime.Now;
+            註冊.f會員照片 = "person.svg";
 
             db.Cooking新增某表格資料<t會員>(註冊);
             
