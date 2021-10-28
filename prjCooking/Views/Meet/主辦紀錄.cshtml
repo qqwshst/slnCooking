@@ -65,7 +65,7 @@
                                 {
                                     <!-- 一筆資料 -->
                                     <tr>
-                                        <td class="align-middle">@cmi.聚會日期</td>
+                                        <td class="align-middle">@cmi.聚會日期.ToString("yyyy/MM/dd")</td>
                                         <td class="align-middle">@cmi.聚會名稱</td>
                                         <td class="align-middle">@cmi.主辦人</td>
                                         <td class="align-middle">@cmi.目前人數/@cmi.人數上限</td>
@@ -133,7 +133,7 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">@cmi.聚會名稱</h5>
                                     <!-- Product price-->
-                                    @cmi.聚會日期<br>
+                                    @cmi.聚會日期.ToString("yyyy/MM/dd")<br>
                                     @cmi.主辦人<br>
                                     人數
                                     <div class="badge text-dark bg-light">@cmi.目前人數/@cmi.人數上限</div>

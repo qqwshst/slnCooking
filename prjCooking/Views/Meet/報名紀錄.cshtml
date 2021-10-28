@@ -85,7 +85,7 @@
                                     <!-- 一筆資料 -->
                                     <tr>
                                         <td class="align-middle">@cmi.聚會狀態Name</td>
-                                        <td class="align-middle">@cmi.聚會日期</td>
+                                        <td class="align-middle">@cmi.聚會日期.ToString("yyyy/MM/dd")</td>
                                         <td class="align-middle">@cmi.聚會名稱</td>
                                         <td class="align-middle">@cmi.主辦人</td>
                                         <!-- 按鈕 表格 -->
@@ -153,7 +153,7 @@
                                     <!-- Product name-->
                                     <h5 class="fw-bolder">@cmi.聚會名稱</h5>
                                     <!-- Product price-->
-                                    @cmi.聚會日期<br>
+                                    @cmi.聚會日期.ToString("yyyy/MM/dd")<br>
                                     @cmi.主辦人<br>
                                 </div>
                             </div>
