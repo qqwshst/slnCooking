@@ -55,15 +55,20 @@ namespace prjCooking.Controllers
           
             db.SaveChanges();
 
-            return View("Index","Home");
+            return RedirectToAction("CreateFood");
         }
 
 
         public ActionResult CreateParty()
         {
-            ViewBag.email = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員信箱;
-            ViewBag.photoname = "party_02.jpg";
-            return View();
+          
+            if (Session[CSessionKey.登入會員_t會員] != null)
+            {
+                ViewBag.email = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員信箱;
+                return View();
+            }
+            return RedirectToAction("登入", "Member");
+
         }
 
         [HttpPost]
@@ -100,14 +105,10 @@ namespace prjCooking.Controllers
                 //讓名稱為唯一值
                 string photoName = Guid.NewGuid().ToString() + ".jpg";
                 Addparty.f聚會照片 = photoName;
-                newparty.image.SaveAs(Server.MapPath("../../Image/" + photoName));
+                newparty.image.SaveAs(Server.MapPath("~/image/" + photoName));
 
             }
-            else
-            {
-                Addparty.f聚會照片 = " party_02.jpg";
-            }
-
+            
 
             db.t聚會.Add(Addparty);
             db.SaveChanges();
