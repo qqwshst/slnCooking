@@ -225,6 +225,7 @@
     <Content Include="Views\Member\Show個人頁面.cshtml" />
     <Content Include="Views\Member\Edit_info.cshtml" />
     <Content Include="Views\Meet\CreateFood.cshtml" />
+    <Content Include="Views\Member\忘記密碼.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

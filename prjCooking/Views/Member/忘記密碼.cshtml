@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "忘記密碼";
+}
+
+<h2>忘記密碼</h2>
+
+<form class="form-horizontal" style="text-align:center;" method="post">
+    <div class="form-group">
+        <br>
+        <!--required 必填欄位-->
+        <span>信箱驗證</span><br>
+        <input placeholder="XXX@gmail.com" style="width:400px" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail"><br>
+        <br>
+
+        @if (ViewBag.mail != null)
+        {
+            <span>驗證碼</span><br>
+            <input placeholder="請輸入4字驗證碼" style="width:400px" type="text" name="check" /><br>
+            <br>
+            <hr />
+            <span>輸入密碼</span><br>
+            <input placeholder="輸入密碼" style="width:400px" type="password" name="txtPwd" /><br>
+            <br>
+            <br>
+            <input placeholder="再次輸入密碼" style="width:400px" type="password" name="txtRePwd" /><br>
+            <br>
+        }
+        @ViewBag.通知訊息
+        <div>
+            <input type="submit" value="Next" />
+        </div>
+
+
+    </div>
+</form>
