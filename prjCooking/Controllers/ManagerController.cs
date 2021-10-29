@@ -10,6 +10,7 @@ namespace prjCooking.Controllers
 {
     public class ManagerController : Controller
     {
+     
 
         // GET: Manager
         public ActionResult PartyList()
@@ -94,6 +95,24 @@ namespace prjCooking.Controllers
             List<C管理者會員ViewModel> list = new List<C管理者會員ViewModel>();
             foreach (t會員 p in datas)
                 list.Add(new C管理者會員ViewModel() { member = p });
+
+            //修正部分viewmodel顯示資訊
+            foreach (C管理者會員ViewModel p in list)
+            {
+               
+                if (p.f性別 == 0)
+                    p.性別 = "不公開";
+                else if (p.f性別 == 1)
+                    p.性別 = "男";
+                else
+                    p.性別 = "女";
+                if (p.f權限 == 0)
+                    p.權限 = "一般會員";
+                else
+                    p.權限="管理者";
+            }
+
+
             return View(list);
 
         }

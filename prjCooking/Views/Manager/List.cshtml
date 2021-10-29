@@ -33,7 +33,10 @@
     <th class="col-md-1">
         序號
     </th>
-    <th class="col-md-3">
+    <th class="col-md-2">
+        @Html.DisplayNameFor(model => model[0].權限)
+    </th>
+    <th class="col-md-2">
         @Html.DisplayNameFor(model => model[0].f會員信箱)
 
     </th>
@@ -60,6 +63,9 @@
                     @count
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.權限)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.f會員信箱)
                 </td>
 
@@ -73,7 +79,7 @@
                 <td>
 
                     @Html.ActionLink("查看", "Details", "Manager", new { id = item.f會員Id }, new { Class = "btn btn-sm btn-outline-secondary" })
-                    @Html.ActionLink("刪除", "Delete", "Manager", new { id = item.f會員Id }, new { onclick = "return confirm('確定要刪除嗎?')", Class = "btn btn-sm btn-outline-secondary" })
+                    @*@Html.ActionLink("刪除", "Delete", "Manager", new { id = item.f會員Id }, new { onclick = "return confirm('確定要刪除嗎?')", Class = "btn btn-sm btn-outline-secondary" })*@
                 </td>
             </tr>
         }
