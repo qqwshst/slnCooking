@@ -1,65 +1,107 @@
-﻿@model prjCooking.ViewModel.C聚會資訊For頁面ViewModel
+﻿@using prjCooking.Models
+@model prjCooking.ViewModel.C聚會資訊For頁面ViewModel
 
 @{
     ViewBag.Title = "showParty";
 }
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<style>
+    .positif {
+        position: fixed !important;
+        right: 150px;
+    }
+
+    @@media (min-width:761px) {
+        .positif {
+            position: fixed !important;
+            right: 150px;
+        }
+    }
+
+    @@media (max-width:760px) {
+        .positif {
+            position: relative !important;
+            right: 50px;
+            top: 30px;
+        }
+    }
+</style>
+
+<!-- 網站內容 -->
+<!-- 一小塊空白 -->
+<section class="service-wrapper py-7">
+    <div class="service-tag py-5 bg-white">
+    </div>
+</section>
 
 <section>
     <div class="container ">
         <div class="row">
 
-            <div class="col-md-7 offset-md-1 text-center bg-light">
+            <div class="col-md-6 offset-md-1 text-center bg-light">
                 <div class="row">
 
                     <div class="col-md-12 text-left text-secondary">
                         <br>
                         <!-- 照片 -->
 
-                        <img class="card-img-top" src="img/cook_02.jpg" width="300">
+                        <img class="card-img-top" src="~/Image/@Model.聚會資訊.f聚會照片" width="300">
 
                         <br><br>
                         <!-- 照片結束 -->
                         <!-- 聚會主題 -->
-                        <!-- 主辦人id -->
-                        <input type="text" id="member_id" style="width:25%">
-                        <!-- 主辦人id結束 -->
-                        <p><a href="導覽列 - 個人頁面 - 最終.html"><img src="img/img_01.jpg" class="rounded-circle" width="30"></a><a class="text-secondary" href="導覽列 - 個人頁面 - 最終.html"> 陳阿花</a></p>
+                        <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
                         <!-- 煮辦人資訊 -->
-                        <p><i class="bi bi-envelope"></i> test@test.com</p>
-                        <p>通訊軟體:Line</p>
-                        <p>帳號:test</p>
-                        <p><i class="bi bi-chat-square-dots"></i> 報名成功的人可以先加我的賴喔</p>
+                        <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
+                        <br>
+                        <label>通訊軟體:@Model.聚會資訊.f聚會通訊軟體</label>
+                        <br>
+                        <label>帳號:@Model.聚會資訊.f聚會通訊軟體帳號</label>
+                        <br>
+                        <label><i class="bi bi-chat-square-dots"></i> "***這邊我不懂要放啥***" 報名成功的人可以先加我的賴喔</label>
                         <hr>
                         <!-- 個人資訊結束 -->
-                        <!-- 聚會id -->
-                        <input type="text" id="party_id" style="width:25%">
-                        <!-- 聚會id結束 -->
-                        <h3 class="text-dark">一起來做早餐吧!</h3>
+                        <h3 class="text-dark">@Model.聚會資訊.f聚會名稱</h3>
 
 
                         <!-- 聚會內容 -->
-                        <p class="text-dark">相約美好的早晨時光，一起線上做簡單又好吃的美式早餐!可以先準備煎食材的用具，當天一起料理吧!</p>
+                        <label class="text-dark">@Model.聚會資訊.f聚會內容</label>
                         <!-- 關鍵字 -->
                         <!-- 點選到首頁搜尋此關鍵字的結果 -->
                         <br>
-                        <a href="#">#早餐</a>
-                        <a href="#">#蛋</a>
-                        <a href="#">#簡單</a>
-                        <a href="#">#好吃</a>
-                        <a href="#">#美式</a>
-                        <a href="#">#breakfast</a>
+                        @foreach (string 關鍵字 in Model.聚會關鍵字)
+                        {
+                            <a href="#">#@關鍵字</a>
+                        }
                         <hr>
                         <!-- 日期 -->
-                        <p><i class="bi bi-clock" width="16" height="16"></i> 2021/09/21 08:00-10:00</p>
+                        <p><i class="bi bi-clock" width="16" height="16"></i> @Model.聚會資訊.f聚會日期.ToString("yyyy/MM/dd") @Model.聚會資訊.f聚會開始時間.ToString("HH:mm")-@Model.聚會資訊.f聚會結束時間.Value.ToString("HH:mm")</p>
 
                         <!-- 視訊軟體 -->
-                        <p><i class="bi bi-geo-alt"></i> webex會議軟體</p>
+                        <p><i class="bi bi-geo-alt"></i> @Model.聚會資訊.f聚會軟體</p>
                         <!-- 名額 -->
-                        <p><i class="bi bi-people"></i> 5人</p>
-
+                        <p><i class="bi bi-people"></i> @Model.參加者資訊List.Count / @Model.聚會資訊.f名額 人</p>
                         <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
-                        <button class="form-control btn btn-secondary" type="button" disabled>已結束</button>
+                        @{
+                            if ((int)聚會狀態.可報名 == Model.聚會資訊.f聚會狀態 && Model.主辦人資訊.f會員Id != ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id)
+                            {
+                                if (!Model.Is當前會員報名)
+                                {
+                                     <a href="#" class="form-control btn btn-secondary">@聚會狀態.可報名.ToString() </a>   
+                                }
+                                else 
+                                { 
+                                    <button class="form-control btn btn-secondary" type="button" disabled>已報名 </button>
+                                }
+                            }
+                            else
+                            {
+                                 <button class="form-control btn btn-secondary" type="button" disabled>@Enum.GetName(typeof(聚會狀態), Model.聚會資訊.f聚會狀態.Value) </button>
+                            }
+                        }
+                        <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
+
                         <br><br>
                         <!-- 食材 -->
                         <!-- 1個食材row2,2個食材row3,3個食材row4 -->
@@ -68,21 +110,16 @@
                             <tr>
                                 <td class="text-dark">建議食材</td>
                             </tr>
-                            <tr>
-                                <td>雞蛋</td>
-                                <td class="text-left">2顆</td>
-                            </tr>
-                            <tr>
-                                <td>番茄</td>
-                                <td>2顆</td>
-                            </tr>
-                            <tr>
-                                <td>雞胸肉</td>
-                                <td>200g</td>
-                            </tr>
+                            @foreach (t建議食材 食材 in Model.食材資訊List)
+                            {
+                                <tr>
+                                    <td>@食材.f食材名稱</td>
+                                    <td class="text-left">@食材.f數量 @食材.f單位</td>
+                                </tr>
+                            }
                         </table>
                         <hr>
-                        <p class="text-dark">成果發表</p>
+                        <label class="text-dark">成果發表</label>
                         <br><br>
 
                     </div>
@@ -155,7 +192,7 @@
                         <input type="text" id="member_id" style="width:25%">
                         <!-- 參與人id結束 -->
                         <p>請發表您的共煮成果:<br><span class="text-danger">*需上傳圖片才能發布成果<br></span></p>
-                        <a><img src="img/img_01.jpg" class="rounded-circle" height="30" width=”30”> 陳阿花</a>
+                        <a><img src="img/img_01.jpg" class="rounded-circle" height="30" width="30"> 陳阿花</a>
 
                         <br><br>
                         <!-- 上傳照片 -->
@@ -188,6 +225,28 @@
 
                 <br><br>
             </div>
+            <!-- 顯示最新聚會開始 -->
+            <aside class="col-md-2 positif">
+                <div class="row ">
+                    <div class="col-12 text-center mb-1">
+                        <p><span class="badge badge-info">New</span>共煮聚會</p>
+                    </div>
+                    <div class="col-12 text-center">
+                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id"><img class="img-fluid rounded" src="~/Image/@Model.最新聚會[0].f聚會照片" width="150"></a>
+                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id" class="text-dark"><br>@Model.最新聚會[0].f聚會名稱</a>
+                        <br>
+                    </div>
+
+                    <div class="col-12 text-center ">
+                        <br>
+                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id"><img class="img-fluid rounded" src="~/Image/@Model.最新聚會[1].f聚會照片" width="150"></a>
+                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id" class="text-dark"><br>@Model.最新聚會[1].f聚會名稱</a>
+                        <br>
+                    </div>
+
+                </div>
+            </aside>
+            <!-- 最新聚會結束 -->
 
         </div>
 
@@ -196,7 +255,58 @@
     </div>
 
 </section>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<br>
+<hr>
+
+<script>
+    function showMaxImg1(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal").find("#imgshow").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'><div class='text-left'><br><img src='img/girl.png' class='rounded-circle' width='30'><h5>林曉華</h5><p>活動非常有趣</p><p class='text-right text-secondary'>2021/10/01</p></div>");
+        $("#imgModal").modal('show');
+        $("#imgTitle").modal('show');
+    }
+    function showMaxImg2(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal").find("#imgshow").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'><div class='text-left'><br><img src='img/girl.png' class='rounded-circle' width='30'><h5>王曉明</h5><p>主辦人多才多藝</p><p class='text-right text-secondary'>2021/10/01</p></div>");
+        $("#imgModal").modal('show');
+        $("#imgTitle").modal('show');
+    }
+    function showMaxImg3(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal").find("#imgshow").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'><div class='text-left'><br><img src='img/girl.png' class='rounded-circle' width='30'><h5>陳阿琳</h5><p>主食過程有趣又有效率</p><p class='text-right text-secondary'>2021/10/01</p></div>");
+        $("#imgModal").modal('show');
+        $("#imgTitle").modal('show');
+    }
+    function showMaxImg4(obj) {
+        var src = $(obj).attr("src");
+        $("#imgModal").find("#imgshow").html("<img src='" + src + "' class='carousel-inner img-responsive img-rounded' data-dismiss='modal'><div class='text-left'><br><img src='img/girl.png' class='rounded-circle' width='30'><h5>謝阿婷</h5><p>活動非常有趣</p><p class='text-right text-secondary'>2021/10/01</p></div>");
+        $("#imgModal").modal('show');
+        $("#imgTitle").modal('show');
+    }
+    //--------------------------
+    function openFile() {
+
+        var fileUpload = document.getElementById("fileupload");
+        var imgPreview = document.getElementById("imgpreview");
+        var imgOne = fileUpload.files[0];
+
+        if (fileUpload.files.length > 0) {
+
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                imgPreview.src = reader.result;
+            };
+
+            imgPreview.onload = function () {
+
+            }
+
+            reader.readAsDataURL(imgOne);
+
+        } else {
+
+        }
+    }
+
+</script>

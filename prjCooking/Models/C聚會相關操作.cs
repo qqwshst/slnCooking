@@ -73,6 +73,8 @@ namespace prjCooking.Models
             單一聚會資訊.最新聚會 = _db.Cooking查詢所有聚會List();
             單一聚會資訊.參加者資訊List = Get參加者資訊List(聚會Id);
 
+            單一聚會資訊.聚會關鍵字 = 單一聚會資訊.聚會資訊.f聚會關鍵字.Substring(1).Split('#').ToList();
+
             return 單一聚會資訊;
         }
 

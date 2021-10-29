@@ -22,6 +22,15 @@ namespace prjCooking.Controllers
             if (id.HasValue)
             {
                 C聚會資訊For頁面ViewModel vmodel = (new C聚會相關操作()).撈取單一聚會資訊(id.Value);
+
+                foreach(C參加者資訊For聚會頁面 參加者 in vmodel.參加者資訊List)
+                {
+                    if(參加者.參加者資訊.f會員Id == ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id)
+                    {
+                        vmodel.Is當前會員報名 = true;
+                        break;
+                    }
+                }
                 return View(vmodel);
             }
 
