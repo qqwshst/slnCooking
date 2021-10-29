@@ -74,7 +74,11 @@ namespace prjCooking.ViewModel
             get { return this.member.f會員建立日期; }
             set { this.member.f會員建立日期 = value; }
         }
-
-     
+        [DisplayName("權限")]
+        public string 權限
+        { get;set;}
+        [DisplayName("性別")]
+        public string 性別
+        { get; set; }
     }
 }

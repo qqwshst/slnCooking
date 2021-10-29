@@ -36,42 +36,6 @@ namespace prjCooking.Controllers
 
             return View("Index", "Home");
         }
-        public ActionResult PartyForm()
-        {
-
-            return View();
-        }
-        public ActionResult CreateFood()
-        {
-            dbCookingEntities db = new dbCookingEntities();
-
-            int query主辦人id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
-            var query聚會id = (from prod in db.t聚會
-                             where prod.f主辦人 == query主辦人id
-                             select prod.f聚會Id).Max();
-            ViewBag.Boss = query主辦人id;
-            ViewBag.Partyid = query聚會id;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult CreateFood(CFoodViewModel query聚會food)
-        {
-            dbCookingEntities db = new dbCookingEntities();
-
-            t建議食材 addfood = new t建議食材();
-           
-            addfood.f聚會Id =Convert.ToInt32(Request.Form["f聚會Id"]);
-            addfood.f食材名稱 = query聚會food.f食材名稱;
-            addfood.f數量 = Convert.ToInt32(query聚會food.f數量);
-            addfood.f單位 = query聚會food.f單位;
-
-            db.t建議食材.Add(addfood);
-          
-            db.SaveChanges();
-
-            return RedirectToAction("CreateFood");
-        }
-
 
         public ActionResult CreateParty()
         {
@@ -128,7 +92,7 @@ namespace prjCooking.Controllers
             db.SaveChanges();
 
             
-            return RedirectToAction("CreateFood", "Meet");
+            return RedirectToAction("CreateFood", "Food");
         }
         public ActionResult 報名紀錄(int? sort = 0, int? statu = 3, int page = 1)
         {

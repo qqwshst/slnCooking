@@ -8,8 +8,8 @@
     <div class="form-group">
         <br>
         <!--required 必填欄位-->
-        <span>信箱</span><br>
-        <input placeholder="XXX@gmail.com" style="width:400px" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail">@ViewBag.帳號已存在<br>
+        <span>信箱驗證</span><br>
+        <input placeholder="XXX@gmail.com" style="width:400px" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail"><br>
         <br>
         @if (ViewBag.mail != null)
         {
@@ -19,7 +19,7 @@
                 <br>
             </div>
         }
-
+        @ViewBag.帳號已存在
         <div>
             <input type="submit" value="Next" />
         </div>

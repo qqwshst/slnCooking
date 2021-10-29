@@ -141,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MeetController.cs" />
@@ -226,7 +227,10 @@
     <Content Include="Views\Member\信箱驗證.cshtml" />
     <Content Include="Views\Member\Show個人頁面.cshtml" />
     <Content Include="Views\Member\Edit_info.cshtml" />
-    <Content Include="Views\Meet\CreateFood.cshtml" />
+    <Content Include="Views\Member\忘記密碼.cshtml" />
+    <Content Include="Views\Food\FoodList.cshtml" />
+    <Content Include="Views\Food\CreateFood.cshtml" />
+    <Content Include="Views\Food\EditFood.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

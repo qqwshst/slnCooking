@@ -94,6 +94,61 @@ namespace prjCooking.Controllers
             return View();
         }
 
+        public ActionResult 忘記密碼()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult 忘記密碼(string txtEmail, string txtPwd, string txtRePwd, string check)
+        {
+            dbCookingEntities db = new dbCookingEntities();
+            if (txtEmail != "")
+            {
+                t會員 會員 = db.t會員.Where(m => m.f會員信箱 == txtEmail).FirstOrDefault();
+
+                if (會員 != null)
+                {
+                    Maill();
+                    ViewBag.dis = "disabled";
+                    ViewBag.mail = (string)Session[CSessionKey.註冊會員_fEmail];
+                }
+                else
+                {
+                    ViewBag.通知訊息 = "此信箱尚未註冊";
+                }
+
+                if ((string)Session[CSessionKey.驗證碼_int] != null)
+                {
+                    var ch = (string)Session[CSessionKey.驗證碼_int];
+                    if (ch == check)
+                    {
+                        if (txtPwd == txtRePwd)
+                        {
+                            var mail = (string)Session[CSessionKey.註冊會員_fEmail];
+                            t會員 newPwd = db.t會員.Where(m => m.f會員信箱 == mail).FirstOrDefault();
+                            newPwd.f會員密碼 = txtPwd;
+                            db.Cooking修改會員資料(newPwd);
+
+                            return RedirectToAction("登入");
+                        }
+                        else
+                        {
+                            ViewBag.通知訊息 = "密碼輸入錯誤";
+                        }
+                    }
+                    else
+                    {
+                        //驗證碼錯誤
+                    }
+                }
+            }
+            else
+            {
+                ViewBag.通知訊息 = "請輸入帳號";
+            }
+            return View();
+        }
+
         //請從信箱驗證頁面跳到註冊頁面
         public ActionResult 註冊()
         {
@@ -156,7 +211,7 @@ namespace prjCooking.Controllers
         {
             int i;
             Random rnd = new Random();
-            i = rnd.Next(1000, 10000);
+            i = rnd.Next(1000, 9999);
             return i.ToString();
         }
 
