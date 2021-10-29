@@ -16,6 +16,7 @@ namespace prjCooking.Controllers
             
             return View();
         }
+        
         public ActionResult EditFood(int id)
         {
             dbCookingEntities db = new dbCookingEntities();
@@ -59,7 +60,7 @@ namespace prjCooking.Controllers
                 db.t建議食材.Remove(prod);
                 db.SaveChanges();
             }
-            return RedirectToAction("testfood");
+            return RedirectToAction("FoodList");
 
         }
         public ActionResult CreateFood()

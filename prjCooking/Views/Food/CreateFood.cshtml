@@ -24,9 +24,15 @@
                         <div class="col-md-6 offset-md-1 text-center bg-light">
 
                             <div class="row">
-                                <aside class="col-12 text-left">
+                                <aside class="col-6 text-left">
                                     <br>
                                     <h4 class="text-info">新增共煮食材:</h4>
+                                </aside>
+                                <aside class="col-6 text-right">
+                                    <br />
+                                    @Html.ActionLink("回到首頁", "Index", "Home", null, new { @Class = "btn btn-sm btn-outline-secondary" })
+                                  
+
                                 </aside>
 
 
@@ -78,8 +84,9 @@
 
                                                 </div>
                                                 <div class="modal-footer">
+                                                    <input type="button" class="btn btn-sm btn-outline-info" value="確定" />
 
-                                                    <input type="submit" value="確定" class="btn btn-sm btn-outline-info">
+
                                                 </div>
                                             </div>
                                         </div>
