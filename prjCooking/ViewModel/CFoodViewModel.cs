@@ -17,21 +17,30 @@ namespace prjCooking.ViewModel
             this.party_food = new t建議食材();
             
         }
+        public int f建議食材Id
+        {
+            get { return this.party_food.f建議食材Id; }
+            set { this.party_food.f建議食材Id = value; }
+        }
+
         public int f聚會Id
         {
             get { return this.party_food.f聚會Id; }
             set { this.party_food.f聚會Id = value; }
         }
+        [DisplayName("食材名稱")]
         public string f食材名稱
         {
             get { return this.party_food.f食材名稱; }
             set { this.party_food.f食材名稱 = value; }
         }
+        [DisplayName("份量")]
         public Nullable<int> f數量
         {
             get { return this.party_food.f數量; }
             set { this.party_food.f數量 = value; }
         }
+        [DisplayName("單位")]
         public string f單位
         {
             get { return this.party_food.f單位; }

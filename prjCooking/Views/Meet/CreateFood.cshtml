@@ -24,50 +24,76 @@
                         <div class="col-md-6 offset-md-1 text-center bg-light">
 
                             <div class="row">
-
+                                <aside class="col-6 text-left">
+                                    <br>
+                                    <h4>新增共煮食材:</h4>
+                                </aside>
+                                <aside class="col-6 text-right">
+                                    <br />
+                                    @Html.ActionLink("完成", "Index", "Home", null, new { Class = "btn btn-outline-info" })
+                                </aside>
 
                                 <aside class="col-12 text-left">
-                                    <input type="text" value="@ViewBag.Boss" name="txt_boss" />
-                                    <input type="text" value="@ViewBag.Partyid" name="f聚會Id" />
-                                    <br>
-                                    <h4>建議食材:</h4>
+
                                     <hr>
                                     <br>
+                                    <input type="hidden" value="@ViewBag.Boss" name="txt_boss" />
+                                    <input type="hidden" value="@ViewBag.Partyid" name="f聚會Id" />
                                 </aside>
-                                <aside class="form-group col-6 text-left">
+                              
+                                    <aside class="form-group col-6 text-left">
 
-                                    @Html.LabelFor(model => model.f食材名稱, htmlAttributes: new { @class = "control-label" })
-                                    @Html.EditorFor(model => model.f食材名稱, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
-                                    @Html.ValidationMessageFor(model => model.f食材名稱, "", new { @class = "text-danger" })
-
-
-                                </aside>
-                                <aside class="form-group col-3 text-left">
-                                    @Html.LabelFor(model => model.f數量, htmlAttributes: new { @class = "control-label" })
-                                    @Html.EditorFor(model => model.f數量, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱", @type = "number" } })
-                                    @Html.ValidationMessageFor(model => model.f數量, "", new { @class = "text-danger" })
+                                        @Html.LabelFor(model => model.f食材名稱, htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.f食材名稱, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
+                                        @Html.ValidationMessageFor(model => model.f食材名稱, "", new { @class = "text-danger" })
 
 
-                                </aside>
-                                <aside class="form-group col-3 text-left">
-                                    @Html.LabelFor(model => model.f單位, htmlAttributes: new { @class = "control-label" })
-                                    @Html.EditorFor(model => model.f單位, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
-                                    @Html.ValidationMessageFor(model => model.f單位, "", new { @class = "text-danger" })
+                                    </aside>
+                                    <aside class="form-group col-3 text-left">
+                                        @Html.LabelFor(model => model.f數量, htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.f數量, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱", @type = "number" } })
+                                        @Html.ValidationMessageFor(model => model.f數量, "", new { @class = "text-danger" })
 
-                                </aside>
-                                <aside class="col-12 text-right">
-                                    <br>
-                                    <input class="btn btn-outline-info" type="submit" value="新增">
-                                    <br><br>
 
-                                </aside>
-                                <aside class="col-12 text-right">
-                                    <br><hr>
-                                    @Html.ActionLink("回到首頁", "Index", "Home", null, new { Class = "btn btn-outline-info" })
-                                    @Html.ActionLink("儲存", "Index", "Home", null, new { Class = "btn btn-outline-info" })
+                                    </aside>
+                                    <aside class="form-group col-3 text-left">
+                                        @Html.LabelFor(model => model.f單位, htmlAttributes: new { @class = "control-label" })
+                                        @Html.EditorFor(model => model.f單位, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
+                                        @Html.ValidationMessageFor(model => model.f單位, "", new { @class = "text-danger" })
 
-                                    <br><br>
-                                </aside>
+                                    </aside>
+                                    <aside class="col-12 text-right">
+                                       
+
+                                        <input class="btn btn-outline-info" type="submit" value="新增" data-toggle="modal" data-target="#modalone">
+                                        <br><br>
+                                        <div class="modal text-center" id="modalone">
+                                            <div class="modal-md modal-dialog modal-dialog-scrollable">
+
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+
+                                                        <i class="modal-title text-success bi bi-cart-check"></i>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>已新增食材!</p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <input type="button" value="確定" class="btn btn-sm btn-outline-info">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </aside>
+                                    <aside class="col-12 text-right">
+                                        <br><hr>
+
+
+                                        <br><br>
+                                    </aside>
 
                             </div>
 

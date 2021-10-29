@@ -46,7 +46,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.f會員電話, htmlAttributes: new { @class = "control-label" })
 
-                            @Html.EditorFor(model => model.f會員電話, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.f會員電話, new { htmlAttributes = new { @class = "form-control", style = "width:50%" } })
                             @Html.ValidationMessageFor(model => model.f會員電話, "", new { @class = "text-danger" })
 
                         </div>
