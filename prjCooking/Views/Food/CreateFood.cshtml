@@ -30,8 +30,8 @@
                                 </aside>
                                 <aside class="col-6 text-right">
                                     <br />
-                                    @Html.ActionLink("回到首頁", "Index", "Home", null, new { @Class = "btn btn-sm btn-outline-secondary" })
-                                  
+                                    @Html.ActionLink("回到食材列表", "FoodList",  null, new { @Class = "btn btn-sm btn-outline-secondary" })
+                                    
 
                                 </aside>
 
@@ -66,7 +66,7 @@
 
                                 </aside>
                                 <aside class="col-12 text-right">
-
+                                    @Html.ActionLink("取消", "FoodList", null, new { Class = "btn btn-outline-info" })
 
                                     <input class="btn btn-outline-info" type="submit" value="儲存" data-toggle="modal" data-target="#modalone">
                                     <br><br>
