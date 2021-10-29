@@ -18,5 +18,6 @@ namespace prjCooking.Models
         public int? 目前人數 { get; set; }
         public bool Has評價 { get; set; }
         public bool? Is核准 { get; set; }
+        public bool? Is報名 { get; set; }
     }
 }

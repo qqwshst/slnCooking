@@ -96,7 +96,7 @@
                                                    new { id = cmi.聚會ID },
                                                    new { @class = "btn btn-outline-info" })
                                             </section>
-                                            @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
+                                            @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number && !cmi.Is核准.Value && !cmi.Is報名.Value)
                                             {
                                                 <section class="mr-2 my-2">
                                                     @Html.ActionLink("取消報名",

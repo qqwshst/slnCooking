@@ -66,7 +66,16 @@ namespace prjCooking.Models
             return 某會員的報名紀錄;
         }
 
-        public static List<t參加者> Cooking查詢某聚會參與者ListBy聚會Id(this dbCookingEntities db, int? 聚會Id)
+        public static List<t參加者> Cooking查詢某聚會所有參與者ListBy聚會Id(this dbCookingEntities db, int? 聚會Id)
+        {
+            bool 通過 = Convert.ToBoolean(參加者審核狀態.通過);
+            List<t參加者> 某聚會的參與者 = db.t參加者.Where(參加者 => 參加者.f聚會Id == 聚會Id)
+                                                  .ToList();
+
+            return 某聚會的參與者;
+        }
+
+        public static List<t參加者> Cooking查詢某聚會核准參與者ListBy聚會Id(this dbCookingEntities db, int? 聚會Id)
         {
             bool 通過 = Convert.ToBoolean(參加者審核狀態.通過);
             List<t參加者> 某聚會的參與者 = db.t參加者.Where(參加者 => 參加者.f聚會Id == 聚會Id)

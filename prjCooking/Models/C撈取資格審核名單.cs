@@ -42,8 +42,8 @@ namespace prjCooking.Models
                     .Where(t => t.f報名 == false)
                     .Select(t => new C審核參加者資訊
                     {
-                        參加者Id = t.f參加者Id,
-                        聚會Id = t.f會員Id,
+                        參加者Id = t.f會員Id,
+                        聚會Id = t.f聚會Id,
                         會員姓名 = t.t會員.f會員姓名,
                         會員照片 = t.t會員.f會員照片
                     }).ToList();

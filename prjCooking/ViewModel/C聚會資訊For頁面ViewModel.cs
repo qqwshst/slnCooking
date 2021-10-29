@@ -17,5 +17,7 @@ namespace prjCooking.ViewModel
         public bool Is當前會員報名 { get; set; } = false;
         public t會員 當前登入會員資訊 { get; set; }
         public bool Is成果發表 { get; set; } = false;
+        public bool Is核准參與 { get; set; } = false;
+        public int 聚會核准人數 { get; set; } = 0;
     }
 }

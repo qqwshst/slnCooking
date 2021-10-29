@@ -32,7 +32,8 @@ namespace prjCooking.Models
                     聚會日期 = m.t聚會.f聚會日期,
                     聚會狀態Number = m.t聚會.f聚會狀態.Value,
                     Has評價 = m.t評價.Where(t => t.f聚會Id == m.f聚會Id).Count() > 0 ? true : false,
-                    Is核准 = m.f審核狀態
+                    Is核准 = m.f審核狀態,
+                    Is報名 = m.f報名
                 }).ToList();
 
                 Get聚會狀態Name(data);

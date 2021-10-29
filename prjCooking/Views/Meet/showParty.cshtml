@@ -51,14 +51,20 @@
                         <!-- 照片結束 -->
                         <!-- 聚會主題 -->
                         <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
-                        <!-- 煮辦人資訊 -->
-                        <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
+
+
+                        @if (Model.Is核准參與)
+                        {
+                            <!-- 煮辦人資訊 -->
+                            <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
+                            <br>
+                            <label>通訊軟體:@Model.聚會資訊.f聚會通訊軟體</label>
+                            <br>
+                            <label>帳號:@Model.聚會資訊.f聚會通訊軟體帳號</label>
+                            <br />
+                            <a href="@Model.聚會資訊.f聚會軟體URL">@Model.聚會資訊.f聚會軟體URL</a>
+                        }
                         <br>
-                        <label>通訊軟體:@Model.聚會資訊.f聚會通訊軟體</label>
-                        <br>
-                        <label>帳號:@Model.聚會資訊.f聚會通訊軟體帳號</label>
-                        <br>
-                        
                         <hr>
                         <!-- 個人資訊結束 -->
                         <h3 class="text-dark">@Model.聚會資訊.f聚會名稱</h3>
@@ -79,19 +85,15 @@
 
                         <!-- 視訊軟體 -->
                         <p><i class="bi bi-geo-alt"></i> @Model.聚會資訊.f聚會軟體</p>
-                        @if (Model.Is當前會員報名)
-                        {
-                            <a href="@Model.聚會資訊.f聚會軟體URL">@Model.聚會資訊.f聚會軟體URL</a>
-                        }
                         <!-- 名額 -->
-                        <p><i class="bi bi-people"></i> @Model.參加者資訊List.Count / @Model.聚會資訊.f名額 人</p>
+                        <p><i class="bi bi-people"></i> @Model.聚會核准人數 / @Model.聚會資訊.f名額 人</p>
                         <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
                         @{
                             if ((int)聚會狀態.可報名 == Model.聚會資訊.f聚會狀態 && Model.主辦人資訊.f會員Id != Model.當前登入會員資訊.f會員Id)
                             {
                                 if (!Model.Is當前會員報名)
                                 {
-                                    <a href="#" class="form-control btn btn-secondary">@聚會狀態.可報名.ToString() </a>
+                                    <a href="~/Meet/報名?聚會Id=@Model.聚會資訊.f聚會Id" class="form-control btn btn-secondary" onclick="return confirm('確定要報名?')">@聚會狀態.可報名.ToString() </a>
                                 }
                                 else
                                 {
@@ -140,34 +142,37 @@
                                     int count = 0;
                                     foreach (C參加者資訊For聚會頁面 參加者 in Model.參加者資訊List)
                                     {
-                                        <!-- 第一個成果 -->
-                                        <!-- 點圖可放大/並顯示評論內容 -->
-                                        <div class="col-md-4 mb-3">
-                                            <a data-toggle="modal" data-target="#imgModa@{@count;}">
-                                                <img src="~/Image/@參加者.評論.f照片" class="img-fluid rounded">
-                                            </a>
-                                        </div>
-                                        <!-- 點圖可放大/並顯示評論內容 -->
-                                        <div class="modal fade bs-example-modal-md  text-center" id="imgModa@{@count}" tabindex="-1" role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog modal-md " style="display:inline-block;width:auto;">
+                                        if (參加者.評論 != null)
+                                        {
+                                            <!-- 第一個成果 -->
+                                            <!-- 點圖可放大/並顯示評論內容 -->
+                                            <div class="col-md-4 mb-3">
+                                                <a data-toggle="modal" data-target="#imgModa@{@count;}">
+                                                    <img src="~/Image/@參加者.評論.f照片" class="img-fluid rounded">
+                                                </a>
+                                            </div>
+                                            <!-- 點圖可放大/並顯示評論內容 -->
+                                            <div class="modal fade bs-example-modal-md  text-center" id="imgModa@{@count}" tabindex="-1" role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-md " style="display:inline-block;width:auto;">
 
-                                                <div class="modal-content col-10">
-                                                    <div>
-                                                        <img src="~/Image/@參加者.評論.f照片" class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>
-                                                        <div class='text-left'>
-                                                            <br>
-                                                            <img src='~/Image/@參加者.參加者資訊.f會員照片' class='rounded-circle' width='30'>
-                                                            <h5>@參加者.參加者資訊.f會員姓名</h5><p>@參加者.評論.f留言</p>
-                                                            <p class='text-right text-secondary'>
-                                                                @參加者.評論.f評價建立日期
-                                                            </p>
+                                                    <div class="modal-content col-10">
+                                                        <div>
+                                                            <img src="~/Image/@參加者.評論.f照片" class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>
+                                                            <div class='text-left'>
+                                                                <br>
+                                                                <img src='~/Image/@參加者.參加者資訊.f會員照片' class='rounded-circle' width='30'>
+                                                                <h5>@參加者.參加者資訊.f會員姓名</h5><p>@參加者.評論.f留言</p>
+                                                                <p class='text-right text-secondary'>
+                                                                    @參加者.評論.f評價建立日期
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!-- 第一個成果結束 -->
-                                        count++;
+                                            <!-- 第一個成果結束 -->
+                                            count++;
+                                        }
                                     }
                                 }
 
@@ -175,7 +180,7 @@
 
                             </div>
                         <!-- 編輯/留言 視窗 -->
-                        @if (Model.Is當前會員報名 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && Model.Is成果發表)
+                        @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && Model.Is成果發表)
                         {
                             <form method="post" action="" enctype="multipart/form-data">
                                 <div class="col-7 text-left">

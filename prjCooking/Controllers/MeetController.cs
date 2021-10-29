@@ -31,15 +31,19 @@ namespace prjCooking.Controllers
                     {
                         vmodel.當前登入會員資訊 = new t會員();
                         vmodel.當前登入會員資訊.f會員Id = 0;
-                    }  
+                    }
 
+                    vmodel.參加者資訊List.Reverse();
                     foreach (C參加者資訊For聚會頁面 參加者 in vmodel.參加者資訊List)
                     {
                         if (參加者.參加者資訊.f會員Id == vmodel.當前登入會員資訊.f會員Id)
                         {
-                            vmodel.Is當前會員報名 = true;
+                            if(!參加者.參加者資料.f報名)
+                                vmodel.Is當前會員報名 = true;
                             if (參加者.評論 != null)
                                 vmodel.Is成果發表 = true;
+                            if (參加者.參加者資料.f審核狀態)
+                                vmodel.Is核准參與 = true;
 
                             break;
                         }
@@ -164,15 +168,15 @@ namespace prjCooking.Controllers
                 {
                     C資格審核ViewModel vmodel = new C資格審核ViewModel();
                     C撈取資格審核名單 撈取 = new C撈取資格審核名單();
-
+                    int 主辦人Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
                     // 撈取已核准名單
                     bool 核准 = Convert.ToBoolean(參加者審核狀態.通過);
-                    if (撈取.Set撈取(1, meetId, 核准))
+                    if (撈取.Set撈取(主辦人Id, meetId, 核准))
                         vmodel.核准 = 撈取.Get();
 
                     // 撈取未審核名單
                     bool? 未審核 = Convert.ToBoolean(參加者審核狀態.未通過);
-                    if(撈取.Set撈取(1, meetId, 未審核))
+                    if(撈取.Set撈取(主辦人Id, meetId, 未審核))
                         vmodel.未審核 = 撈取.Get();
 
                     return View(vmodel);
@@ -214,10 +218,36 @@ namespace prjCooking.Controllers
             {
                 (new C聚會相關操作()).核准參加者(聚會Id.Value, 參加者Id.Value);
 
-                return RedirectToAction("資格審核");
+                return RedirectToAction("資格審核", new { meetId = 聚會Id.Value });
             }
 
             return RedirectToAction("index", "Home");
+        }
+
+        public ActionResult 報名(int? 聚會Id)
+        {
+            if(Session[CSessionKey.登入會員_t會員] != null)
+            {
+                if (聚會Id.HasValue)
+                {
+                    dbCookingEntities db = new dbCookingEntities();
+                    int 聚會名額 = db.Cooking查詢某聚會資訊By聚會Id(聚會Id).f名額.Value + 1;
+                    int 當前參加人數 = db.Cooking查詢某聚會核准參與者ListBy聚會Id(聚會Id).Count;
+                    if(當前參加人數 < 聚會名額)
+                    {
+                        int 會員Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+                        t參加者 新參加者 = new t參加者();
+                        新參加者.f聚會Id = 聚會Id.Value;
+                        新參加者.f會員Id = 會員Id;
+                        新參加者.f參加者建立日期 = DateTime.Now;
+                        db.Cooking新增某表格資料<t參加者>(新參加者);
+                    }
+
+                    return RedirectToAction("showParty", new { id = 聚會Id.Value });
+                }
+            }
+
+            return RedirectToAction("登入", "Member");
         }
     }
 }

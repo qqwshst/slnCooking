@@ -52,7 +52,7 @@ namespace prjCooking.Models
         private t參加者 某一個參加者(int 聚會Id, int 參加者Id)
         {
             List<t參加者> 某會員的報名紀錄 = _db.Cooking查詢某會員報名紀錄ListBy會員Id(參加者Id);
-
+            某會員的報名紀錄.Reverse();
             foreach (t參加者 某參加者報名紀錄 in 某會員的報名紀錄)
             {
                 if (某參加者報名紀錄.f聚會Id == 聚會Id)
@@ -75,7 +75,7 @@ namespace prjCooking.Models
                 單一聚會資訊.最新聚會 = _db.Cooking查詢所有聚會List();
                 單一聚會資訊.最新聚會.Reverse();
                 單一聚會資訊.參加者資訊List = Get參加者資訊List(聚會Id);
-
+                單一聚會資訊.聚會核准人數 = _db.Cooking查詢某聚會核准參與者ListBy聚會Id(聚會Id).Count;
                 單一聚會資訊.聚會關鍵字 = 單一聚會資訊.聚會資訊.f聚會關鍵字.Substring(1).Split('#').ToList();
 
                 return 單一聚會資訊;
@@ -88,12 +88,12 @@ namespace prjCooking.Models
         {
             List<C參加者資訊For聚會頁面> 參加者資訊List = new List<C參加者資訊For聚會頁面>();
 
-            List<t參加者> 參加者List = _db.Cooking查詢某聚會參與者ListBy聚會Id(聚會Id);
+            List<t參加者> 參加者List = _db.Cooking查詢某聚會所有參與者ListBy聚會Id(聚會Id);
             List<t評價> 參加者評論List = _db.Cooking查詢某聚會的評價ListBy聚會Id(聚會Id);
             foreach (t參加者 參加者 in 參加者List)
             {
                 C參加者資訊For聚會頁面 temp = new C參加者資訊For聚會頁面();
-                temp.參加者Id = 參加者.f參加者Id;
+                temp.參加者資料 = 參加者;
                 temp.參加者資訊 = _db.Cooking查詢某會員的資料By會員Id(參加者.f會員Id);
                 
                 foreach(t評價 評論 in 參加者評論List)
