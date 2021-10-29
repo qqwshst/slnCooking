@@ -23,18 +23,33 @@ namespace prjCooking.Controllers
             {
                 C聚會資訊For頁面ViewModel vmodel = (new C聚會相關操作()).撈取單一聚會資訊(id.Value);
 
-                foreach(C參加者資訊For聚會頁面 參加者 in vmodel.參加者資訊List)
+                if(vmodel != null)
                 {
-                    if(參加者.參加者資訊.f會員Id == ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id)
+                    if (Session[CSessionKey.登入會員_t會員] != null)
+                        vmodel.當前登入會員資訊 = (t會員)Session[CSessionKey.登入會員_t會員];
+                    else
                     {
-                        vmodel.Is當前會員報名 = true;
-                        break;
+                        vmodel.當前登入會員資訊 = new t會員();
+                        vmodel.當前登入會員資訊.f會員Id = 0;
+                    }  
+
+                    foreach (C參加者資訊For聚會頁面 參加者 in vmodel.參加者資訊List)
+                    {
+                        if (參加者.參加者資訊.f會員Id == vmodel.當前登入會員資訊.f會員Id)
+                        {
+                            vmodel.Is當前會員報名 = true;
+                            if (參加者.評論 != null)
+                                vmodel.Is成果發表 = true;
+
+                            break;
+                        }
                     }
+
+                    return View(vmodel);
                 }
-                return View(vmodel);
             }
 
-            return View("Index", "Home");
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult CreateParty()
