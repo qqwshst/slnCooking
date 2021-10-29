@@ -10,26 +10,26 @@
 </section>
 
 <h2 class="text-info">用戶管理</h2>
+
 <hr>
 <br>
 
 @using (Html.BeginForm())
 {
 <p>
-    <label>關鍵字:</label>
-    <input class="form-control" type="text" placeholder="請輸入欲查詢的資訊" style="width:25%" name="txtKeyword">
+    <label>用戶查詢:</label>
+    <input class="form-control" type="text" placeholder="請輸入帳號、姓名" style="width:25%" name="txtKeyword">
     <br />
-    <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
     @Html.ActionLink("回到用戶列表", "List", "Manager", new { Class = "btn btn-sm btn-outline-info" })
+    <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
+    <br /><br />
 
 </p>
 }
 
-<p>
-    @Html.ActionLink("新增用戶", "Create")
-</p>
+
 <table class="table  table-sm table-hover">
-    <thead class="thead-light table-bordered">
+    <thead class="thead-light">
     <th class="col-md-1">
         序號
     </th>
@@ -45,7 +45,7 @@
     <th class="col-md-3">
 
         @Html.DisplayNameFor(model => model[0].f會員建立日期)
-  
+
     </th>
     <th class="col-md-3"></th>
     </thead>
@@ -55,7 +55,7 @@
         foreach (var item in Model)
         {
             count++;
-            <tr class="table-bordered">
+            <tr>
                 <td>
                     @count
                 </td>
@@ -71,11 +71,12 @@
                     @Html.DisplayFor(modelItem => item.f會員建立日期)
                 </td>
                 <td>
-                  
-                    @Html.ActionLink("查看", "Details","Manager", new { id = item.f會員Id }, new { Class = "btn btn-sm btn-outline-secondary" }) 
+
+                    @Html.ActionLink("查看", "Details", "Manager", new { id = item.f會員Id }, new { Class = "btn btn-sm btn-outline-secondary" })
                     @Html.ActionLink("刪除", "Delete", "Manager", new { id = item.f會員Id }, new { onclick = "return confirm('確定要刪除嗎?')", Class = "btn btn-sm btn-outline-secondary" })
                 </td>
             </tr>
         }
     }
 </table>
+<br />

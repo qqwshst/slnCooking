@@ -15,64 +15,80 @@
 
 @using (Html.BeginForm())
 {
-    <p>
-        <label>關鍵字:</label>
-        <input class="form-control" type="text" placeholder="請輸入欲查詢的資訊" style="width:25%" name="txtKeyword">
-        <br />
-        <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
-    </p>
-}
 <p>
-    @Html.ActionLink("新增", "CreateParty")
+    <label>聚會查詢:</label>
+    <input class="form-control" type="text" placeholder="請輸入欲查詢的聚會名稱" style="width:25%" name="txtKeyword">
+    <br />
+    @Html.ActionLink("回到聚會列表", "PartyList", null, new { @class = "btn btn-sm btn-outline-info" })
+    <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
 </p>
-<table class="table">
-    <tr>
-        <th>
-            序
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].f主辦人)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].f聚會名稱)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].f聚會日期)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model[0].f聚會狀態)
-        </th>
+}
 
-        <th>
+<table class="table table-sm table-hover table-condensed">
+    <thead class="thead-light">
+    <th>
+        序
+    </th>
+    <th>
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model[0].聚會建立日期)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model[0].煮辦人姓名)
+    </th>
 
-        </th>
-    </tr>
+    <th>
+        @Html.DisplayNameFor(model => model[0].f聚會名稱)
+    </th>
+
+    <th>
+        @Html.DisplayNameFor(model => model[0].聚會狀態)
+    </th>
+
+
+
+    <th>
+    </th>
+    </thead>
 
     @{
+        int 主辦人id = 0;
         int count = 0;
         foreach (var item in Model)
         {
+            主辦人id = item.f主辦人;
             count++;
             <tr>
                 <td>
-                    @count;
+                    @count
+
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.f主辦人)
+                    @Html.DisplayFor(modelItem => item.聚會垃圾桶)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.聚會建立日期)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.煮辦人姓名)
+
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.f聚會名稱)
                 </td>
+
                 <td>
-                    @Html.DisplayFor(modelItem => item.f聚會日期)
+                    @Html.DisplayFor(modelItem => item.聚會狀態)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.f聚會狀態)
-                </td>
+
+
                 <td>
 
-                    @Html.ActionLink("查看", "Details", new { id = item.f聚會Id }) |
-                    @Html.ActionLink("刪除", "Delete", new { id = item.f聚會Id })
+                    @Html.ActionLink("查看", "Details", new { id = item.f聚會Id }, new { @class = "btn btn-sm btn-outline-secondary" })
+                    @Html.ActionLink("編輯", "Edit", new { id = item.f聚會Id }, new { @class = "btn btn-sm btn-outline-secondary" })
+
                 </td>
             </tr>
         }
