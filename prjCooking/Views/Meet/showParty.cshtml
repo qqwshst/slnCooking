@@ -182,7 +182,7 @@
                             <!-- 編輯/留言 視窗 -->
                             @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && !Model.Is成果發表)
                             {
-                        <form method="post" action="" enctype="multipart/form-data" class="row" id="myform">
+                        <form method="post" action="~/Meet/新增評論" enctype="multipart/form-data" class="row" id="myform">
                             @Html.TextBox("參加者Id", Model.當前會員參加者Id, new { type = "hidden" })
                             @Html.TextBox("聚會Id", Model.聚會資訊.f聚會Id, new { type = "hidden" })
                             <div class="col-7 text-left">
@@ -193,7 +193,7 @@
 
                                 <!-- 上傳照片 -->
 
-                                <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
+                                <input type="file" name="上傳圖片" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
 
                                 <p class="text-secondary">圖片格式:jpeg/gif/png</p>
                             </div>
@@ -212,7 +212,7 @@
                             <section class="row mb-3 d-none" id="commit">
                                 <div class="col-7 ml-3">
                                     <!-- 有上傳圖片才顯示 -->
-                                    <input type="text" class="form-control" placeholder="新增留言..." style="" maxlength="30" id="formcommit">
+                                    <input type="text" name="留言" class="form-control" placeholder="新增留言..." style="" maxlength="30" id="formcommit">
                                     <span id="errmsg" class="text-danger"></span>
                                 </div>
                                 <div class="col">

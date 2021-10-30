@@ -250,5 +250,30 @@ namespace prjCooking.Controllers
 
             return RedirectToAction("登入", "Member");
         }
+
+        [HttpPost]
+        public ActionResult 新增評論(C新增評論for聚會頁面ViewModel vmodel)
+        {
+            if (vmodel != null)
+            {
+                t評價 新評論 = new t評價();
+
+                if (vmodel.上傳圖片 != null)
+                {
+                    string new圖片名字 = C上傳圖片檔案重新命名.Get新名字(vmodel.上傳圖片);
+                    新評論.f照片 = new圖片名字;
+                    vmodel.上傳圖片.SaveAs(Server.MapPath("~/Image/" + new圖片名字));
+                }
+
+                新評論.f參加者Id = vmodel.參加者Id.Value;
+                新評論.f聚會Id = vmodel.聚會Id.Value;
+                新評論.f留言 = vmodel.留言;
+                新評論.f評價建立日期 = DateTime.Now.ToString("yyyy/MM/dd");
+
+                (new dbCookingEntities()).Cooking新增某表格資料<t評價>(新評論);
+            }
+
+            return RedirectToAction("showParty", new { id = vmodel.聚會Id});
+        }
     }
 }
