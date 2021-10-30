@@ -48,6 +48,7 @@
             border-radius: 50%;
         }
     </style>
+    
 </head>
 <body>
     <!-- 導航列 -->
@@ -119,10 +120,11 @@
                             <div class="dropdown-menu text-center dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
                                 <!-- 子選單的 div ********** -->
                                 <a class="dropdown-item" href="#"><img src="~/Image/@會員.f會員照片" class=" personalPhoto1" alt="" /><br /></a>
+                               
 
-                                @Html.ActionLink(會員.f會員姓名, "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item", })
+                                @Html.ActionLink(會員.f會員姓名, "Show個人頁面", "Member", new { id = @會員.f會員Id }, new { @class = "dropdown-item", })
                                 <hr>
-                                @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { area = "" }, new { @class = "dropdown-item" })
+                                @Html.ActionLink("查看個人頁面", "Show個人頁面", "Member", new { id = @會員.f會員Id }, new { @class = "dropdown-item" })
                                 @Html.ActionLink("我主辦的共煮聚會", "主辦紀錄", "Meet", new { area = "" }, new { @class = "dropdown-item" })
                                 @Html.ActionLink("我參加的共煮聚會", "報名紀錄", "Meet", new { area = "" }, new { @class = "dropdown-item" })
                                 @Html.ActionLink("登出", "登入", "Member", new { area = "" }, new { @class = "dropdown-item" })
