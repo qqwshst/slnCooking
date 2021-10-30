@@ -53,7 +53,7 @@
                         <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
 
 
-                        @if ((Model.Is核准參與) || (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id))
+                        @if ((Model.Is核准參與)||(Model.主辦人資訊.f會員Id==Model.當前登入會員資訊.f會員Id)||(Model.當前登入會員資訊.f權限==1))
                         {
                             <!-- 煮辦人資訊 -->
                             <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
