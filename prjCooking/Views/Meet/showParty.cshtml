@@ -180,7 +180,7 @@
 
                             </div>
                         <!-- 編輯/留言 視窗 -->
-                        @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && Model.Is成果發表)
+                        @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && !Model.Is成果發表)
                         {
                             <form method="post" action="" enctype="multipart/form-data">
                                 <div class="col-7 text-left">

@@ -20,9 +20,11 @@
     </section>
     <!-- end 報名紀錄 標體 -->
     <!-- 下拉選單 -->
-    <section class="row justify-content-center my-3">
+    @*<section class="row justify-content-center my-3">*@
+    <section class="row my-3">
         <!-- 排序 -->
-        <div class="dropdown mr-5">
+        @*<div class="dropdown mr-5">*@
+        <div class="dropdown pl-3">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">@Model.CurrentSort</button>
             <div class="dropdown-menu">
                 @{
@@ -42,23 +44,23 @@
         </div>
         <!-- end 排序 -->
         <!-- 活動狀態 -->
-        <div class="dropdown">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">@Model.CurrentStatu</button>
-            <div class="dropdown-menu">
-                @{
-                    int statuIndex = 0;
-                    foreach (string s in Model.StatuList)
-                    {
-                        @Html.ActionLink(s, "報名紀錄",
-                            new { sort = Model.CurrentSort, statu = Model.StatuNumberList[statuIndex] },
-                            new { @class = "dropdown-item" }
-                        );
+        @*<div class="dropdown">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">@Model.CurrentStatu</button>
+                <div class="dropdown-menu">
+                    @{
+                        int statuIndex = 0;
+                        foreach (string s in Model.StatuList)
+                        {
+                            @Html.ActionLink(s, "報名紀錄",
+                                new { sort = Model.CurrentSort, statu = Model.StatuNumberList[statuIndex] },
+                                new { @class = "dropdown-item" }
+                            );
 
-                        statuIndex++;
+                            statuIndex++;
+                        }
                     }
-                }
-            </div>
-        </div>
+                </div>
+            </div>*@
         <!-- edn 活動狀態 -->
     </section>
     <!-- end 下拉選單 -->
@@ -84,7 +86,31 @@
                                 {
                                     <!-- 一筆資料 -->
                                     <tr>
-                                        <td class="align-middle">@cmi.聚會狀態Name</td>
+                                        @{
+                                            @*報名*@
+                                            if (!cmi.Is報名.Value)
+                                            {
+                                                if (cmi.Is核准.Value)
+                                                {
+                                                    if ((int)聚會狀態.可報名 != cmi.聚會狀態Number)
+                                                    {
+                                                        <td class="align-middle">@cmi.聚會狀態Name</td>
+                                                    }
+                                                    else
+                                                    {
+                                                        <td class="align-middle">已核准</td>
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    <td class="align-middle">未核准參與</td>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <td class="align-middle">已取消報名</td>
+                                            }
+                                        }
                                         <td class="align-middle">@cmi.聚會日期.ToString("yyyy/MM/dd")</td>
                                         <td class="align-middle">@cmi.聚會名稱</td>
                                         <td class="align-middle">@cmi.主辦人</td>
@@ -102,7 +128,7 @@
                                                     @Html.ActionLink("取消報名",
                                                         "取消報名",
                                                         new { 聚會Id = cmi.聚會ID },
-                                                        new { @class = "btn btn-outline-danger", onclick= "return confirm('確定要取消報名?');" })
+                                                        new { @class = "btn btn-outline-danger", onclick = "return confirm('確定要取消報名?');" })
                                                 </section>
                                             }
                                             @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
@@ -117,10 +143,10 @@
                                             else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
                                             {
                                                 <section class="mr-2 my-2">
-                                                    @Html.ActionLink("進行成果發表",
+                                                    @Html.ActionLink("可進行成果發表",
                                                        "",
                                                        null,
-                                                       new { @class = "btn btn-secondary" })
+                                                       new { @class = "btn btn-secondary disabled" })
                                                 </section>
                                             }
                                         </td>
@@ -145,8 +171,37 @@
                     <!-- 一筆資料 -->
                     <div class="col mb-5">
                         <div class="card h-100" style="background-color: #eee;">
-                            <!-- Sale badge-->
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@cmi.聚會狀態Name</div>
+                            @{
+                                @*報名*@
+                                if (!cmi.Is報名.Value)
+                                {
+                                    if (cmi.Is核准.Value)
+                                    {
+                                        if ((int)聚會狀態.可報名 != cmi.聚會狀態Number)
+                                        {
+                                            <!-- Sale badge-->
+                                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@cmi.聚會狀態Name</div>
+                                        }
+                                        else
+                                        {
+                                            <!-- Sale badge-->
+                                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">已核准</div>
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <!-- Sale badge-->
+                                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">未核准參與</div>
+                                    }
+                                }
+                                else
+                                {
+                                    <!-- Sale badge-->
+                                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">已取消報名</div>
+                                }
+                            }
+
                             <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
@@ -164,7 +219,7 @@
                                        "showParty",
                                        new { id = cmi.聚會ID },
                                        new { @class = "btn btn-info" })
-                                    @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
+                                    @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number && !cmi.Is核准.Value && !cmi.Is報名.Value)
                                     {
                                         @Html.ActionLink("取消報名",
                                            "取消報名",
@@ -180,10 +235,10 @@
                                     }
                                     else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
                                     {
-                                        @Html.ActionLink("進行成果發表",
+                                        @Html.ActionLink("可進行成果發表",
                                            "",
                                            null,
-                                           new { @class = "btn btn-secondary" })
+                                           new { @class = "btn btn-secondary disabled" })
                                     }
                                 </div>
                             </div>
