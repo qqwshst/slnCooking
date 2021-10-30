@@ -179,78 +179,84 @@
                                 <hr>
 
                             </div>
-                        <!-- 編輯/留言 視窗 -->
-                        @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && !Model.Is成果發表)
-                        {
-                            <form method="post" action="" enctype="multipart/form-data">
-                                <div class="col-7 text-left">
-                                    <p>請發表您的共煮成果:<br><span class="text-danger">*需上傳圖片才能發布成果<br></span></p>
-                                    <a><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle" height="30" width="30"> @Model.當前登入會員資訊.f會員姓名</a>
+                            <!-- 編輯/留言 視窗 -->
+                            @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && !Model.Is成果發表)
+                            {
+                        <form method="post" action="" enctype="multipart/form-data" class="row" id="myform">
+                            @Html.TextBox("參加者Id", Model.當前會員參加者Id, new { type = "hidden" })
+                            @Html.TextBox("聚會Id", Model.聚會資訊.f聚會Id, new { type = "hidden" })
+                            <div class="col-7 text-left">
+                                <p>請發表您的共煮成果:<br><span class="text-danger">*需上傳圖片才能發布成果<br></span></p>
+                                <a><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle" height="30" width="30"> @Model.當前登入會員資訊.f會員姓名</a>
 
-                                    <br><br>
+                                <br><br>
 
-                                    <!-- 上傳照片 -->
+                                <!-- 上傳照片 -->
 
-                                    <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
+                                <input type="file" name="fileupload" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
 
-                                    <p class="text-secondary">圖片格式:jpeg/gif/png</p>
-                                </div>
+                                <p class="text-secondary">圖片格式:jpeg/gif/png</p>
+                            </div>
 
-                                <div class="col-5 text-center">
-                                    <!-- 圖片預覽的地方 -->
-                                    <img src="~/Image/imgadd_01.png" class="img-fluid rounded" id="imgpreview" width="150" height="150">
-                                    <!-- <img src="img/bg_01.jpg" > -->
-                                    <!-- <input class="btn btn-outline-danger" type="button" value="編輯"> -->
+                            <div class="col-5 text-center">
+                                <!-- 圖片預覽的地方 -->
+                                <img src="~/Image/imgadd_01.png" class="img-fluid rounded" id="imgpreview" width="150" height="150">
+                                <!-- <img src="img/bg_01.jpg" > -->
+                                <!-- <input class="btn btn-outline-danger" type="button" value="編輯"> -->
 
 
 
-                                </div>
-                                <!-- 留言視窗 結束 -->
-                                <!-- 確認btn -->
-                                <div class="col-7">
+                            </div>
+                            <!-- 留言視窗 結束 -->
+                            <!-- 確認btn -->
+                            <section class="row mb-3 d-none" id="commit">
+                                <div class="col-7 ml-3">
                                     <!-- 有上傳圖片才顯示 -->
-                                    <input type="text" class="form-control" placeholder="新增留言..." style="" value="" maxlength="30">
+                                    <input type="text" class="form-control" placeholder="新增留言..." style="" maxlength="30" id="formcommit">
+                                    <span id="errmsg" class="text-danger"></span>
                                 </div>
-                                <div class="col-5 text-center">
-                                    <input class="btn btn-outline-info" type="button" value="確定上傳">
+                                <div class="col">
+                                    <input class="btn btn-outline-info" type="submit" value="確定上傳">
                                 </div>
-                                <!-- 確認btn 結束 -->
-                            </form>
-                        }
+                            </section>
+                            <!-- 確認btn 結束 -->
+                        </form>
+                            }
                         </div>
-                                                    }
-                
+                    }
 
-                <br><br>
-            </div>
-            <!-- 顯示最新聚會開始 -->
-            <aside class="col-md-2 positif">
-                <div class="row">
-                    <div class="col-12 text-center mb-1">
-                        <p><span class="badge badge-info">New</span>共煮聚會</p>
-                    </div>
-                    <div class="col-12 text-center">
-                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id"><img class="img-fluid rounded" src="~/Image/@Model.最新聚會[0].f聚會照片" width="150"></a>
-                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id" class="text-dark"><br>@Model.最新聚會[0].f聚會名稱</a>
-                        <br>
-                    </div>
 
-                    <div class="col-12 text-center ">
-                        <br>
-                        <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id"><img class="img-fluid rounded" src="~/Image/@Model.最新聚會[1].f聚會照片" width="150"></a>
-                        <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id" class="text-dark"><br>@Model.最新聚會[1].f聚會名稱</a>
-                        <br>
-                    </div>
-
+                    <br><br>
                 </div>
-            </aside>
-            <!-- 最新聚會結束 -->
+
+
+            </div>
+
+
 
         </div>
+        <!-- 顯示最新聚會開始 -->
+        <aside class="positif">
+            <div class="row">
+                <div class="col-12 text-center mb-1">
+                    <p><span class="badge badge-info">New</span>共煮聚會</p>
+                </div>
+                <div class="col-12 text-center">
+                    <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id"><img class="img-fluid rounded" src="~/Image/@Model.最新聚會[0].f聚會照片" width="150"></a>
+                    <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id" class="text-dark"><br>@Model.最新聚會[0].f聚會名稱</a>
+                    <br>
+                </div>
 
+                <div class="col-12 text-center ">
+                    <br>
+                    <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id"><img class="img-fluid rounded" src="~/Image/@Model.最新聚會[1].f聚會照片" width="150"></a>
+                    <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id" class="text-dark"><br>@Model.最新聚會[1].f聚會名稱</a>
+                    <br>
+                </div>
 
-
-    </div>
+            </div>
+        </aside>
+        <!-- 最新聚會結束 -->
     </div>
 
 </section>
@@ -277,10 +283,19 @@
             }
 
             reader.readAsDataURL(imgOne);
+            $("#commit").removeClass("d-none");
 
         } else {
 
         }
     }
+
+    $("#myform").submit(function () {
+        if ($("#formcommit").val() == "") {
+            $("#errmsg").html("留言不可為空");
+
+            return false;
+        }
+    });
 
 </script>

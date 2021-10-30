@@ -16,6 +16,7 @@ namespace prjCooking.ViewModel
         public List<string> 聚會關鍵字 { get; set; }
         public bool Is當前會員報名 { get; set; } = false;
         public t會員 當前登入會員資訊 { get; set; }
+        public int 當前會員參加者Id { get; set; }
         public bool Is成果發表 { get; set; } = false;
         public bool Is核准參與 { get; set; } = false;
         public int 聚會核准人數 { get; set; } = 0;

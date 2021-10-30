@@ -38,6 +38,7 @@ namespace prjCooking.Controllers
                     {
                         if (參加者.參加者資訊.f會員Id == vmodel.當前登入會員資訊.f會員Id)
                         {
+                            vmodel.當前會員參加者Id = 參加者.參加者資料.f參加者Id;
                             if(!參加者.參加者資料.f報名)
                                 vmodel.Is當前會員報名 = true;
                             if (參加者.評論 != null)
