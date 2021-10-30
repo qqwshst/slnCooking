@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using prjCooking.Models;
 
 namespace prjCooking.Models
 {
@@ -82,6 +83,10 @@ namespace prjCooking.Models
         {
             get { return this.member.f會員建立日期; }
             set { this.member.f會員建立日期 = value; }
+        }
+        public int 目前會員id 
+        {
+            get;set;
         }
     }
 }

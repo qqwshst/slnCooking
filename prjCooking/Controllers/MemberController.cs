@@ -51,11 +51,19 @@ namespace prjCooking.Controllers
             return RedirectToAction("Show個人頁面");
         }
 
-        public ActionResult Show個人頁面(int? id)
+        public ActionResult Show個人頁面(int?id)
         {
-           
-            t會員 member_select = (new dbCookingEntities()).Cooking查詢某會員的資料By會員Id(id);
-         
+            if (Session[CSessionKey.登入會員_t會員] == null)
+            {
+                return RedirectToAction("登入", "Member");
+            }
+            
+           t會員 member_select = (new dbCookingEntities()).Cooking查詢某會員的資料By會員Id(id);
+
+            
+
+
+
             return View(new CAllMember() { member = member_select });
 
         }

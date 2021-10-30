@@ -1,6 +1,7 @@
 ﻿
 @model prjCooking.Models.CAllMember
 
+
 @{
     ViewBag.Title = "個人頁面";
 }
@@ -30,16 +31,23 @@
                     </div>
                     <div class="col-md-6 text-left">
 
-                        <input type="text" name="f會員Id" value="@Model.f會員Id" />
+                        <input type="hidden" name="f會員Id" value="@Model.f會員Id" />
 
                         <br>
                         <h4>@Model.f會員姓名</h4>
 
                         <!-- 自我介紹 -->
                         <p class="text-secondary">@Model.f自我介紹</p>
+                        
                         <br>
-                        @Html.ActionLink("編輯資訊", "Edit_info", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
-                        @Html.ActionLink("修改密碼", "Edit_password", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
+                    
+                                @Html.ActionLink("編輯資訊", "Edit_info", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
+                                @Html.ActionLink("修改密碼", "Edit_password", "Member", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
+
+
+                          
+                        
+
 
                         <br>
 
