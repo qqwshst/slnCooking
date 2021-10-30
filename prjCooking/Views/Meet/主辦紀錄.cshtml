@@ -88,11 +88,35 @@
                                                         new { @class = "btn btn-outline-secondary" })
                                                 </section>
                                                 <section class="my-2">
-                                                    @Html.ActionLink(
-                                                        "取消聚會",
+                                                   
+                                                    <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone">取消聚會</button>
+                                                    <br><br>
+                                                    <div class="modal text-center" id="modalone">
+                                                        <div class="modal-md modal-dialog modal-dialog-scrollable">
+
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+
+                                                                    <i class="modal-title text-danger bi bi-exclamation-circle"></i>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>確定要取消聚會嗎?</p>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+
+                                                                    <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">取消</button>
+
+                                                                    @Html.ActionLink(
+                                                        "確定",
                                                         "取消活動",
                                                         new { 聚會Id = cmi.聚會ID },
-                                                        new { @class = "btn btn-outline-danger", onclick = "return confirm('確定要取消聚會?');" })
+                                                        new { @class = "btn btn-sm btn-outline-danger" })
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </section>
                                             }
                                         </td>
@@ -144,11 +168,34 @@
                                             "資格審核",
                                             new { meetId = cmi.聚會ID },
                                             new { @class = "btn btn-outline-secondary" })
-                                        @Html.ActionLink(
-                                            "取消聚會",
+                                        <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone1">取消聚會</button>
+                                        <br><br>
+                                        <div class="modal text-center" id="modalone1">
+                                            <div class="modal-md modal-dialog modal-dialog-scrollable">
+
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+
+                                                        <i class="modal-title text-danger bi bi-exclamation-circle"></i>
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>確定要取消聚會嗎?</p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+
+                                                        <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">取消</button>
+
+                                                        @Html.ActionLink(
+                                            "確定",
                                             "取消活動",
                                             new { 聚會Id = cmi.聚會ID },
-                                            new { @class = "btn btn-outline-danger my-3", onclick = "return confirm('確定要取消聚會?');" })
+                                            new { @class = "btn btn-sm btn-outline-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     }
                                 </div>
                             </div>
