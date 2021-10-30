@@ -78,7 +78,7 @@
                 </td>
                 <td>
 
-                    @Html.ActionLink("查看", "Details", "Manager", new { id = item.f會員Id }, new { Class = "btn btn-sm btn-outline-secondary" })
+                    @Html.ActionLink("查看", "Details", "Manager", new { id = item.f會員Id,權限=item.權限,性別=item.性別 }, new { Class = "btn btn-sm btn-outline-secondary" })
                     @*@Html.ActionLink("刪除", "Delete", "Manager", new { id = item.f會員Id }, new { onclick = "return confirm('確定要刪除嗎?')", Class = "btn btn-sm btn-outline-secondary" })*@
                 </td>
             </tr>

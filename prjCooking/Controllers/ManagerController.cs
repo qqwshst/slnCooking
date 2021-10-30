@@ -60,7 +60,7 @@ namespace prjCooking.Controllers
 
             return View(Plist);
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(int id,string 權限,string 性別)
         {
  
             dbCookingEntities db = new dbCookingEntities();
