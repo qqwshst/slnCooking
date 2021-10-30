@@ -53,7 +53,7 @@
                         <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
 
 
-                        @if ((Model.Is核准參與)||(Model.主辦人資訊.f會員Id==Model.當前登入會員資訊.f會員Id))
+                        @if ((Model.Is核准參與) || (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id))
                         {
                             <!-- 煮辦人資訊 -->
                             <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
@@ -93,8 +93,31 @@
                             {
                                 if (!Model.Is當前會員報名)
                                 {
-                                    <a href="~/Meet/報名?聚會Id=@Model.聚會資訊.f聚會Id" class="form-control btn btn-secondary" onclick="return confirm('確定要報名?')">@聚會狀態.可報名.ToString() </a>
+                                    
+                                    <button class="form-control btn btn-secondary" type="button" data-toggle="modal" data-target="#modalone">@聚會狀態.可報名.ToString()</button>
+                                    <br><br>
+                                    <div class="modal text-center" id="modalone">
+                                        <div class="modal-md modal-dialog modal-dialog-scrollable">
 
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+
+                                                    <i class="modal-title text-danger bi bi-exclamation-circle"></i>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>確定要報名嗎?</p>
+
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">取消</button>
+                                                    
+                                                    <a href="~/Meet/報名?聚會Id=@Model.聚會資訊.f聚會Id" class="btn btn-sm btn-outline-info" >確定</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 }
                                 else
                                 {
