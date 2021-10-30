@@ -104,7 +104,7 @@ namespace prjCooking.Models
                 bool is刪除 = Convert.ToBoolean(聚會垃圾桶.刪除);
                 List<CCaptureMeetInfo> data = db.t聚會.Where(meet => meet.f主辦人 == memberId.Value)
                 .Where(meet => meet.f聚會垃圾桶 != is刪除)
-                .OrderByDescending(meet => meet.f聚會建立日期)
+                .OrderBy(meet => meet.f聚會建立日期)
                 .Select(meet => new CCaptureMeetInfo
                 {
                     聚會ID = meet.f聚會Id,
@@ -113,7 +113,7 @@ namespace prjCooking.Models
                     聚會日期 = meet.f聚會日期,
                     聚會狀態Number = meet.f聚會狀態.Value,
                     人數上限 = meet.f名額.Value,
-                    目前人數 = meet.t參加者.Where(t => t.f聚會Id == meet.f聚會Id).Count()
+                    目前人數 = meet.t參加者.Where(t => t.f聚會Id == meet.f聚會Id).Where(m => m.f審核狀態).Count()
                 }).ToList();
 
                 Sort(data, sort, null);

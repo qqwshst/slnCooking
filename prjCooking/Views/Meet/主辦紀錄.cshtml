@@ -71,15 +71,15 @@
                                         <td class="align-middle">@cmi.目前人數/@cmi.人數上限</td>
                                         <!-- 按鈕 表格 -->
                                         <td class="row align-middle w-100">
+                                            <section class="mr-2 my-2">
+                                                @Html.ActionLink(
+                                                    "檢視",
+                                                    "showParty",
+                                                    new { id = cmi.聚會ID },
+                                                    new { @class = "btn btn-outline-info" })
+                                            </section>
                                             @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
                                             {
-                                                <section class="mr-2 my-2">
-                                                    @Html.ActionLink(
-                                                        "編輯",
-                                                        "showParty",
-                                                        new { id = cmi.聚會ID },
-                                                        new { @class = "btn btn-outline-info" })
-                                                </section>
                                                 <section class="mr-2 my-2">
                                                     @Html.ActionLink(
                                                         "資格審核",
@@ -93,16 +93,6 @@
                                                         "取消活動",
                                                         new { 聚會Id = cmi.聚會ID },
                                                         new { @class = "btn btn-outline-danger", onclick = "return confirm('確定要取消聚會?');" })
-                                                </section>
-                                            }
-                                            else
-                                            {
-                                                <section class="mr-2 my-2">
-                                                    @Html.ActionLink(
-                                                        "檢視",
-                                                        "showParty",
-                                                        new { id = cmi.聚會ID },
-                                                        new { @class = "btn btn-outline-info" })
                                                 </section>
                                             }
                                         </td>
@@ -142,13 +132,13 @@
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
+                                    @Html.ActionLink(
+                                            "檢視",
+                                            "showParty",
+                                            new { id = cmi.聚會ID },
+                                            new { @class = "btn btn-outline-info" })
                                     @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number)
                                     {
-                                        @Html.ActionLink(
-                                            "編輯",
-                                            "",
-                                            null,
-                                            new { @class = "btn btn-outline-info" })
                                         @Html.ActionLink(
                                             "資格審核",
                                             "資格審核",
@@ -159,14 +149,6 @@
                                             "取消活動",
                                             new { 聚會Id = cmi.聚會ID },
                                             new { @class = "btn btn-outline-danger my-3", onclick = "return confirm('確定要取消聚會?');" })
-                                    }
-                                    else
-                                    {
-                                        @Html.ActionLink(
-                                            "檢視",
-                                            "showParty",
-                                            new { id = cmi.聚會ID },
-                                            new { @class = "btn btn-outline-info" })
                                     }
                                 </div>
                             </div>

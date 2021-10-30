@@ -37,7 +37,7 @@
                                 <!-- 一筆會員資料 -->
                                 <div class="col-6 col-md-3 pt-3">
                                     <div class="card h-100">
-                                        @if (String.IsNullOrEmpty(info.會員照片))
+                                        @if (info.會員照片 != "")
                                         {
                                             <!-- Product image-->
                                             <img class="card-img-top" src="~/image/@info.會員照片" alt="@info.會員姓名" />
@@ -54,9 +54,9 @@
                                             <div class="text-center">
                                                 @Html.ActionLink(
                                                    "檢視",
-                                                   "",
-                                                   null,
-                                                   null,
+                                                   "Show個人頁面",
+                                                   "Member",
+                                                   new { id = info.參加者Id },
                                                    new { @class = "btn btn-outline-info mt-auto" })
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@
                                 <!-- 一筆會員資料 -->
                                 <div class="col-6 col-md-3 pt-3">
                                     <div class="card h-100">
-                                        @if (String.IsNullOrEmpty(info.會員照片))
+                                        @if (info.會員照片 != "")
                                         {
                                             <!-- Product image-->
                                             <img class="card-img-top" src="~/image/@info.會員照片" alt="@info.會員姓名" />
@@ -96,9 +96,10 @@
                                             <div class="text-center">
                                                 @Html.ActionLink(
                                                    "檢視",
-                                                   "",
-                                                   "",
-                                                   null, new { @class = "btn btn-outline-info" })
+                                                   "Show個人頁面",
+                                                   "Member",
+                                                   new { id = info.參加者Id },
+                                                   new { @class = "btn btn-outline-info mt-auto" })
                                                 <br>
                                                 @Html.ActionLink(
                                                    "核准",
