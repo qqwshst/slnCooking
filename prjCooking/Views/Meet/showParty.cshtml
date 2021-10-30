@@ -53,7 +53,7 @@
                         <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
 
 
-                        @if (Model.Is核准參與)
+                        @if ((Model.Is核准參與)||(Model.主辦人資訊.f會員Id==Model.當前登入會員資訊.f會員Id))
                         {
                             <!-- 煮辦人資訊 -->
                             <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
@@ -86,7 +86,7 @@
                         <!-- 視訊軟體 -->
                         <p><i class="bi bi-geo-alt"></i> @Model.聚會資訊.f聚會軟體</p>
                         <!-- 名額 -->
-                        <p><i class="bi bi-people"></i> @Model.聚會核准人數 / @Model.聚會資訊.f名額 人</p>
+                        <p><i class="bi bi-people"></i> @Model.聚會資訊.f名額 人</p>
                         <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
                         @{
                             if ((int)聚會狀態.可報名 == Model.聚會資訊.f聚會狀態 && Model.主辦人資訊.f會員Id != Model.當前登入會員資訊.f會員Id)
@@ -94,6 +94,7 @@
                                 if (!Model.Is當前會員報名)
                                 {
                                     <a href="~/Meet/報名?聚會Id=@Model.聚會資訊.f聚會Id" class="form-control btn btn-secondary" onclick="return confirm('確定要報名?')">@聚會狀態.可報名.ToString() </a>
+
                                 }
                                 else
                                 {

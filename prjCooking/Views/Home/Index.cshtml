@@ -3,6 +3,14 @@
 @{
     ViewBag.Title = "首頁";
 }
+<style>
+    .card-img {
+        width: 270px;
+        height: 270px;
+        padding-right:10px;
+    }
+
+</style>
 
 <h2>Index</h2>
 
@@ -73,30 +81,31 @@
 
                     @foreach (var item in Model)
                     {
-                        <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
+                        <div class="col-xl-3 col-md-6 col-sm-12 project 未開始">
                             <a href="#" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
-                               
-                                <img class="card-img" src="~/Image/@item.f聚會照片" alt="Card image" style="width:270px;height:270px;">
-                            </a>
 
-                            <div class="form-row text-left ">
-
-                                <h5>@item.f聚會名稱</h5>
-                                <span>@item.f聚會日期</span>
-                                <span>@item.f聚會軟體</span>
-
-                                <div>
-                                    <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
-                                        <span><img src="./assets/img/範例頭貼1.png" />@item.f主辦人</span>
-                                        <span></span><br />
-
-                                    </a>
-                                </div>
+                                <a class="text-secondary" href="~/Meet/showParty/@item.f聚會Id">
+                                    <img class="card-img" src="~/image/@item.f聚會照片" alt="Card image" style="display: inline-block"></a>
 
 
-                            </div>
+                                    <div class="form-row text-left ">
+                                        @Html.ActionLink(@item.f聚會名稱, "showParty", "Meet", new { id = item.f聚會Id }, new { Class = "text-dark" })
+                                        @*<h5>@item.f聚會名稱</h5>*@
+                                        <span>@item.f聚會日期</span>
+                                        <span>@item.f聚會軟體</span>
 
-                        </div>
+                                        <div>
+                                            <a href="#" class="myfont2 card border-0  sm overflow-hidden mx-5 m-sm-0" style="text-decoration:none;">
+                                                <span><img src="./assets/img/範例頭貼1.png" />@item.f主辦人</span>
+                                                <span></span><br />
+
+                                            </a>
+                                        </div>
+
+
+                                    </div>
+
+</div>
                     }
 
 

@@ -106,6 +106,8 @@ namespace prjCooking.Controllers
                 newparty.image.SaveAs(Server.MapPath("~/image/" + photoName));
 
             }
+            else
+                Addparty.f聚會照片 = "party_02.jpg";
             
 
             db.t聚會.Add(Addparty);
