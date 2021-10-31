@@ -22,12 +22,12 @@ namespace prjCooking.Controllers
             if (prod == null)
                 return RedirectToAction("Show個人頁面");
 
-            return View(new CAllMember() { member = prod });
+            return View(new C個人頁面ViewModel() { member = prod });
 
 
         }
         [HttpPost]
-        public ActionResult Edit_info(CAllMember editProduct)
+        public ActionResult Edit_info(C個人頁面ViewModel editProduct)
         {
             dbCookingEntities db = new dbCookingEntities();
             t會員 prod = db.t會員.FirstOrDefault(p => p.f會員Id == editProduct.f會員Id);
@@ -51,24 +51,34 @@ namespace prjCooking.Controllers
             return RedirectToAction("Show個人頁面");
         }
 
-        public ActionResult Show個人頁面(int?id)
+
+        public ActionResult Show個人頁面(int? id)
         {
-            if (Session[CSessionKey.登入會員_t會員] == null)
+            dbCookingEntities db = new dbCookingEntities();
+            t會員 member_select = new t會員();
+            if (id==null)
             {
-                return RedirectToAction("登入", "Member");
+                id= ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+                 member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
             }
-            
-           t會員 member_select = (new dbCookingEntities()).Cooking查詢某會員的資料By會員Id(id);
+            else
+            {
 
-            
+             member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
+                //List<t聚會> party = db.Cooking查詢某會員聚會ListBy會員Id(id);
+            }
+            C個人頁面ViewModel list = new C個人頁面ViewModel() { member = member_select };
+            list.會員聚會資訊 = db.Cooking查詢某會員沒被刪除的聚會ListBy會員Id(id);
+            list.最新聚會 = db.Cooking查詢所有聚會List();
+            list.最新聚會.Reverse();
+            list.目前會員id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
 
+            return View(list);
 
-
-            return View(new CAllMember() { member = member_select });
 
         }
 
-        
+
         public ActionResult 登入()
         {
             Session.Clear();

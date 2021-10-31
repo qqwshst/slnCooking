@@ -16,6 +16,7 @@ namespace prjCooking.ViewModel
         public t評價 party_feedback { get; set; } = null;
         public t參加者 party_member { get; set; } = null;
         public HttpPostedFileBase image { get; set; }
+        public List<t聚會> 最新聚會 { get; set; }
 
         public CPartyViewModel()
         {

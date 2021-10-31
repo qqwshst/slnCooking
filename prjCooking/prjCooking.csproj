@@ -197,6 +197,7 @@
     <Compile Include="ViewModel\CFoodViewModel.cs" />
     <Compile Include="ViewModel\CPartyViewModel.cs" />
     <Compile Include="ViewModel\C主辦Or報名ViewModel.cs" />
+    <Compile Include="ViewModel\C個人頁面ViewModel.cs" />
     <Compile Include="ViewModel\C新增評論for聚會頁面ViewModel.cs" />
     <Compile Include="ViewModel\C聚會資訊For頁面ViewModel.cs" />
     <Compile Include="ViewModel\C資格審核ViewModel.cs" />
