@@ -236,7 +236,7 @@ namespace prjCooking.Controllers
                 if (聚會Id.HasValue)
                 {
                     dbCookingEntities db = new dbCookingEntities();
-                    int 聚會名額 = db.Cooking查詢某聚會資訊By聚會Id(聚會Id).f名額.Value + 1;
+                    int 聚會名額 = db.Cooking查詢某聚會資訊By聚會Id(聚會Id).f名額.Value;
                     int 當前參加人數 = db.Cooking查詢某聚會核准參與者ListBy聚會Id(聚會Id).Count;
                     if(當前參加人數 < 聚會名額)
                     {
