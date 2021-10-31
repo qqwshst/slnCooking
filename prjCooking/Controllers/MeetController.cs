@@ -172,6 +172,8 @@ namespace prjCooking.Controllers
                     C資格審核ViewModel vmodel = new C資格審核ViewModel();
                     C撈取資格審核名單 撈取 = new C撈取資格審核名單();
                     int 主辦人Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+                    vmodel.聚會名額 = (new dbCookingEntities()).Cooking查詢某聚會資訊By聚會Id(meetId.Value).f名額;
+
                     // 撈取已核准名單
                     bool 核准 = Convert.ToBoolean(參加者審核狀態.通過);
                     if (撈取.Set撈取(主辦人Id, meetId, 核准))

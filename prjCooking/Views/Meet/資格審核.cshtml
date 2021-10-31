@@ -100,12 +100,15 @@
                                                    "Member",
                                                    new { id = info.參加者Id },
                                                    new { @class = "btn btn-outline-info mt-auto" })
-                                                <br>
-                                                @Html.ActionLink(
-                                                   "核准",
-                                                   "核准參加者",
-                                                   new { 聚會Id = info.聚會Id, 參加者Id = info.參加者Id },
-                                                   new { @class = "btn btn-outline-primary my-2" })
+                                                @if (Model.核准.Count < Model.聚會名額.Value)
+                                                {
+                                                    <br>
+                                                    @Html.ActionLink(
+                                                       "核准",
+                                                       "核准參加者",
+                                                       new { 聚會Id = info.聚會Id, 參加者Id = info.參加者Id },
+                                                       new { @class = "btn btn-outline-primary my-2" })
+                                                }
                                             </div>
                                         </div>
                                     </div>
