@@ -120,5 +120,35 @@ namespace prjCooking.Controllers
             return View(list);
 
         }
+        public ActionResult queryFoodList(int id)
+        {
+
+            dbCookingEntities db = new dbCookingEntities();
+            IEnumerable<t建議食材> datas = null;
+
+            datas = from p in (new dbCookingEntities()).t建議食材
+                    where p.f聚會Id == id
+                    select p;
+
+            List<CFoodViewModel> list = new List<CFoodViewModel>();
+
+            foreach (t建議食材 p in datas)
+                list.Add(new CFoodViewModel() { party_food = p });
+
+            return View(list);
+
+        }
+        public ActionResult queryCreateFood()
+        {
+            dbCookingEntities db = new dbCookingEntities();
+
+            int query主辦人id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            var query聚會id = (from prod in db.t聚會
+                             where prod.f主辦人 == query主辦人id
+                             select prod.f聚會Id).Max();
+            ViewBag.Boss = query主辦人id;
+            ViewBag.Partyid = query聚會id;
+            return View();
+        }
     }
 }

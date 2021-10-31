@@ -41,10 +41,38 @@
 
             <div class="col-md-6 offset-md-1 text-center bg-light">
                 <div class="row">
+                    @if (Model.當前登入會員資訊.f會員Id == Model.聚會資訊.f主辦人)
+                    {
+                    <div class="col-12 text-right">
+                        <br />
+                        <input type="button" value="編輯" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalone1" />
+                        <br><br>
+                        <div class="modal text-center" id="modalone1">
+                            <div class="modal-md modal-dialog modal-dialog-scrollable">
 
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <i class="modal-title text-danger bi bi-exclamation-circle"></i>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>請選擇要編輯的項目</p>
+                                        @Html.ActionLink("共煮聚會", "Edit_party", "Meet", new { id = @Model.聚會資訊.f聚會Id }, new { Class = "btn  btn-outline-info", @type = "button" })
+                                        @Html.ActionLink("共煮食材", "queryFoodList", "Food", new { id = @Model.聚會資訊.f聚會Id }, new { Class = "btn  btn-outline-info", @type = "button" })
+
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    }
                     <div class="col-md-12 text-left text-secondary">
                         <br>
                         <!-- 照片 -->
+
 
                         <img class="card-img-top" src="~/Image/@Model.聚會資訊.f聚會照片" width="300">
 

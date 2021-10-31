@@ -17,6 +17,10 @@ namespace prjCooking.Controllers
         {
             return View();
         }
+        public ActionResult Edit_party()
+        {
+            return View();
+        }
         public ActionResult showParty(int? id)
         {
             if (id.HasValue)
