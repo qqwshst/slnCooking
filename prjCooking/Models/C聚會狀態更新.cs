@@ -24,6 +24,8 @@ namespace prjCooking.Models
                 重整聚會狀態.f聚會狀態 = Convert.ToInt32(聚會狀態.進行中);
             else
                 重整聚會狀態.f聚會狀態 = Convert.ToInt32(聚會狀態.已結束);
+
+            (new dbCookingEntities()).Cooking修改聚會資料(重整聚會狀態);
         }
     }
 }

@@ -76,7 +76,8 @@ namespace prjCooking.Models
                 單一聚會資訊.最新聚會.Reverse();
                 單一聚會資訊.參加者資訊List = Get參加者資訊List(聚會Id);
                 單一聚會資訊.聚會核准人數 = _db.Cooking查詢某聚會核准參與者ListBy聚會Id(聚會Id).Count;
-                單一聚會資訊.聚會關鍵字 = 單一聚會資訊.聚會資訊.f聚會關鍵字.Substring(1).Split('#').ToList();
+                if(!string.IsNullOrEmpty(單一聚會資訊.聚會資訊.f聚會關鍵字) && 單一聚會資訊.聚會資訊.f聚會關鍵字 != "")
+                    單一聚會資訊.聚會關鍵字 = 單一聚會資訊.聚會資訊.f聚會關鍵字.Substring(1).Split('#').ToList();
 
                 return 單一聚會資訊;
             }
