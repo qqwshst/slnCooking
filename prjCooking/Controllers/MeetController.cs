@@ -26,6 +26,7 @@ namespace prjCooking.Controllers
             string a = prod.f聚會日期.ToString("yyyy-MM-dd");
             string b = prod.f聚會開始時間.ToString("HH:mm");
             string c = prod.f聚會結束時間.Value.ToString("HH:mm");
+            ViewBag.聚會id = id;
             ViewBag.partydate = a;
             ViewBag.partystart = b;
             ViewBag.partyend = c;
@@ -36,6 +37,53 @@ namespace prjCooking.Controllers
 
             return View(select_party);
 
+        }
+        [HttpPost]
+        public ActionResult Edit_party(CPartyViewModel newparty,string f聚會日期,string 聚會開始時間,string 聚會結束時間,int f聚會id)
+        {
+            dbCookingEntities db = new dbCookingEntities();
+            t聚會 Addparty = db.t聚會.FirstOrDefault(p => p.f聚會Id == f聚會id);
+
+            if (Addparty != null)
+            {
+                Addparty.f聚會Id = f聚會id;
+                Addparty.f聚會名稱 = newparty.f聚會名稱;
+                Addparty.f聚會內容 = newparty.f聚會內容;
+                Addparty.f聚會關鍵字 = newparty.f聚會關鍵字;
+                Addparty.f聚會軟體 = newparty.f聚會軟體;
+                Addparty.f聚會軟體URL = newparty.f聚會軟體URL;
+                Addparty.f聚會日期 = Convert.ToDateTime(f聚會日期);
+                Addparty.f名額 = Convert.ToInt32(newparty.f名額);
+                Addparty.f聚會通訊軟體 = newparty.f聚會通訊軟體;
+                Addparty.f聚會通訊軟體帳號 = newparty.f聚會通訊軟體帳號;
+                Addparty.f聚會垃圾桶 = false;
+                Addparty.f聚會建立日期 = DateTime.Now;
+                Addparty.f聚會開始時間 = Convert.ToDateTime(f聚會日期 + " " + 聚會開始時間);
+                Addparty.f聚會結束時間 = Convert.ToDateTime(f聚會日期 + " " + 聚會結束時間);
+
+                if (Addparty.f聚會開始時間 > DateTime.Now)
+                    Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.可報名);
+                else if ((Addparty.f聚會開始時間 < DateTime.Now) && (Addparty.f聚會結束時間 > DateTime.Now))
+                    Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.進行中);
+                else
+                    Addparty.f聚會狀態 = Convert.ToInt32(聚會狀態.已結束);
+
+                if (newparty.image != null)
+                {
+                    //把照片重新命名
+                    //讓名稱為唯一值
+                    string photoName = Guid.NewGuid().ToString() + ".jpg";
+                    Addparty.f聚會照片 = photoName;
+                    newparty.image.SaveAs(Server.MapPath("~/image/" + photoName));
+
+                }
+                
+
+                db.SaveChanges();
+            }
+         
+
+            return RedirectToAction("showParty", new{id= newparty.f聚會Id});
         }
         public ActionResult showParty(int? id)
         {
