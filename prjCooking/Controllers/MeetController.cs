@@ -17,9 +17,22 @@ namespace prjCooking.Controllers
         {
             return View();
         }
-        public ActionResult Edit_party()
+        public ActionResult Edit_party(int id,int party_boss)
         {
-            return View();
+           
+            dbCookingEntities db = new dbCookingEntities();
+            t聚會 prod = db.t聚會.FirstOrDefault(p => p.f聚會Id == id);
+            t會員 prod_boss = db.t會員.FirstOrDefault(p => p.f會員Id == party_boss);
+            if (prod == null)
+                return RedirectToAction("showParty");
+             CPartyViewModel select_party= new CPartyViewModel() { party = prod , party_boss = prod_boss };
+
+            select_party.聚會時間 = select_party.f聚會日期;
+            select_party.開始時間 = select_party.f聚會開始時間;
+            select_party.結束時間 = select_party.f聚會開始時間;
+       
+                return View(select_party);
+        
         }
         public ActionResult showParty(int? id)
         {

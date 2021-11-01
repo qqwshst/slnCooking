@@ -139,10 +139,42 @@ namespace prjCooking.ViewModel
             get { return this.party.f聚會建立日期; }
             set { this.party.f聚會建立日期 = value; }
         }
-        public int f會員Id { get; set; }
-        public string f會員信箱 { get; set; }
-        public string f會員姓名 { get; set; }
-        public string f會員照片 { get; set; }
+        public string 聚會狀態
+        {
+            get;set;
+        }
+        public string 聚會時間
+        {
+            get; set;
+        }
+        public string 開始時間
+        {
+            get; set;
+        }
+        public string 結束時間
+        {
+            get; set;
+        }
+        public int f會員Id 
+        { 
+            get { return this.party_boss.f會員Id; }
+            set { this.party_boss.f會員Id = value; }
+        }
+        public string f會員信箱
+        {
+            get { return this.party_boss.f會員信箱; }
+            set { this.party_boss.f會員信箱 = value; }
+        }
+        public string f會員姓名
+        {
+            get { return this.party_boss.f會員姓名; }
+            set { this.party_boss.f會員姓名 = value; }
+        }
+        public string f會員照片
+        {
+            get { return this.party_boss.f會員照片; }
+            set { this.party_boss.f會員照片 = value; }
+        }
 
 
         public string f食材名稱 { get; set; }

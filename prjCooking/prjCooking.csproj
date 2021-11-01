@@ -122,6 +122,10 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Image\banner-bg-04.jpg" />
+    <Content Include="Image\bg-01.jpg" />
+    <Content Include="Image\bg-02.jpg" />
+    <Content Include="Image\bg-03.jpg" />
     <Content Include="Image\boy.png" />
     <Content Include="Image\img_01.jpg" />
     <Content Include="Image\img_02.jpg" />
