@@ -57,7 +57,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>請選擇要編輯的項目</p>
-                                        @Html.ActionLink("共煮聚會", "Edit_party", "Meet", new { id = @Model.聚會資訊.f聚會Id }, new { Class = "btn  btn-outline-info", @type = "button" })
+                                        @Html.ActionLink("共煮聚會", "Edit_party", "Meet", new { id = @Model.聚會資訊.f聚會Id,party_boss=Model.主辦人資訊.f會員Id }, new { Class = "btn  btn-outline-info", @type = "button" })
                                         @Html.ActionLink("共煮食材", "queryFoodList", "Food", new { id = @Model.聚會資訊.f聚會Id }, new { Class = "btn  btn-outline-info", @type = "button" })
 
                                     </div>

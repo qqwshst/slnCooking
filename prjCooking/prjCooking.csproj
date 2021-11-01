@@ -122,6 +122,10 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Image\banner-bg-04.jpg" />
+    <Content Include="Image\bg-01.jpg" />
+    <Content Include="Image\bg-02.jpg" />
+    <Content Include="Image\bg-03.jpg" />
     <Content Include="Image\boy.png" />
     <Content Include="Image\img_01.jpg" />
     <Content Include="Image\img_02.jpg" />
@@ -239,6 +243,7 @@
     <Content Include="Views\Food\EditFood.cshtml" />
     <Content Include="Views\Meet\Edit_party.cshtml" />
     <Content Include="Views\Food\queryFoodList.cshtml" />
+    <Content Include="Views\Member\Edit_Password.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
