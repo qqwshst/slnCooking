@@ -292,11 +292,11 @@ namespace prjCooking.Controllers
 
             maill.Path = @"C:\maillAccount.txt";
             maill.FromFileAccountInfo();
-            maill.MailSendFromName = "煮吧";
+            maill.MailSendFromName = "煮播";
             maill.MailSendToName = "To註冊會員";
             maill.MailSendToAddress = Request.Form["txtEmail"];
 
-            maill.MailTitle = "煮吧註冊驗證碼";
+            maill.MailTitle = "煮播註冊驗證碼";
             maill.MailContent = "您的驗證碼:" + rnd;
 
             // 寄件
