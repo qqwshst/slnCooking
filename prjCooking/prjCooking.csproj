@@ -244,6 +244,8 @@
     <Content Include="Views\Meet\Edit_party.cshtml" />
     <Content Include="Views\Food\queryFoodList.cshtml" />
     <Content Include="Views\Member\Edit_Password.cshtml" />
+    <Content Include="Views\Food\queryEditFood.cshtml" />
+    <Content Include="Views\Food\queryCreateFood.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -22,7 +22,7 @@ namespace prjCooking.ViewModel
             get { return this.party_food.f建議食材Id; }
             set { this.party_food.f建議食材Id = value; }
         }
-
+       
         public int f聚會Id
         {
             get { return this.party_food.f聚會Id; }
@@ -46,5 +46,6 @@ namespace prjCooking.ViewModel
             get { return this.party_food.f單位; }
             set { this.party_food.f單位 = value; }
         }
+        public t建議食材 食材list { get; set; }
     }
 }

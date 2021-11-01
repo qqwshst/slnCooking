@@ -3,7 +3,7 @@
 @model C主頁面展示ViewModel
 
 @{
-    ViewBag.Title = "首頁";
+    ViewBag.Title = " ";
 }
 
 <style>
@@ -30,18 +30,18 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <a href="#">
-                <img src="./assets/img/banner-bg-01.jpg"
+                <img src="~/Image/bg-01.jpg"
                      class="img-fluid" alt="pancake1">
             </a>
         </div>
         <div class="carousel-item">
             <a href="#">
-                <img src="./assets/img/banner-bg-02.jpg" class="img-fluid" alt="pancake1">
+                <img src="~/Image/bg-02.jpg" class="img-fluid" alt="pancake1">
             </a>
         </div>
         <div class="carousel-item">
             <a href="#">
-                <img src="./assets/img/banner-bg-04.jpg" class="img-fluid" alt="pancake1">
+                <img src="~/Image/bg-03.jpg" class="img-fluid" alt="pancake1">
             </a>
         </div>
     </div>
@@ -62,10 +62,10 @@
                 <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-allmeet-tab" data-toggle="pill" href="#pills-allmeet" role="tab" aria-controls="pills-allmeet" aria-selected="true">所有聚會</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-ingmeet-tab" data-toggle="pill" href="#pills-ingmeet" role="tab" aria-controls="pills-ingmeet" aria-selected="false">進行中</a>
+                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-nostartmeet-tab" data-toggle="pill" href="#pills-nostartmeet" role="tab" aria-controls="pills-nostartmeet" aria-selected="false">可報名</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-nostartmeet-tab" data-toggle="pill" href="#pills-nostartmeet" role="tab" aria-controls="pills-nostartmeet" aria-selected="false">未開始</a>
+                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-ingmeet-tab" data-toggle="pill" href="#pills-ingmeet" role="tab" aria-controls="pills-ingmeet" aria-selected="false">進行中</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-endmeet-tab" data-toggle="pill" href="#pills-endmeet" role="tab" aria-controls="pills-endmeet" aria-selected="false">已結束</a>
@@ -93,16 +93,18 @@
                             <a href="~/Meet/showParty/@聚會.f聚會Id" class="myfont2" style="text-decoration:none;">
                                 <h5>@聚會.f聚會名稱</h5>
                                 <span>@聚會.f聚會開始時間.ToString("MM月dd日") ,@聚會.f聚會開始時間.DayOfWeek</span><br />
-                                <span>@聚會.f聚會軟體</span><br />
+                                @*<span>@聚會.f聚會軟體</span><br />*@
                             </a>
 
                         </div>
                         <div>
-                            <a href="~/Image/@聚會.t會員.f會員照片" class="myfont2" style="text-decoration:none;">
+                            <a href="~/Member/Show個人頁面/@聚會.t會員.f會員Id" class="myfont2 text-dark">
                                 <span><img src="~/Image/@聚會.t會員.f會員照片" width="31" height="31" /></span>
 
                                 <span>@聚會.t會員.f會員姓名</span>
+                                <br /><br />
                             </a>
+                            
                         </div>
                     </div><!-- End Recent Work -->
                 }
