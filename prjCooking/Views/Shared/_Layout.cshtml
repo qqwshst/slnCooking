@@ -81,10 +81,10 @@
                     @Html.ActionLink("新手上路", "", "", new { area = "" }, new { @class = "nav-link" })
                 </li>
                 <li>
-                    @Html.TextBox("txtSearch", null, new { @class = "form-control mr-1", placeholder = "關鍵字搜尋" })
+                    @Html.TextBox("txtSearch", null, new { @class = "form-control mr-1", placeholder = "關鍵字搜尋", id= "txtSearch" })
                 </li>
                 <li>&ensp;</li>
-                <li><button class="btn btn-light nav-link rounded-pill " type="submit" id="">Search</button></li>
+                <li><button class="btn btn-light nav-link rounded-pill " type="button" id="search">Search</button></li>
                 @if (會員 != null)
                 {
                     if (會員.f權限 == (int)權限.管理者)

@@ -23,5 +23,10 @@ namespace prjCooking.Controllers
             vmodel.已結束聚會 = 撈取.已結束聚會();
             return View(vmodel);
         }
+
+        public ActionResult Search(string txtSearch)
+        {
+            return View();
+        }
     }
 }
