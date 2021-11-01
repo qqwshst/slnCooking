@@ -51,7 +51,6 @@ namespace prjCooking.Controllers
             return RedirectToAction("Show個人頁面");
         }
 
-
         public ActionResult Show個人頁面(int? id)
         {
             dbCookingEntities db = new dbCookingEntities();
@@ -63,7 +62,6 @@ namespace prjCooking.Controllers
             }
             else
             {
-
              member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
                 //List<t聚會> party = db.Cooking查詢某會員聚會ListBy會員Id(id);
             }
@@ -74,10 +72,7 @@ namespace prjCooking.Controllers
             list.目前會員id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
 
             return View(list);
-
-
         }
-
 
         public ActionResult 登入()
         {
@@ -114,56 +109,60 @@ namespace prjCooking.Controllers
 
         public ActionResult 忘記密碼()
         {
+            ViewBag.通知訊息 = Session[CSessionKey.忘記密碼_通知訊息];
+            Session.Clear();
             return View();
         }
         [HttpPost]
         public ActionResult 忘記密碼(string txtEmail, string txtPwd, string txtRePwd, string check)
-        {
+        {            
+            t會員 會員 = new t會員() ;
             dbCookingEntities db = new dbCookingEntities();
             if (txtEmail != "")
             {
-                t會員 會員 = db.t會員.Where(m => m.f會員信箱 == txtEmail).FirstOrDefault();
-
-                if (會員 != null)
-                {
-                    Maill();
-                    ViewBag.dis = "disabled";
-                    ViewBag.mail = (string)Session[CSessionKey.註冊會員_fEmail];
-                }
+                string seEmail = (string)Session[CSessionKey.註冊會員_fEmail];
+                
+                if(!string.IsNullOrEmpty(txtEmail))
+                    會員 = db.t會員.Where(m => m.f會員信箱 == txtEmail).FirstOrDefault();
                 else
-                {
-                    ViewBag.通知訊息 = "此信箱尚未註冊";
-                }
+                    會員 = db.t會員.Where(m => m.f會員信箱 == seEmail).FirstOrDefault();
 
                 if ((string)Session[CSessionKey.驗證碼_int] != null)
                 {
-                    var ch = (string)Session[CSessionKey.驗證碼_int];
-                    if (ch == check)
+                    if ((string)Session[CSessionKey.驗證碼_int] == check) 
                     {
                         if (txtPwd == txtRePwd)
                         {
-                            var mail = (string)Session[CSessionKey.註冊會員_fEmail];
-                            t會員 newPwd = db.t會員.Where(m => m.f會員信箱 == mail).FirstOrDefault();
-                            newPwd.f會員密碼 = txtPwd;
-                            db.Cooking修改會員資料(newPwd);
+                            會員.f會員密碼 = txtPwd;
+                            db.Cooking修改會員資料(會員);
 
                             return RedirectToAction("登入");
                         }
                         else
                         {
-                            ViewBag.通知訊息 = "密碼輸入錯誤";
-                        }
+                            Session[CSessionKey.忘記密碼_通知訊息] = "密碼輸入錯誤";
+                            return RedirectToAction("忘記密碼");
+                        }                        
                     }
                     else
                     {
-                        //驗證碼錯誤
-                    }
+                        Session[CSessionKey.忘記密碼_通知訊息] = "驗證碼錯誤";
+                        return RedirectToAction("忘記密碼");
+                    }               
+                }
+                else
+                {
+                    Maill();
+                    ViewBag.dis = "disabled";
+                    ViewBag.mail = (string)Session[CSessionKey.註冊會員_fEmail];
                 }
             }
             else
             {
-                ViewBag.通知訊息 = "請輸入帳號";
+                Session[CSessionKey.忘記密碼_通知訊息] = "請輸入帳號";
+                return RedirectToAction("忘記密碼");
             }
+                
             return View();
         }
 
@@ -177,9 +176,11 @@ namespace prjCooking.Controllers
         [HttpPost]
         public ActionResult 註冊(string txtPwd, string txtName, int txtGender)
         {
+            string txtEmail = (string)Session[CSessionKey.註冊會員_fEmail];
             dbCookingEntities db = new dbCookingEntities();
             t會員 註冊 = new t會員();
-            註冊.f會員信箱 = (string)Session[CSessionKey.註冊會員_fEmail];
+
+            註冊.f會員信箱 = txtEmail;
             註冊.f會員密碼 = txtPwd;
             註冊.f會員姓名 = txtName;
             註冊.f性別 = txtGender;
@@ -188,9 +189,10 @@ namespace prjCooking.Controllers
             註冊.f會員照片 = "person.svg";
 
             db.Cooking新增某表格資料<t會員>(註冊);
-            
-            return RedirectToAction("Index", "Home");
-            
+
+            t會員 會員 = db.Cooking查詢某會員的資料By信箱And密碼(txtEmail, txtPwd);
+            Session[CSessionKey.登入會員_t會員] = 會員;
+            return RedirectToAction("Index", "Home");            
         }
 
         public ActionResult 信箱驗證()
@@ -240,11 +242,11 @@ namespace prjCooking.Controllers
 
             maill.Path = @"C:\maillAccount.txt";
             maill.FromFileAccountInfo();
-            maill.MailSendFromName = "煮吧";
+            maill.MailSendFromName = "煮播";
             maill.MailSendToName = "To註冊會員";
             maill.MailSendToAddress = Request.Form["txtEmail"];
 
-            maill.MailTitle = "煮吧註冊驗證碼";
+            maill.MailTitle = "煮播註冊驗證碼";
             maill.MailContent = "您的驗證碼:" + rnd;
 
             // 寄件
@@ -252,8 +254,6 @@ namespace prjCooking.Controllers
             //沒取值
             Session[CSessionKey.註冊會員_fEmail] = Request.Form["txtEmail"];
             Session[CSessionKey.驗證碼_int] = rnd;
-
-
         }
     }
 }

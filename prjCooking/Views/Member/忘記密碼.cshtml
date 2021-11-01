@@ -1,4 +1,4 @@
-﻿
+﻿@model prjCooking.Models.t會員
 @{
     ViewBag.Title = "忘記密碼";
 }
@@ -12,6 +12,10 @@
         <span>信箱驗證</span><br>
         <input placeholder="XXX@gmail.com" style="width:400px" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail"><br>
         <br>
+        @if (Model != null)
+        {
+            <input placeholder="XXX@gmail.com" style="width:400px" type="hidden" name="txtEmail" value="@Model.f會員信箱"><br>
+        }
 
         @if (ViewBag.mail != null)
         {
