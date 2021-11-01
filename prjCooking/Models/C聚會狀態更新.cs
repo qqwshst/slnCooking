@@ -10,7 +10,7 @@ namespace prjCooking.Models
         public static void Update()
         {
             dbCookingEntities db = new dbCookingEntities();
-            List<t聚會> 聚會List = db.Cooking查詢所有聚會List();
+            List<t聚會> 聚會List = db.Cooking查詢所有沒被刪除聚會List();
 
             foreach (t聚會 聚會 in 聚會List)
                 更新規則(聚會);

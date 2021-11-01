@@ -72,7 +72,7 @@ namespace prjCooking.Models
             {
                 單一聚會資訊.主辦人資訊 = _db.Cooking查詢某會員的資料By會員Id(單一聚會資訊.聚會資訊.f主辦人);
                 單一聚會資訊.食材資訊List = _db.Cooking查詢某聚會的食材ListBy聚會Id(聚會Id);
-                單一聚會資訊.最新聚會 = _db.Cooking查詢所有聚會List();
+                單一聚會資訊.最新聚會 = _db.Cooking查詢所有沒被刪除聚會List();
                 單一聚會資訊.最新聚會.Reverse();
                 單一聚會資訊.參加者資訊List = Get參加者資訊List(聚會Id);
                 單一聚會資訊.聚會核准人數 = _db.Cooking查詢某聚會核准參與者ListBy聚會Id(聚會Id).Count;

@@ -39,6 +39,13 @@ namespace prjCooking.Models
 
         public static List<t聚會> Cooking查詢所有聚會List(this dbCookingEntities db)
         {
+            List<t聚會> 所有聚會List = db.t聚會.Select(聚會 => 聚會).ToList();
+
+            return 所有聚會List;
+        }
+
+        public static List<t聚會> Cooking查詢所有沒被刪除聚會List(this dbCookingEntities db)
+        {
             bool is聚會刪除 = Convert.ToBoolean(聚會垃圾桶.刪除);
             List<t聚會> 所有聚會List = db.t聚會.Where(聚會 => 聚會.f聚會垃圾桶 != is聚會刪除).Select(聚會 => 聚會).ToList();
 
