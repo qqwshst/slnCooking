@@ -155,22 +155,10 @@
                                             </div>
                                         </section>
                                             }
-                                            @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
+                                            @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value && !cmi.Has評價)
                                             {
                                                 <section class="mr-2 my-2">
-                                                    @Html.ActionLink("已發表",
-                                                       "",
-                                                       null,
-                                                       new { @class = "btn btn-secondary disabled" })
-                                                </section>
-                                            }
-                                            else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
-                                            {
-                                                <section class="mr-2 my-2">
-                                                    @Html.ActionLink("可進行成果發表",
-                                                       "",
-                                                       null,
-                                                       new { @class = "btn btn-secondary disabled" })
+                                                    <a href="~/Meet/showParty/@cmi.聚會ID#myform" class="btn btn-secondary">可進行成果發表</a>
                                                 </section>
                                             }
                                         </td>
@@ -273,19 +261,11 @@
                                             </div>
                                         </div>
                                     }
-                                    @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Has評價)
+                                    @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value && !cmi.Has評價)
                                     {
-                                        @Html.ActionLink("已發表",
-                                           "",
-                                           null,
-                                           new { @class = "btn btn-secondary disabled" })
-                                    }
-                                    else if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value)
-                                    {
-                                        @Html.ActionLink("可進行成果發表",
-                                           "",
-                                           null,
-                                           new { @class = "btn btn-secondary disabled" })
+                                        <section class="mr-2 my-2">
+                                            <a href="~/Meet/showParty/@cmi.聚會ID#myform" class="btn btn-secondary">可進行成果發表</a>
+                                        </section>
                                     }
                                 </div>
                             </div>
