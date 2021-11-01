@@ -97,7 +97,7 @@
                     {
                         <div class="col-6">
 
-                            <a class="text-secondary" href="~/Meet/showParty/@item.f聚會Id"><img src="~/Image/@item.f聚會照片" class="img-fluid rounded" style="height: 150px;width: 150px;"></a>
+                            <a class="text-secondary" href="~/Meet/showParty/@item.f聚會Id"><img src="~/Image/@item.f聚會照片" class="img-fluid rounded" style="height: 200px;width: 200px;"></a>
                             <br />
                             @Html.ActionLink(@item.f聚會名稱, "showParty", "Meet", new { id = item.f聚會Id }, new { Class = "text-dark" })
 
@@ -106,40 +106,7 @@
 
                     }
 
-                    @*<aside class="row row-cols-1 row-cols-sm-1 row-cols-md-2  row-cols-xl-2 justify-content-around ">*@
-                    <!-- row-cols-(最小尺寸), row-cols-sm(576), row-cols-md(768), row-cols-lg(992), row-cols-xl(1200)-->
-                    @*<div class=" mb-3">*@
-                    <!-- 聚會展示開始 -->
-                    @*<a href="#"><img src="~/Image/@item.f聚會照片" class="img-fluid rounded" style="height: 150px;width: 150px;"></a>
-                                <p>
-                                    <a href="#" class="text-dark">@item.f聚會內容</a><br>
-                                </p>
-
-
-
-
-                            </div>
-                            }
-                        </aside>*@
-
-                    @*<div class="col mb-3">
-                            <a href="#"><img src="img/cook_01.jpg" class="img-fluid rounded" style="height: 150px;width: 150px;"></a>
-                            <p>
-                                <a href="#" class="text-dark">@party.f聚會名稱</a><br><span class="badge badge-info">報名中</span>
-                            </p>
-                        </div>
-                        <div class="col mb-3">
-                            <a href="#"><img src="img/cook_01.jpg" class="img-fluid rounded" style="height: 150px;width: 150px;"></a>
-                            <p>
-                                <a href="#" class="text-dark">一起來做早餐吧!</a><br><span class="badge badge-danger">進行中</span>
-                            </p>
-                        </div>
-                        <div class="col mb-3">
-                            <a href="#"><img src="img/cook_02.jpg" class="img-fluid rounded" style="height: 150px;width: 150px;"></a>
-                            <p>
-                                <a href="#" class="text-dark">一起來做早餐吧!</a><br><span class="badge badge-secondary">已結束</span>
-                            </p>
-                        </div>*@
+                   
 
                     <!-- 聚會展示結束 -->
 

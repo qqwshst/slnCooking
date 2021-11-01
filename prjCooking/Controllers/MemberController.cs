@@ -15,6 +15,58 @@ namespace prjCooking.Controllers
         {
             return View();
         }
+        public ActionResult Edit_Password(int id)
+        {
+
+            dbCookingEntities db = new dbCookingEntities();
+            t會員 prod = db.t會員.FirstOrDefault(p => p.f會員Id == id);
+            if (prod == null)
+                return RedirectToAction("Show個人頁面");
+
+            return View(new C個人頁面ViewModel() { member = prod });
+
+
+        }
+        [HttpPost]
+        public ActionResult Edit_Password(string txt_Nowpassword, string txt_Newpassword1, string txt_Newpassword2)
+        {
+            ViewBag.nowpwd = "";
+            ViewBag.newpwd = "";
+            string a = Request.Form["blur_pwd"];
+            int id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            dbCookingEntities db = new dbCookingEntities();
+            t會員 prod = db.t會員.FirstOrDefault(p => p.f會員Id == id);
+            if (prod != null)
+            {
+                if (txt_Nowpassword == a)
+                {
+                    if (txt_Newpassword1 == txt_Newpassword2)
+                    {
+                        prod.f會員密碼 = txt_Newpassword1;
+                        db.SaveChanges();
+                        return RedirectToAction("Show個人頁面");
+                    }
+                    else
+                    {
+                        ViewBag.nowpwd = "請重新輸入密碼";
+                        ViewBag.newpwd = "新密碼需輸入一致,請重新輸入";
+
+                    }
+
+                }
+                else
+                {
+                    ViewBag.nowpwd = "請重新輸入密碼";
+                    ViewBag.newpwd = "新密碼需輸入一致,請重新輸入";
+                }
+
+            }
+
+
+
+            return View(new C個人頁面ViewModel() { member = prod });
+
+        }
         public ActionResult Edit_info(int id)
         {
             dbCookingEntities db = new dbCookingEntities();

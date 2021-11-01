@@ -122,6 +122,10 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Image\banner-bg-04.jpg" />
+    <Content Include="Image\bg-01.jpg" />
+    <Content Include="Image\bg-02.jpg" />
+    <Content Include="Image\bg-03.jpg" />
     <Content Include="Image\boy.png" />
     <Content Include="Image\img_01.jpg" />
     <Content Include="Image\img_02.jpg" />
@@ -155,9 +159,11 @@
     <Compile Include="Models\CPartyForm.cs" />
     <Compile Include="Models\CSessionKey.cs" />
     <Compile Include="Models\C上傳圖片檔案重新命名.cs" />
+    <Compile Include="Models\C主頁面撈取.cs" />
     <Compile Include="Models\C參加者資訊For聚會頁面.cs" />
     <Compile Include="Models\C審核參加者資訊.cs" />
     <Compile Include="Models\C撈取資格審核名單.cs" />
+    <Compile Include="Models\C聚會狀態更新.cs" />
     <Compile Include="Models\C聚會相關操作.cs" />
     <Compile Include="Models\dbCookingModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -197,6 +203,7 @@
     <Compile Include="ViewModel\CFoodViewModel.cs" />
     <Compile Include="ViewModel\CPartyViewModel.cs" />
     <Compile Include="ViewModel\C主辦Or報名ViewModel.cs" />
+    <Compile Include="ViewModel\C主頁面展示ViewModel.cs" />
     <Compile Include="ViewModel\C個人頁面ViewModel.cs" />
     <Compile Include="ViewModel\C新增評論for聚會頁面ViewModel.cs" />
     <Compile Include="ViewModel\C聚會資訊For頁面ViewModel.cs" />
@@ -236,6 +243,7 @@
     <Content Include="Views\Food\EditFood.cshtml" />
     <Content Include="Views\Meet\Edit_party.cshtml" />
     <Content Include="Views\Food\queryFoodList.cshtml" />
+    <Content Include="Views\Member\Edit_Password.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

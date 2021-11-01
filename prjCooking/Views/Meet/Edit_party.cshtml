@@ -27,7 +27,7 @@
                         <aside class="form-group col-md-12 text-left">
                             <br>
                             <!-- 照片 -->
-                            <img src="~/Image/party_02.jpg" id="imgpreview" class="card-img" name="f聚會照片">
+                            <img src="~/Image/@Model.f聚會照片" id="imgpreview" class="card-img" name="f聚會照片">
                             <br><br>
                             <input type="file" name="image" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()" multiple>
                             <br>
@@ -98,7 +98,9 @@
                             <span class="text-danger">*</span>  @Html.LabelFor(model => model.f聚會日期, htmlAttributes: new { @class = "control-label" })
                         </aside>
                         <aside class="col-10 text-left">
-                            @Html.EditorFor(model => model.f聚會日期, new { htmlAttributes = new { @class = "form-control", @type = "date", style = "width:50%", name = "f聚會日期" } })
+                            <input type="date" class="form-control" style="width:50%" value="@ViewBag.partydate" />
+                            @*@Html.EditorFor(model => model.f聚會日期, new { htmlAttributes = new { @class = "form-control",  name = "聚會時間", @value = "@ViewBag.partydate",
+                            style = "width:50%",@type="date" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會日期, "", new { @class = "text-danger" })
 
 
@@ -110,7 +112,8 @@
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會開始時間, htmlAttributes: new { @class = "control-label" })
                         </aside>
                         <aside class="col-10 text-left">
-                            @Html.EditorFor(model => model.f聚會開始時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會開始時間" } })
+                            <input type="time" class="form-control" style="width:50%" value="@ViewBag.partystart" )" />
+                            @*@Html.EditorFor(model => model.f聚會開始時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會開始時間" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會開始時間, "", new { @class = "text-danger" })
 
 
@@ -122,7 +125,8 @@
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會結束時間, htmlAttributes: new { @class = "control-label" })
                         </aside>
                         <aside class="col-10 text-left">
-                            @Html.EditorFor(model => model.f聚會結束時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會結束時間" } })
+                            <input type="time" class="form-control" style="width:50%" value="@ViewBag.partyend" )" />
+                            @*@Html.EditorFor(model => model.f聚會結束時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會結束時間" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會結束時間, "", new { @class = "text-danger" })
 
                         </aside>
@@ -155,7 +159,7 @@
                             <p>信箱:</p>
                         </aside>
                         <aside class="col-10 text-left">
-                            <input type="text" placeholder="" style="width:35%" value="@ViewBag.email " disabled>
+                            <input type="text" placeholder="" style="width:35%" value="@Model.f會員信箱 " disabled>
                         </aside>
 
                         <br /><br />
