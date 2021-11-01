@@ -91,7 +91,8 @@
                         <br>
                         <label>帳號:@Model.聚會資訊.f聚會通訊軟體帳號</label>
                         <br />
-                        <a href="@Model.聚會資訊.f聚會軟體URL">@Model.聚會資訊.f聚會軟體URL</a>
+                        <label>聚會連結: <a href="@Model.聚會資訊.f聚會軟體URL">@Model.聚會資訊.f聚會軟體URL</a></label>
+                       
                     }
                     <br>
                     <hr>
@@ -127,7 +128,7 @@
                             if (!Model.Is當前會員報名)
                             {
 
-                                <button class="form-control btn btn-secondary" type="button" data-toggle="modal" data-target="#modalone">@聚會狀態.可報名.ToString()</button>
+                                <button class="form-control btn btn-info" type="button" data-toggle="modal" data-target="#modalone">@聚會狀態.可報名.ToString()</button>
                                 <br><br>
                                 <div class="modal text-center" id="modalone">
                                     <div class="modal-md modal-dialog modal-dialog-scrollable">
@@ -154,7 +155,7 @@
                             }
                             else
                             {
-                                <button class="form-control btn btn-secondary" type="button" disabled>已報名 </button>
+                                <button class="form-control btn btn-info" type="button" disabled>已報名 </button>
                             }
                         }
                         else
