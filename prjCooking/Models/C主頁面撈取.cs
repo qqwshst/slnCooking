@@ -94,8 +94,29 @@ namespace prjCooking.Models
             List<t聚會> 關鍵字聚會List = new List<t聚會>();
             foreach(t聚會 聚會 in listTemp)
             {
-                if (聚會.f聚會關鍵字.Contains(_keyword) || 聚會.f聚會名稱.Contains(_keyword) || 聚會.f聚會內容.Contains(_keyword))
-                    關鍵字聚會List.Add(聚會);
+                if (!string.IsNullOrEmpty(聚會.f聚會名稱))
+                {
+                    if(聚會.f聚會關鍵字.Contains(_keyword))
+                        關鍵字聚會List.Add(聚會);
+                }
+
+                if (!string.IsNullOrEmpty(聚會.f聚會內容))
+                {
+                    if (!關鍵字聚會List.Contains(聚會))
+                    {
+                        if(聚會.f聚會內容.Contains(_keyword))
+                            關鍵字聚會List.Add(聚會);
+                    }    
+                }
+
+                if (!string.IsNullOrEmpty(聚會.f聚會關鍵字))
+                {
+                    if (!關鍵字聚會List.Contains(聚會))
+                    {
+                        if (聚會.f聚會關鍵字.Contains(_keyword))
+                            關鍵字聚會List.Add(聚會);
+                    }
+                }
             }
             return 關鍵字聚會List;
 
