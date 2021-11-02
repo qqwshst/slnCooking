@@ -3,30 +3,75 @@
     ViewBag.Title = "註冊";
 }
 
-<h2>註冊</h2>
 
-<form class="form-horizontal" style="text-align:center;" method="post" action="~/Member/註冊">
-    <div class="form-group">
-        <br>
-        <!--required 必填欄位-->
-        <span>信箱</span><br>
-        <input placeholder="請輸入信箱" style="width:400px" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.驗證mail"><br>
-        <br>        
-        <span>密碼</span><br>
-        <input placeholder="請輸入密碼" style="width:400px" type="password" name="txtPwd"><br>
-        <br>
-        <span>暱稱</span><br>
-        <input placeholder="至少2字" style="width:400px" type="text" name="txtName"><br>
-        <br>
-        <span>性別</span><br>
-        <select name="txtGender">
-            <option value="0" selected>不透露</option>
-            <option value="1">男</option>
-            <option value="2">女</option>
-        </select><br>
-        <br><br><br>
-        <div>
-            <input type="submit" value="送出" />
-        </div>
+<!-- 一小塊空白 -->
+<section class="service-wrapper py-7">
+    <div class="service-tag py-5 bg-white">
     </div>
+</section>
+
+
+<form method="post" class="form-horizontal" style="text-align:center;">
+    <section>
+        <div class="container ">
+            <div class="row bg-light">
+                <div class="col-12 text-left">
+                    <br />
+                    <h2 class="text-info">會員註冊</h2>
+                    <hr />
+                </div>
+                <div class="col-3"></div>
+                <div class="col-6 text-left">
+                    <br />
+                    <p>會員帳號:</p>
+                    <input placeholder="請輸入信箱" class="form-control" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.驗證mail"><br>
+                    <p>密碼: <span id="message" style="color:red;"></span></p>
+                    <input placeholder="6個字以上，至少含有一個英文字及數字" class="form-control" type="password" name="txtPwd" id="chPwd" onblur="ch()" required><br>
+                    <p>暱稱:</p>
+                    <input placeholder="至少2字" class="form-control" type="text" name="txtName" required><br>
+                    <p>性別</p>
+                    <select name="txtGender">
+                        <option value="0" selected>不透露</option>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select><br>
+                    <br>
+                </div>
+
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+                <div class="col-6 text-right">
+                    <input type="submit" class="btn  btn-info form-control" value="確定註冊" />
+
+                </div>
+                <div class="col-3"></div>
+                <div class="col-12">
+                    <br><br /><br /><br />
+                </div>
+
+            </div>
+        </div>
+    </section>
 </form>
+
+
+<script>
+    function ch() {
+        var chPwd = document.getElementById("chPwd");
+        var message = document.getElementById("message");
+        //6個字以上，至少含有一個英文字及數字
+        var PwdRule = /^(?=.*[a-zA-Z])(?=.*\d).{6,20}$/;
+
+        if (chPwd.value.match(PwdRule) == null) {
+            
+            message.innerHTML = "格式錯誤";
+            //alert("密碼格式錯誤")
+        }
+        else
+        {
+            message.innerHTML = "";
+        }
+
+    }
+
+</script>

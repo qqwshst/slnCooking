@@ -282,10 +282,18 @@ namespace prjCooking.Controllers
             if (Session[CSessionKey.驗證碼_int] != null)
             {
                 var ch = Request.Form["check"];
-                if (((string)Session[CSessionKey.驗證碼_int]) == ch)
+                if (!string.IsNullOrEmpty(ch))
                 {
-                    return RedirectToAction("註冊");
+                    if (((string)Session[CSessionKey.驗證碼_int]) != ch)
+                    {
+                        ViewBag.帳號已存在 = "驗證碼錯誤";
+                    }
+                    else
+                    {
+                        return RedirectToAction("註冊");
+                    }
                 }
+                
             }
 
             return View();

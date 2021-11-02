@@ -21,15 +21,13 @@
                 <div class="col-6 text-left">
                     <br />
                     <span>請輸入完整的信箱帳號:</span><br><br />
-                    <input placeholder="請輸入信箱帳號" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail" class="form-control"><br>
+                    <input placeholder="請輸入信箱帳號" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail" class="form-control" required><br>
 
                     @if (ViewBag.mail != null)
                     {
-                        <div id="check">
-                            <span>請至信箱查看驗證碼並輸入</span><br><br />
-                            <input placeholder="請輸入驗證碼"  type="text" name="check" class="form-control"/><br>
+                       <span>請至信箱查看驗證碼並輸入</span><br><br />
+                       <input placeholder="請輸入驗證碼"  type="text" name="check" class="form-control" required /><br>
                             
-                        </div>
                     }
                     <p class="text-danger">@ViewBag.帳號已存在</p>
 

@@ -8,39 +8,62 @@
     </div>
 </section>
 
-<h2>忘記密碼</h2>
-<hr />
 
-<form class="form-horizontal" style="text-align:center;" method="post">
-    <div class="form-group">
-        <br>
-        <!--required 必填欄位-->
-        <span>信箱驗證</span><br>
-        <input placeholder="XXX@gmail.com" style="width:400px" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail"><br>
-        <br>
-        @if (Model != null)
-        {
-            <input placeholder="XXX@gmail.com" style="width:400px" type="hidden" name="txtEmail" value="@Model.f會員信箱"><br>
-        }
+<form method="post" class="form-horizontal" style="text-align:center;">
+    <section>
+        <div class="container ">
+            <div class="row bg-light">
+                <div class="col-12 text-left">
+                    <br />
+                    <h2 class="text-info">忘記密碼</h2>
+                    <hr />
+                </div>
+                <div class="col-3"></div>
+                <div class="col-6 text-left">
+                    <br />
+                    <span>請輸入完整的信箱帳號:</span><br><br />
+                    <input placeholder="請輸入信箱帳號" class="form-control" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail" required><br>
+                    @if (Model != null)
+                    {
+                        <input placeholder="XXX@gmail.com" class="form-control" type="hidden" name="txtEmail" value="@Model.f會員信箱"><br>
+                    }
 
-        @if (ViewBag.mail != null)
-        {
-            <span>驗證碼</span><br>
-            <input placeholder="請輸入4字驗證碼" style="width:400px" type="text" name="check" /><br>
-            <br>
-            <hr />
-            <span>輸入密碼</span><br>
-            <input placeholder="輸入密碼" style="width:400px" type="password" name="txtPwd" /><br>
-            <br>
-            <br>
-            <input placeholder="再次輸入密碼" style="width:400px" type="password" name="txtRePwd" /><br>
-            <br>
-        }
-        @ViewBag.通知訊息
-        <div>
-            <input type="submit" value="Next" />
+                    @if (ViewBag.mail != null)
+                    {
+                        <span>請至信箱查看驗證碼並輸入</span><br><br />
+                        <input placeholder="請輸入驗證碼" class="form-control" type="text" name="check" required /><br>
+                        <br>
+                        <hr />
+                        <span>輸入密碼</span><br><br />
+                        <input placeholder="輸入密碼" class="form-control" type="password" name="txtPwd" required /><br>
+                        <br>
+                        <br>
+                        <input placeholder="再次輸入密碼" class="form-control" type="password" name="txtRePwd" required /><br>
+                        <br>
+                    }
+
+
+                </div>
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+                <div class="col-6 text-right">
+                    <input type="submit" class="btn btn-sm btn-info" value="下一步" />
+
+                </div>
+                <div class="col-3"></div>
+                <div class="col-12">
+                    <br><br /><br /><br /> <br><br />
+                </div>
+
+                <!--required 必填欄位-->
+
+
+
+
+
+
+            </div>
+
         </div>
-
-
-    </div>
+    </section>
 </form>
