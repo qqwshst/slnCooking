@@ -47,6 +47,11 @@
             width: 74px;
             border-radius: 50%;
         }
+        .search1{
+            margin:0px;
+            display: inline;
+
+        }
     </style>
     
 </head>
@@ -81,10 +86,12 @@
                     @Html.ActionLink("新手上路", "", "", new { area = "" }, new { @class = "nav-link" })
                 </li>
                 <li>
-                    @Html.TextBox("txtSearch", null, new { @class = "form-control mr-1", placeholder = "關鍵字搜尋", id= "txtSearch" })
+                    <from>
+                        <input type="text" class="form-control mr-1 search1" style="width:200px" placeholder="關鍵字" />
+                        <input type="submit" value="Search" class="btn btn-light nav-link rounded-pill search1" id="txtSearch" />
+                    </from>
                 </li>
-                <li>&ensp;</li>
-                <li><button class="btn btn-light nav-link rounded-pill " type="button" id="search">Search</button></li>
+                
                 @if (會員 != null)
                 {
                     if (會員.f權限 == (int)權限.管理者)
