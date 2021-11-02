@@ -96,7 +96,7 @@ namespace prjCooking.Models
             {
                 if (!string.IsNullOrEmpty(聚會.f聚會名稱))
                 {
-                    if(聚會.f聚會關鍵字.Contains(_keyword))
+                    if(聚會.f聚會名稱.Contains(_keyword))
                         關鍵字聚會List.Add(聚會);
                 }
 
