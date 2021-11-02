@@ -60,8 +60,12 @@
 
                         <aside class="form-group col-2 text-left">
                             @Html.LabelFor(model => model.f聚會關鍵字, htmlAttributes: new { @class = "control-label" })
+
                         </aside>
                         <aside class="col-10 text-left">
+                            <label class="text-danger">每個關鍵字前需加上#,如:#餅乾#糖果</label>
+                        </aside>
+                        <aside class="col-12 text-left">
                             @Html.EditorFor(model => model.f聚會關鍵字, new { htmlAttributes = new { @class = "form-control", placeholder = "請在每個關鍵字前加上#", name = "f聚會關鍵字" } })
                             @Html.ValidationMessageFor(model => model.f聚會關鍵字, "", new { @class = "text-danger" })
 
@@ -210,7 +214,7 @@
                     </div>
 
                 </div>
-               
+
             </div>
 
         </div>
