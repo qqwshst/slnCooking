@@ -9,51 +9,36 @@
     </div>
 </section>
 <form method="post" class="form-horizontal" style="text-align:center;" action="~/Member/登入">
-<<<<<<< HEAD
-    <div class="form-group">
-        <br>
-        <!--required 必填欄位-->
-        <span>信箱</span><br>
-        <input placeholder="請輸入您的信箱" style="width:400px" type="email" name="txtEmail"><br>
-        <span>密碼</span><br>
-        <input placeholder="請輸入密碼" style="width:400px" type="password" name="txtPwd"><br>
-        <br><br><br>
-                <div>
-                    &emsp;&emsp;<a href="註冊">註冊</a>&emsp;|&emsp;<a href="忘記密碼">忘記密碼?</a>
-                </div><br>
-        <div>
-            <input type="submit" value="登入" />
-=======
     <section>
         <div class="container ">
             <div class="row bg-light">
                 <div class="col-12 text-left">
                     <br />
-                    <h2 class="text-info">登入會員</h2>
+                    <h2 class="text-info">會員登入</h2>
                     <hr />
                 </div>
-                <div class="col-4"></div>
-                <div class="col-4 text-left">
+                <div class="col-3"></div>
+                <div class="col-6 text-left">
                     <br />
                     <p>會員帳號:</p>
                     <input placeholder="請輸入註冊的信箱" class="form-control" type="email" name="txtEmail"><br>
                     <p>密碼:</p>
                     <input placeholder="請輸入密碼" class="form-control" type="password" name="txtPwd"><br>
                 </div>
-                <div class="col-4"></div>
-                <div class="col-4"></div>
-                <div class="col-4 text-right">
-
+                <div class="col-3"></div>
+                <div class="col-3"></div>
+                <div class="col-6 text-right">
                     <a href="忘記密碼">忘記密碼?</a>
-                    <input type="submit" class="btn btn-sm btn-info" value="登入" />
+                    <input type="submit" class="btn  btn-info form-control" value="登入" />
+                    <br /><br />
+                    @Html.ActionLink("點我註冊", "信箱驗證", null, new { Class = "btn  btn-outline-info form-control" })
                 </div>
-                <div class="col-4"></div>
+                <div class="col-3"></div>
                 <div class="col-12">
                     <br><br /><br /><br />
                 </div>
 
             </div>
->>>>>>> 42796547f7161cd1d295a0238873bc91cc2547c1
         </div>
     </section>
 </form>
