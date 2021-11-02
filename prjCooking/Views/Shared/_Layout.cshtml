@@ -47,6 +47,11 @@
             width: 74px;
             border-radius: 50%;
         }
+        .search1{
+            margin:0px;
+            display: inline;
+
+        }
     </style>
     
 </head>
@@ -58,7 +63,7 @@
 
         <span>
             <a href="#">&#129368;</a>
-            @Html.ActionLink("共煮食堂", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("煮播", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             @Html.ActionLink("Cooking online", "Index", "Home", new { area = "" }, new { @class = "navbar-brand text-info" })
         </span>
         <!--  這是手機版時右上角呈現的選單按鈕, 注意:data-target表示按下這個按鈕時要控制展開收合的物件ID名稱  -->
@@ -81,10 +86,12 @@
                     @Html.ActionLink("新手上路", "", "", new { area = "" }, new { @class = "nav-link" })
                 </li>
                 <li>
-                    @Html.TextBox("txtSearch", null, new { @class = "form-control mr-1", placeholder = "關鍵字搜尋" })
+                    <from>
+                        <input type="text" class="form-control mr-1 search1" style="width:200px" placeholder="關鍵字" />
+                        <input type="submit" value="Search" class="btn btn-light nav-link rounded-pill search1" id="txtSearch" />
+                    </from>
                 </li>
-                <li>&ensp;</li>
-                <li><button class="btn btn-light nav-link rounded-pill " type="submit" id="">Search</button></li>
+                
                 @if (會員 != null)
                 {
                     if (會員.f權限 == (int)權限.管理者)
@@ -114,13 +121,13 @@
 
                             @Html.ActionLink("舉辦共煮", "CreateParty", "Meet", new { id = @會員.f會員Id }, new { @class = "nav-item nav-link" })
                         </li>
-                        <li class="nav-item dropdown data-display=" static"">
+                        <li class="nav-item dropdown" data-display="static">
                             <!-- 加上 dropdown, 表示擁有下一層收合展開的子選單 ********** -->
                             <a class="nav-link dropdown-toggle " href="個人頁面.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="~/Image/@會員.f會員照片" class=" personalPhoto" alt="" /></a>  <!-- a連結加上 dropdown-toggle 及相關的屬性 ********** -->
                             <div class="dropdown-menu text-center dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
                                 <!-- 子選單的 div ********** -->
                                 <a class="dropdown-item" href="~/Member/Show個人頁面/@會員.f會員Id"><img src="~/Image/@會員.f會員照片" class=" personalPhoto1" alt="" /><br /></a>
-                               
+
 
                                 @Html.ActionLink(會員.f會員姓名, "Show個人頁面", "Member", new { id = @會員.f會員Id }, new { @class = "dropdown-item", })
                                 <hr>
@@ -134,10 +141,11 @@
                     else
                     {
                         <li class="nav-item">
-                            @Html.ActionLink("登入", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
+                            @Html.ActionLink("登入 ", "登入", "Member", new { area = "" }, new { @class = "nav-link" })
                         </li>
+                   
                         <li class="nav-item">
-                            @Html.ActionLink("註冊", "信箱驗證", "Member", new { area = "" }, new { @class = "nav-link" })
+                            @Html.ActionLink("  註冊", "信箱驗證", "Member", new { area = "" }, new { @class = "nav-link" })
                         </li>
                     }
                 }
@@ -153,7 +161,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - 共煮食堂</p>
+            <p>&copy; @DateTime.Now.Year - 煮播</p>
         </footer>
     </div>
 

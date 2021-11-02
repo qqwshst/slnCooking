@@ -2,7 +2,7 @@
 @model List<C管理者會員ViewModel>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "用戶管理";
 }
 <section class="service-wrapper py-7">
     <div class="service-tag py-5 bg-white">
@@ -16,15 +16,33 @@
 
 @using (Html.BeginForm())
 {
-<p>
-    <label>用戶查詢:</label>
-    <input class="form-control" type="text" placeholder="請輸入帳號、姓名" style="width:25%" name="txtKeyword">
-    <br />
-    @Html.ActionLink("回到用戶列表", "List", "Manager", new { Class = "btn btn-sm btn-outline-info" })
-    <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
-    <br /><br />
+<section>
+    <div class="container ">
+        <div class="row">
+            <div class="col-12 text-left">
+                <label>用戶查詢:</label>
+                
+                <br />
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" placeholder="請輸入帳號、姓名" name="txtKeyword">
+            </div>
+            <div class="col-4 text-left">
+                
+                <input class="btn btn-outline-info" type="submit" value="查詢" />
+            </div>
+            <div class="col-4"></div>
+            <div class="col-12 text-left">
+                <br />
+                @Html.ActionLink("回到用戶列表", "List", "Manager", new { Class = "btn btn-sm btn-secondary" })
+                <br /><br />
+            </div>
+            
+           
+        </div>
+            </div>
 
-</p>
+</section>
 }
 
 
@@ -70,7 +88,9 @@
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.f會員姓名)
+                    <a href="~/Member/Show個人頁面/@item.f會員Id">
+                        @Html.DisplayFor(modelItem => item.f會員姓名)
+                    </a>
                 </td>
 
                 <td>

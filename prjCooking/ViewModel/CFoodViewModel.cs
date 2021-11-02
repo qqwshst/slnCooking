@@ -22,13 +22,14 @@ namespace prjCooking.ViewModel
             get { return this.party_food.f建議食材Id; }
             set { this.party_food.f建議食材Id = value; }
         }
-
+       
         public int f聚會Id
         {
             get { return this.party_food.f聚會Id; }
             set { this.party_food.f聚會Id = value; }
         }
         [DisplayName("食材名稱")]
+        [Required(ErrorMessage = "食材名稱為必填")]
         public string f食材名稱
         {
             get { return this.party_food.f食材名稱; }
@@ -46,5 +47,6 @@ namespace prjCooking.ViewModel
             get { return this.party_food.f單位; }
             set { this.party_food.f單位 = value; }
         }
+        public t建議食材 食材list { get; set; }
     }
 }

@@ -98,6 +98,7 @@ namespace prjCooking.Controllers
                 prod.f會員電話 = editProduct.f會員電話;
 
                 db.SaveChanges();
+                Session[CSessionKey.登入會員_t會員] = prod;
             }
 
             return RedirectToAction("Show個人頁面");

@@ -5,26 +5,31 @@
 @{
     ViewBag.Title = "Edit_info";
 }
-
+<!-- 一小塊空白 -->
+<section class="service-wrapper py-7">
+    <div class="service-tag py-5 bg-white">
+    </div>
+</section>
 
 
 @using (Html.BeginForm("Edit_info", "Member",
     FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <h2>編輯個人資訊</h2>
-    <hr />
+
 
     @Html.AntiForgeryToken()
 
     <aside class="container ">
         <aside class="row">
-            <aside class="col-md-6 offset-md-1 text-center bg-light">
+            <aside class="col-md-6 offset-md-3 text-center bg-light">
 
                 <!-- 開始編輯資訊 -->
                 <div class="form-horizontal row">
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     <aside class=" col-12 text-left">
-
+                        <br />
+                        <h4 class="text-info">編輯個人資訊</h4>
+                        <hr />
                         <!--照片-->
                         <div class="form-group">
                             <br />
@@ -89,9 +94,7 @@
 
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
 
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>

@@ -69,123 +69,128 @@
 
                     </div>
                     }
-                    <div class="col-md-12 text-left text-secondary">
+                <div class="col-md-12 text-left text-secondary">
+                    <br>
+                    <!-- 照片 -->
+
+
+                    <img class="card-img-top" src="~/Image/@Model.聚會資訊.f聚會照片" width="300">
+
+                    <br><br>
+                    <!-- 照片結束 -->
+                    <!-- 聚會主題 -->
+                    <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
+
+
+                    @if ((Model.Is核准參與) || (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id) || (Model.當前登入會員資訊.f權限 == 1))
+                    {
+                        <!-- 煮辦人資訊 -->
+                        <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
                         <br>
-                        <!-- 照片 -->
-
-
-                        <img class="card-img-top" src="~/Image/@Model.聚會資訊.f聚會照片" width="300">
-
-                        <br><br>
-                        <!-- 照片結束 -->
-                        <!-- 聚會主題 -->
-                        <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
-
-
-                        @if ((Model.Is核准參與) || (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id) || (Model.當前登入會員資訊.f權限 == 1))
-                        {
-                            <!-- 煮辦人資訊 -->
-                            <label><i class="bi bi-envelope"></i> @Model.主辦人資訊.f會員信箱</label>
-                            <br>
-                            <label>通訊軟體:@Model.聚會資訊.f聚會通訊軟體</label>
-                            <br>
-                            <label>帳號:@Model.聚會資訊.f聚會通訊軟體帳號</label>
-                            <br />
-                            <a href="@Model.聚會資訊.f聚會軟體URL">@Model.聚會資訊.f聚會軟體URL</a>
-                        }
+                        <label>通訊軟體:@Model.聚會資訊.f聚會通訊軟體</label>
                         <br>
-                        <hr>
-                        <!-- 個人資訊結束 -->
-                        <h3 class="text-dark">@Model.聚會資訊.f聚會名稱</h3>
+                        <label>帳號:@Model.聚會資訊.f聚會通訊軟體帳號</label>
+                        <br />
+                        <label>聚會連結: <a href="@Model.聚會資訊.f聚會軟體URL">@Model.聚會資訊.f聚會軟體URL</a></label>
+                       
+                    }
+                    <br>
+                    <hr>
+                    <!-- 個人資訊結束 -->
+                    <h3 class="text-dark">@Model.聚會資訊.f聚會名稱</h3>
 
 
-                        <!-- 聚會內容 -->
-                        <label class="text-dark">@Model.聚會資訊.f聚會內容</label>
-                        <!-- 關鍵字 -->
-                        <!-- 點選到首頁搜尋此關鍵字的結果 -->
-                        <br>
-                        @foreach (string 關鍵字 in Model.聚會關鍵字)
+                    <!-- 聚會內容 -->
+                    <label class="text-dark">@Model.聚會資訊.f聚會內容</label>
+                    <!-- 關鍵字 -->
+                    <!-- 點選到首頁搜尋此關鍵字的結果 -->
+                    <br>
+                    @if (Model.聚會關鍵字 != null)
+                    {
+                        foreach (string 關鍵字 in Model.聚會關鍵字)
                         {
                             <a href="#">#@關鍵字</a>
                         }
-                        <hr>
-                        <!-- 日期 -->
-                        <p><i class="bi bi-clock" width="16" height="16"></i> @Model.聚會資訊.f聚會日期.ToString("yyyy/MM/dd") @Model.聚會資訊.f聚會開始時間.ToString("HH:mm")-@Model.聚會資訊.f聚會結束時間.Value.ToString("HH:mm")</p>
+                    }
 
-                        <!-- 視訊軟體 -->
-                        <p><i class="bi bi-geo-alt"></i> @Model.聚會資訊.f聚會軟體</p>
-                        <!-- 名額 -->
-                        <p><i class="bi bi-people"></i> @Model.聚會資訊.f名額 人</p>
-                        <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
-                        @{
-                            if ((int)聚會狀態.可報名 == Model.聚會資訊.f聚會狀態 && Model.主辦人資訊.f會員Id != Model.當前登入會員資訊.f會員Id)
+                    <hr>
+                    <!-- 日期 -->
+                    <p><i class="bi bi-clock" width="16" height="16"></i> @Model.聚會資訊.f聚會日期.ToString("yyyy/MM/dd") @Model.聚會資訊.f聚會開始時間.ToString("HH:mm")-@Model.聚會資訊.f聚會結束時間.Value.ToString("HH:mm")</p>
+
+                    <!-- 視訊軟體 -->
+                    <p><i class="bi bi-geo-alt"></i> @Model.聚會資訊.f聚會軟體</p>
+                    <!-- 名額 -->
+                    <p><i class="bi bi-people"></i> @Model.聚會資訊.f名額 人</p>
+                    <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
+                    @{
+                        if ((int)聚會狀態.可報名 == Model.聚會資訊.f聚會狀態 && Model.主辦人資訊.f會員Id != Model.當前登入會員資訊.f會員Id)
+                        {
+                            if (!Model.Is當前會員報名)
                             {
-                                if (!Model.Is當前會員報名)
-                                {
 
-                                    <button class="form-control btn btn-secondary" type="button" data-toggle="modal" data-target="#modalone">@聚會狀態.可報名.ToString()</button>
-                                    <br><br>
-                                    <div class="modal text-center" id="modalone">
-                                        <div class="modal-md modal-dialog modal-dialog-scrollable">
+                                <button class="form-control btn btn-info" type="button" data-toggle="modal" data-target="#modalone">@聚會狀態.可報名.ToString()</button>
+                                <br><br>
+                                <div class="modal text-center" id="modalone">
+                                    <div class="modal-md modal-dialog modal-dialog-scrollable">
 
-                                            <div class="modal-content">
-                                                <div class="modal-header">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
 
-                                                    <i class="modal-title text-danger bi bi-exclamation-circle"></i>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>確定要報名嗎?</p>
+                                                <i class="modal-title text-danger bi bi-exclamation-circle"></i>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>確定要報名嗎?</p>
 
-                                                </div>
-                                                <div class="modal-footer">
+                                            </div>
+                                            <div class="modal-footer">
 
-                                                    <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">取消</button>
+                                                <button type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal">取消</button>
 
-                                                    <a href="~/Meet/報名?聚會Id=@Model.聚會資訊.f聚會Id" class="btn btn-sm btn-outline-info">確定</a>
-                                                </div>
+                                                <a href="~/Meet/報名?聚會Id=@Model.聚會資訊.f聚會Id" class="btn btn-sm btn-outline-info">確定</a>
                                             </div>
                                         </div>
                                     </div>
-                                }
-                                else
-                                {
-                                    <button class="form-control btn btn-secondary" type="button" disabled>已報名 </button>
-                                }
+                                </div>
                             }
                             else
                             {
-                                <button class="form-control btn btn-secondary" type="button" disabled>@Enum.GetName(typeof(聚會狀態), Model.聚會資訊.f聚會狀態.Value) </button>
+                                <button class="form-control btn btn-info" type="button" disabled>已報名 </button>
                             }
                         }
-                        <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
-
-                        <br><br>
-                        <!-- 食材 -->
-                        <!-- 1個食材row2,2個食材row3,3個食材row4 -->
-
-                        <table class="col-5 table table-borderless table-sm text-secondary">
-                            <tr>
-                                <td class="text-dark">建議食材</td>
-                            </tr>
-                            @foreach (t建議食材 食材 in Model.食材資訊List)
-                            {
-                                <tr>
-                                    <td>@食材.f食材名稱</td>
-                                    <td class="text-left">@食材.f數量 @食材.f單位</td>
-                                </tr>
-                            }
-                        </table>
-
-                        @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
+                        else
                         {
-                            <hr>
-                            <label class="text-dark">成果發表</label>
-                            <br><br>
+                            <button class="form-control btn btn-secondary" type="button" disabled>@Enum.GetName(typeof(聚會狀態), Model.聚會資訊.f聚會狀態.Value) </button>
                         }
+                    }
+                    <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
+
+                    <br><br>
+                    <!-- 食材 -->
+                    <!-- 1個食材row2,2個食材row3,3個食材row4 -->
+
+                    <table class="col-5 table table-borderless table-sm text-secondary">
+                        <tr>
+                            <td class="text-dark">建議食材</td>
+                        </tr>
+                        @foreach (t建議食材 食材 in Model.食材資訊List)
+                        {
+                            <tr>
+                                <td>@食材.f食材名稱</td>
+                                <td class="text-left">@食材.f數量 @食材.f單位</td>
+                            </tr>
+                        }
+                    </table>
+
+                    @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
+                    {
+                        <hr>
+                        <label class="text-dark">成果發表</label>
+                        <br><br>
+                    }
 
 
-                    </div>
+                </div>
                     @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
                     {
                         <!-- 評價 -->

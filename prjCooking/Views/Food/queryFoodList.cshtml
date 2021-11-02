@@ -29,13 +29,13 @@
                         </aside>
                         <aside class="col-6 text-right">
 
-                            @Html.ActionLink("新增食材", "CreateFood", null, new { @class = "btn btn-outline-info" })
+                            @Html.ActionLink("新增食材", "queryCreateFood", new { id= @ViewBag.f聚會id }, new { @class = "btn btn-outline-info" })
                         </aside>
                         <aside class="col-12 text-left">
                             <hr /><br />
                         </aside>
 
-                        <aside class="col-10">
+                        <aside class="col-12">
 
                             <table class="table table-condensed table-hover table-responsive">
                                 <thead>
@@ -76,7 +76,7 @@
                                             </td>
 
                                             <td>
-                                                @Html.ActionLink("✎", "EditFood", new { id = item.f建議食材Id }, new { @class = "btn btn-outline-secondary" })
+                                                @Html.ActionLink("✎", "queryEditFood", new { id = item.f建議食材Id }, new { @class = "btn btn-outline-secondary" })
                                                 <input type="button" value="✘" class="btn btn-outline-secondary" data-toggle="modal" data-target="#modalone" />
                                                 <div class="modal" id="modalone">
                                                     <div class="modal-md modal-dialog modal-dialog-scrollable">
@@ -92,7 +92,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <input type="button" value="取消" class="btn btn-sm btn-outline-info" data-dismiss="modal">
-                                                                @Html.ActionLink("確定", "Delete_food", new { id = item.f建議食材Id }, new { @class = "btn btn-sm btn-outline-info" })
+                                                                @Html.ActionLink("確定", "queryDelete_food", new { id = item.f建議食材Id }, new { @class = "btn btn-sm btn-outline-info" })
 
                                                             </div>
                                                         </div>
@@ -110,7 +110,8 @@
                         </aside>
                         <aside class="col-2"></aside>
                         <aside class="col-12 text-right">
-                            @Html.ActionLink("完成", "showParty", "Meet", null, new { Class = "btn btn-sm btn-outline-secondary" })
+                            <a href="~/Meet/showParty/@ViewBag.f聚會id"><input type="button" class="btn btn-sm btn-outline-secondary" value="完成" /></a>
+                            @*@Html.ActionLink("完成", "showParty", "Meet", new { id=@ViewBag.f聚會id }, new { Class = "btn btn-sm btn-outline-secondary" })*@
                             <br /><br />
                         </aside>
                     </div>

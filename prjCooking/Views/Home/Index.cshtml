@@ -3,7 +3,7 @@
 @model C主頁面展示ViewModel
 
 @{
-    ViewBag.Title = "首頁";
+    ViewBag.Title = " ";
 }
 
 <style>
@@ -30,18 +30,18 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <a href="#">
-                <img src="./assets/img/banner-bg-01.jpg"
+                <img src="~/Image/bg-01.jpg"
                      class="img-fluid" alt="pancake1">
             </a>
         </div>
         <div class="carousel-item">
             <a href="#">
-                <img src="./assets/img/banner-bg-02.jpg" class="img-fluid" alt="pancake1">
+                <img src="~/Image/bg-02.jpg" class="img-fluid" alt="pancake1">
             </a>
         </div>
         <div class="carousel-item">
             <a href="#">
-                <img src="./assets/img/banner-bg-04.jpg" class="img-fluid" alt="pancake1">
+                <img src="~/Image/bg-03.jpg" class="img-fluid" alt="pancake1">
             </a>
         </div>
     </div>
@@ -62,10 +62,10 @@
                 <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-allmeet-tab" data-toggle="pill" href="#pills-allmeet" role="tab" aria-controls="pills-allmeet" aria-selected="true">所有聚會</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-ingmeet-tab" data-toggle="pill" href="#pills-ingmeet" role="tab" aria-controls="pills-ingmeet" aria-selected="false">進行中</a>
+                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-nostartmeet-tab" data-toggle="pill" href="#pills-nostartmeet" role="tab" aria-controls="pills-nostartmeet" aria-selected="false">可報名</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-nostartmeet-tab" data-toggle="pill" href="#pills-nostartmeet" role="tab" aria-controls="pills-nostartmeet" aria-selected="false">未開始</a>
+                <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-ingmeet-tab" data-toggle="pill" href="#pills-ingmeet" role="tab" aria-controls="pills-ingmeet" aria-selected="false">進行中</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="filter-btn nav-link btn-outline-secondary  rounded-pill text-light px-4 light-200" id="pills-endmeet-tab" data-toggle="pill" href="#pills-endmeet" role="tab" aria-controls="pills-endmeet" aria-selected="false">已結束</a>
@@ -93,6 +93,41 @@
                             <a href="~/Meet/showParty/@聚會.f聚會Id" class="myfont2" style="text-decoration:none;">
                                 <h5>@聚會.f聚會名稱</h5>
                                 <span>@聚會.f聚會開始時間.ToString("MM月dd日") ,@聚會.f聚會開始時間.DayOfWeek</span><br />
+                                @*<span>@聚會.f聚會軟體</span><br />*@
+                            </a>
+
+                        </div>
+                        <div>
+                            <a href="~/Member/Show個人頁面/@聚會.t會員.f會員Id" class="myfont2 text-dark">
+                                <span><img src="~/Image/@聚會.t會員.f會員照片" class="rounded-circle " width="31" height="31" /></span>
+
+                                <span>@聚會.t會員.f會員姓名</span>
+                                <br /><br />
+                            </a>
+                            
+                        </div>
+                    </div><!-- End Recent Work -->
+                }
+            </div>
+        </section>
+    </div>
+
+    <!-- 進行中的聚會 -->
+    <div class="tab-pane fade" id="pills-ingmeet" role="tabpanel" aria-labelledby="pills-ingmeet-tab">
+        <section class="container overflow-hidden py-5">
+            <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
+                @foreach (t聚會 聚會 in Model.進行中聚會)
+                {
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="~/Meet/showParty/@聚會.f聚會Id" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="~/Image/@聚會.f聚會照片" alt="Card image">
+                        </a>
+
+                        <div class="form-row text-left mt-2 ">
+                            <a href="~/Meet/showParty/@聚會.f聚會Id" class="myfont2" style="text-decoration:none;">
+                                <h5>@聚會.f聚會名稱</h5>
+                                <span>@聚會.f聚會開始時間.ToString("MM月dd日") ,@聚會.f聚會開始時間.DayOfWeek</span><br />
                                 <span>@聚會.f聚會軟體</span><br />
                             </a>
 
@@ -106,36 +141,6 @@
                         </div>
                     </div><!-- End Recent Work -->
                 }
-            </div>
-        </section>
-    </div>
-
-    <!-- 進行中的聚會 -->
-    <div class="tab-pane fade" id="pills-ingmeet" role="tabpanel" aria-labelledby="pills-ingmeet-tab">
-        <section class="container overflow-hidden py-5">
-            <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
-                <!-- Start Recent Work -->
-                <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
-                    <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
-                        <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
-                    </a>
-
-                    <div class="form-row text-left ">
-                        <a href="報名中聚會.html" class="myfont2" style="text-decoration:none;">
-                            <h5>一起學番茄炒蛋</h5>
-                            <span>10月15日,星期五</span><br />
-                            <span>Google meet</span><br />
-                        </a>
-
-                    </div>
-                    <div>
-                        <a href="個人頁面.html" class="myfont2" style="text-decoration:none;">
-                            <span><img src="./assets/img/範例頭貼1.png" /></span>
-
-                            <span>陳阿花</span>
-                        </a>
-                    </div>
-                </div><!-- End Recent Work -->
             </div>
         </section>
     </div>
@@ -177,28 +182,31 @@
     <div class="tab-pane fade" id="pills-endmeet" role="tabpanel" aria-labelledby="pills-endmeet-tab">
         <section class="container overflow-hidden py-5">
             <div class="row gx-5 gx-sm-3 gx-lg-5 gy-lg-5 gy-3 pb-3 projects">
-                <!-- Start Recent Work -->
-                <div class="col-xl-3 col-md-4 col-sm-6 project 未開始">
-                    <a href="報名中聚會.html" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
-                        <img class="card-img" src="./assets/img/cook_02.jpg" alt="Card image">
-                    </a>
-
-                    <div class="form-row text-left ">
-                        <a href="報名中聚會.html" class="myfont2" style="text-decoration:none;">
-                            <h5>一起學番茄炒蛋</h5>
-                            <span>10月15日,星期五</span><br />
-                            <span>Google meet</span><br />
+                @foreach (t聚會 聚會 in Model.已結束聚會)
+                {
+                    <!-- Start Recent Work -->
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="~/Meet/showParty/@聚會.f聚會Id" class="service-work card border-0  shadow-sm overflow-hidden mx-5 m-sm-0">
+                            <img class="card-img" src="~/Image/@聚會.f聚會照片" alt="Card image">
                         </a>
 
-                    </div>
-                    <div>
-                        <a href="個人頁面.html" class="myfont2" style="text-decoration:none;">
-                            <span><img src="./assets/img/範例頭貼1.png" /></span>
+                        <div class="form-row text-left mt-2 ">
+                            <a href="~/Meet/showParty/@聚會.f聚會Id" class="myfont2" style="text-decoration:none;">
+                                <h5>@聚會.f聚會名稱</h5>
+                                <span>@聚會.f聚會開始時間.ToString("MM月dd日") ,@聚會.f聚會開始時間.DayOfWeek</span><br />
+                                <span>@聚會.f聚會軟體</span><br />
+                            </a>
 
-                            <span>陳阿花</span>
-                        </a>
-                    </div>
-                </div><!-- End Recent Work -->
+                        </div>
+                        <div>
+                            <a href="~/Image/@聚會.t會員.f會員照片" class="myfont2" style="text-decoration:none;">
+                                <span><img src="~/Image/@聚會.t會員.f會員照片" width="31" height="31" /></span>
+
+                                <span>@聚會.t會員.f會員姓名</span>
+                            </a>
+                        </div>
+                    </div><!-- End Recent Work -->
+                }
             </div>
         </section>
     </div>
