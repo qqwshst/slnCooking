@@ -8,6 +8,15 @@
     ViewBag.Title = "個人頁面";
 }
 <style>
+    .url_div {
+        color: darkslategray;
+    }
+
+        .url_div:hover {
+            color:cadetblue;
+            font-weight: bold;
+            text-decoration: none;
+        }
     .img_div {
         opacity: 0.85;
         filter: alpha(opacity=50);
@@ -108,7 +117,7 @@
 
                             <a class="text-secondary" href="~/Meet/showParty/@item.f聚會Id"><img src="~/Image/@item.f聚會照片" class="img_div img-fluid rounded" style="height: 200px;width: 200px;"></a>
                             <br />
-                            @Html.ActionLink(@item.f聚會名稱, "showParty", "Meet", new { id = item.f聚會Id }, new { Class = "text-dark" })
+                            @Html.ActionLink(@item.f聚會名稱, "showParty", "Meet", new { id = item.f聚會Id }, new { Class = "url_div" })
 
                             <br /><br />
                         </div>
@@ -129,14 +138,14 @@
                     </div>
                     <div class="col-12 text-center">
                         <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id"><img class="img_div img-fluid rounded" src="~/Image/@Model.最新聚會[0].f聚會照片" width="150"></a>
-                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id" class="text-dark"><br>@Model.最新聚會[0].f聚會名稱</a>
+                        <a href="~/Meet/showParty/@Model.最新聚會[0].f聚會Id" class="url_div"><br>@Model.最新聚會[0].f聚會名稱</a>
                         <br>
                     </div>
 
                     <div class="col-12 text-center ">
                         <br>
                         <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id"><img class="img_div img-fluid rounded" src="~/Image/@Model.最新聚會[1].f聚會照片" width="150"></a>
-                        <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id" class="text-dark"><br>@Model.最新聚會[1].f聚會名稱</a>
+                        <a href="~/Meet/showParty/@Model.最新聚會[1].f聚會Id" class="url_div"><br>@Model.最新聚會[1].f聚會名稱</a>
                         <br>
                     </div>
 
