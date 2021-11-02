@@ -86,10 +86,10 @@
                     @Html.ActionLink("新手上路", "", "", new { area = "" }, new { @class = "nav-link" })
                 </li>
                 <li>
-                    <from>
-                        <input type="text" class="form-control mr-1 search1" style="width:200px" placeholder="關鍵字" />
-                        <input type="submit" value="Search" class="btn btn-light nav-link rounded-pill search1" id="txtSearch" />
-                    </from>
+                    <form method="get" action="~/Home/Index">
+                        <input type="text" class="form-control mr-1 search1" style="width:200px" placeholder="關鍵字" name="txtSearch"/>
+                        <input type="submit" value="Search" class="btn btn-light nav-link rounded-pill search1" />
+                    </form>
                 </li>
                 
                 @if (會員 != null)
