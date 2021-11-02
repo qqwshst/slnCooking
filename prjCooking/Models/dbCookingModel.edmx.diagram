@@ -16,6 +16,12 @@
         <AssociationConnector Association="dbCookingModel.FK__t聚會__f主辦人__267ABA7A" ManuallyRouted="false" />
         <EntityTypeShape EntityType="dbCookingModel.t建議食材" Width="1.5" PointX="5.25" PointY="7.75" />
         <AssociationConnector Association="dbCookingModel.FK__t建議食材__f聚會Id__36B12243" />
+        <EntityTypeShape EntityType="dbCookingModel.t留言" Width="1.5" PointX="8.25" PointY="2.5" />
+        <EntityTypeShape EntityType="dbCookingModel.t檢舉" Width="1.5" PointX="8.25" PointY="10.5" />
+        <AssociationConnector Association="dbCookingModel.FK__t留言__f留言人Id__4D94879B" />
+        <AssociationConnector Association="dbCookingModel.FK__t留言__f留言的聚會Id__4E88ABD4" />
+        <AssociationConnector Association="dbCookingModel.FK__t檢舉__f檢舉人Id__49C3F6B7" />
+        <AssociationConnector Association="dbCookingModel.FK__t檢舉__f被檢舉的聚會Id__4AB81AF0" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

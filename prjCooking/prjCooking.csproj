@@ -193,6 +193,12 @@
     <Compile Include="Models\t會員.cs">
       <DependentUpon>dbCookingModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\t檢舉.cs">
+      <DependentUpon>dbCookingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t留言.cs">
+      <DependentUpon>dbCookingModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\t聚會.cs">
       <DependentUpon>dbCookingModel.tt</DependentUpon>
     </Compile>

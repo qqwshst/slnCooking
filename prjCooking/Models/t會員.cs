@@ -19,6 +19,8 @@ namespace prjCooking.Models
         {
             this.t參加者 = new HashSet<t參加者>();
             this.t聚會 = new HashSet<t聚會>();
+            this.t留言 = new HashSet<t留言>();
+            this.t檢舉 = new HashSet<t檢舉>();
         }
     
         public int f會員Id { get; set; }
@@ -36,5 +38,9 @@ namespace prjCooking.Models
         public virtual ICollection<t參加者> t參加者 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t聚會> t聚會 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<t留言> t留言 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<t檢舉> t檢舉 { get; set; }
     }
 }
