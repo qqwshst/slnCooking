@@ -108,21 +108,32 @@ namespace prjCooking.Controllers
         {
             dbCookingEntities db = new dbCookingEntities();
             t會員 member_select = new t會員();
-            if (id==null)
+            if (id == null)
             {
-                id= ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
-                 member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
+                id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+                member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
             }
             else
             {
-             member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
+
+                member_select = db.t會員.FirstOrDefault(p => p.f會員Id == id);
                 //List<t聚會> party = db.Cooking查詢某會員聚會ListBy會員Id(id);
             }
             C個人頁面ViewModel list = new C個人頁面ViewModel() { member = member_select };
             list.會員聚會資訊 = db.Cooking查詢某會員沒被刪除的聚會ListBy會員Id(id);
             list.最新聚會 = db.Cooking查詢所有聚會List();
             list.最新聚會.Reverse();
-            list.目前會員id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+
+            if (Session[CSessionKey.登入會員_t會員] != null)
+            {
+                list.目前會員id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            }
+            else
+            {
+                return RedirectToAction("登入");
+            }
+
+
 
             return View(list);
         }
