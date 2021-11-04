@@ -11,46 +11,49 @@
 <form class="form-horizontal" style="text-align:center;" method="post">
     <section>
         <div class="container ">
-            <div class="row bg-light">
-                <div class="col-12 text-left">
-                    <br />
-                    <h2 class="text-info">註冊會員</h2>
-                    <hr />
+            <div class="row">
+                <div class="col-md-6 offset-md-3 bg-light">
+                    <div class="col-12 text-left">
+                        <br />
+                        <h3 class="text-info">註冊會員</h3>
+                        <hr />
+                    </div>
+                    
+                    <div class="col-12 text-left">
+                        <br />
+                        <span>請輸入完整的信箱帳號:</span><br><br />
+                        <input placeholder="請輸入信箱帳號" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail" class="form-control" required><br>
+
+                        @if (ViewBag.mail != null)
+                        {
+                            <span>請至信箱查看驗證碼並輸入</span><br><br />
+                            <input placeholder="請輸入驗證碼" type="text" name="check" class="form-control" required /><br>
+
+                        }
+                        <p class="text-danger">@ViewBag.帳號已存在</p>
+
+
+
+                    </div>
+            
+                    <div class="col-12 text-right">
+                        <input type="submit" class="btn btn-sm btn-info" value="下一步" />
+
+                    </div>
+                    <div class="col-12">
+                        <br><br /><br /><br /> <br>
+                    </div>
+
+                    <!--required 必填欄位-->
+
+
+
+
                 </div>
-                <div class="col-3"></div>
-                <div class="col-6 text-left">
-                    <br />
-                    <span>請輸入完整的信箱帳號:</span><br><br />
-                    <input placeholder="請輸入信箱帳號" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail" class="form-control" required><br>
-
-                    @if (ViewBag.mail != null)
-                    {
-                       <span>請至信箱查看驗證碼並輸入</span><br><br />
-                       <input placeholder="請輸入驗證碼"  type="text" name="check" class="form-control" required /><br>
-                            
-                    }
-                    <p class="text-danger">@ViewBag.帳號已存在</p>
-
-
-
-                </div>
-                <div class="col-3"></div>
-                <div class="col-3"></div>
-                <div class="col-6 text-right">
-                    <input type="submit" class="btn btn-sm btn-info" value="下一步" />
-
-                </div>
-                <div class="col-3"></div>
                 <div class="col-12">
-                    <br><br /><br /><br /> <br><br />
+                    <br />
                 </div>
-
-                <!--required 必填欄位-->
-
-
-
-
-
+              
 
             </div>
             

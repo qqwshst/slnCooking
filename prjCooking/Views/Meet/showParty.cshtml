@@ -374,27 +374,13 @@
                 <br />
                 <p class="alert alert-secondary">討論區</p>
                 <div class="row">
-                    <!--會員留言顯示-->
-                    @*留言者照片/姓名/個人頁面連結*@
-                    <div class="col-12 text-right">
-                        <br />
-
-                    </div>
-                    <div class="col-6 text-left">
+                    <!--非會員本人留言顯示1-->
+                    @*留言者照片/姓名/個人頁面連結*@                
+                    <div class="col-10 text-left">
                         <a href="~/Member/Show個人頁面/" class="myfont2 text-dark">
-                            <img src="~/Image/boy.png" class="rounded-circle " width="31" height="31" /><span>留言者姓名</span>
+                            <img src="~/Image/boy.png" class="rounded-circle " width="31" height="31" />
                         </a>
 
-                    </div>
-                    @*留言建立日期*@
-                    <div class="col-6 text-right text-secondary">
-                        <p>-<span>2021/11/02 12:55</span></p>
-
-
-                    </div>
-                    <div class="col-10 text-left">
-                        @*留言內容*@
-                        <p>留言內容</p>
                     </div>
                     <div class="col-2 text-right">
                         @*如果留言者為目前登入會員則顯示以下btn*@
@@ -426,12 +412,60 @@
 
                     </div>
 
-                    <!--會員留言顯示結束-->
-
-
-                    <div class="col-12">
+                    <div class="col-12 text-left">
+                        @*留言內容*@
+                        <p>非目前登入會員的留言內容</p>
                         <hr />
                     </div>
+
+                    <!--非會員本人留言顯示結束1-->
+                    <!--會員本人留言顯示2-->
+                    @*留言者照片/姓名/個人頁面連結*@
+                    <div class="col-2 text-left">
+                        @*如果留言者為目前登入會員則顯示以下btn*@
+                        <input type="button" value="✘" Class="btn btn-sm  btn-outline-secondary" data-toggle="modal" data-target="#modalone" />
+                        @*modal開始*@
+                        <div class="modal text-center" id="modalone">
+                            <div class="modal-md modal-dialog modal-dialog-scrollable">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <i class="modal-title text-danger bi bi-exclamation-circle"></i>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>確定要刪除嗎?</p>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <input type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal" value="取消" />
+                                        @Html.ActionLink("確定", "", null, new { Class = "btn btn-sm btn-outline-info" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*modal結束*@
+
+                    </div>
+
+                    <div class="col-10 text-right">
+                        <a href="~/Member/Show個人頁面/" class="myfont2 text-dark">
+                            <img src="~/Image/boy.png" class="rounded-circle " width="31" height="31" />
+                        </a>
+
+                    </div>
+
+                    <div class="col-12 text-right">
+                        @*留言內容*@
+                        <p>目前登入會員的留言內容</p>
+                        <hr />
+                    </div>
+
+
+                    <!--會員本人留言顯示結束2-->
                     @if (Model.當前登入會員資訊.f會員姓名 != null)
                     {
                         <!--會員留言textbox-->
