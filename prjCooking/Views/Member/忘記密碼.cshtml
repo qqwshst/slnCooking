@@ -22,7 +22,7 @@
                   
                     <div class="col-12 text-left">
                         <br />
-                        <span>請輸入完整的信箱帳號:</span><br><br />
+                        <span>會員帳號</span>
                         <input placeholder="請輸入信箱帳號" class="form-control" type="email" name="txtEmail" disabled="@ViewBag.dis" value="@ViewBag.mail" required><br>
                         @if (Model != null)
                         {
@@ -31,14 +31,14 @@
 
                         @if (ViewBag.mail != null)
                         {
-                            <span>請至信箱查看驗證碼並輸入</span><br><br />
+                            <span>請至信箱查看驗證碼並輸入</span><br />
                             <input placeholder="請輸入驗證碼" class="form-control" type="text" name="check" required /><br>
-                            <br>
-                            <hr />
-                            <span>輸入密碼</span><br><br />
-                            <input placeholder="輸入密碼" class="form-control" type="password" name="txtPwd" required /><br>
-                            <br>
-                            <br>
+                           
+
+                            <span>輸入新密碼</span>
+                            <input placeholder="請輸入密碼" class="form-control" type="password" name="txtPwd" required /><br>
+                            
+                            <span>再輸入一次新密碼</span>
                             <input placeholder="再次輸入密碼" class="form-control" type="password" name="txtRePwd" required /><br>
                             <br>
                         }
@@ -52,7 +52,7 @@
                     </div>
              
                     <div class="col-12">
-                        <br><br /><br /><br /> <br><br />
+                        <br><br /><br /><br />
                     </div>
 
                     <!--required 必填欄位-->
