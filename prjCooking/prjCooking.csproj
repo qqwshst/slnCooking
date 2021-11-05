@@ -127,6 +127,7 @@
     <Content Include="Image\bg-02.jpg" />
     <Content Include="Image\bg-03.jpg" />
     <Content Include="Image\boy.png" />
+    <Content Include="Image\heart.svg" />
     <Content Include="Image\img_01.jpg" />
     <Content Include="Image\img_02.jpg" />
     <Content Include="Image\party_01.jpg" />
