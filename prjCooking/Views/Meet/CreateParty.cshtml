@@ -75,10 +75,8 @@
                             @Html.LabelFor(model => model.f聚會關鍵字, htmlAttributes: new { @class = "control-label" })
 
                         </aside>
+                       
                         <aside class="col-10 text-left">
-                            <label class="text-danger">每個關鍵字前需加上#,如:#餅乾#糖果</label>
-                        </aside>
-                        <aside class="col-12 text-left">
                             @Html.EditorFor(model => model.f聚會關鍵字, new { htmlAttributes = new { @class = "form-control", placeholder = "請在每個關鍵字前加上#", name = "f聚會關鍵字", id = "txt_tag" } })<span id="W_tag"></span>
                             @Html.ValidationMessageFor(model => model.f聚會關鍵字, "", new { @class = "text-danger" })
 
@@ -314,5 +312,28 @@
         }
     }
 
+</script>
+<script>
+    //驗證關鍵字第一個字是#
+    document.getElementById("txt_tag").addEventListener("blur", chktime);
+    function chktime() {
+        let tag = document.getElementById("txt_tag");
+        let tagVal = tag.value;
+        let tagValLen = tagVal.length;
+        let sp = document.getElementById("W_tag");
+        
+        console.log(tagVal.substr(0,1));
+
+        if (tagVal != null) {
+            if (tagVal.substr(0, 1) == "#") {
+                sp.innerHTML = "✔ 輸入正確";
+                document.getElementById("W_tag").className = "timeTrue";
+
+            } else {
+                sp.innerHTML = "⛔ 關鍵字前面需加上#";
+                document.getElementById("W_tag").className = "timeFalse";
+            }
+        }
+    }
 </script>
 
