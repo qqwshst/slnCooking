@@ -109,8 +109,12 @@
     }
 
     function check() {
-        if (message.innerHTML.length > 0)
+        if (message.innerHTML == "✔ 輸入正確") {
+            return true;
+        } else {
             return false;
+        }
+          
     }
 </script>
 <script>

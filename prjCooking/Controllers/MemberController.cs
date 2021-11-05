@@ -50,9 +50,7 @@ namespace prjCooking.Controllers
                     {
                         ViewBag.nowpwd = "請重新輸入密碼";
                         ViewBag.newpwd = "新密碼需輸入一致,請重新輸入";
-
                     }
-
                 }
                 else
                 {
@@ -206,7 +204,7 @@ namespace prjCooking.Controllers
                         {
                             Session[CSessionKey.忘記密碼_通知訊息] = "密碼輸入錯誤";
                             return RedirectToAction("忘記密碼");
-                        }                        
+                        }           
                     }
                     else
                     {
@@ -319,7 +317,18 @@ namespace prjCooking.Controllers
             maill.MailSendToAddress = Request.Form["txtEmail"];
 
             maill.MailTitle = "煮播註冊驗證碼";
-            maill.MailContent = "您的驗證碼:" + rnd;
+            maill.MailContent = "您的驗證碼:" + rnd + @"
+
+
+
+
+
+
+
+
+
+
+                ";
 
             // 寄件
             maill.SendMaill();
