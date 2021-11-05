@@ -56,7 +56,7 @@ namespace prjCooking.Controllers
                 }
                 else
                 {
-                    ViewBag.nowpwd = "請重新輸入密碼";
+                    ViewBag.nowpwd = "密碼輸入不正確，請重新輸入密碼";
                     ViewBag.newpwd = "新密碼需輸入一致,請重新輸入";
                 }
 

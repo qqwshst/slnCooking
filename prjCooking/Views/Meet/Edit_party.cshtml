@@ -4,9 +4,19 @@
 
 
 @{
-    ViewBag.Title = "CreateParty";
+    ViewBag.Title = "編輯聚會";
 }
+<style>
+    .timeFalse {
+        color: crimson;
+        font-size: 14px;
+    }
 
+    .timeTrue {
+        color: darkcyan;
+        font-size: 14px;
+    }
+</style>
 <h2 class="text-info">舉辦共煮</h2>
 <hr>
 <br>
@@ -101,7 +111,7 @@
                         <aside class="col-10 text-left">
                             <input type="date" class="form-control" style="width:50%" name="f聚會日期" value="@ViewBag.partydate" />
                             @*@Html.EditorFor(model => model.f聚會日期, new { htmlAttributes = new { @class = "form-control",  name = "聚會時間", @value = "@ViewBag.partydate",
-                            style = "width:50%",@type="date" } })*@
+                                style = "width:50%",@type="date" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會日期, "", new { @class = "text-danger" })
 
 
@@ -113,7 +123,7 @@
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會開始時間, htmlAttributes: new { @class = "control-label" })
                         </aside>
                         <aside class="col-10 text-left">
-                            <input type="time" class="form-control" style="width:50%" name="聚會開始時間" value="@ViewBag.partystart" )" />
+                            <input type="time" class="form-control" style="width:50%" name="聚會開始時間" value="@ViewBag.partystart" id="txt_starttime" />
                             @*@Html.EditorFor(model => model.f聚會開始時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會開始時間" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會開始時間, "", new { @class = "text-danger" })
 
@@ -126,7 +136,7 @@
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會結束時間, htmlAttributes: new { @class = "control-label" })
                         </aside>
                         <aside class="col-10 text-left">
-                            <input type="time" class="form-control" style="width:50%" name="聚會結束時間" value="@ViewBag.partyend" )" />
+                            <input type="time" class="form-control" style="width:50%" name="聚會結束時間" value="@ViewBag.partyend" id="txt_endtime" /><span id="W_endtime"></span>
                             @*@Html.EditorFor(model => model.f聚會結束時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會結束時間" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會結束時間, "", new { @class = "text-danger" })
 
@@ -253,3 +263,29 @@
         }
     }
 </script>
+<script>
+    document.getElementById("txt_endtime").addEventListener("blur", chktime);
+    function chktime() {
+        let starttime = document.getElementById("txt_starttime");
+        let endtime = document.getElementById("txt_endtime");
+        let starttimeVal = starttime.value;
+        let endtimeVal = endtime.value;
+        let sp = document.getElementById("W_endtime");
+
+        if (endtimeVal == " ") {
+            sp.innerHTML = "⛔ 結束時間不可空白"
+            document.getElementById("W_endtime").className = "timeFalse";
+        }
+        else if (endtimeVal <= starttimeVal) {
+            sp.innerHTML = "⛔ 結束時間需大於開始時間";
+            document.getElementById("W_endtime").className = "timeFalse";
+        } else {
+            sp.innerHTML = "✔ 輸入正確";
+            document.getElementById("W_endtime").className = "timeTrue";
+        }
+    }
+   
+
+</script>
+
+
