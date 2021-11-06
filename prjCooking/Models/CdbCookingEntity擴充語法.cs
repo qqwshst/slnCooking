@@ -194,5 +194,20 @@ namespace prjCooking.Models
                 db.SaveChanges();
             }
         }
+
+        // Delete
+        public static void Cooking刪除一則留言By留言Id(this dbCookingEntities db, int? 留言Id)
+        {
+            if (留言Id.HasValue)
+            {
+                t留言 某留言 = db.t留言.Where(留言 => 留言.f留言Id == 留言Id.Value).FirstOrDefault();
+
+                if(某留言 != null)
+                {
+                    db.t留言.Remove(某留言);
+                    db.SaveChanges();
+                }
+            }
+        }
     }
 }

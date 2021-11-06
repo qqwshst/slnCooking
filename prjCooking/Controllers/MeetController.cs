@@ -348,5 +348,32 @@ namespace prjCooking.Controllers
 
             return RedirectToAction("showParty", new { id = vmodel.聚會Id});
         }
+
+        [HttpPost]
+        public ActionResult 新增留言(int? 聚會Id, string 留言文字)
+        {
+            if (!string.IsNullOrEmpty(留言文字))
+            {
+                t留言 新留言 = new t留言();
+                新留言.f留言人Id = ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+                新留言.f留言的聚會Id = 聚會Id.Value;
+                新留言.f留言文字 = 留言文字;
+                新留言.f留言建立日期 = DateTime.Now;
+
+                (new dbCookingEntities()).Cooking新增某表格資料<t留言>(新留言);
+            }
+
+            return RedirectToAction("showParty", new { id = 聚會Id });
+        }
+
+        public ActionResult Delete留言(int? 留言Id, int? 聚會Id)
+        {
+            if (留言Id.HasValue)
+            {
+                (new dbCookingEntities()).Cooking刪除一則留言By留言Id(留言Id);
+            }
+
+            return RedirectToAction("showParty", new { id = 聚會Id });
+        }
     }
 }

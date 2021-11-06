@@ -124,7 +124,7 @@
                     <br><br>
                     <!-- 照片結束 -->
                     <!-- 聚會主題 -->
-                    <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id"> @Model.主辦人資訊.f會員姓名</a></p>
+                    <p><a href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id" style="text-decoration: none"><img src="~/Image/@Model.主辦人資訊.f會員照片" class="rounded-circle" width="30"></a><a class="text-secondary" href="~/Member/Show個人頁面/@Model.主辦人資訊.f會員Id" style="text-decoration: none"> @Model.主辦人資訊.f會員姓名</a></p>
 
 
                     @if ((Model.Is核准參與) || (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id) || (Model.當前登入會員資訊.f權限 == 1))
@@ -154,7 +154,7 @@
                     {
                         foreach (string 關鍵字 in Model.聚會關鍵字)
                         {
-                            <a href="~/Home/Index?txtSearch=@關鍵字">#@關鍵字</a>
+                            <a href="~/Home/Index?txtSearch=@關鍵字" style="text-decoration: none">#@關鍵字</a>
                         }
                     }
 
@@ -374,78 +374,102 @@
                 <br />
                 <p class="alert alert-secondary">討論區</p>
                 <div class="row">
-                    <!--非會員本人留言顯示1-->
-                    @*留言者照片/姓名/個人頁面連結*@                
-                    <div class="col-10 text-left">
-                        <a href="~/Member/Show個人頁面/" class="myfont2 text-dark">
-                            <img src="~/Image/boy.png" class="rounded-circle " width="31" height="31" />
-                        </a>
+                    @{
+                        int modelCount = 3;
 
-                    </div>
-                    <div class="col-2 text-right">
-                        @*如果留言者為目前登入會員則顯示以下btn*@
-                        <input type="button" value="✘" Class="btn btn-sm  btn-outline-secondary" data-toggle="modal" data-target="#modalone" />
-                        @*modal開始*@
-                        <div class="modal text-center" id="modalone">
-                            <div class="modal-md modal-dialog modal-dialog-scrollable">
+                        foreach (t留言 留言 in Model.聚會資訊.t留言)
+                        {
+                            <!--非會員本人留言顯示1-->
+                            @*留言者照片/姓名/個人頁面連結*@
+                            <div class="col-10 text-left">
+                                <a href="~/Member/Show個人頁面/@留言.t會員.f會員Id" class="myfont2 text-dark" style="text-decoration: none">
+                                    <img src="~/Image/@留言.t會員.f會員照片" class="rounded-circle " width="31" height="31" />
+                                    <span>@留言.t會員.f會員姓名</span>
+                                </a>
 
-                                <div class="modal-content">
-                                    <div class="modal-header">
-
-                                        <img src="~/Image/heart.svg" class="modal-title">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>確定要刪除嗎?</p>
-
-                                    </div>
-                                    <div class="modal-footer">
-
-                                        <input type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal" value="取消" />
-                                        @Html.ActionLink("確定", "", null, new { Class = "btn btn-sm btn-outline-info" })
-
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                        @*modal結束*@
+                            if (Model.當前登入會員資訊 != null && 留言.f留言人Id == Model.當前登入會員資訊.f會員Id)
+                            {
+                                <div class="col-2 text-right">
+                                    @*如果留言者為目前登入會員則顯示以下btn*@
+                                    <input type="button" value="✘" Class="btn btn-sm  btn-outline-secondary" data-toggle="modal" data-target="@("#modalone" + modelCount)" />
+                                    @*modal開始*@
+                                    <div class="modal text-center" id="@("modalone" + modelCount)">
+                                        <div class="modal-md modal-dialog modal-dialog-scrollable">
 
-                    </div>
+                                            <div class="modal-content">
+                                                <div class="modal-header">
 
-                    <div class="col-12 text-left">
-                        @*留言內容*@
-                        <p>非目前登入會員的留言內容</p>
-                        <hr />
-                    </div>
+                                                    <img src="~/Image/heart.svg" class="modal-title">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>確定要刪除嗎?</p>
 
-                    <!--非會員本人留言顯示結束1-->
-                    
-                    @if (Model.當前登入會員資訊.f會員姓名 != null)
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <input type="button" class="btn btn-sm btn-outline-info" data-dismiss="modal" value="取消" />
+                                                    @Html.ActionLink("確定", "Delete留言", new { 留言Id = 留言.f留言Id, 聚會Id = Model.聚會資訊.f聚會Id }, new { Class = "btn btn-sm btn-outline-info" })
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @*modal結束*@
+
+                                </div>
+
+                                modelCount++;
+                            }
+
+
+                            <div class="col-12">
+                                @*留言內容*@
+                                <div class="text-left">
+                                    <p>@留言.f留言文字</p>
+                                </div>
+                                <div class="text-right">
+                                    <span>@留言.f留言建立日期.Value.ToString("yyyy/MM/dd hh:mm")</span>
+                                </div>
+                                <hr />
+                            </div>
+
+                            <!--非會員本人留言顯示結束1-->
+                        }
+                    }
+                </div>
+                @if (Model.當前登入會員資訊.f會員姓名 != null)
+                {
+                    using (Html.BeginForm("新增留言", "Meet", FormMethod.Post, new { @class = "row", id = "createCommitForm" }))
                     {
+                        @Html.TextBox("聚會Id", Model.聚會資訊.f聚會Id, new { type = "hidden" })
                         <!--會員留言textbox-->
                         <div class="col-12 text-left">
 
-                            <a href="~/Member/Show個人頁面/@Model.當前登入會員資訊.f會員Id" class="myfont2 text-dark">
+                            <a href="~/Member/Show個人頁面/@Model.當前登入會員資訊.f會員Id" class="myfont2 text-dark" style="text-decoration: none">
                                 <span><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle " width="31" height="31" /></span>
 
                                 <span>@Model.當前登入會員資訊.f會員姓名</span>
                             </a>
                             <br /><br />
-                            <input type="text" class="form-control" placeholder="新增留言..." />
+                            <input type="text" name="留言文字" class="form-control" placeholder="新增留言..." />
+                            <span class="text-danger"></span>
                         </div>
                         <div class="col-12 text-right">
                             <br />
-                            @Html.ActionLink("發佈", "", "", null, new { Class = "btn btn-sm  btn-outline-info", @type = "button" })
+                            <input type="submit" class="btn btn-sm  btn-outline-info" value="發佈" />
                             <br /><br />
                         </div><!--會員留言textbox結束-->
                     }
-                    else
-                    { 
-                        <div class="col-12 text-left">
-                            <label>請先<a href="~/Member/登入">登入會員</a>即可參與討論</label>
-                        </div>
-                    }
-                </div>
+
+                }
+                else
+                {
+                    <div class="col-12 text-left">
+                        <label>請先<a href="~/Member/登入">登入會員</a>即可參與討論</label>
+                    </div>
+                }
             </div>
 
             <!--討論區留言顯示+留言視窗 結束-->
@@ -491,4 +515,11 @@
         }
     });
 
+    $("#createCommitForm").submit(function () {
+        if (!$(":input[type='text']", this).val()) {
+            $("span.text-danger", this).html("留言不可為空");
+
+            return false;
+        }
+    });
 </script>
