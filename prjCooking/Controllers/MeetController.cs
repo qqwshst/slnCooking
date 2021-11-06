@@ -17,6 +17,21 @@ namespace prjCooking.Controllers
         {
             return View();
         }
+        public ActionResult Party_Reported(int id)
+        {
+            dbCookingEntities db = new dbCookingEntities();
+            t檢舉 Wprob = new t檢舉();
+            
+            Wprob.f被檢舉的聚會Id = id;
+            Wprob.f檢舉人Id= ((t會員)Session[CSessionKey.登入會員_t會員]).f會員Id;
+            Wprob.f檢舉建立日期 = DateTime.Now;
+            Wprob.f檢舉原因 = "已檢舉";
+            
+            db.t檢舉.Add(Wprob);
+            db.SaveChanges();
+            
+            return RedirectToAction("showParty", new { id = id });
+        }
         public ActionResult Edit_party(int id, int party_boss)
         {
 

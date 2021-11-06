@@ -10,13 +10,14 @@ namespace prjCooking.Controllers
 {
     public class ManagerController : Controller
     {
-     
+        public ActionResult 檢舉頁面()
+        {
+            return View();
+        }
 
         // GET: Manager
         public ActionResult PartyList()
         {
-
-
             IEnumerable<t聚會> datas = null;
             string keyword = Request.Form["txtKeyword"];
             if (string.IsNullOrEmpty(keyword))
@@ -37,6 +38,16 @@ namespace prjCooking.Controllers
             {
                 t會員 member = (new dbCookingEntities()).Cooking查詢某會員的資料By會員Id(p.f主辦人);
 
+                //IEnumerable<t檢舉> datas檢舉 = null;
+
+
+                //datas檢舉 = from m in (new dbCookingEntities()).t檢舉
+                //          where ((m.f被檢舉的聚會Id == p.f聚會Id)&&(m.f檢舉原因=="已檢舉"))
+                //        select m;
+                //foreach (t檢舉 b in datas檢舉)
+                //    p.聚會檢舉資訊.Add(b);
+                
+
                 //建立日期轉換只顯示年月日
                 p.聚會建立日期 = Convert.ToDateTime(p.f聚會建立日期).ToShortDateString();
 
@@ -54,6 +65,12 @@ namespace prjCooking.Controllers
                     p.聚會垃圾桶 = " ";
                 else
                     p.聚會垃圾桶 = "✘";
+                p.聚會檢舉狀態 = "已檢舉";
+                if (p.聚會檢舉狀態 == "已檢舉")
+                    p.聚會檢舉狀態顯示 = "檢舉了";
+                else
+                    p.聚會檢舉狀態顯示 = "";
+
 
             }
 

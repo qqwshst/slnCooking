@@ -136,5 +136,8 @@ namespace prjCooking.ViewModel
         [DisplayName("煮辦人姓名")]
         public string 煮辦人姓名
         { get; set; }
+        public string 聚會檢舉狀態 { get; set; }
+        public string 聚會檢舉狀態顯示 { get; set; }
+        public List<t檢舉> 聚會檢舉資訊 { get; set; }
     }
 }

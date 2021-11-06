@@ -253,6 +253,7 @@
     <Content Include="Views\Member\Edit_Password.cshtml" />
     <Content Include="Views\Food\queryEditFood.cshtml" />
     <Content Include="Views\Food\queryCreateFood.cshtml" />
+    <Content Include="Views\Manager\檢舉頁面.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
