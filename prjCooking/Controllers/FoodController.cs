@@ -66,15 +66,19 @@ namespace prjCooking.Controllers
             
             if (prod != null)
             {
-                prod.f聚會Id = Convert.ToInt32(Request.Form["f聚會Id"]);
-                prod.f食材名稱 = editfood.f食材名稱;
-                prod.f數量 = editfood.f數量;
-                prod.f單位 = editfood.f單位;
+               
+                    prod.f聚會Id = Convert.ToInt32(Request.Form["f聚會Id"]);
+                    prod.f食材名稱 = editfood.f食材名稱;
+                    prod.f數量 = editfood.f數量;
+                    prod.f單位 = editfood.f單位;
 
-                db.SaveChanges();
+                    db.SaveChanges();
+               
+        
+                
             }
 
-            return RedirectToAction("queryFoodList");
+            return RedirectToAction("queryFoodList",new { id=prod.f聚會Id});
 
 
         }

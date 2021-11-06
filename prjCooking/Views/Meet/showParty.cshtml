@@ -269,11 +269,11 @@
                                                         <img src="~/Image/@參加者.評論.f照片" class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>
                                                         <div class='text-left'>
                                                             <br>
-                                                            <img src='~/Image/@參加者.參加者資訊.f會員照片' class='rounded-circle' width='30'>
-                                                            <h5>@參加者.參加者資訊.f會員姓名</h5><p>@參加者.評論.f留言</p>
-                                                            <p class='text-right text-secondary'>
-                                                                @參加者.評論.f評價建立日期
-                                                            </p>
+                                                            <a href="~/Member/Show個人頁面/@參加者.參加者資料.f會員Id" class="myfont2 text-dark" style="text-decoration: none"><img src='~/Image/@參加者.參加者資訊.f會員照片' class='rounded-circle' width='30'><span>@參加者.參加者資訊.f會員姓名</span></a>
+                                                                <p>@參加者.評論.f留言</p>
+                                                                <p class='text-right text-secondary'>
+                                                                    @參加者.評論.f評價建立日期
+                                                                </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -297,15 +297,16 @@
                                 @Html.TextBox("聚會Id", Model.聚會資訊.f聚會Id, new { type = "hidden" })
                                 <div class="col-7 text-left">
                                     <p>請發表您的共煮成果:<br><span class="text-danger">*需上傳圖片才能發布成果<br></span></p>
-                                    <a><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle" height="30" width="30"> @Model.當前登入會員資訊.f會員姓名</a>
+                               
+                                        <a href="~/Member/Show個人頁面/@Model.當前登入會員資訊.f會員Id" class="myfont2 text-dark" style="text-decoration: none"><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle" height="30" width="30"> @Model.當前登入會員資訊.f會員姓名</a>
 
-                                    <br><br>
+                                        <br><br>
 
-                                    <!-- 上傳照片 -->
+                                        <!-- 上傳照片 -->
 
-                                    <input type="file" name="上傳圖片" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
+                                        <input type="file" name="上傳圖片" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
 
-                                    <p class="text-secondary">圖片格式:jpeg/gif/png</p>
+                                        <p class="text-secondary">圖片格式:jpeg/gif/png</p>
                                 </div>
 
                                 <div class="col-5 text-center">
@@ -429,7 +430,7 @@
                                 <div class="text-left">
                                     <p>@留言.f留言文字</p>
                                 </div>
-                                <div class="text-right">
+                                <div class="text-right text-secondary">
                                     <span>@留言.f留言建立日期.Value.ToString("yyyy/MM/dd hh:mm")</span>
                                 </div>
                                 <hr />

@@ -29,7 +29,7 @@ namespace prjCooking.ViewModel
             set { this.party_food.f聚會Id = value; }
         }
         [DisplayName("食材名稱")]
-        [Required(ErrorMessage = "食材名稱為必填")]
+        [Required(ErrorMessage = " ")]
         public string f食材名稱
         {
             get { return this.party_food.f食材名稱; }

@@ -3,7 +3,18 @@
 @{
     ViewBag.Title = "CreateFood";
 }
+<style>
 
+    .timeFalse {
+        color: crimson;
+        font-size: 14px;
+    }
+
+    .timeTrue {
+        color: darkcyan;
+        font-size: 14px;
+    }
+</style>
 <h2 class="text-info">舉辦共煮</h2>
 <hr>
 <br>
@@ -24,9 +35,13 @@
                         <div class="col-md-6 offset-md-1 text-center bg-light">
 
                             <div class="row">
-                                <aside class="col-12 text-left">
+                                <aside class="col-6 text-left">
                                     <br>
                                     <h4 class="text-info">編輯共煮食材:</h4>
+                                </aside>
+                                <aside class="col-6 text-right">
+                                    <br>
+                                    @Html.ActionLink("回到食材列表", "FoodList", null, new { @Class = "btn btn-sm btn-outline-secondary" })
                                 </aside>
 
 
@@ -42,7 +57,7 @@
                                 <aside class="form-group col-6 text-left">
 
                                     @Html.LabelFor(model => model.f食材名稱, htmlAttributes: new { @class = "control-label" })
-                                    @Html.EditorFor(model => model.f食材名稱, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱" } })
+                                    @Html.EditorFor(model => model.f食材名稱, new { htmlAttributes = new { @class = "form-control", name = "f食材名稱", id = "foodname" } })<span id="W_foodname"></span>
                                     @Html.ValidationMessageFor(model => model.f食材名稱, "", new { @class = "text-danger" })
 
 
@@ -63,29 +78,8 @@
                                 <aside class="col-12 text-right">
 
 
-                                    <input class="btn btn-outline-info" type="button" value="儲存" data-toggle="modal" data-target="#modalone">
-                                    <br><br>
-                                    <div class="modal text-center" id="modalone">
-                                        <div class="modal-md modal-dialog modal-dialog-scrollable">
+                                    <input class="btn btn-outline-info" type="submit" value="儲存">
 
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-
-                                                    <i class="modal-title text-danger bi bi-exclamation-circle"></i>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>確定要修改嗎?</p>
-
-                                                </div>
-                                                <div class="modal-footer">
-
-                                                    @Html.ActionLink("取消", "FoodList", null, new { Class = "btn btn-sm btn-outline-info" })
-                                                    <input type="submit" value="確定" class="btn btn-sm btn-outline-info">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </aside>
                                 <aside class="col-12 text-right">
@@ -113,3 +107,25 @@
 
 
 }
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    document.getElementById("foodname").addEventListener("blur", chkfoodname);
+
+    function chkfoodname() {
+
+        let Ofoodname = document.getElementById("foodname");
+        let OfoodnameVal = Ofoodname.value;
+        let sp = document.getElementById("W_foodname");
+        if (OfoodnameVal == "") {
+            sp.innerHTML = "⛔ 食材名稱不可空白";
+            document.getElementById("W_foodname").className = "timeFalse";
+
+        } else {
+            sp.innerHTML = "✔ 輸入正確";
+            document.getElementById("W_foodname").className = "timeTrue";
+        }
+
+    }
+</script>
