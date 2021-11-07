@@ -23,7 +23,7 @@ namespace prjCooking.Models
                 bool is刪除 = Convert.ToBoolean(聚會垃圾桶.刪除);
                 List<CCaptureMeetInfo> data = db.t參加者.Where(m => m.f會員Id == memberId.Value)
                 .Where(m => m.t聚會.f聚會垃圾桶 != is刪除)
-                .OrderByDescending(m => m.f參加者建立日期)
+                .OrderBy(m => m.t聚會.f聚會開始時間)
                 .Select(m => new CCaptureMeetInfo
                 {
                     聚會ID = m.f聚會Id,
