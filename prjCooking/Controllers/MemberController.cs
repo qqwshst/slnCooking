@@ -182,9 +182,16 @@ namespace prjCooking.Controllers
             if (txtEmail != "")
             {
                 string seEmail = (string)Session[CSessionKey.註冊會員_fEmail];
-                
-                if(!string.IsNullOrEmpty(txtEmail))
+
+                if (!string.IsNullOrEmpty(txtEmail))
+                {
                     會員 = db.t會員.Where(m => m.f會員信箱 == txtEmail).FirstOrDefault();
+                    if(會員 == null)
+                    {
+                        Session[CSessionKey.忘記密碼_通知訊息] = "此帳號尚未註冊";
+                        return RedirectToAction("忘記密碼");
+                    }
+                }                    
                 else
                     會員 = db.t會員.Where(m => m.f會員信箱 == seEmail).FirstOrDefault();
 
@@ -201,7 +208,7 @@ namespace prjCooking.Controllers
                         }
                         else
                         {
-                            Session[CSessionKey.忘記密碼_通知訊息] = "密碼輸入錯誤";
+                            Session[CSessionKey.忘記密碼_通知訊息] = "新密碼兩次輸入需一致，請檢察";
                             return RedirectToAction("忘記密碼");
                         }           
                     }
@@ -312,10 +319,10 @@ namespace prjCooking.Controllers
             maill.Path = @"C:\maillAccount.txt";
             maill.FromFileAccountInfo();
             maill.MailSendFromName = "煮播";
-            maill.MailSendToName = "To註冊會員";
+            maill.MailSendToName = "To親愛的會員";
             maill.MailSendToAddress = Request.Form["txtEmail"];
 
-            maill.MailTitle = "煮播註冊驗證碼";
+            maill.MailTitle = "煮播平台驗證碼";
             maill.MailContent = "您的驗證碼:" + rnd + @"
 
 
