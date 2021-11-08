@@ -252,6 +252,7 @@
     <Content Include="Views\Food\queryEditFood.cshtml" />
     <Content Include="Views\Food\queryCreateFood.cshtml" />
     <Content Include="Views\Manager\檢舉頁面.cshtml" />
+    <Content Include="Views\Manager\query檢舉.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
