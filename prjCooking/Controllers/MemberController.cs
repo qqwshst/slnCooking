@@ -145,6 +145,7 @@ namespace prjCooking.Controllers
         public ActionResult 登入(string txtEmail, string txtPwd)
         {
             dbCookingEntities db = new dbCookingEntities();
+
             
             t會員 會員 = null;            
             if (txtEmail != "" && txtPwd != "")
@@ -158,14 +159,15 @@ namespace prjCooking.Controllers
                 }
                 else
                 {
-                     // "帳號密碼錯誤";
+                    ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";                   
+                    return View();
                 }
             }
             else
             {
-                // "請輸入帳號密碼";
+                ViewBag.通知訊息 = "⛔ 請輸入帳號密碼";
+                return View();
             }
-            return View();
         }
 
         public ActionResult 忘記密碼()
