@@ -34,7 +34,7 @@
 
                     <div class="row">
 
-                        <aside class="form-group col-md-12 text-left">
+                        <div class="form-group col-md-12 text-left">
                             <br>
                             <input type="hidden" value="@ViewBag.聚會id" name="f聚會id" />
                             <!-- 照片 -->
@@ -44,159 +44,121 @@
                             <br>
                             <!-- 照片結束 -->
                             <hr>
-                        </aside>
+                        </div>
 
 
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會名稱, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
+                       
                             @Html.EditorFor(model => model.f聚會名稱, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入聚會名稱", name = "f聚會名稱" } })
                             @Html.ValidationMessageFor(model => model.f聚會名稱, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /> <br />
 
-                        <aside class="form-group col-2 text-left">
-                            @Html.LabelFor(model => model.f聚會內容, htmlAttributes: new { @class = "control-label " })
-                        </aside>
-                        <aside class="col-10 text-left">
-                            @Html.EditorFor(model => model.f聚會內容, new { htmlAttributes = new { @class = "form-control", placeholder = "請介紹您的共煮聚會", name = "f聚會內容" } })
+                        <div class="form-group col-12 text-left">
+                            <label>請介紹您的共煮聚會:</label>
+
+                            @Html.EditorFor(model => model.f聚會內容, new { htmlAttributes = new { @class = "form-control", placeholder = "", name = "f聚會內容" } })
                             @Html.ValidationMessageFor(model => model.f聚會內容, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /> <br />
-
-                        <aside class="form-group col-2 text-left">
-                            @Html.LabelFor(model => model.f聚會關鍵字, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
+                        <div class="form-group col-12 text-left">
+                            @Html.LabelFor(model => model.f聚會關鍵字, htmlAttributes: new { @class = "control-label" })<span class="text-danger">(請在每個關鍵字前加上#)</span>
+                        
                             @Html.EditorFor(model => model.f聚會關鍵字, new { htmlAttributes = new { @class = "form-control", placeholder = "請在每個關鍵字前加上#", name = "f聚會關鍵字" } })
                             @Html.ValidationMessageFor(model => model.f聚會關鍵字, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
-
-                        <aside class="form-group col-2 text-left">
-                            <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會軟體, htmlAttributes: new { @class = "control-label" })
-
-                        </aside>
-                        <aside class="col-10 text-left">
+                        <div class="form-group col-12 text-left">
+                            <label> <span class="text-danger">*</span>聚會平台</label>
                             @Html.EditorFor(model => model.f聚會軟體, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入平台名稱", name = "f聚會軟體" } })
                             @Html.ValidationMessageFor(model => model.f聚會軟體, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
-
-                        <aside class="form-group col-2 text-left">
-                            <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會軟體URL, htmlAttributes: new { @class = "control-label" })
-
-                        </aside>
-
-                        <aside class="col-10 text-left">
+                        <div class="form-group col-12 text-left">
+                            <label> <span class="text-danger">*</span>聚會連結</label>
                             @Html.EditorFor(model => model.f聚會軟體URL, new { htmlAttributes = new { @class = "form-control", placeholder = "請輸入平台連結", name = "f聚會軟體URL" } })
                             @Html.ValidationMessageFor(model => model.f聚會軟體URL, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
 
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             <span class="text-danger">*</span>  @Html.LabelFor(model => model.f聚會日期, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
-                            <input type="date" class="form-control" style="width:50%" name="f聚會日期" value="@ViewBag.partydate" />
+
+                            <input type="date" class="form-control" style = "width:60%" name="f聚會日期" value="@ViewBag.partydate" />
                             @*@Html.EditorFor(model => model.f聚會日期, new { htmlAttributes = new { @class = "form-control",  name = "聚會時間", @value = "@ViewBag.partydate",
                                 style = "width:50%",@type="date" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會日期, "", new { @class = "text-danger" })
 
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
 
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會開始時間, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
-                            <input type="time" class="form-control" style="width:50%" name="聚會開始時間" value="@ViewBag.partystart" id="txt_starttime" />
+                            <input type="time" class="form-control" style = "width:60%" name="聚會開始時間" value="@ViewBag.partystart" id="txt_starttime" />
                             @*@Html.EditorFor(model => model.f聚會開始時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會開始時間" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會開始時間, "", new { @class = "text-danger" })
 
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
 
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             <span class="text-danger">*</span>@Html.LabelFor(model => model.f聚會結束時間, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
-                            <input type="time" class="form-control" style="width:50%" name="聚會結束時間" value="@ViewBag.partyend" id="txt_endtime" /><span id="W_endtime"></span>
+
+                            <input type="time" class="form-control" style = "width:60%" name="聚會結束時間" value="@ViewBag.partyend" id="txt_endtime" /><span id="W_endtime"></span>
                             @*@Html.EditorFor(model => model.f聚會結束時間, new { htmlAttributes = new { @class = "form-control", @type = "time", style = "width:50%", name = "f聚會結束時間" } })*@
                             @Html.ValidationMessageFor(model => model.f聚會結束時間, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
 
-                        <aside class="form-group col-2 text-left">
-                            <span class="text-danger">*</span>@Html.LabelFor(model => model.f名額, htmlAttributes: new { @class = "control-label" })
-
-                        </aside>
-                        <aside class="col-10 text-left">
+                        <div class="form-group col-12 text-left">
+                            <span class="text-danger">*</span>@Html.LabelFor(model => model.f名額, htmlAttributes: new { @class = "control-label" })<span class="text-danger">(只能輸入數字)</span>
                             @Html.EditorFor(model => model.f名額, new { htmlAttributes = new { @class = "form-control", @type = "number", placeholder = "請輸入數字", style = "width:25%", name = "f名額" } })
                             @Html.ValidationMessageFor(model => model.f名額, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <aside class="col-12 text-left">
+                        <div class="col-12 text-left">
                             <hr>
                             <p>煮辦人聯絡資訊:</p>
                             <p class="text-danger">以下內容僅提供給審核成功的共煮成員</p>
-                            <br />
 
-                        </aside>
+                        </div>
 
                         <!-- 煮辦人聯絡資訊 -->
 
-                        <br /><br />
-
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             <p>信箱:</p>
-                        </aside>
-                        <aside class="col-10 text-left">
-                            <input type="text" placeholder="" style="width:35%" value="@Model.f會員信箱 " disabled>
-                        </aside>
+                      
+                            <input type="text" placeholder="" class="form-control" value="@Model.f會員信箱 " disabled>
+                        </div>
 
-                        <br /><br />
-
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             @Html.LabelFor(model => model.f聚會通訊軟體, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
+                        
                             @Html.EditorFor(model => model.f聚會通訊軟體, new { htmlAttributes = new { @class = "form-control", name = "f聚會通訊軟體" } })
                             @Html.ValidationMessageFor(model => model.f聚會通訊軟體, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <br /><br />
-
-                        <aside class="form-group col-2 text-left">
+                        <div class="form-group col-12 text-left">
                             @Html.LabelFor(model => model.f聚會通訊軟體帳號, htmlAttributes: new { @class = "control-label" })
-                        </aside>
-                        <aside class="col-10 text-left">
+
                             @Html.EditorFor(model => model.f聚會通訊軟體帳號, new { htmlAttributes = new { @class = "form-control", name = "f聚會通訊軟體帳號" } })
                             @Html.ValidationMessageFor(model => model.f聚會通訊軟體帳號, "", new { @class = "text-danger" })
 
-                        </aside>
+                        </div>
 
-                        <aside class="col-12 text-right">
-                            <br><hr>
+                        <div class="col-12 text-right">
+                           <hr>
 
                             <input type="button" value="儲存" class="btn btn-outline-info" data-toggle="modal" data-target="#modalone" />
                             <br><br>
@@ -220,7 +182,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </aside>
+                        </div>
 
                     </div>
 
