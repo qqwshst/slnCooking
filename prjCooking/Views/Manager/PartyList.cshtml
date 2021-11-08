@@ -37,7 +37,7 @@
                     <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
                     <br /><br />
                     @Html.ActionLink("回到聚會列表", "PartyList", null, new { @class = "btn btn-sm btn-secondary" })
-
+                   
                     <br /><br />
                 </div>
 
@@ -53,6 +53,7 @@
         序
     </th>
     <th>
+        @Html.ActionLink("🚨", "query檢舉", null, new { @class = "btn btn-sm" })
     </th>
     <th>
         @Html.DisplayNameFor(model => model[0].聚會建立日期)
