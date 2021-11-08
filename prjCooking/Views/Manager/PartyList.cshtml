@@ -93,12 +93,14 @@
 
                         <p>✘</p>
                     }
+                    else if ((item.f聚會垃圾桶 == false) && (item.聚會檢舉狀態顯示 == "已檢舉"))
+                    {
+                        @Html.ActionLink("🚨", "檢舉頁面", new { id = item.f聚會Id }, new { Class = "party_btn btn btn-sm" })
+
+                    }
                     else
                     {
-                        @Html.ActionLink("🚨", "檢舉頁面", null, new { Class = "party_btn btn btn-sm" })
-                        @*<a href=""><input type="button" value="🚨" class="party_btn btn btn-sm" /></a>*@
-                        @*@Html.ActionLink("@&#9940;", "", "", new { id = item.f聚會Id }, new { Class = "btn btn-outline-secondary" })
-            <p class="text-danger">&#9940;</p>*@
+                        <p></p>
                     }
 
                 </td>

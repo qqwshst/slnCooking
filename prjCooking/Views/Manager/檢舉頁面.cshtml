@@ -30,10 +30,9 @@
                     <div class="col-12 text-left">
 
                         <hr />
-                        <label> 檢舉日期: 2021/11/06</label><br />
-                        <label>檢舉人:陳阿花</label><br />
+                        <label> 檢舉時間: @ViewBag.f檢舉日期</label><br />
                         <label>檢舉原因:頁面含不當內容</label><br />
-                        @Html.ActionLink("查看頁面", "showParty", "Meet", null, new { Class = "btn btn-sm btn-secondary" })
+                        @Html.ActionLink("查看頁面", "showParty", "Meet", new { id = @ViewBag.f聚會id }, new { Class = "btn btn-sm btn-secondary", @target = "_new" })
                         <br /><hr /><label>檢舉處理:</label><br />
                         <input type="button" class="btn btn-sm btn-info" value="無不當內容" data-toggle="modal" data-target="#modalone1" />
                         <div class="modal text-center" id="modalone1">
@@ -51,7 +50,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <input type="button" value="取消" class="btn btn-sm btn-outline-info" data-dismiss="modal">
-                                        @Html.ActionLink("確定", "PartyList", null, new { Class = "btn btn-sm  btn-outline-info" })
+                                        @Html.ActionLink("確定", "no下架檢舉的活動", new { id = @ViewBag.f聚會id }, new { Class = "btn btn-sm  btn-outline-info" })
 
                                     </div>
                                 </div>
@@ -72,8 +71,9 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="button" value="取消" class="btn btn-sm btn-outline-info" data-dismiss="modal">
-                                        @Html.ActionLink("確定", "PartyList", null, new { Class = "btn btn-sm  btn-outline-info" })
+                                        <input type="button" value="取消" class="btn btn-sm btn-outline-info" data-dismiss="modal" />
+                                        @Html.ActionLink("確定", "下架檢舉的活動", new { id = @ViewBag.f聚會id }, new { Class = "btn btn-sm  btn-outline-info" })
+
 
                                     </div>
                                 </div>
@@ -83,7 +83,7 @@
                     </div>
 
                 </div>
-</div>
-</div>
-</div>
+            </div>
+        </div>
+    </div>
 </section>

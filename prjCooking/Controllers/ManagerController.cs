@@ -10,9 +10,47 @@ namespace prjCooking.Controllers
 {
     public class ManagerController : Controller
     {
-        public ActionResult 檢舉頁面()
+        public ActionResult 檢舉頁面(int? id)
         {
+            ViewBag.f聚會id = id;
+            dbCookingEntities db = new dbCookingEntities();
+            t檢舉 query檢舉 = new t檢舉();
+            query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
+            if (query檢舉 != null)
+            {
+
+                ViewBag.f檢舉日期 = query檢舉.f檢舉建立日期;
+
+            }
             return View();
+        }
+        public ActionResult 下架檢舉的活動(int? id)
+        {
+
+            (new C聚會相關操作()).取消活動(id.Value);
+            dbCookingEntities db = new dbCookingEntities();
+
+            t檢舉 query檢舉 = new t檢舉();
+            query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
+
+            db.t檢舉.Remove(query檢舉);
+            db.SaveChanges();
+
+            return RedirectToAction("PartyList");
+
+        }
+        public ActionResult no下架檢舉的活動(int? id)
+        {
+            dbCookingEntities db = new dbCookingEntities();
+
+            t檢舉 query檢舉 = new t檢舉();
+            query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
+
+            db.t檢舉.Remove(query檢舉);
+            db.SaveChanges();
+
+            return RedirectToAction("PartyList");
+
         }
 
         // GET: Manager
@@ -37,18 +75,10 @@ namespace prjCooking.Controllers
             foreach (C管理者聚會ViewModel p in Plist)
             {
                 t會員 member = (new dbCookingEntities()).Cooking查詢某會員的資料By會員Id(p.f主辦人);
+                dbCookingEntities db = new dbCookingEntities();
+                t檢舉 query檢舉 = new t檢舉();
+                query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == p.f聚會Id);
 
-                //IEnumerable<t檢舉> datas檢舉 = null;
-
-
-                //datas檢舉 = from m in (new dbCookingEntities()).t檢舉
-                //          where ((m.f被檢舉的聚會Id == p.f聚會Id)&&(m.f檢舉原因=="已檢舉"))
-                //        select m;
-                //foreach (t檢舉 b in datas檢舉)
-                //    p.聚會檢舉資訊.Add(b);
-                
-
-                //建立日期轉換只顯示年月日
                 p.聚會建立日期 = Convert.ToDateTime(p.f聚會建立日期).ToShortDateString();
 
                 p.煮辦人姓名 = member.f會員姓名;
@@ -65,11 +95,21 @@ namespace prjCooking.Controllers
                     p.聚會垃圾桶 = " ";
                 else
                     p.聚會垃圾桶 = "✘";
-                p.聚會檢舉狀態 = "已檢舉";
-                if (p.聚會檢舉狀態 == "已檢舉")
-                    p.聚會檢舉狀態顯示 = "檢舉了";
-                else
-                    p.聚會檢舉狀態顯示 = "";
+
+                if (query檢舉 != null)
+                {
+
+                    if (query檢舉.f檢舉原因 == "已檢舉")
+                    {
+                        p.聚會檢舉狀態顯示 = "已檢舉";
+                    }
+                    else
+                    {
+                        p.聚會檢舉狀態顯示 = " ";
+
+                    }
+                }
+
 
 
             }
