@@ -58,9 +58,9 @@
                 <div class="col-12">
                     <br />
                 </div>
-                @if (Model.當前登入會員資訊.f會員姓名 != null)
+                @if ((Model.當前登入會員資訊.f會員姓名 != null) && (Model.當前登入會員資訊.f會員Id != Model.聚會資訊.f主辦人))
                 {
-                    <div class="col-6 text-left">
+                    <div class="col-12 text-left">
                         <input class="btn btn btn-danger" type="button" value="檢舉" data-toggle="modal" data-target="#modalone2">
                         <div class="modal text-center" id="modalone2">
                             <div class="modal-md modal-dialog modal-dialog-scrollable">
@@ -88,7 +88,7 @@
                 }
                     @if (Model.當前登入會員資訊.f會員Id == Model.聚會資訊.f主辦人 && Model.聚會資訊.f聚會狀態 == (int)聚會狀態.可報名)
                     {
-                        <div class="col-6 text-right">
+                        <div class="col-12 text-right">
 
                             <input type="button" value="編輯" class="btn btn-outline-danger" data-toggle="modal" data-target="#modalone1" />
 
