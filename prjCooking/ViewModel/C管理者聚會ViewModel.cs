@@ -133,7 +133,7 @@ namespace prjCooking.ViewModel
             get { return this.party.f主辦人; }
             set { this.party.f主辦人 = value; }
         }
-        [DisplayName("煮辦人姓名")]
+        [DisplayName("煮辦人")]
         public string 煮辦人姓名
         { get; set; }
         public string 聚會檢舉狀態 { get; set; }

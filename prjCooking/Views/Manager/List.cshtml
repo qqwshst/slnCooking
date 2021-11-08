@@ -20,21 +20,20 @@
     <div class="container ">
         <div class="row">
             <div class="col-12 text-left">
-                <label>用戶查詢:</label>
-                
-                <br />
-            </div>
-            <div class="col-4">
-                <input class="form-control" type="text" placeholder="請輸入帳號、姓名" name="txtKeyword">
-            </div>
-            <div class="col-4 text-left">
-                
-                <input class="btn btn-outline-info" type="submit" value="查詢" />
-            </div>
-            <div class="col-4"></div>
-            <div class="col-12 text-left">
-                <br />
                 @Html.ActionLink("回到用戶列表", "List", "Manager", new { Class = "btn btn-sm btn-secondary" })
+                <br /><br />
+                <label>用戶查詢:</label>
+
+                <br />
+
+            </div>
+            <div class="col-12 text-left">
+                <input class="form-control" type="text" placeholder="請輸入帳號、姓名" name="txtKeyword" style="width:50%">
+                  <br />
+                <input class="btn btn-sm btn-info" type="submit" value="查詢" />
+          
+                <br />
+                
                 <br /><br />
             </div>
             
@@ -88,7 +87,7 @@
                 </td>
 
                 <td>
-                    <a href="~/Member/Show個人頁面/@item.f會員Id">
+                    <a class="text-info" href="~/Member/Show個人頁面/@item.f會員Id">
                         @Html.DisplayFor(modelItem => item.f會員姓名)
                     </a>
                 </td>
