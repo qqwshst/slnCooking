@@ -17,11 +17,8 @@ namespace prjCooking.Controllers
             t檢舉 query檢舉 = new t檢舉();
             query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
             if (query檢舉 != null)
-            {
-
                 ViewBag.f檢舉日期 = query檢舉.f檢舉建立日期;
 
-            }
             return View();
         }
         public ActionResult 下架檢舉的活動(int? id)
@@ -29,12 +26,18 @@ namespace prjCooking.Controllers
 
             (new C聚會相關操作()).取消活動(id.Value);
             dbCookingEntities db = new dbCookingEntities();
+            var query檢舉 = (from prod in db.t檢舉
+                           where prod.f被檢舉的聚會Id == id
+                           select prod).ToList();
 
-            t檢舉 query檢舉 = new t檢舉();
-            query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
 
-            db.t檢舉.Remove(query檢舉);
-            db.SaveChanges();
+            foreach (t檢舉 p in query檢舉)
+            {
+                //p.f檢舉原因 = DateTime.Today.ToString()+"已處理";
+                db.t檢舉.Remove(p);
+                db.SaveChanges();
+            }
+           
 
             return RedirectToAction("PartyList");
 
@@ -42,13 +45,18 @@ namespace prjCooking.Controllers
         public ActionResult no下架檢舉的活動(int? id)
         {
             dbCookingEntities db = new dbCookingEntities();
+            var query檢舉 = (from prod in db.t檢舉
+                           where prod.f被檢舉的聚會Id == id
+                           select prod).ToList();
 
-            t檢舉 query檢舉 = new t檢舉();
-            query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
-
-            db.t檢舉.Remove(query檢舉);
-            db.SaveChanges();
-
+           
+            foreach (t檢舉 p in query檢舉)
+            {
+                //p.f檢舉原因 = DateTime.Today.ToString()+"已處理";
+                db.t檢舉.Remove(p);
+                db.SaveChanges();
+            }
+            
             return RedirectToAction("PartyList");
 
         }
