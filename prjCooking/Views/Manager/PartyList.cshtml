@@ -58,6 +58,9 @@
         @Html.ActionLink("🚨", "query檢舉", null, new { @class = "party_btn btn btn-sm" })
     </th>
     <th>
+        @Html.DisplayNameFor(model => model[0].聚會狀態)
+    </th>
+    <th>
         @Html.DisplayNameFor(model => model[0].聚會建立日期)
     </th>
     <th>
@@ -68,9 +71,7 @@
         @Html.DisplayNameFor(model => model[0].f聚會名稱)
     </th>
 
-    <th>
-        @Html.DisplayNameFor(model => model[0].聚會狀態)
-    </th>
+
 
 
 
@@ -85,54 +86,57 @@
         {
             主辦人id = item.f主辦人;
             count++;
-            <tr>
-                <td>
-                    @count
+        <tr>
+            <td>
+                @count
 
-                </td>
-                <td>
-                    @if (item.f聚會垃圾桶 == true)
-                    {
+            </td>
+            <td>
+                @if ((item.f聚會垃圾桶 == false) && (item.聚會檢舉狀態顯示 == "已檢舉"))
+                {
+                    @Html.ActionLink("🚨", "檢舉頁面", new { id = item.f聚會Id }, new { Class = "party_btn btn btn-sm" })
 
-                        <p>✘</p>
-                    }
-                    else if ((item.f聚會垃圾桶 == false) && (item.聚會檢舉狀態顯示 == "已檢舉"))
-                    {
-                        @Html.ActionLink("🚨", "檢舉頁面", new { id = item.f聚會Id }, new { Class = "party_btn btn btn-sm" })
+                }
+                else
+                {
+                    <p></p>
+                }
 
-                    }
-                    else
-                    {
-                        <p></p>
-                    }
+            </td>
+            <td>
+                @if (item.f聚會垃圾桶 == true)
+                {
 
-                </td>
+                    <p>已下架</p>
+                }
+                else
+                {
+                    <p></p>
+                }
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.聚會建立日期)
-                </td>
-                <td>
+            </td>
 
-                    @Html.DisplayFor(modelItem => item.煮辦人姓名)
+            <td>
+                @Html.DisplayFor(modelItem => item.聚會建立日期)
+            </td>
+            <td>
 
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.f聚會名稱)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.聚會狀態)
-                </td>
+                @Html.DisplayFor(modelItem => item.煮辦人姓名)
 
 
-                <td>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.f聚會名稱)
+            </td>
 
-                    @Html.ActionLink("查看", "showParty", "Meet", new { id = item.f聚會Id }, new { @class = "btn btn-sm btn-outline-secondary" })
-                    @*@Html.ActionLink("編輯", "Edit", new { id = item.f聚會Id }, new { @class = "btn btn-sm btn-outline-secondary" })*@
 
-                </td>
-            </tr>
+            <td>
+
+                @Html.ActionLink("查看", "showParty", "Meet", new { id = item.f聚會Id }, new { @class = "btn btn-sm btn-outline-secondary" })
+                @*@Html.ActionLink("編輯", "Edit", new { id = item.f聚會Id }, new { @class = "btn btn-sm btn-outline-secondary" })*@
+
+            </td>
+        </tr>
         }
     }
 </table>

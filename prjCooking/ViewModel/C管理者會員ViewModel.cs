@@ -80,5 +80,6 @@ namespace prjCooking.ViewModel
         [DisplayName("性別")]
         public string 性別
         { get; set; }
+        public string 會員建立日期 { get; set; }
     }
 }

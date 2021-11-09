@@ -232,7 +232,8 @@ namespace prjCooking.Controllers
             //修正部分viewmodel顯示資訊
             foreach (C管理者會員ViewModel p in list)
             {
-               
+                string a = p.f會員建立日期.ToString("yyyy/MM/dd");
+                p.會員建立日期= a;
                 if (p.f性別 == 0)
                     p.性別 = "不公開";
                 else if (p.f性別 == 1)

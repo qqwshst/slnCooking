@@ -118,7 +118,7 @@ namespace prjCooking.Controllers
             }
             C個人頁面ViewModel list = new C個人頁面ViewModel() { member = member_select };
             list.會員聚會資訊 = db.Cooking查詢某會員沒被刪除的聚會ListBy會員Id(id);
-            list.最新聚會 = db.Cooking查詢所有聚會List();
+            list.最新聚會 = db.Cooking查詢所有沒被刪除聚會List();
             list.最新聚會.Reverse();
 
             if (Session[CSessionKey.登入會員_t會員] != null)
