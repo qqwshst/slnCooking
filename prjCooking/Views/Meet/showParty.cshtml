@@ -203,7 +203,14 @@
                                 }
                                 else
                                 {
-                                    <button class="form-control btn btn-info" type="button" disabled>已報名 </button>
+                                    if (Model.Is核准參與)
+                                    {
+                                        <button class="form-control btn btn-success" type="button" disabled>已核准 </button>
+                                    }
+                                    else
+                                    {
+                                        <button class="form-control btn btn-danger" type="button" disabled>未核准 </button>
+                                    }
                                 }
                             }
                             else
