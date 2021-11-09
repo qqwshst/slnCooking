@@ -17,10 +17,10 @@ namespace prjCooking.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public t聚會()
         {
-            this.t參加者 = new HashSet<t參加者>();
-            this.t評價 = new HashSet<t評價>();
             this.t建議食材 = new HashSet<t建議食材>();
             this.t留言 = new HashSet<t留言>();
+            this.t參加者 = new HashSet<t參加者>();
+            this.t評價 = new HashSet<t評價>();
             this.t檢舉 = new HashSet<t檢舉>();
         }
     
@@ -38,19 +38,20 @@ namespace prjCooking.Models
         public string f聚會關鍵字 { get; set; }
         public string f聚會通訊軟體 { get; set; }
         public string f聚會通訊軟體帳號 { get; set; }
+        public string f主辦人影片URL { get; set; }
         public Nullable<int> f聚會狀態 { get; set; }
         public Nullable<bool> f聚會垃圾桶 { get; set; }
         public System.DateTime f聚會建立日期 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<t建議食材> t建議食材 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<t留言> t留言 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t參加者> t參加者 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t評價> t評價 { get; set; }
         public virtual t會員 t會員 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<t建議食材> t建議食材 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<t留言> t留言 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t檢舉> t檢舉 { get; set; }
     }

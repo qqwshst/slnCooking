@@ -28,8 +28,8 @@ namespace prjCooking.Models
         public System.DateTime f參加者建立日期 { get; set; }
     
         public virtual t會員 t會員 { get; set; }
-        public virtual t聚會 t聚會 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<t評價> t評價 { get; set; }
+        public virtual t聚會 t聚會 { get; set; }
     }
 }

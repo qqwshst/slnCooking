@@ -28,9 +28,9 @@ namespace prjCooking.Models
         public virtual DbSet<t參加者> t參加者 { get; set; }
         public virtual DbSet<t評價> t評價 { get; set; }
         public virtual DbSet<t會員> t會員 { get; set; }
-        public virtual DbSet<t聚會> t聚會 { get; set; }
         public virtual DbSet<t建議食材> t建議食材 { get; set; }
         public virtual DbSet<t留言> t留言 { get; set; }
         public virtual DbSet<t檢舉> t檢舉 { get; set; }
+        public virtual DbSet<t聚會> t聚會 { get; set; }
     }
 }
