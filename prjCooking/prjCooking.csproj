@@ -130,6 +130,9 @@
     <Content Include="Image\img_02.jpg" />
     <Content Include="Image\party_01.jpg" />
     <Content Include="Image\party_02.jpg" />
+    <Content Include="Image\share1.png" />
+    <Content Include="Image\share2.png" />
+    <Content Include="Image\share3.png" />
     <Content Include="Models\dbCookingModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCookingModel.Context.cs</LastGenOutput>

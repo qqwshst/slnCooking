@@ -17,6 +17,18 @@ namespace prjCooking.Controllers
         {
             return View();
         }
+        public ActionResult add主辦人影片(int 聚會Id, string f主辦人URL)
+        {
+
+            dbCookingEntities db = new dbCookingEntities();
+            t聚會 Addparty = db.t聚會.FirstOrDefault(p => p.f聚會Id == 聚會Id);
+            if (Addparty != null)
+            {
+                Addparty.f主辦人影片URL = f主辦人URL;
+                db.SaveChanges();
+            }
+            return RedirectToAction("showParty", new { id = 聚會Id });
+        }
         public ActionResult Party_Reported(int id)
         {
             dbCookingEntities db = new dbCookingEntities();
