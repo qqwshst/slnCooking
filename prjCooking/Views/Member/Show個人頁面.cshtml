@@ -97,51 +97,83 @@
 
             <div class="col-md-6 offset-md-1 text-center bg-light">
                 <div class="row">
-
-                    <div class="col-md-6" id="div1">
-                        <br><br />
-                        <img src="~/Image/@Model.f會員照片" class="rounded-circle " width="170" height="170" /><br />
-
-                        <br><br>
-
-                    </div>
-                    <div class="col-md-6 text-left">
-
-                        <input type="hidden" name="f會員Id" value="" />
-
-                        <br><br />
-                        <h4>@Model.f會員姓名</h4>
-
-                        <!-- 自我介紹 -->
-                        <p class="text-secondary">@Model.f自我介紹</p>
-                        <br>
-
-
-                        @if (Model.f會員Id == Model.目前會員id)
-                        {
+                   
+                        <div class="col-md-6" id="div1">
+                            <br><br />
+                            <img src="~/Image/@Model.f會員照片" class="rounded-circle " width="170" height="170" /><br />
+                            <br />
+                        </div>
+                      
+                            
+                   
+                        <div class="col-md-6 ">
                             <div class="row">
-                                <div class="col-6">
-                                    @Html.ActionLink("編輯資訊", "Edit_info", "Member", new { id = Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
-                                </div>
-                                <div class="col-6">
-                                    @Html.ActionLink("修改密碼", "Edit_password", "Member", new { id = Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
-                                </div>
+                                @if (Model.f會員Id == Model.目前會員id)
+                                {
+                                    <div class="col-12 text-right">
+                                        <a href="" class="text-info dropdown-toggle" data-toggle="dropdown"><i class="bi-gear" style="font-size: 2rem; color:cadetblue;"></i></a>
+                                        <div class="dropdown-menu">
+                                            @Html.ActionLink("編輯資訊", "Edit_info", "Member", new { id = Model.f會員Id }, new { Class = "dropdown-item" })
+                                            <div class="dropdown-divider"></div>
+                                            @Html.ActionLink("修改密碼", "Edit_password", "Member", new { id = Model.f會員Id }, new { Class = "dropdown-item" })
+
+                                        </div>
+                                    </div>
+                                    <div class="col-12 text-left">
+                                        <input type="hidden" name="f會員Id" value="" />
+
+                                        <br>
+                                        <h4>@Model.f會員姓名</h4>
+
+                                        <!-- 自我介紹 -->
+                                        <p class="text-secondary">@Model.f自我介紹</p>
+                                        <br>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-12 text-left">
+                                        <input type="hidden" name="f會員Id" value="" />
+
+                                        <br><br />
+                                        <h4>@Model.f會員姓名</h4>
+
+                                        <!-- 自我介紹 -->
+                                        <p class="text-secondary">@Model.f自我介紹</p>
+                                        <br>
+                                    </div>
+                                }
+
                             </div>
-                        }
+                            
+                            
+
+
+                            @*@if (Model.f會員Id == Model.目前會員id)
+                            {
+                                <div class="row">
+                                    <div class="col-6">
+                                        @Html.ActionLink("編輯資訊", "Edit_info", "Member", new { id = Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
+                                    </div>
+                                    <div class="col-6">
+                                        @Html.ActionLink("修改密碼", "Edit_password", "Member", new { id = Model.f會員Id }, new { Class = "btn btn-outline-secondary" })
+                                    </div>
+                                </div>
+                            }*@
+
+                            <br>
+
+                        </div>
 
                         <br>
+                        <div class="col-md-12 text-left">
+
+                            <hr>
+                            <h5 class="text-secondary">煮辦的聚會:</h5>
+                            <br />
+                        </div>
 
                     </div>
-
-                    <br>
-                    <div class="col-md-12 text-left">
-
-                        <hr>
-                        <h5 class="text-secondary">煮辦的聚會:</h5>
-                        <br />
-                    </div>
-
-                </div>
                 <br>
                 <div class="row">
                     @foreach (var item in Model.會員聚會資訊)
