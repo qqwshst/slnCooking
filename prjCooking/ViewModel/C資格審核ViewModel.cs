@@ -16,6 +16,6 @@ namespace prjCooking.ViewModel
 
         public List<C審核參加者資訊> 核准 { get; set; }
         public List<C審核參加者資訊> 未審核 { get; set; }
-        public int? 聚會名額 { get; set; }
+        public t聚會 當前聚會 { get; set; }
     }
 }

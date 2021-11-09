@@ -10,7 +10,7 @@
     <!-- 資格審核 標體 -->
     <section class="row d-flex text-center mt-5">
         <hgroup class="col">
-            <h2>資格審核</h2>
+            <h2>@Model.當前聚會.f聚會名稱 - 資格審核</h2>
         </hgroup>
     </section>
     <!-- end 資格審核 標體 -->
@@ -100,7 +100,7 @@
                                                    "Member",
                                                    new { id = info.參加者Id },
                                                    new { @class = "btn btn-outline-info mt-auto" })
-                                                @if (Model.核准.Count < Model.聚會名額.Value)
+                                                @if (Model.核准.Count < Model.當前聚會.f名額.Value)
                                                 {
                                                     <br>
                                                     @Html.ActionLink(
