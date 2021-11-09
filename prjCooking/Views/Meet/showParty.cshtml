@@ -7,7 +7,21 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <style>
+    .embed-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        max-width: 100%;
+    }
 
+        .embed-container iframe, .embed-container object, .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     .positif {
         position: fixed !important;
         right: 150px;
@@ -225,24 +239,104 @@
                         <br><br>
                         <!-- 食材 -->
                         <!-- 1個食材row2,2個食材row3,3個食材row4 -->
+                        @if (Model.食材資訊List.Count > 0)
+                        {
+                            <table class="col-5 table table-borderless table-sm text-secondary">
 
-                        <table class="col-5 table table-borderless table-sm text-secondary">
-
-                            <tr>
-                                <td class="text-dark">建議食材</td>
-                            </tr>
-
-
-
-                            @foreach (t建議食材 食材 in Model.食材資訊List)
-                            {
                                 <tr>
-                                    <td>@食材.f食材名稱</td>
-                                    <td class="text-left">@食材.f數量 @食材.f單位</td>
+                                    <td class="text-dark">建議食材</td>
                                 </tr>
-                            }
-                        </table>
 
+
+
+                                @foreach (t建議食材 食材 in Model.食材資訊List)
+                                {
+                                    <tr>
+                                        <td>@食材.f食材名稱</td>
+                                        <td class="text-left">@食材.f數量 @食材.f單位</td>
+                                    </tr>
+                                }
+                            </table>
+                        }
+                        <!-- 聚會影片 -->
+                        @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
+                        {
+                            <hr />
+                            <label class="text-dark">聚會影片</label>
+                        }
+                        @if (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id)
+                        {
+                            <form method="get" action="~/Meet/add主辦人影片">
+                                <input type="hidden" value="@Model.聚會資訊.f聚會Id" name="聚會Id">
+                                <br />
+                                <label>youtube嵌入連結:</label><a href="" data-toggle="modal" data-target="#modaloneUrl">
+                                    找不到youtube嵌入連結?
+                                </a>
+
+                                <div class="modal text-dark" id="modaloneUrl">
+                                    <div class="modal-lg modal-dialog modal-dialog-scrollable">
+                                        <!-- modal-sm, -md, -lg, -xl-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3 class="modal-title">youtube嵌入連結</h3>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <p>
+                                                    <blockquote>
+                                                        1.點選影片下方"分享"
+                                                    </blockquote>
+                                                </p>
+                                                <p>
+                                                    <div class="text-left">
+                                                        <img src="~/Image/share1.png" class="img-fluid rounded" width="400">
+                                                        <hr>
+                                                    </div>
+                                                </p>
+                                                <p>
+                                                    <blockquote>
+                                                        2.選擇"嵌入"
+                                                    </blockquote>
+                                                </p>
+                                                <p>
+                                                    <div class="text-left">
+                                                        <img src="~/Image/share2.png" class="img-fluid rounded" width="400">
+                                                        <hr>
+                                                    </div>
+                                                </p>
+                                                <p>
+                                                    <blockquote>
+                                                        3.複製黃色畫線的url → 貼到主辦人聚會連結 → 點選"上傳"
+                                                    </blockquote>
+                                                </p>
+                                                <p>
+                                                    <div class="text-left">
+                                                        <img src="~/Image/share3.png" class="img-fluid rounded" width="400">
+
+                                                    </div>
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-info" data-dismiss="modal">關閉</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input name="f主辦人URL" type="text" class="form-control" /><br />
+                                <input type="submit" class="btn  btn-sm btn-outline-info" value="上傳" />
+
+                                <br /><br />
+                            </form>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
+                        {
+                            <div class="embedvideo">
+                                <div class='embed-container'><iframe src='@Model.聚會資訊.f主辦人影片URL' frameborder='0' allowfullscreen></iframe></div>
+                            </div>
+                        }
+                        <!-- 聚會影片 -->
                         @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
                         {
                             <hr>
