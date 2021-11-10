@@ -30,16 +30,16 @@
         <div class="container ">
             <div class="row">
                 <div class="col-12 text-left">
+                    @Html.ActionLink("回到聚會列表", "PartyList", null, new { @class = "btn btn-sm btn-secondary" })
+                    <br /><br />
                     <label>聚會查詢:</label>
                     <input class="form-control" type="text" placeholder="請輸入欲查詢的聚會名稱" style="width:25%" name="txtKeyword">
                     <br />
                 </div>
                 <div class="col-12 text-left">
-                    <input class="btn btn-sm btn-outline-info" type="submit" value="查詢" />
+                    <input class="btn btn-sm btn-info" type="submit" value="查詢" />
                     <br /><br />
-                    @Html.ActionLink("回到聚會列表", "PartyList", null, new { @class = "btn btn-sm btn-secondary" })
-
-                    <br /><br />
+                   <br />
                 </div>
 
 
@@ -90,12 +90,7 @@
 
                 </td>
                 <td>
-                    @if (item.f聚會垃圾桶 == true)
-                    {
-
-                        <p>✘</p>
-                    }
-                    else if ((item.f聚會垃圾桶 == false) && (item.聚會檢舉狀態顯示 == "已檢舉"))
+                    @if ((item.f聚會垃圾桶 == false) && (item.聚會檢舉狀態顯示 == "已檢舉"))
                     {
                         @Html.ActionLink("🚨", "檢舉頁面", new { id = item.f聚會Id }, new { Class = "party_btn btn btn-sm" })
 

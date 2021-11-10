@@ -60,15 +60,15 @@ namespace prjCooking.Controllers
                 if (query檢舉p != null)
                 {
 
-                    if (query檢舉p.f檢舉原因 == "已檢舉")
-                    {
+                  
                         p.聚會檢舉狀態顯示 = "已檢舉";
-                    }
-                    else
-                    {
-                        p.聚會檢舉狀態顯示 = " ";
 
-                    }
+
+                }
+                else
+                {
+                    p.聚會檢舉狀態顯示 = " ";
+
                 }
 
 
@@ -85,8 +85,11 @@ namespace prjCooking.Controllers
             t檢舉 query檢舉 = new t檢舉();
             query檢舉 = db.t檢舉.FirstOrDefault(m => m.f被檢舉的聚會Id == id);
             if (query檢舉 != null)
+            {
                 ViewBag.f檢舉日期 = query檢舉.f檢舉建立日期;
-
+                ViewBag.f檢舉原因 = query檢舉.f檢舉原因;
+            }
+               
             return View();
         }
         public ActionResult 下架檢舉的活動(int? id)
@@ -173,17 +176,12 @@ namespace prjCooking.Controllers
                     p.聚會垃圾桶 = "✘";
 
                 if (query檢舉 != null)
-                {
-
-                    if (query檢舉.f檢舉原因 == "已檢舉")
-                    {
+                {                
                         p.聚會檢舉狀態顯示 = "已檢舉";
-                    }
-                    else
-                    {
-                        p.聚會檢舉狀態顯示 = " ";
-
-                    }
+                }
+                else
+                {
+                    p.聚會檢舉狀態顯示 = " ";
                 }
 
 
