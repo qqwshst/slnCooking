@@ -30,6 +30,7 @@ CREATE TABLE [t聚會](
 	[f聚會關鍵字] nvarchar(MAX),
 	[f聚會通訊軟體] nvarchar(50),
 	[f聚會通訊軟體帳號] nvarchar(50),
+        [f主辦人影片URL] nvarchar(MAX),
 	[f聚會狀態] int,
 	[f聚會垃圾桶] bit,
 	[f聚會建立日期] smalldatetime NOT NULL DEFAULT sysdatetime() 
