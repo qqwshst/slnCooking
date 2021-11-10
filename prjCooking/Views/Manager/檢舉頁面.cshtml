@@ -31,7 +31,7 @@
 
                         <hr />
                         <label> 檢舉時間: @ViewBag.f檢舉日期</label><br />
-                        <label>檢舉原因:頁面含不當內容</label><br />
+                        <label>檢舉原因: @ViewBag.f檢舉原因</label><br />
                         @Html.ActionLink("查看頁面", "showParty", "Meet", new { id = @ViewBag.f聚會id }, new { Class = "btn btn-sm btn-secondary", @target = "_new" })
                         <br /><hr /><label>檢舉處理:</label><br />
                         <input type="button" class="btn btn-sm btn-info" value="無不當內容" data-toggle="modal" data-target="#modalone1" />
