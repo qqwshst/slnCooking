@@ -269,190 +269,194 @@
                     }
                     @if (Model.主辦人資訊.f會員Id == Model.當前登入會員資訊.f會員Id)
                     {
-                        <form method="get" action="~/Meet/add主辦人影片">
-                            <input type="hidden" value="@Model.聚會資訊.f聚會Id" name="聚會Id">
-                            <br />
-                            <label>youtube嵌入連結:</label><a href="" data-toggle="modal" data-target="#modaloneUrl">
-                                找不到youtube嵌入連結?
-                            </a>
+                      
+                <form method="get" action="~/Meet/add主辦人影片">
+                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#主辦人影片">煮辦人上傳影片</button>
+                    <div id="主辦人影片" class="collapse">
+                        <input type="hidden" value="@Model.聚會資訊.f聚會Id" name="聚會Id">
+                        <br />
+                        <label>youtube嵌入連結:</label><a href="" data-toggle="modal" data-target="#modaloneUrl">
+                            找不到youtube嵌入連結?
+                        </a>
 
-                            <div class="modal text" id="modaloneUrl">
-                                <div class="modal-lg modal-dialog modal-dialog-scrollable">
-                                    <!-- modal-sm, -md, -lg, -xl-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h3 class="modal-title">youtube嵌入連結</h3>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        <div class="modal-body">
+                        <div class="modal text text-dark" id="modaloneUrl">
+                            <div class="modal-lg modal-dialog modal-dialog-scrollable">
+                                <!-- modal-sm, -md, -lg, -xl-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title">youtube嵌入連結</h3>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
 
-                                            <p>
-                                                <blockquote>
-                                                    1.點選影片下方"分享"
-                                                </blockquote>
-                                            </p>
-                                            <p>
-                                                <div class="text-left">
-                                                    <img src="~/Image/share1.png" class="img-fluid rounded" width="400">
-                                                    <hr>
-                                                </div>
-                                            </p>
-                                            <p>
-                                                <blockquote>
-                                                    2.選擇"嵌入"
-                                                </blockquote>
-                                            </p>
-                                            <p>
-                                                <div class="text-left">
-                                                    <img src="~/Image/share2.png" class="img-fluid rounded" width="400">
-                                                    <hr>
-                                                </div>
-                                            </p>
-                                            <p>
-                                                <blockquote>
-                                                    3.複製黃色畫線的url → 貼到主辦人聚會連結 → 點選"上傳"
-                                                </blockquote>
-                                            </p>
-                                            <p>
-                                                <div class="text-left">
-                                                    <img src="~/Image/share3.png" class="img-fluid rounded" width="400">
+                                        <p>
+                                            <blockquote>
+                                                1.點選影片下方"分享"
+                                            </blockquote>
+                                        </p>
+                                        <p>
+                                            <div class="text-left">
+                                                <img src="~/Image/share1.png" class="img-fluid rounded" width="400">
+                                                <hr>
+                                            </div>
+                                        </p>
+                                        <p>
+                                            <blockquote>
+                                                2.選擇"嵌入"
+                                            </blockquote>
+                                        </p>
+                                        <p>
+                                            <div class="text-left">
+                                                <img src="~/Image/share2.png" class="img-fluid rounded" width="400">
+                                                <hr>
+                                            </div>
+                                        </p>
+                                        <p>
+                                            <blockquote>
+                                                3.複製黃色畫線的url → 貼到主辦人聚會連結 → 點選"上傳"
+                                            </blockquote>
+                                        </p>
+                                        <p>
+                                            <div class="text-left">
+                                                <img src="~/Image/share3.png" class="img-fluid rounded" width="400">
 
-                                                </div>
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-info" data-dismiss="modal">關閉</button>
-                                        </div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-info" data-dismiss="modal">關閉</button>
                                     </div>
                                 </div>
                             </div>
-
-                            <input name="f主辦人URL" value="@Model.聚會資訊.f主辦人影片URL" type="text" class="form-control" /><br />
-                            <input type="submit" class="btn  btn-sm btn-outline-info" value="上傳" />
-                            @*@Html.ActionLink("上傳", "add主辦人影片", "Meet", new { id = @Model.聚會資訊.f聚會Id }, new { Class = "btn  btn-sm btn-outline-info", @type = "button" })*@
-                            <br /><br />
-                        </form>
-                    }
-                    @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
-                    {
-                        <div class="embedvideo">
-                            <div class='embed-container'><iframe src='@Model.聚會資訊.f主辦人影片URL' frameborder='0' allowfullscreen></iframe></div>
                         </div>
-                    }
+
+                        <input name="f主辦人URL" value="@Model.聚會資訊.f主辦人影片URL" type="text" class="form-control" /><br />
+                        <input type="submit" class="btn  btn-sm btn-outline-info" value="上傳" />
+                        @*@Html.ActionLink("上傳", "add主辦人影片", "Meet", new { id = @Model.聚會資訊.f聚會Id }, new { Class = "btn  btn-sm btn-outline-info", @type = "button" })*@
+                        <br /><br />
+                        </div>
+                </form>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
+                            {
+                                <div class="embedvideo">
+                                    <div class='embed-container'><iframe src='@Model.聚會資訊.f主辦人影片URL' frameborder='0' allowfullscreen></iframe></div>
+                                </div>
+                            }
 
 
-                    <!-- 聚會影片 -->
-                    @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
-                    {
-                        <hr>
-                        <label class="text-dark">成果發表</label>
-                        <br><br>
-                    }
+                            <!-- 聚會影片 -->
+                            @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
+                            {
+                                <hr>
+                                <label class="text-dark">成果發表</label>
+                                <br><br>
+                            }
 
 
-                </div>
-             
+                        </div>
 
-                    @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
-                    {
-                        <!-- 評價 -->
-                        <div class="col-12">
-                            <div class="row">
-                                @{
-                                    int count = 0;
-                                    foreach (C參加者資訊For聚會頁面 參加者 in Model.參加者資訊List)
-                                    {
-                                        if (參加者.評論 != null)
+
+                        @if ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態)
+                        {
+                            <!-- 評價 -->
+                            <div class="col-12">
+                                <div class="row">
+                                    @{
+                                        int count = 0;
+                                        foreach (C參加者資訊For聚會頁面 參加者 in Model.參加者資訊List)
                                         {
-                                            <!-- 第一個成果 -->
-                                            <!-- 點圖可放大/並顯示評論內容 -->
-                                            <div class="col-md-4 mb-3" id="img_div">
-                                                <a data-toggle="modal" data-target="#imgModa@{@count;}">
-                                                    <img src="~/Image/@參加者.評論.f照片" class="img-fluid rounded">
-                                                </a>
-                                            </div>
-                                            <!-- 點圖可放大/並顯示評論內容 -->
-                                            <div class="modal fade bs-example-modal-md  text-center" id="imgModa@{@count}" tabindex="-1" role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-md " style="display:inline-block;width:auto;">
+                                            if (參加者.評論 != null)
+                                            {
+                                                <!-- 第一個成果 -->
+                                                <!-- 點圖可放大/並顯示評論內容 -->
+                                                <div class="col-md-4 mb-3" id="img_div">
+                                                    <a data-toggle="modal" data-target="#imgModa@{@count;}">
+                                                        <img src="~/Image/@參加者.評論.f照片" class="img-fluid rounded">
+                                                    </a>
+                                                </div>
+                                                <!-- 點圖可放大/並顯示評論內容 -->
+                                                <div class="modal fade bs-example-modal-md  text-center" id="imgModa@{@count}" tabindex="-1" role="dialog" data-toggle="modal" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-md " style="display:inline-block;width:auto;">
 
-                                                    <div class="modal-content col-10">
-                                                        <div>
-                                                            <img src="~/Image/@參加者.評論.f照片" class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>
-                                                            <div class='text-left'>
-                                                                <br>
-                                                                <a href="~/Member/Show個人頁面/@參加者.參加者資料.f會員Id" class="myfont2 text-dark" style="text-decoration: none"><img src='~/Image/@參加者.參加者資訊.f會員照片' class='rounded-circle' width='30'><span>@參加者.參加者資訊.f會員姓名</span></a>
-                                                                <p>@參加者.評論.f留言</p>
-                                                                <p class='text-right text-secondary'>
-                                                                    @參加者.評論.f評價建立日期
-                                                                </p>
+                                                        <div class="modal-content col-10">
+                                                            <div>
+                                                                <img src="~/Image/@參加者.評論.f照片" class='carousel-inner img-responsive img-rounded' data-dismiss='modal'>
+                                                                <div class='text-left'>
+                                                                    <br>
+                                                                    <a href="~/Member/Show個人頁面/@參加者.參加者資料.f會員Id" class="myfont2 text-dark" style="text-decoration: none"><img src='~/Image/@參加者.參加者資訊.f會員照片' class='rounded-circle' width='30'><span>@參加者.參加者資訊.f會員姓名</span></a>
+                                                                    <p>@參加者.評論.f留言</p>
+                                                                    <p class='text-right text-secondary'>
+                                                                        @參加者.評論.f評價建立日期
+                                                                    </p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- 第一個成果結束 -->
-                                            count++;
+                                                <!-- 第一個成果結束 -->
+                                                count++;
+                                            }
                                         }
                                     }
+
+                                    <hr>
+
+                                </div>
+
+                                <!-- 編輯/留言 視窗 -->
+                                @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && !Model.Is成果發表)
+                                {
+                                    <form method="post" action="~/Meet/新增評論" enctype="multipart/form-data" class="row" id="myform">
+                                        @Html.TextBox("參加者Id", Model.當前會員參加者Id, new { type = "hidden" })
+                                        @Html.TextBox("聚會Id", Model.聚會資訊.f聚會Id, new { type = "hidden" })
+                                        <div class="col-7 text-left">
+                                            <p>請發表您的共煮成果:<br><span class="text-danger">*需上傳圖片才能發布成果<br></span></p>
+
+                                            <a href="~/Member/Show個人頁面/@Model.當前登入會員資訊.f會員Id" class="myfont2 text-dark" style="text-decoration: none"><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle" height="30" width="30"> @Model.當前登入會員資訊.f會員姓名</a>
+
+                                            <br><br>
+
+                                            <!-- 上傳照片 -->
+
+                                            <input type="file" name="上傳圖片" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
+
+                                            <p class="text-secondary">圖片格式:jpeg/gif/png</p>
+                                        </div>
+
+                                        <div class="col-5 text-center">
+                                            <!-- 圖片預覽的地方 -->
+                                            <img src="~/Image/imgadd_01.png" class="img-fluid rounded" id="imgpreview" width="150" height="150">
+                                            <!-- <img src="img/bg_01.jpg" > -->
+                                            <!-- <input class="btn btn-outline-danger" type="button" value="編輯"> -->
+
+
+
+                                        </div>
+                                        <!-- 留言視窗 結束 -->
+                                        <!-- 確認btn -->
+                                        <section class="row mb-3 d-none" id="commit">
+                                            <div class="col-7 ml-3">
+                                                <!-- 有上傳圖片才顯示 -->
+                                                <input type="text" name="留言" class="form-control" placeholder="新增留言..." style="" id="formcommit">
+                                                <span id="errmsg" class="text-danger"></span>
+                                            </div>
+                                            <div class="col">
+                                                <input class="btn btn-outline-info" type="submit" value="確定上傳">
+                                            </div>
+                                        </section>
+                                        <!-- 確認btn 結束 -->
+                                    </form>
                                 }
-
-                                <hr>
-
                             </div>
-
-                            <!-- 編輯/留言 視窗 -->
-                            @if (Model.Is核准參與 && (int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態 && !Model.Is成果發表)
-                            {
-                                <form method="post" action="~/Meet/新增評論" enctype="multipart/form-data" class="row" id="myform">
-                                    @Html.TextBox("參加者Id", Model.當前會員參加者Id, new { type = "hidden" })
-                                    @Html.TextBox("聚會Id", Model.聚會資訊.f聚會Id, new { type = "hidden" })
-                                    <div class="col-7 text-left">
-                                        <p>請發表您的共煮成果:<br><span class="text-danger">*需上傳圖片才能發布成果<br></span></p>
-
-                                        <a href="~/Member/Show個人頁面/@Model.當前登入會員資訊.f會員Id" class="myfont2 text-dark" style="text-decoration: none"><img src="~/Image/@Model.當前登入會員資訊.f會員照片" class="rounded-circle" height="30" width="30"> @Model.當前登入會員資訊.f會員姓名</a>
-
-                                        <br><br>
-
-                                        <!-- 上傳照片 -->
-
-                                        <input type="file" name="上傳圖片" id="fileupload" accept="image/jpeg, image/gif, image/png" onchange="openFile()">
-
-                                        <p class="text-secondary">圖片格式:jpeg/gif/png</p>
-                                    </div>
-
-                                    <div class="col-5 text-center">
-                                        <!-- 圖片預覽的地方 -->
-                                        <img src="~/Image/imgadd_01.png" class="img-fluid rounded" id="imgpreview" width="150" height="150">
-                                        <!-- <img src="img/bg_01.jpg" > -->
-                                        <!-- <input class="btn btn-outline-danger" type="button" value="編輯"> -->
+                        }
 
 
-
-                                    </div>
-                                    <!-- 留言視窗 結束 -->
-                                    <!-- 確認btn -->
-                                    <section class="row mb-3 d-none" id="commit">
-                                        <div class="col-7 ml-3">
-                                            <!-- 有上傳圖片才顯示 -->
-                                            <input type="text" name="留言" class="form-control" placeholder="新增留言..." style="" id="formcommit">
-                                            <span id="errmsg" class="text-danger"></span>
-                                        </div>
-                                        <div class="col">
-                                            <input class="btn btn-outline-info" type="submit" value="確定上傳">
-                                        </div>
-                                    </section>
-                                    <!-- 確認btn 結束 -->
-                                </form>
-                            }
-                        </div>
-                    }
+                        <br><br>
 
 
-                    <br><br>
-
-
-                    <!--最新聚會開始-->
-                    @*<aside class="col-md-2 positif">
+                        <!--最新聚會開始-->
+                        @*<aside class="col-md-2 positif">
                 <div class="row ">
                     <div class="col-12 text-center mb-1">
                         <p><span class="badge badge-info">New</span>共煮聚會</p>
@@ -472,10 +476,10 @@
 
                 </div>
             </aside>*@
-                    <!-- 最新聚會結束 -->
+                        <!-- 最新聚會結束 -->
 
 
-                </div>
+                    </div>
         </div>
 
         <div class="col-md-6 bg-light">

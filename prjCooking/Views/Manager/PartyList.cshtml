@@ -104,9 +104,13 @@
 
             </td>
             <td>
-                @if (item.f聚會垃圾桶 == true)
+                @if ((item.f聚會垃圾桶 == true) && (item.f聚會狀態 == 5))
                 {
-
+                    <p>檢舉下架</p>
+                    
+                }
+                else if (item.f聚會垃圾桶 == true)
+                {
                     <p>已下架</p>
                 }
                 else

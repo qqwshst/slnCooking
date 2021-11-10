@@ -36,6 +36,17 @@ namespace prjCooking.Models
                 _db.Cooking修改聚會資料(取消的活動);
             }  
         }
+        public void 取消檢舉聚會(int 聚會Id)
+        {
+            t聚會 取消的活動 = _db.Cooking查詢某聚會資訊By聚會Id(聚會Id);
+
+            if (取消的活動 != null)
+            {
+                取消的活動.f聚會狀態 = 5;
+                取消的活動.f聚會垃圾桶 = Convert.ToBoolean(聚會垃圾桶.刪除);
+                _db.Cooking修改聚會資料(取消的活動);
+            }
+        }
 
         public void 核准參加者(int 聚會Id, int 參加者Id) 
         {

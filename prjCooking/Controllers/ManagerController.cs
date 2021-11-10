@@ -92,7 +92,7 @@ namespace prjCooking.Controllers
         public ActionResult 下架檢舉的活動(int? id)
         {
 
-            (new C聚會相關操作()).取消活動(id.Value);
+            (new C聚會相關操作()).取消檢舉聚會(id.Value);
             dbCookingEntities db = new dbCookingEntities();
             var query檢舉 = (from prod in db.t檢舉
                            where prod.f被檢舉的聚會Id == id
