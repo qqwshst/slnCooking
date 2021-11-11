@@ -52,6 +52,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleRecaptcha, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleRecaptcha.1.2.1\lib\GoogleRecaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="GoogleRecaptchaMvc, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleRecaptchaMvc.1.0.1\lib\GoogleRecaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="MailKit, Version=2.15.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
       <HintPath>..\packages\MailKit.2.15.0\lib\net47\MailKit.dll</HintPath>
     </Reference>

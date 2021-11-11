@@ -1,8 +1,10 @@
-﻿@{
+﻿@using GoogleRecaptchaMvc
+@{
     ViewBag.Title = "登入";
 }
+@Html.RecaptchaV2("6LdQaxATAAAAAB7UuxNH4lIoC_0wcJE3scx-QJ5v")
 
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <!-- 一小塊空白 -->
 <section class="service-wrapper py-7">
     <div class="service-tag py-5 bg-white">
@@ -20,7 +22,7 @@
                         <h3 class="text-info">會員登入</h3>
                         <hr />
                     </div>
-                   
+
                     <div class="col-12 text-left">
                         <br />
                         <p>會員帳號:</p>
@@ -30,17 +32,22 @@
                         <div class="text-right">
                             <span class="text-danger">@ViewBag.通知訊息</span>
                         </div>
-                        <br>                                                                     
+                        <br>
+                    </div>
+                    <div class="row justify-content-center" style="margin-bottom:25px">
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class="col-12"}))
+                        {
+                            @Html.RecaptchaV2("6LeMmCYdAAAAAKaVFWv6u_RcwYyU3ETMeU2dObH7")
+                        }
                     </div>
 
-                  
                     <div class="col-12 text-right">
                         <a href="忘記密碼">忘記密碼?</a>
                         <input type="submit" class="btn  btn-info form-control" value="登入" />
                         <br /><br />
                         @Html.ActionLink("點我註冊", "信箱驗證", null, new { Class = "btn  btn-outline-info form-control" })
                     </div>
-                    
+
                     <div class="col-12">
                         <br><br /><br />
                     </div>
