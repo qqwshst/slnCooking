@@ -248,7 +248,7 @@
                             }
                             <!-- 若為主辦人瀏覽自己舉辦的聚會+disabled,btn就會無法點選-->
 
-                            <br><br>
+                          
                             <!-- 食材 -->
                             <!-- 1個食材row2,2個食材row3,3個食材row4 -->
                             @if (Model.食材資訊List.Count > 0)
@@ -272,7 +272,7 @@
                                     }
                                 </table>}
                             <!-- 聚會影片 -->
-                            @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
+                            @if ((!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))&& ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態))
                             {
                                 <hr />
                                 <label class="text-dark">聚會影片</label>
