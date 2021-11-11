@@ -122,6 +122,7 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Image\anna.jpg" />
     <Content Include="Image\bg-01.jpg" />
     <Content Include="Image\bg-02.jpg" />
     <Content Include="Image\bg-03.jpg" />
@@ -133,6 +134,13 @@
     <Content Include="Image\share1.png" />
     <Content Include="Image\share2.png" />
     <Content Include="Image\share3.png" />
+    <Content Include="Image\樣本1.jpg" />
+    <Content Include="Image\樣本2.jpg" />
+    <Content Include="Image\樣本3.jpg" />
+    <Content Include="Image\樣本5.jpg" />
+    <Content Include="Image\樣本6.jpg" />
+    <Content Include="Image\樣本7.jpg" />
+    <Content Include="Image\樣本8.jpg" />
     <Content Include="Models\dbCookingModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>dbCookingModel.Context.cs</LastGenOutput>

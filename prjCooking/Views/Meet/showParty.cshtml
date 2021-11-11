@@ -347,7 +347,7 @@
                                     </div>
                                 </form>
                             }
-                            @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
+                            @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL) && ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態))
                             {
                                 <div class="embedvideo">
                                     <div class='embed-container'><iframe src='@Model.聚會資訊.f主辦人影片URL' frameborder='0' allowfullscreen></iframe></div>
