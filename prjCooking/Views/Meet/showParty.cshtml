@@ -347,7 +347,7 @@
                                     </div>
                                 </form>
                             }
-                            @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL))
+                            @if (!string.IsNullOrEmpty(Model.聚會資訊.f主辦人影片URL) && ((int)聚會狀態.已結束 == Model.聚會資訊.f聚會狀態))
                             {
                                 <div class="embedvideo">
                                     <div class='embed-container'><iframe src='@Model.聚會資訊.f主辦人影片URL' frameborder='0' allowfullscreen></iframe></div>
@@ -380,7 +380,7 @@
                                             {
                                                 <!-- 第一個成果 -->
                                                 <!-- 點圖可放大/並顯示評論內容 -->
-                                                <div class="col-md-4 mb-3" id="img_div">
+                                                <div class="col-md-4 col-6 mb-3" id="img_div">
                                                     <a data-toggle="modal" data-target="#imgModa@{@count;}">
                                                         <img src="~/Image/@參加者.評論.f照片" class="img-fluid rounded">
                                                     </a>
