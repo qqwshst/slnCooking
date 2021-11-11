@@ -82,6 +82,7 @@
                         @{
                             if (Model.Info != null)
                             {
+                                int count1 = 0;
                                 foreach (CCaptureMeetInfo cmi in Model.Info)
                                 {
                                     <!-- 一筆資料 -->
@@ -126,9 +127,9 @@
                                             {
                                         <section class="mr-2 my-2">
                                             
-                                            <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone">取消報名</button>
+                                            <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone@{@count1}">取消報名</button>
                                             <br><br>
-                                            <div class="modal text-center" id="modalone">
+                                            <div class="modal text-center" id="modalone@{@count1}">
                                                 <div class="modal-md modal-dialog modal-dialog-scrollable">
 
                                                     <div class="modal-content">
@@ -154,6 +155,7 @@
                                                 </div>
                                             </div>
                                         </section>
+                                        count1++;
                                             }
                                             @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value && !cmi.Has評價)
                                             {
@@ -176,10 +178,11 @@
     <!-- 手機板 報名紀錄 表格 -->
     <section class="row my-3 d-block d-md-none">
         @{
-            if (Model.Info != null)
-            {
-                foreach (CCaptureMeetInfo cmi in Model.Info)
+                if (Model.Info != null)
                 {
+                    int count2 = 0;
+                    foreach (CCaptureMeetInfo cmi in Model.Info)
+                    {
                     <!-- 一筆資料 -->
                     <div class="col mb-5">
                         <div class="card h-100" style="background-color: #eee;">
@@ -233,9 +236,9 @@
                                        new { @class = "btn btn-info" })
                                     @if ((int)聚會狀態.可報名 == cmi.聚會狀態Number && !cmi.Is核准.Value && !cmi.Is報名.Value)
                                     {
-                                        <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone1">取消報名</button>
+                                        <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#phmodalone@{@count2}">取消報名</button>
                                         <br><br>
-                                        <div class="modal text-center" id="modalone1">
+                                        <div class="modal text-center" id="phmodalone@{@count2}">
                                             <div class="modal-md modal-dialog modal-dialog-scrollable">
 
                                                 <div class="modal-content">
@@ -260,6 +263,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        count2++;
                                     }
                                     @if ((int)聚會狀態.已結束 == cmi.聚會狀態Number && cmi.Is核准.Value && !cmi.Has評價)
                                     {
