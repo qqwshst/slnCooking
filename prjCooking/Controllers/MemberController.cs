@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using GoogleRecaptcha;
 using prjCooking.Models;
 using prjCooking.ViewModel;
 
@@ -144,30 +145,40 @@ namespace prjCooking.Controllers
         [HttpPost]
         public ActionResult 登入(string txtEmail, string txtPwd)
         {
-            dbCookingEntities db = new dbCookingEntities();
+            dbCookingEntities db = new dbCookingEntities();            
+            t會員 會員 = null;
 
-            
-            t會員 會員 = null;            
-            if (txtEmail != "" && txtPwd != "")
+            IRecaptcha<RecaptchaV2Result> recaptcha = new RecaptchaV2(new RecaptchaV2Data()
             {
-                會員 = db.Cooking查詢某會員的資料By信箱And密碼(txtEmail, txtPwd);
+                Secret = "6LeMmCYdAAAAAO43FhLRyDUxOnI5bg0vw7HyG83W"
+            });
 
-                if (會員 != null)
+            var result = recaptcha.Verify();
+            if (result.Success) 
+            {
+                if (txtEmail != "" && txtPwd != "")
                 {
-                    Session[CSessionKey.登入會員_t會員] = 會員;
-                    return RedirectToAction("Index", "Home");
+                    會員 = db.Cooking查詢某會員的資料By信箱And密碼(txtEmail, txtPwd);
+
+                    if (會員 != null)
+                    {
+                        Session[CSessionKey.登入會員_t會員] = 會員;
+                        return RedirectToAction("Index", "Home");
+                    }
+                    else
+                    {
+                        ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";                        
+                    }
                 }
                 else
                 {
-                    ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";                   
-                    return View();
+                    ViewBag.通知訊息 = "⛔ 請輸入帳號密碼";
                 }
             }
-            else
-            {
-                ViewBag.通知訊息 = "⛔ 請輸入帳號密碼";
-                return View();
-            }
+            return View();
+
+
+
         }
 
         public ActionResult 忘記密碼()
