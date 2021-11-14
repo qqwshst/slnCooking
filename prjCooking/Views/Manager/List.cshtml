@@ -50,6 +50,9 @@
     <th class="col-md-1">
         序號
     </th>
+    <th class="col-md-1">
+        黑名單
+    </th>
     <th class="col-md-2">
         @Html.DisplayNameFor(model => model[0].權限)
     </th>
@@ -62,12 +65,12 @@
         @Html.DisplayNameFor(model => model[0].f會員姓名)
     </th>
 
-    <th class="col-md-3">
+    <th class="col-md-2">
 
         @Html.DisplayNameFor(model => model[0].f會員建立日期)
 
     </th>
-    <th class="col-md-3"></th>
+    <th class="col-md-2"></th>
     </thead>
 
     @{ int count = 0;
@@ -78,6 +81,14 @@
             <tr>
                 <td>
                     @count
+                </td>
+                <td>
+                    @if (item.檢舉下架次數.Count >= 3)
+                    {
+                        <p>⚠</p>
+                        
+                    }
+                    
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.權限)

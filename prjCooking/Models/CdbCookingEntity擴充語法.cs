@@ -8,6 +8,12 @@ namespace prjCooking.Models
     public static class CdbCookingEntity擴充語法
     {
         // Reader
+        public static List<t聚會> Cooking查詢某會員被檢舉下架的聚會ListBy會員Id(this dbCookingEntities db, int? 會員Id)
+        {
+            List<t聚會> 某會員聚會List = db.t聚會.Where(聚會 => (聚會.f主辦人 == 會員Id.Value) && (聚會.f聚會垃圾桶 == true)&&(聚會.f聚會狀態==5)).ToList();
+
+            return 某會員聚會List;
+        }
         public static List<t聚會> Cooking查詢某會員沒被刪除的聚會ListBy會員Id(this dbCookingEntities db, int? 會員Id)
         {
             List<t聚會> 某會員聚會List = db.t聚會.Where(聚會 => (聚會.f主辦人 == 會員Id.Value) && (聚會.f聚會垃圾桶 == false)).ToList();

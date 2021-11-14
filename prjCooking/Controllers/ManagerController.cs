@@ -215,6 +215,7 @@ namespace prjCooking.Controllers
         }
         public ActionResult List()
         {
+            dbCookingEntities db = new dbCookingEntities();
             IEnumerable<t會員> datas = null;
             string keyword = Request.Form["txtKeyword"];
             if (string.IsNullOrEmpty(keyword))
@@ -238,10 +239,12 @@ namespace prjCooking.Controllers
                     p.性別 = "男";
                 else
                     p.性別 = "女";
-                if (p.f權限 == 0)
-                    p.權限 = "一般會員";
+                if (p.f權限 == 1)
+                    p.權限 = "管理者";
                 else
-                    p.權限="管理者";
+                    p.權限 = "一般會員";
+                p.檢舉下架次數 = db.Cooking查詢某會員被檢舉下架的聚會ListBy會員Id(p.f會員Id);
+                
             }
 
 
