@@ -38,6 +38,16 @@ namespace prjCooking.Models
                 _db.Cooking修改會員資料(會員);
             }
         }
+        public void 恢復會員權限(int 會員Id)
+        {
+            t會員 會員 = _db.Cooking查詢某會員的資料By會員Id(會員Id);
+
+            if (會員 != null)
+            {
+                會員.f權限 = 0;
+                _db.Cooking修改會員資料(會員);
+            }
+        }
 
         public void 取消報名(int 會員Id, int 聚會Id)
         {

@@ -254,6 +254,8 @@ namespace prjCooking.Controllers
 
                 if (p.f權限 == 1)
                     p.權限 = "管理者";
+                else if (p.f權限 == 2)
+                    p.權限 = "黑名單";
                 else
                     p.權限 = "一般會員";
 
@@ -268,6 +270,11 @@ namespace prjCooking.Controllers
 
             return View(list);
 
+        }
+        public ActionResult 用戶恢復(int id)
+        {
+            (new C聚會相關操作()).恢復會員權限(id);
+            return RedirectToAction("List");
         }
         public ActionResult 用戶停權(int id)
         {
