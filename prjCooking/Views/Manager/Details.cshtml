@@ -91,9 +91,13 @@
                     <aside class="col-12 text-right">
                         <div class="form-group">
                             <br />
+                            <a href="~/Member/Show個人頁面/@Model.f會員Id">
+                                <input type="button" class = "btn btn-outline-info" value="個人頁面" />
+                            </a>
+
                             @Html.ActionLink("返回用戶列表", "List", new { id = @Model.f會員Id }, new { Class = "btn btn-outline-info" })
 
-                            
+
                         </div>
                     </aside>
                 </div>

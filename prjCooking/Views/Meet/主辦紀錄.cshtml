@@ -61,6 +61,7 @@
                         @{
                             if (Model.Info != null)
                             {
+                                int modelCoutn = 0;
                                 foreach (CCaptureMeetInfo cmi in Model.Info)
                                 {
                                     <!-- 一筆資料 -->
@@ -89,9 +90,9 @@
                                                 </section>
                                                 <section class="my-2">
                                                    
-                                                    <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone">取消聚會</button>
+                                                    <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone@{@modelCoutn}">取消聚會</button>
                                                     <br><br>
-                                                    <div class="modal text-center" id="modalone">
+                                                    <div class="modal text-center" id="modalone@{@modelCoutn}">
                                                         <div class="modal-md modal-dialog modal-dialog-scrollable">
 
                                                             <div class="modal-content">
@@ -118,6 +119,7 @@
                                                         </div>
                                                     </div>
                                                 </section>
+                                                modelCoutn++;
                                             }
                                         </td>
                                     </tr>
@@ -136,6 +138,7 @@
         @{
             if (Model.Info != null)
             {
+                int count1 = 0;
                 foreach (CCaptureMeetInfo cmi in Model.Info)
                 {
                     <!-- 一筆資料 -->
@@ -168,9 +171,9 @@
                                             "資格審核",
                                             new { meetId = cmi.聚會ID },
                                             new { @class = "btn btn-outline-secondary" })
-                                        <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#modalone1">取消聚會</button>
+                                        <button class="btn btn-outline-danger" type="button" data-toggle="modal" data-target="#phmodalone@{@count1}">取消聚會</button>
                                         <br><br>
-                                        <div class="modal text-center" id="modalone1">
+                                        <div class="modal text-center" id="phmodalone@{@count1}">
                                             <div class="modal-md modal-dialog modal-dialog-scrollable">
 
                                                 <div class="modal-content">
@@ -196,6 +199,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        count1++;
                                     }
                                 </div>
                             </div>

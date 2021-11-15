@@ -150,6 +150,7 @@ namespace prjCooking.Controllers
 
             IRecaptcha<RecaptchaV2Result> recaptcha = new RecaptchaV2(new RecaptchaV2Data()
             {
+
                 Secret = "6LeMmCYdAAAAAO43FhLRyDUxOnI5bg0vw7HyG83W"
             });
 
@@ -159,21 +160,31 @@ namespace prjCooking.Controllers
                 if (txtEmail != "" && txtPwd != "")
                 {
                     會員 = db.Cooking查詢某會員的資料By信箱And密碼(txtEmail, txtPwd);
-
-                    if (會員 != null)
+                    if (會員.f權限 == 2)
                     {
-                        Session[CSessionKey.登入會員_t會員] = 會員;
-                        return RedirectToAction("Index", "Home");
+                        ViewBag.通知訊息 = "⛔ 此帳號已停權，無法登入";
+                        return View();
                     }
                     else
                     {
-                        ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";                        
+                        if (會員 != null)
+                        {
+                            Session[CSessionKey.登入會員_t會員] = 會員;
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";
+                            return View();
+                        }
                     }
                 }
                 else
                 {
-                    ViewBag.通知訊息 = "⛔ 請輸入帳號密碼";
-                }
+                    ViewBag.通知訊息 = "⛔ 請輸入帳號跟密碼";
+                    return View();
+                }                
+
             }
             return View();
 

@@ -14,6 +14,40 @@ namespace prjCooking.Models
         {
             _db = new dbCookingEntities();
         }
+        public void 修改黑名單的聚會狀態(int 會員Id)
+        {
+            List<t聚會> 聚會 = _db.Cooking查詢某會員聚會ListBy會員Id(會員Id);
+
+            if (聚會 != null)
+            {
+                foreach(var p in 聚會)
+                {
+                    p.f聚會垃圾桶 = true;
+                    p.f聚會狀態 = 5;
+                    _db.Cooking修改聚會資料(p);
+                }
+            }
+        }
+        public void 修改會員權限(int 會員Id)
+        {
+            t會員 會員 = _db.Cooking查詢某會員的資料By會員Id(會員Id);
+
+            if (會員 != null)
+            {
+                會員.f權限 = 2;
+                _db.Cooking修改會員資料(會員);
+            }
+        }
+        public void 恢復會員權限(int 會員Id)
+        {
+            t會員 會員 = _db.Cooking查詢某會員的資料By會員Id(會員Id);
+
+            if (會員 != null)
+            {
+                會員.f權限 = 0;
+                _db.Cooking修改會員資料(會員);
+            }
+        }
 
         public void 取消報名(int 會員Id, int 聚會Id)
         {

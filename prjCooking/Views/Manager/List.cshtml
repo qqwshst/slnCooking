@@ -50,6 +50,10 @@
     <th class="col-md-1">
         序號
     </th>
+    <th class="col-md-1">
+       黑名單
+        
+    </th>
     <th class="col-md-2">
         @Html.DisplayNameFor(model => model[0].權限)
     </th>
@@ -62,12 +66,12 @@
         @Html.DisplayNameFor(model => model[0].f會員姓名)
     </th>
 
-    <th class="col-md-3">
+    <th class="col-md-2">
 
         @Html.DisplayNameFor(model => model[0].f會員建立日期)
 
     </th>
-    <th class="col-md-3"></th>
+    <th class="col-md-2"></th>
     </thead>
 
     @{ int count = 0;
@@ -80,6 +84,61 @@
                     @count
                 </td>
                 <td>
+                    @if ((item.檢舉下架次數.Count >= 3) && (item.f權限 == 0))
+                    {
+
+                        <input type="button" class="btn btn-sm" value="⚠" data-toggle="modal" data-target="#modalone1" />
+                        <div class="modal text-center" id="modalone1">
+                            <div class="modal-md modal-dialog modal-dialog-scrollable">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <img src="~/Image/heart.svg" class="modal-title">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>此用戶被檢舉成功次數已達3次，請確認是否要加入黑名單</p>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" value="取消" class="btn btn-sm btn-outline-info" data-dismiss="modal">
+                                        @Html.ActionLink("確定", "用戶停權", new { id = item.f會員Id }, new { Class = "btn btn-sm  btn-outline-info" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                    else if (item.f權限 == 2)
+                    {
+                        <input type="button" class="btn btn-sm btn-outline-danger" value="白名單" data-toggle="modal" data-target="#modalone2" />
+                        <div class="modal text-center" id="modalone2">
+                            <div class="modal-md modal-dialog modal-dialog-scrollable">
+
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <img src="~/Image/heart.svg" class="modal-title">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>請確認是否要恢復此用戶的會員權限</p>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" value="取消" class="btn btn-sm btn-outline-info" data-dismiss="modal">
+                                        @Html.ActionLink("確定", "用戶恢復", new { id = item.f會員Id }, new { Class = "btn btn-sm  btn-outline-info" })
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.權限)
                 </td>
                 <td>
@@ -87,9 +146,9 @@
                 </td>
 
                 <td>
-                    <a class="text-info" href="~/Member/Show個人頁面/@item.f會員Id">
+                   
                         @Html.DisplayFor(modelItem => item.f會員姓名)
-                    </a>
+                   
                 </td>
 
                 <td>

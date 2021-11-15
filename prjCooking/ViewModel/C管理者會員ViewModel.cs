@@ -81,5 +81,6 @@ namespace prjCooking.ViewModel
         public string 性別
         { get; set; }
         public string 會員建立日期 { get; set; }
+        public List<t聚會> 檢舉下架次數 { get; set; }
     }
 }

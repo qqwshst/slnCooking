@@ -19,18 +19,35 @@ namespace prjCooking.Controllers
             IEnumerable<t聚會> datas = null;
             int id = 0;
             List<C管理者聚會ViewModel> Plist = new List<C管理者聚會ViewModel>();
-
-            foreach (int m in query檢舉)
+            string keyword = Request.Form["txtKeyword"];
+            if (string.IsNullOrEmpty(keyword))
             {
-                //m.f被檢舉的聚會Id = id;
-                datas = (from p in (new dbCookingEntities()).t聚會 where p.f聚會Id == m select p);
-                //聚會資料放進viewmodel
+                foreach (int m in query檢舉)
+                {
+                    //m.f被檢舉的聚會Id = id;
+                    datas = (from p in (new dbCookingEntities()).t聚會 where p.f聚會Id == m select p);
+                    //聚會資料放進viewmodel
+                    foreach (t聚會 p in datas)
+                    {
+                        Plist.Add(new C管理者聚會ViewModel() { party = p });
+
+                    }
+                }
+            }
+            else
+            {
+                datas = from p in (new dbCookingEntities()).t聚會 where p.f聚會名稱.Contains(keyword) select p;
                 foreach (t聚會 p in datas)
                 {
                     Plist.Add(new C管理者聚會ViewModel() { party = p });
 
                 }
             }
+                
+
+            
+
+        
 
             //修正部分viewmodel顯示資訊
             foreach (C管理者聚會ViewModel p in Plist)
@@ -63,7 +80,6 @@ namespace prjCooking.Controllers
                   
                         p.聚會檢舉狀態顯示 = "已檢舉";
 
-
                 }
                 else
                 {
@@ -71,11 +87,7 @@ namespace prjCooking.Controllers
 
                 }
 
-
-
             }
-
-
             return View(Plist);
         }
         public ActionResult 檢舉頁面(int? id)
@@ -94,7 +106,7 @@ namespace prjCooking.Controllers
         }
         public ActionResult 下架檢舉的活動(int? id)
         {
-
+            
             (new C聚會相關操作()).取消檢舉聚會(id.Value);
             dbCookingEntities db = new dbCookingEntities();
             var query檢舉 = (from prod in db.t檢舉
@@ -215,6 +227,7 @@ namespace prjCooking.Controllers
         }
         public ActionResult List()
         {
+            dbCookingEntities db = new dbCookingEntities();
             IEnumerable<t會員> datas = null;
             string keyword = Request.Form["txtKeyword"];
             if (string.IsNullOrEmpty(keyword))
@@ -238,10 +251,75 @@ namespace prjCooking.Controllers
                     p.性別 = "男";
                 else
                     p.性別 = "女";
-                if (p.f權限 == 0)
-                    p.權限 = "一般會員";
+
+                if (p.f權限 == 1)
+                    p.權限 = "管理者";
+                else if (p.f權限 == 2)
+                    p.權限 = "黑名單";
                 else
-                    p.權限="管理者";
+                    p.權限 = "一般會員";
+
+                p.檢舉下架次數 = db.Cooking查詢某會員被檢舉下架的聚會ListBy會員Id(p.f會員Id);
+
+                
+                   
+            
+                
+            }
+
+
+            return View(list);
+
+        }
+        public ActionResult 用戶恢復(int id)
+        {
+            (new C聚會相關操作()).恢復會員權限(id);
+            return RedirectToAction("List");
+        }
+        public ActionResult 用戶停權(int id)
+        {
+            (new C聚會相關操作()).修改會員權限(id);
+            return RedirectToAction("List");
+        }
+        public ActionResult query黑名單()
+        {
+            dbCookingEntities db = new dbCookingEntities();
+            IEnumerable<t會員> datas = null;
+            string keyword = Request.Form["txtKeyword"];
+            if (string.IsNullOrEmpty(keyword))
+                datas = from p in (new dbCookingEntities()).t會員 where p.f權限==2 select p;
+            else
+                datas = from p in (new dbCookingEntities()).t會員 where p.f會員姓名.Contains(keyword) || p.f會員信箱.Contains(keyword) select p;
+
+
+            List<C管理者會員ViewModel> list = new List<C管理者會員ViewModel>();
+            foreach (t會員 p in datas)
+                list.Add(new C管理者會員ViewModel() { member = p });
+
+            //修正部分viewmodel顯示資訊
+            foreach (C管理者會員ViewModel p in list)
+            {
+                string a = p.f會員建立日期.ToString("yyyy/MM/dd");
+                p.會員建立日期 = a;
+                if (p.f性別 == 0)
+                    p.性別 = "不公開";
+                else if (p.f性別 == 1)
+                    p.性別 = "男";
+                else
+                    p.性別 = "女";
+
+                if (p.f權限 == 1)
+                    p.權限 = "管理者";
+                else
+                    p.權限 = "一般會員";
+
+                p.檢舉下架次數 = db.Cooking查詢某會員被檢舉下架的聚會ListBy會員Id(p.f會員Id);
+
+                if (p.檢舉下架次數.Count >= 3)
+                {
+                    (new C聚會相關操作()).修改會員權限(p.f會員Id);
+                }
+
             }
 
 

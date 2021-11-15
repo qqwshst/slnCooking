@@ -37,7 +37,7 @@ namespace prjCooking.Models
                 }).ToList();
 
                 Get聚會狀態Name(data);
-                Sort(data, sort, statu);
+                Sort(data, sort);
 
                 return data;
             }
@@ -80,7 +80,7 @@ namespace prjCooking.Models
             }*/
         }
 
-        private void Sort(List<CCaptureMeetInfo> data, int? sortNumber, int? statu)
+        private void Sort(List<CCaptureMeetInfo> data, int? sortNumber)
         {
             if(data.Count > 0)
             {
@@ -90,10 +90,10 @@ namespace prjCooking.Models
                     data.Reverse();
                 }
 
-                // 狀態 3 全部
-                if (statu.HasValue)
-                    if (statu.Value < 3)
-                        選擇聚會狀態(data, statu.Value);
+                //// 狀態 3 全部
+                //if (statu.HasValue)
+                //    if (statu.Value < 3)
+                //        選擇聚會狀態(data, statu.Value);
             }
         }
 
@@ -116,7 +116,7 @@ namespace prjCooking.Models
                     目前人數 = meet.t參加者.Where(t => t.f聚會Id == meet.f聚會Id).Where(m => m.f審核狀態).Count()
                 }).ToList();
 
-                Sort(data, sort, null);
+                Sort(data, sort);
 
                 return data;
             }
