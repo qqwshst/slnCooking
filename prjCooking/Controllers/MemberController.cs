@@ -152,8 +152,8 @@ namespace prjCooking.Controllers
             {
                 會員 = db.Cooking查詢某會員的資料By信箱And密碼(txtEmail, txtPwd);
                 List<t聚會> 會員的聚會 = new List<t聚會>();
-                會員的聚會 = db.Cooking查詢某會員被檢舉下架的聚會ListBy會員Id(會員.f會員Id);
-                if (會員的聚會.Count >= 3)
+              
+                if (會員.f權限==2)
                 {
                     ViewBag.通知訊息 = "⛔ 此帳號已停權，無法登入";
                     return View();
