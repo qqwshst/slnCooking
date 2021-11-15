@@ -259,16 +259,20 @@ namespace prjCooking.Controllers
 
                 p.檢舉下架次數 = db.Cooking查詢某會員被檢舉下架的聚會ListBy會員Id(p.f會員Id);
 
-                if (p.檢舉下架次數.Count >= 3)
-                {
-                    (new C聚會相關操作()).修改會員權限(p.f會員Id);
-                }
+                
+                   
+            
                 
             }
 
 
             return View(list);
 
+        }
+        public ActionResult 用戶停權(int id)
+        {
+            (new C聚會相關操作()).修改會員權限(id);
+            return RedirectToAction("List");
         }
         public ActionResult query黑名單()
         {
