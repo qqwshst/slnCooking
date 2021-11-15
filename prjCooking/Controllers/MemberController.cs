@@ -160,23 +160,24 @@ namespace prjCooking.Controllers
                 if (txtEmail != "" && txtPwd != "")
                 {
                     會員 = db.Cooking查詢某會員的資料By信箱And密碼(txtEmail, txtPwd);
-                    if (會員.f權限 == 2)
-                    {
-                        ViewBag.通知訊息 = "⛔ 此帳號已停權，無法登入";
-                        return View();
-                    }
-                    else
-                    {
-                        if (會員 != null)
+                    if (會員 != null)                    {
+                        
+                        if (會員.f權限 == 2)
+                        {
+                            ViewBag.通知訊息 = "⛔ 此帳號已停權，無法登入";
+                            return View();
+                        }
+                        else
                         {
                             Session[CSessionKey.登入會員_t會員] = 會員;
                             return RedirectToAction("Index", "Home");
                         }
-                        else
-                        {
-                            ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";
-                            return View();
-                        }
+
+                    }
+                    else
+                    {
+                        ViewBag.通知訊息 = "⛔ 帳號或密碼錯誤";
+                        return View();
                     }
                 }
                 else
